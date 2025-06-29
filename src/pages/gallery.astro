@@ -1,9 +1,13 @@
 ---
 import Pagesection from "../components/sections/pagesection.astro";
 import Layout from "../layout/layout.astro";
-
-import cardData from "../data/cards.json";
 import Image from "astro/components/Image.astro";
+
+const APP_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbyWizmd3F3PXOJD5yu6mg2-CO97UTf7Xcel8Hh_O8wz8MAmfs6YxYePT0Lbh7DXL4Pi/exec";
+
+const res = await fetch(APP_SCRIPT_URL);
+const cardData = await res.json();
 ---
 
 <Layout>
@@ -14,7 +18,7 @@ import Image from "astro/components/Image.astro";
           <a href={`/cards/${card.slug}`} class="card-link">
             <Image
               src={card.image}
-              alt={card.Name || "Guardian Card"}
+              alt={card.name || "Guardian Card"}
               width="300"
               height="300"
               class="card-image"
@@ -41,5 +45,10 @@ import Image from "astro/components/Image.astro";
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
+  }
+
+  .card-link {
+    display: block;
+    text-decoration: none;
   }
 </style>

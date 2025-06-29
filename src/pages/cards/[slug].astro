@@ -1,24 +1,34 @@
 ---
-// Import layout and data
+// 1. Required imports
 import Layout from "../../layout/layout.astro";
-import cardData from "../../data/cards.json";
 import Pagesection from "../../components/sections/pagesection.astro";
 import Image from "astro/components/Image.astro";
 
-// Export the static paths based on your JSON data
+// 2. Get all slugs at build time
 export async function getStaticPaths() {
-  return cardData.map((card) => ({
+  const APP_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbyWizmd3F3PXOJD5yu6mg2-CO97UTf7Xcel8Hh_O8wz8MAmfs6YxYePT0Lbh7DXL4Pi/exec";
+  const res = await fetch(APP_SCRIPT_URL);
+  const cards = await res.json();
+
+  return cards.map((card) => ({
     params: { slug: card.slug },
   }));
 }
 
-// Access the current slug from the route
+// 3. Get current card using Astro.params
+const APP_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbyWizmd3F3PXOJD5yu6mg2-CO97UTf7Xcel8Hh_O8wz8MAmfs6YxYePT0Lbh7DXL4Pi/exec";
 const { slug } = Astro.params;
-const card = cardData.find((c) => c.slug === slug);
+const res = await fetch(APP_SCRIPT_URL);
+const cards = await res.json();
+const card = cards.find((c) => c.slug === slug);
 
 if (!card) {
-  throw new Error(`Card not found for slug: ${slug}`);
+  throw new Error(`Card with slug "${slug}" not found`);
 }
+---
+
 ---
 
 <Layout>
@@ -27,25 +37,27 @@ if (!card) {
       <div class="col">
         <Image
           src={card.image}
-          alt={card.Name || "Guardian Card"}
-          width="1"
-          height="1"
+          alt={card.name || "Guardian Card"}
+          width="300"
+          height="300"
           class="card-image"
           loading="lazy"
           decoding="async"
         />
       </div>
       <div class="col">
-        <h2>{card.Name}</h2>
+        <h2>{card.name}</h2>
 
         <p>
           <strong>Cost:</strong>
-          {card.Cost}
-          <span class="small-text">({card.converted})</span>
+          {card.cost}
+          {card.converted && <span class="small-text">({card.converted})</span>}
         </p>
         <p>
-          {card.Type} - {card.Subtype} - {card.Supertype}
-          {card.element}
+          {card.type}
+          {card.subtype && ` - ${card.subtype}`}
+          {card.supertype && ` - ${card.supertype}`}
+          {card.element && ` ${card.element}`}
         </p>
         <p>
           {card.combat}
@@ -55,66 +67,80 @@ if (!card) {
         </p>
         <p>
           {
-            card.Life !== undefined && card.Life !== null && (
+            card.life !== undefined && card.life !== null && (
               <span>
-                <strong>Life:</strong> {card.Life}
+                <strong>Life:</strong> {card.life}
               </span>
             )
           }
           {
-            card.Mana !== undefined && card.Mana !== null && (
+            card.mana !== undefined && card.mana !== null && (
               <span>
-                <strong>Mana:</strong> {card.Mana}
+                <strong>Mana:</strong> {card.mana}
               </span>
             )
           }
           {
-            card.Attack !== undefined && card.Attack !== null && (
+            card.attack !== undefined && card.attack !== null && (
               <span>
-                <strong>Attack:</strong> {card.Attack}
+                <strong>Attack:</strong> {card.attack}
               </span>
             )
           }
           {
-            card.Defense !== undefined && card.Defense !== null && (
+            card.defense !== undefined && card.defense !== null && (
               <span>
-                <strong>Defense:</strong> {card.Defense}
+                <strong>Defense:</strong> {card.defense}
               </span>
             )
           }
           {
-            card.Magic !== undefined && card.Magic !== null && (
+            card.magic !== undefined && card.magic !== null && (
               <span>
-                <strong>Magic:</strong> {card.Magic}
+                <strong>Magic:</strong> {card.magic}
               </span>
             )
           }
           {
-            card.Resistance !== undefined && card.Resistance !== null && (
+            card.resistance !== undefined && card.resistance !== null && (
               <span>
-                <strong>Resistance:</strong> {card.Resistance}
+                <strong>Resistance:</strong> {card.resistance}
               </span>
             )
           }
-
           {
-            card.Movement !== undefined && card.Movement !== null && (
+            card.movement !== undefined && card.movement !== null && (
               <span>
-                <strong>Move:</strong> {card.Movement}
+                <strong>Move:</strong> {card.movement}
               </span>
             )
           }
         </p>
 
-        <p>{card.Limitation}, {card.Rarity}</p>
+        <p>
+          {card.limitation && `${card.limitation}, `}
+          {card.rarity}
+        </p>
       </div>
     </div>
   </Pagesection>
 </Layout>
 
 <style>
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    gap: 2rem;
+  }
+
+  .col {
+    flex: 1; /* Distributes space evenly */
+    min-width: 300px; /* Ensures columns don't get too small */
+  }
+
   .card-image {
     width: 100%;
+    max-width: 400px; /* Cap image size for single page view */
     height: auto;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
