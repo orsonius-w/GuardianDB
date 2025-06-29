@@ -269,6 +269,9 @@ nav[aria-label="secondary"] ul li .link {
 .col {
   flex: 1;
 }
+.col-2 {
+  flex: 2;
+}
 
 .image-wrapper {
   img {
@@ -415,6 +418,10 @@ section {
 
 .mbs-1 {
   margin-block-start: 0.25rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
 
 /* border radius */

@@ -1,3 +1,5 @@
+import path from "node:path";
+
 export const navData = [
   {
     name: "Home",
@@ -10,5 +12,9 @@ export const navData = [
   {
     name: "Draft",
     path: "/draft",
+  },
+  {
+    name: "Wiki",
+    path: "/wiki",
   },
 ];

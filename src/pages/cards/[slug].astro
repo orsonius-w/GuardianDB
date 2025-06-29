@@ -65,49 +65,67 @@ if (!card) {
         <p class="card-text">
           {card.text}
         </p>
+        <div class="wrapper mb-2">
+          <div class="col">
+            {
+              card.life !== undefined && card.life !== null && (
+                <span>
+                  <strong>Life: </strong> {card.life}
+                </span>
+              )
+            }
+          </div>
+          <div class="col">
+            {
+              card.mana !== undefined && card.mana !== null && (
+                <span>
+                  <strong>Mana: </strong> {card.mana}
+                </span>
+              )
+            }
+          </div>
+        </div>
+        <div class="wrapper mb-2">
+          <div class="col">
+            {
+              card.attack !== undefined && card.attack !== null && (
+                <span>
+                  <strong>Attack: </strong> {card.attack}
+                </span>
+              )
+            }
+          </div>
+          <div class="col">
+            {
+              card.defense !== undefined && card.defense !== null && (
+                <span>
+                  <strong>Defense: </strong> {card.defense}
+                </span>
+              )
+            }
+          </div>
+        </div>
+        <div class="wrapper mb-2">
+          <div class="col">
+            {
+              card.magic !== undefined && card.magic !== null && (
+                <span>
+                  <strong>Magic: </strong> {card.magic}
+                </span>
+              )
+            }
+          </div>
+          <div class="col">
+            {
+              card.resistance !== undefined && card.resistance !== null && (
+                <span>
+                  <strong>Resistance: </strong> {card.resistance}
+                </span>
+              )
+            }
+          </div>
+        </div>
         <p>
-          {
-            card.life !== undefined && card.life !== null && (
-              <span>
-                <strong>Life:</strong> {card.life}
-              </span>
-            )
-          }
-          {
-            card.mana !== undefined && card.mana !== null && (
-              <span>
-                <strong>Mana:</strong> {card.mana}
-              </span>
-            )
-          }
-          {
-            card.attack !== undefined && card.attack !== null && (
-              <span>
-                <strong>Attack:</strong> {card.attack}
-              </span>
-            )
-          }
-          {
-            card.defense !== undefined && card.defense !== null && (
-              <span>
-                <strong>Defense:</strong> {card.defense}
-              </span>
-            )
-          }
-          {
-            card.magic !== undefined && card.magic !== null && (
-              <span>
-                <strong>Magic:</strong> {card.magic}
-              </span>
-            )
-          }
-          {
-            card.resistance !== undefined && card.resistance !== null && (
-              <span>
-                <strong>Resistance:</strong> {card.resistance}
-              </span>
-            )
-          }
           {
             card.movement !== undefined && card.movement !== null && (
               <span>
@@ -118,6 +136,7 @@ if (!card) {
         </p>
 
         <p>
+          <strong>Limitaion: </strong>
           {card.limitation && `${card.limitation}, `}
           {card.rarity}
         </p>
@@ -127,17 +146,6 @@ if (!card) {
 </Layout>
 
 <style>
-  .wrapper {
-    display: flex;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
-    gap: 2rem;
-  }
-
-  .col {
-    flex: 1; /* Distributes space evenly */
-    min-width: 300px; /* Ensures columns don't get too small */
-  }
-
   .card-image {
     width: 100%;
     max-width: 400px; /* Cap image size for single page view */
