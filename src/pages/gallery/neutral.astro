@@ -1,0 +1,56 @@
+---
+import Pagesection from "../../components/sections/pagesection.astro";
+import Layout from "../../layout/layout.astro";
+import Image from "astro/components/Image.astro";
+
+const APP_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbyWizmd3F3PXOJD5yu6mg2-CO97UTf7Xcel8Hh_O8wz8MAmfs6YxYePT0Lbh7DXL4Pi/exec";
+
+const res = await fetch(APP_SCRIPT_URL);
+const cardData = await res.json();
+---
+
+<Layout>
+  <Pagesection size="md">
+    <div class="column-grid">
+      {
+        cardData
+          .filter((card) => card.element === "Neutral")
+          .map((card) => (
+            <a href={`/cards/${card.slug}`} class="card-link">
+              <Image
+                src={card.image}
+                alt={card.name || "Guardian Card"}
+                width="300"
+                height="300"
+                class="card-image"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+          ))
+      }
+    </div>
+  </Pagesection>
+</Layout>
+
+<style>
+  :root {
+    --grid-gap: 1rem;
+    --grid-max-col-count: 3;
+    --grid-min-col-size: 288px;
+  }
+
+  .card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .card-link {
+    display: block;
+    text-decoration: none;
+  }
+</style>
