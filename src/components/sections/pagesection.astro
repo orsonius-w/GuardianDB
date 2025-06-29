@@ -1,0 +1,105 @@
+---
+interface Props {
+  color?:
+    | "primary"
+    | "primary-light"
+    | "primary-dark"
+    | "accent"
+    | "accent-light"
+    | "accent-dark"
+    | "neutral"
+    | "light"
+    | "dark"
+    | "black";
+  size?: "sm" | "base" | "md" | "lg" | "xl";
+  classes?: string;
+}
+
+const { color, size, classes, ...rest } = Astro.props as Props;
+---
+
+<section class={`${color ? color : ""} ${size ? size : ""}`} {...rest}>
+  <div class="base-layout">
+    <slot />
+  </div>
+</section>
+
+<style>
+  section {
+    background-color: var(--clr-bg);
+    color: var(--clr-txt);
+    padding-block: var(--pad, 2rem);
+
+    &.primary {
+      --clr-bg: var(--clr-primary);
+      --clr-txt: var(--clr-white);
+    }
+
+    &.primary-light {
+      --clr-bg: var(--clr-primary-light);
+      --clr-txt: var(--clr-primary-dark);
+    }
+
+    &.primary-dark {
+      --clr-bg: var(--clr-primary-dark);
+      --clr-txt: var(--clr-primary-light);
+    }
+
+    &.accent {
+      --clr-bg: var(--clr-accent);
+      --clr-txt: var(--clr-accent-light);
+    }
+
+    &.accent-light {
+      --clr-bg: var(--clr-accent-light);
+      --clr-txt: var(--clr-accent-dark);
+    }
+
+    &.accent-dark {
+      --clr-bg: var(--clr-accent-dark);
+      --clr-txt: var(--clr-accent-light);
+    }
+
+    &.neutral {
+      --clr-bg: var(--clr-neutral);
+      --clr-txt: black;
+    }
+
+    &.light {
+      --clr-bg: var(--clr-light);
+      --clr-txt: black;
+    }
+
+    &.dark {
+      --clr-bg: var(--clr-dark);
+      --clr-txt: white;
+    }
+
+    &.black {
+      --clr-bg: black;
+      --clr-txt: white;
+    }
+
+    /* sizes */
+
+    &.sm {
+      --pad: 1rem;
+    }
+
+    &.base {
+      --pad: 2rem;
+    }
+
+    &.md {
+      --pad: 4rem;
+    }
+
+    &.lg {
+      --pad: 6rem;
+    }
+
+    &.xl {
+      --pad: 8rem;
+    }
+  }
+</style>

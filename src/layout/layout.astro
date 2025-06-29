@@ -1,0 +1,29 @@
+---
+import Head from "./head.astro";
+import Header from "../components/header/header.astro";
+import Footer from "../components/footer/footer.astro";
+
+import "../styles/style.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Guardian DB",
+  description = "Database of cards for the Guardian card game",
+} = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="en">
+  <Head {title} {description} />
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

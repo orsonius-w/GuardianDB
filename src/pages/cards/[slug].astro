@@ -1,0 +1,133 @@
+---
+// Import layout and data
+import Layout from "../../layout/layout.astro";
+import cardData from "../../data/cards.json";
+import Pagesection from "../../components/sections/pagesection.astro";
+import Image from "astro/components/Image.astro";
+
+// Export the static paths based on your JSON data
+export async function getStaticPaths() {
+  return cardData.map((card) => ({
+    params: { slug: card.slug },
+  }));
+}
+
+// Access the current slug from the route
+const { slug } = Astro.params;
+const card = cardData.find((c) => c.slug === slug);
+
+if (!card) {
+  throw new Error(`Card not found for slug: ${slug}`);
+}
+---
+
+<Layout>
+  <Pagesection size="md">
+    <div class="wrapper">
+      <div class="col">
+        <Image
+          src={card.image}
+          alt={card.Name || "Guardian Card"}
+          width="1"
+          height="1"
+          class="card-image"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div class="col">
+        <h2>{card.Name}</h2>
+
+        <p>
+          <strong>Cost:</strong>
+          {card.Cost}
+          <span class="small-text">({card.converted})</span>
+        </p>
+        <p>
+          {card.Type} - {card.Subtype} - {card.Supertype}
+          {card.element}
+        </p>
+        <p>
+          {card.combat}
+        </p>
+        <p class="card-text">
+          {card.text}
+        </p>
+        <p>
+          {
+            card.Life !== undefined && card.Life !== null && (
+              <span>
+                <strong>Life:</strong> {card.Life}
+              </span>
+            )
+          }
+          {
+            card.Mana !== undefined && card.Mana !== null && (
+              <span>
+                <strong>Mana:</strong> {card.Mana}
+              </span>
+            )
+          }
+          {
+            card.Attack !== undefined && card.Attack !== null && (
+              <span>
+                <strong>Attack:</strong> {card.Attack}
+              </span>
+            )
+          }
+          {
+            card.Defense !== undefined && card.Defense !== null && (
+              <span>
+                <strong>Defense:</strong> {card.Defense}
+              </span>
+            )
+          }
+          {
+            card.Magic !== undefined && card.Magic !== null && (
+              <span>
+                <strong>Magic:</strong> {card.Magic}
+              </span>
+            )
+          }
+          {
+            card.Resistance !== undefined && card.Resistance !== null && (
+              <span>
+                <strong>Resistance:</strong> {card.Resistance}
+              </span>
+            )
+          }
+
+          {
+            card.Movement !== undefined && card.Movement !== null && (
+              <span>
+                <strong>Move:</strong> {card.Movement}
+              </span>
+            )
+          }
+        </p>
+
+        <p>{card.Limitation}, {card.Rarity}</p>
+      </div>
+    </div>
+  </Pagesection>
+</Layout>
+
+<style>
+  .card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .card-text {
+    border: solid 1px hsl(0 0 100 / 0.3);
+    padding: 1rem;
+  }
+
+  .small-text {
+    font-size: 0.8rem;
+    color: hsl(0 0 100 / 0.6);
+  }
+</style>

@@ -1,0 +1,41 @@
+---
+import Nav from "../nav.astro";
+---
+
+<header>
+  <div class="base-layout">
+    <div class="header">
+      <div class="col">
+        <div class="branding">
+          <a href="/">
+            <img
+              src="/images/logo.svg"
+              alt="Guardian DB Logo"
+              width="120"
+              height="120"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="col">
+        <Nav />
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .branding img {
+    width: auto;
+    height: 60px;
+  }
+</style>

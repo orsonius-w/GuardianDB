@@ -1,0 +1,43 @@
+---
+import { navData } from "../data/navData";
+---
+
+<nav>
+  <ul>
+    {
+      navData.map((item) => (
+        <li>
+          <a href={item.path}>{item.name}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  nav ul {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    list-style: none;
+
+    li a {
+      color: var(--clr-white);
+      text-decoration: none;
+      font-family: var(--ff-secondary);
+      padding: 0.5rem;
+      border-radius: var(--radius-base);
+      transition: 0.2s;
+      font-size: var(--fs-md);
+
+      &:not(:has(svg)):hover,
+      &:not(:has(svg)):focus-visible {
+        background-color: hsl(0 0 100 / 0.2);
+      }
+      &:has(svg):hover,
+      &:has(svg):focus-visible {
+        opacity: 0.8;
+      }
+    }
+  }
+</style>
