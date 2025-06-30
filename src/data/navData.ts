@@ -10,8 +10,16 @@ export const navData = [
     path: "/gallery",
   },
   {
+    name: "News",
+    path: "/news",
+  },
+  {
     name: "Draft",
     path: "/draft",
+  },
+  {
+    name: "Downloads",
+    path: "/downloads",
   },
   {
     name: "Wiki",

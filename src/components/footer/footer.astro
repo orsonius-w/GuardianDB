@@ -3,8 +3,26 @@
 ---
 
 <footer>
-  <div class="wrapper">
-    <div class="col">guardian db</div>
-    <div class="col">&copy GuardianDB</div>
+  <div class="base-layout">
+    <div class="copyright">
+      <p>Guardian CG &copy; <span id="copyright"></span></p>
+    </div>
   </div>
 </footer>
+
+<style>
+  footer {
+    padding-block: 1rem;
+  }
+  .copyright p {
+    text-align: center;
+    margin: 0;
+  }
+</style>
+
+<script>
+  // @ts-ignore
+  document.querySelector("#copyright").textContent = new Date()
+    .getFullYear()
+    .toString();
+</script>

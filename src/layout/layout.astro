@@ -20,10 +20,12 @@ const {
 <html lang="en">
   <Head {title} {description} />
   <body>
-    <Header />
-    <main>
-      <slot />
-    </main>
-    <Footer />
+    <div class="page-layout">
+      <Header />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
   </body>
 </html>

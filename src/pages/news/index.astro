@@ -1,0 +1,37 @@
+---
+import Pagesection from "../../components/sections/pagesection.astro";
+import Layout from "../../layout/layout.astro";
+
+const newsPosts = await Astro.glob("./*.md");
+
+const news = newsPosts
+  .filter((post) => !post.frontmatter.draft)
+  .map((post) => ({
+    title: post.frontmatter.title,
+    description: post.frontmatter.description,
+    category: post.frontmatter.category,
+    slug: post.frontmatter.slug,
+    url: post.url,
+  }));
+---
+
+<Layout>
+  <Pagesection size="md">
+    <h1>News and Patch Change Log</h1>
+  </Pagesection>
+
+  <Pagesection size="md">
+    <div class="column-grid" id="posts">
+      {
+        news.map((post) => (
+          <a href={post.url ?? "#"}>
+            <div class="news-post">
+              <h3>{post.title}</h3>
+              <p>{post.description}</p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </Pagesection>
+</Layout>

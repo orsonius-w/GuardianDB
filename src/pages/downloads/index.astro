@@ -1,0 +1,40 @@
+---
+import Pagesection from "../../components/sections/pagesection.astro";
+import Layout from "../../layout/layout.astro";
+---
+
+<Layout>
+  <Pagesection size="md">
+    <h1>Downloads</h1>
+
+    <h2>Download Table Top Simulator decks here</h2>
+    <div class="column-grid grid-3">
+      <div class="grid-item">
+        <a href="#">Darkness Deck</a>
+      </div>
+      <div class="grid-item">
+        <a href="#">Light Deck (solidarity)</a>
+      </div>
+      <div class="grid-item">
+        <a href="#">Fire-Lightning Deck</a>
+      </div>
+      <div class="grid-item">
+        <a href="#">Pirate (Water Wind) Deck</a>
+      </div>
+      <div class="grid-item">
+        <a href="#">Water Deck (preordain)</a>
+      </div>
+      <div class="grid-item">
+        <a href="#">Ice Deck</a>
+      </div>
+    </div>
+  </Pagesection>
+</Layout>
+
+<style>
+  .column-grid {
+    --grid-gap: 1rem;
+    --grid-max-col-count: var(--grid-col-count);
+    --grid-min-col-size: 288px;
+  }
+</style>
