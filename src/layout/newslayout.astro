@@ -9,6 +9,8 @@ const { frontmatter, content } = Astro.props;
   <Pagesection size="md">
     <h1>{frontmatter.title}</h1>
     <p>{frontmatter.description}</p>
-    <article innerHTML={content}></article>
+    <article>
+      <slot />
+    </article>
   </Pagesection>
 </Layout>
