@@ -8,12 +8,7 @@ import Nav from "../nav.astro";
       <div class="col">
         <div class="branding">
           <a href="/">
-            <img
-              src="/images/logo.svg"
-              alt="Guardian DB Logo"
-              width="120"
-              height="120"
-            />
+            <img src="/images/logo.svg" alt="Guardian DB Logo" />
           </a>
         </div>
       </div>
@@ -28,8 +23,8 @@ import Nav from "../nav.astro";
   header {
     position: fixed;
     width: 100%;
-    background-color: hsl(0 0 100 / 0.2);
-    padding-block: 0.25rem;
+    padding-block: 1rem;
+    z-index: 100;
   }
 
   .header {
@@ -43,6 +38,6 @@ import Nav from "../nav.astro";
 
   .branding img {
     width: auto;
-    height: 60px;
+    height: 40px;
   }
 </style>

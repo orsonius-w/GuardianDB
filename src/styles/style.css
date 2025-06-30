@@ -393,6 +393,26 @@ section {
   overflow: hidden;
 }
 
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-100 {
+  height: 100dvh;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
 /* margins */
 
 .mblk-4 {
