@@ -162,12 +162,13 @@ h1 {
 
 h2 {
   font-size: var(--fs-2xl);
+  margin-block-start: 0.5em;
   margin-block-end: 0.5em;
 }
 
 h3 {
   font-size: var(--fs-xl);
-  margin-block-end: 0.25em;
+  margin-block-end: 0.75em;
 }
 
 h4 {
@@ -178,6 +179,10 @@ h4 {
 p {
   margin-block-end: 0.75em;
   line-height: 1.4;
+
+  &:last-child {
+    margin-block-end: 0.5em;
+  }
 }
 
 a {
@@ -521,4 +526,8 @@ section {
   &.neutral {
     --clr-element: var(--clr-neutral, hsl(90 95 35));
   }
+}
+
+li {
+  line-height: 1.7;
 }

@@ -34,7 +34,7 @@ if (!card) {
 <Layout>
   <Pagesection size="md">
     <div class="wrapper">
-      <div class="col">
+      <div class="col min-w-320">
         <Image
           src={card.image}
           alt={card.name || "Guardian Card"}
@@ -45,7 +45,7 @@ if (!card) {
           decoding="async"
         />
       </div>
-      <div class="col">
+      <div class="col min-w-320">
         <h2>{card.name}</h2>
 
         <p>
@@ -163,5 +163,13 @@ if (!card) {
   .small-text {
     font-size: 0.8rem;
     color: hsl(0 0 100 / 0.6);
+  }
+
+  .wrapper {
+    flex-wrap: wrap;
+  }
+
+  .col.min-w-320 {
+    min-width: 320px;
   }
 </style>

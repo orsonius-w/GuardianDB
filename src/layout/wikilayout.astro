@@ -1,0 +1,16 @@
+---
+import Layout from "./layout.astro";
+import Pagesection from "../components/sections/pagesection.astro";
+
+const { frontmatter, content } = Astro.props;
+---
+
+<Layout>
+  <Pagesection size="md">
+    <h1>{frontmatter.title}</h1>
+    <p>{frontmatter.description}</p>
+    <article>
+      <slot />
+    </article>
+  </Pagesection>
+</Layout>

@@ -1,8 +1,30 @@
 ---
 import { navData } from "../data/navData";
+
+import { Icon } from "astro-icon/components";
 ---
 
-<nav>
+<script>
+  const navToggle = document.querySelector('[aria-controls="primary-nav"]');
+
+  navToggle?.addEventListener("click", () => {
+    const navOpened = navToggle.getAttribute("aria-expanded");
+    if (navOpened === "false") {
+      navToggle.setAttribute("aria-expanded", "true");
+    } else {
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+    console.log(navOpened);
+  });
+</script>
+
+<button aria-controls="primary-nav" aria-expanded="false">
+  <span class="visually-hidden"> Menu </span>
+  <Icon name="ci:hamburger" size="64" />
+  <Icon name="ci:close-md" size="64" class="icon-close" />
+</button>
+
+<nav id="primary-nav">
   <ul>
     {
       navData.map((item) => (
@@ -37,6 +59,68 @@ import { navData } from "../data/navData";
       &:has(svg):hover,
       &:has(svg):focus-visible {
         opacity: 0.8;
+      }
+    }
+  }
+
+  button {
+    display: none;
+  }
+
+  @media (width < 768px) {
+    button {
+      display: block;
+      position: absolute;
+      z-index: 10;
+      right: 1rem;
+      padding: 1rem;
+      background: transparent;
+      border: 0;
+      color: white;
+
+      .icon-close {
+        display: none;
+      }
+    }
+    nav {
+      display: none;
+    }
+
+    [aria-expanded="true"] {
+      .icon-hamburger {
+        display: none;
+      }
+      .icon-close {
+        display: block;
+      }
+    }
+
+    [aria-expanded="true"] + nav {
+      display: block;
+      position: absolute;
+      inset: 0;
+      width: 70%;
+      margin-left: auto;
+      top: 0;
+      right: 0;
+      background-color: var(--clr-neutral-900);
+      box-shadow: 0 0 0 100vmax hsl(0 0 0 / 0.3);
+      z-index: 5;
+
+      ul {
+        margin-top: 20vh;
+        margin-left: 3rem;
+        display: grid;
+        gap: 2rem;
+      }
+
+      a {
+        color: var(--clr-neutral-100);
+
+        &:hover,
+        &:focus-visible {
+          color: var(--clr-primary);
+        }
       }
     }
   }
