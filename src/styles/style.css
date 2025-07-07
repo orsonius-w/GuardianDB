@@ -531,3 +531,11 @@ section {
 li {
   line-height: 1.7;
 }
+
+.w-auto {
+  width: auto;
+}
+
+.mbe-4 {
+  margin-block-end: 1rem;
+}
