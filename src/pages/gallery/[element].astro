@@ -1,0 +1,60 @@
+---
+import Pagesection from "../../components/sections/pagesection.astro";
+import Layout from "../../layout/layout.astro";
+import Image from "astro/components/Image.astro";
+import { query } from "../../lib/db";
+
+// Tell Astro to pre-render one page per element
+export async function getStaticPaths() {
+  const elements = [
+    "Darkness",
+    "Light",
+    "Fire",
+    "Water",
+    "Earth",
+    "Wind",
+    "Nature",
+    "Lightning",
+    "Ice",
+  ];
+
+  return elements.map((el) => ({
+    params: { element: el.toLowerCase() },
+  }));
+}
+
+// Get element from URL param
+const { element } = Astro.params;
+
+// Capitalize it to match DB values
+const capitalized = element.charAt(0).toUpperCase() + element.slice(1);
+
+// Fetch matching cards from DB
+const cards = await query(
+  "SELECT * FROM cards WHERE element = $1 ORDER BY name ASC",
+  [capitalized]
+);
+---
+
+<Layout>
+  <Pagesection size="md">
+    <h1>{capitalized} Cards</h1>
+    <div class="column-grid">
+      {
+        cards.map((card) => (
+          <a href={`/cards/${card.slug}`} class="card-link">
+            <Image
+              src={card.image}
+              alt={card.name || "Guardian Card"}
+              width="735"
+              height="1040"
+              class="card-image"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+        ))
+      }
+    </div>
+  </Pagesection>
+</Layout>

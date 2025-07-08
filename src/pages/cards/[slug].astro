@@ -1,34 +1,28 @@
 ---
-// 1. Required imports
+// Imports
 import Layout from "../../layout/layout.astro";
 import Pagesection from "../../components/sections/pagesection.astro";
 import Image from "astro/components/Image.astro";
+import { query } from "../../lib/db";
 
-// 2. Get all slugs at build time
+// Build-time paths
 export async function getStaticPaths() {
-  const APP_SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbyWizmd3F3PXOJD5yu6mg2-CO97UTf7Xcel8Hh_O8wz8MAmfs6YxYePT0Lbh7DXL4Pi/exec";
-  const res = await fetch(APP_SCRIPT_URL);
-  const cards = await res.json();
-
+  const cards = await query("SELECT slug FROM cards"); // change 'cards' to your table name
   return cards.map((card) => ({
     params: { slug: card.slug },
   }));
 }
 
-// 3. Get current card using Astro.params
-const APP_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbyWizmd3F3PXOJD5yu6mg2-CO97UTf7Xcel8Hh_O8wz8MAmfs6YxYePT0Lbh7DXL4Pi/exec";
+// Get data for a specific slug
 const { slug } = Astro.params;
-const res = await fetch(APP_SCRIPT_URL);
-const cards = await res.json();
-const card = cards.find((c) => c.slug === slug);
+const cards = await query("SELECT * FROM cards WHERE slug = $1 LIMIT 1", [
+  slug,
+]);
+const card = cards[0];
 
 if (!card) {
   throw new Error(`Card with slug "${slug}" not found`);
 }
----
-
 ---
 
 <Layout>

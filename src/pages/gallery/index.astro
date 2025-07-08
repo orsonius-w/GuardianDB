@@ -1,7 +1,19 @@
 ---
 import Pagesection from "../../components/sections/pagesection.astro";
 import Layout from "../../layout/layout.astro";
-import Image from "astro/components/Image.astro";
+
+const elements = [
+  { name: "Light", class: "light" },
+  { name: "Darkness", class: "darkness" },
+  { name: "Fire", class: "fire" },
+  { name: "Water", class: "water" },
+  { name: "Earth", class: "earth" },
+  { name: "Wind", class: "wind" },
+  { name: "Lightning", class: "blitz" },
+  { name: "Ice", class: "ice" },
+  { name: "Nature", class: "nature" },
+  { name: "Neutral", class: "neutral" },
+];
 ---
 
 <Layout>
@@ -9,40 +21,18 @@ import Image from "astro/components/Image.astro";
     <h2>Check cards by element</h2>
 
     <div class="column-grid">
-      <div class="grid-item">
-        <a href="/gallery/light" class="card-link badge light"> Light </a>
-      </div>
-      <div class="grid-item">
-        <a href="/gallery/darkness" class="card-link badge darkness">
-          Darkness
-        </a>
-      </div>
-      <div class="grid-item">
-        <a href="/gallery/fire" class="card-link badge fire"> Fire </a>
-      </div>
-      <div class="grid-item">
-        <a href="/gallery/water" class="card-link badge water"> Water </a>
-      </div>
-      <div class="grid-item">
-        <a href="/gallery/earth" class="card-link badge earth"> Earth </a>
-      </div>
-      <div class="grid-item">
-        <a href="/gallery/wind" class="card-link badge wind"> Wind </a>
-      </div>
-      <div class="grid-item">
-        <a href="/gallery/lightning" class="card-link badge blitz">
-          Lightning
-        </a>
-      </div>
-      <div class="grid-item">
-        <a href="/gallery/ice" class="card-link badge ice"> Ice </a>
-      </div>
-      <div class="grid-item">
-        <a href="/gallery/nature" class="card-link badge nature"> Nature </a>
-      </div>
-      <div class="grid-item">
-        <a href="/gallery/neutral" class="card-link badge neutral"> Neutral </a>
-      </div>
+      {
+        elements.map((el) => (
+          <div class="grid-item">
+            <a
+              href={`/gallery/${el.name.toLowerCase()}`}
+              class={`card-link badge ${el.class}`}
+            >
+              {el.name}
+            </a>
+          </div>
+        ))
+      }
     </div>
   </Pagesection>
 </Layout>
