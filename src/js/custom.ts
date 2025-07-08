@@ -5,7 +5,7 @@ export function parseCostToIcons(cost: string) {
   return matches.map((match, index) => {
     const element = match[1].toLowerCase();
     return {
-      src: `/icons/${element}.png`, // assuming /public/icons/earth.png etc.
+      src: `/images/icons/${element}.png`, // assuming /public/icons/earth.png etc.
       alt: element.charAt(0).toUpperCase() + element.slice(1),
       key: `${element}-${index}`,
     };
