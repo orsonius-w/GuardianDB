@@ -178,7 +178,7 @@ h4 {
 
 p {
   margin-block-end: 0.75em;
-  line-height: 1.4;
+  line-height: 1.7;
 
   &:last-child {
     margin-block-end: 0.5em;
@@ -246,6 +246,10 @@ em {
   }
 }
 
+ul {
+  padding-left: 1em;
+}
+
 nav ul li .link {
   text-decoration: none;
   font-size: var(--fs-md, 1.125rem);
@@ -268,6 +272,7 @@ nav[aria-label="secondary"] ul li .link {
 /* layout */
 .wrapper {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--gap, 1rem);
 }
 
@@ -538,4 +543,56 @@ li {
 
 .mbe-4 {
   margin-block-end: 1rem;
+}
+
+/* branding */
+
+.keyword-heading * {
+  display: inline-block;
+}
+
+.keyword {
+  color: var(--text-color, inherit);
+  letter-spacing: 1px;
+  text-shadow: -2px -2px 0 var(--text-outline, transparent),
+    0px -2px 0 var(--text-outline, transparent),
+    2px -2px 0 var(--text-outline, transparent),
+    -2px 0px 0 var(--text-outline, transparent),
+    2px 0px 0 var(--text-outline, transparent),
+    -2px 2px 0 var(--text-outline, transparent),
+    0px 2px 0 var(--text-outline, transparent),
+    2px 2px 0 var(--text-outline, transparent);
+
+  &.agility {
+    --text-color: #bde2e8;
+    --text-outline: #19746b;
+  }
+
+  &.assault {
+    --text-color: #ffe325;
+    --text-outline: #a8331b;
+  }
+
+  &.skill {
+    --text-color: #fbd5cc;
+    --text-outline: #a63926;
+  }
+}
+
+.type-badge {
+  background-color: var(--background-color, transparent);
+  padding: 0.25rem 0.75rem;
+  margin-inline-start: 0.5em;
+  line-height: 1.7;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 800;
+
+  &.trigger {
+    --background-color: hsl(205 90 60 / 0.75);
+  }
+
+  &.check {
+    --background-color: hsl(5 90 60 / 0.75);
+  }
 }

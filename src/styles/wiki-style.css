@@ -1,0 +1,18 @@
+h2:not(.keyword),
+h3:not(.keyword),
+h4:not(.keyword) {
+  font-family: "Asap Condensed", sans-serif;
+}
+
+h2,
+h3 {
+  margin-block: 0.5em 1em;
+}
+
+h4 {
+  font-size: var(--fs-md);
+  letter-spacing: 1px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-block: 1em 0.5em;
+}
