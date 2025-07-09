@@ -28,7 +28,7 @@ Checks if X amount of summons are in play under your control
 
 ## Shorthands for ever re-occuring effects
 
-<div class="keyword-heading">
+<div class="keyword-heading" id="agility">
 <h3 class="keyword agility">Agility</h3>
 <span class="type-badge trigger">trigger</span>
 </div>
@@ -47,7 +47,7 @@ is a summon-based triggered ability that activates when a summon uses its own **
 
 If a summon with Agility uses its movement action to move 2 spaces, Agility will trigger and its listed effect will occur. However, if the same summon is teleported 1 space by a spell, Agility does not trigger.
 
-<div class="keyword-heading">
+<div class="keyword-heading" id="assault">
 <h3 class="keyword assault">Assault</h3>
 <span class="type-badge trigger">trigger</span>
 </div>
@@ -66,30 +66,11 @@ Assault is a summon ability that triggers when the summon **initiates an attack*
 
 A summon with **_Assault — “Get +2A.”_** will receive the bonus only while it is actively attacking. The bonus disappears after the attack resolves and does not affect counterattacks or any other phase.
 
-<div class="keyword-heading">
-<h3 class="keyword skill">Company</h3>
-<span class="type-badge check">check</span>
-</div>
-
-Company is a _static conditional ability_ that is active **while this summon is adjacent to a friendly summon**.
-
-- **Condition:** Company becomes active only **when this summon is orthogonally adjacent** (above, below, left, or right) to another **friendly summon**. Diagonal adjacency does not count.
-
-- **Type:** This is **not a triggered ability** and does not use the stack. It is **checked continuously**.
-
-- **Effect Duration:** The effect from Company is **active only as long as the condition is true**. If the summon is no longer adjacent to a friendly summon, the effect ends immediately.
-
-- **Effect Scope:** The effect granted by Company depends on the specific card — it may modify stats, grant abilities, or influence other rules.
-
-#### Example:
-
-A summon with **_Company — “Get +1A”_** will receive the bonus only while it is orthogonally adjacent to another friendly summon. If the adjacent ally moves or is destroyed, the bonus is lost instantly.
-
 ### Deep Infiltration
 
 Trigger on first time entering of enemy guarded zone
 
-<div class="keyword-heading">
+<div class="keyword-heading" id="demise">
 <h3 class="keyword demise">Demise</h3>
 <span class="type-badge trigger">trigger</span>
 </div>
@@ -144,25 +125,85 @@ Indicator for re-occuring trigger
 
 ## Summon Skills
 
-### Absorb
+<div class="keyword-heading" id="absorb">
+<h3 class="keyword skill">Absorb</h3>
+<span class="type-badge skill">skill</span>
+</div>
 
-Regenerates life when dealing combat damage
+Absorb is a _summon skill_ that causes the summon to **heal damage equal to the amount of combat damage it deals**.
 
-### Contagious
+- **Combat-Only:** Absorb only applies to combat damage dealt by the summon when attacking or counterattacking. It does not apply to damage dealt by abilities, spells, or other effects.
+
+- **Healing, Not Life Gain:** Absorb allows the summon to heal, not gain life. That means it can only restore damage it has already taken — up to its maximum health. It cannot exceed its original health total.
+
+- **Timing:** Absorb triggers simultaneously with the resolution of combat damage. If the summon deals 3 damage in combat, it heals up to 3 damage immediately as that damage resolves.
+
+- **Sticky Damage:** Since summons in Guardian retain damage (like in Hearthstone), Absorb helps a wounded summon survive longer by directly repairing its health pool.
+
+- **Damage Type Irrelevant:** Absorb works regardless of the damage type _(physical or magical)_ as long as the damage is combat-based.
+
+#### Example:
+
+A summon with 2/4 health that attacks and deals 3 combat damage will heal 2 points of damage (up to its max of 4). A summon at full health gains no benefit from Absorb. If it deals 5 combat damage but only has 1 damage on it, it still only heals 1.
+
+<div class="keyword-heading" id="company">
+<h3 class="keyword skill">Company</h3>
+<span class="type-badge check">check</span>
+</div>
+
+Company is a _static conditional ability_ that is active **while this summon is adjacent to a friendly summon**.
+
+- **Condition:** Company becomes active only **when this summon is orthogonally adjacent** (above, below, left, or right) to another **friendly summon**. Diagonal adjacency does not count.
+
+- **Type:** This is **not a triggered ability** and does not use the stack. It is **checked continuously**.
+
+- **Effect Duration:** The effect from Company is **active only as long as the condition is true**. If the summon is no longer adjacent to a friendly summon, the effect ends immediately.
+
+- **Effect Scope:** The effect granted by Company depends on the specific card — it may modify stats, grant abilities, or influence other rules.
+
+#### Example:
+
+A summon with **_Company — “Get +1A”_** will receive the bonus only while it is orthogonally adjacent to another friendly summon. If the adjacent ally moves or is destroyed, the bonus is lost instantly.
+
+<div class="keyword-heading" id="contagious">
+<h3 class="keyword skill">Contagious</h3>
+<span class="type-badge skill">skill</span>
+</div>
 
 poisons when taking combat damage
 
-### Flying
+<div class="keyword-heading" id="flying">
+<h3 class="keyword skill">Flying</h3>
+<span class="type-badge skill">skill</span>
+</div>
 
 Evasion
 
-### Guard Protect
+<div class="keyword-heading" id="guardprotect">
+<h3 class="keyword skill">Guardprotect</h3>
+<span class="type-badge skill">skill</span>
+</div>
 
 Protection for Guardians while this summon is in your guarded zone
 
-### Loner
+<div class="keyword-heading" id="loner">
+<h3 class="keyword skill">Loner</h3>
+<span class="type-badge check">check</span>
+</div>
 
-If this card is not adjacent to friendly summons, this is active
+Loner is a _static conditional ability_ that is active **when the summon is not adjacent to any friendly summons**.
+
+- **Condition:** Loner is active only when this summon is not orthogonally adjacent (above, below, left, or right) to any other friendly summon.
+
+- **Type:** This is not a triggered ability — it is continuously checked. The effect is only active while the condition is met.
+
+- **Effect Duration:** If a friendly summon moves adjacent to the Loner unit, the Loner effect ends immediately. If the summon becomes isolated again, the effect resumes.
+
+- **Effect Scope:** The specific effect granted by Loner is defined on the card (stat buffs, keyword abilities, etc.).
+
+#### Example:
+
+A summon with Loner — **“Get +1A"** will have the bonus as long as it is not adjacent to any other friendly summons. If an ally moves adjacent, the bonus is lost.
 
 ### Spectral
 

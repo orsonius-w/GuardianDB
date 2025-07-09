@@ -598,6 +598,10 @@ li {
   }
 
   &.check {
-    --background-color: hsl(5 90 60 / 0.75);
+    --background-color: hsl(15 90 60 / 0.75);
+  }
+
+  &.skill {
+    --background-color: hsl(9 63 40 / 75);
   }
 }
