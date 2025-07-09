@@ -71,19 +71,44 @@ A summon with **_Assault — “Get +2A.”_** will receive the bonus only while
 <span class="type-badge check">check</span>
 </div>
 
-game state check that is active while this card is adjacent to a friendly summon
+Company is a _static conditional ability_ that is active **while this summon is adjacent to a friendly summon**.
 
-### Contagious
+- **Condition:** Company becomes active only **when this summon is orthogonally adjacent** (above, below, left, or right) to another **friendly summon**. Diagonal adjacency does not count.
 
-poisons when taking combat damage
+- **Type:** This is **not a triggered ability** and does not use the stack. It is **checked continuously**.
+
+- **Effect Duration:** The effect from Company is **active only as long as the condition is true**. If the summon is no longer adjacent to a friendly summon, the effect ends immediately.
+
+- **Effect Scope:** The effect granted by Company depends on the specific card — it may modify stats, grant abilities, or influence other rules.
+
+#### Example:
+
+A summon with **_Company — “Get +1A”_** will receive the bonus only while it is orthogonally adjacent to another friendly summon. If the adjacent ally moves or is destroyed, the bonus is lost instantly.
 
 ### Deep Infiltration
 
 Trigger on first time entering of enemy guarded zone
 
-### Demise
+<div class="keyword-heading">
+<h3 class="keyword demise">Demise</h3>
+<span class="type-badge trigger">trigger</span>
+</div>
 
-trigger on death
+Demise is a _triggered ability_ that activates when the permanent it’s on is destroyed.
+
+- **Trigger Condition:** Demise triggers when this permanent is destroyed and sent to the graveyard.
+
+- **Who Can Have It:** Any permanent — including summons, buildings, items, or other board-bound cards — can have Demise.
+
+- **Timing:** Demise triggers and goes on the stack immediately after the permanent is destroyed, following normal priority rules.
+
+- **Effect Duration:** The listed Demise effect resolves after the death, even if other effects are happening simultaneously.
+
+- **Does Not Trigger:** Demise does not trigger if the permanent is removed from play without dying, such as being sent to the void or returned to a players hand, deck or treasure chest.
+
+#### Example:
+
+A summon with Demise — “Draw a card from your deck.” will let you draw a card when that summon is perishes and sent to the graveyard. If it is sent to the void instead, the Demise ability does not activate.
 
 ### Devotion
 
@@ -122,6 +147,10 @@ Indicator for re-occuring trigger
 ### Absorb
 
 Regenerates life when dealing combat damage
+
+### Contagious
+
+poisons when taking combat damage
 
 ### Flying
 

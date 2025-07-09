@@ -577,6 +577,11 @@ li {
     --text-color: #fbd5cc;
     --text-outline: #a63926;
   }
+
+  &.demise {
+    --text-color: #d1d2d1;
+    --text-outline: #3f403f;
+  }
 }
 
 .type-badge {
