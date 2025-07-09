@@ -4,6 +4,8 @@ import Layout from "../../layout/layout.astro";
 import Image from "astro/components/Image.astro";
 import { query } from "../../lib/db";
 
+export const prerender = false;
+
 // Tell Astro to pre-render one page per element
 export async function getStaticPaths() {
   const elements = [
@@ -43,11 +45,11 @@ const cards = await query(
       {
         cards.map((card) => (
           <a href={`/cards/${card.slug}`} class="card-link">
-            <Image
+            <img
               src={card.image}
               alt={card.name || "Guardian Card"}
-              width="735"
-              height="1040"
+              width="300"
+              height="300"
               class="card-image"
               loading="lazy"
               decoding="async"

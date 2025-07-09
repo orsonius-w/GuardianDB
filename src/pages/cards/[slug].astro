@@ -2,8 +2,11 @@
 // Imports
 import Layout from "../../layout/layout.astro";
 import Pagesection from "../../components/sections/pagesection.astro";
-import Image from "astro/components/Image.astro";
 import { query } from "../../lib/db";
+
+import { parseCostToIcons } from "../../js/custom";
+
+export const prerender = false;
 
 // Build-time paths
 export async function getStaticPaths() {
@@ -29,7 +32,7 @@ if (!card) {
   <Pagesection size="md">
     <div class="wrapper">
       <div class="col min-w-320">
-        <Image
+        <img
           src={card.image}
           alt={card.name || "Guardian Card"}
           width="300"
@@ -44,7 +47,11 @@ if (!card) {
 
         <p>
           <strong>Cost:</strong>
-          {card.cost}
+          {
+            parseCostToIcons(card.cost).map(({ src, alt, key }) => (
+              <img src={src} alt={alt} class="icon" key={key} />
+            ))
+          }
           {card.converted && <span class="small-text">({card.converted})</span>}
         </p>
         <p>
@@ -130,7 +137,7 @@ if (!card) {
         </p>
 
         <p>
-          <strong>Limitaion: </strong>
+          <strong>Limitation: </strong>
           {card.limitation && `${card.limitation}, `}
           {card.rarity}
         </p>
@@ -165,5 +172,13 @@ if (!card) {
 
   .col.min-w-320 {
     min-width: 320px;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-right: 4px;
+    vertical-align: middle;
   }
 </style>
