@@ -15,81 +15,90 @@ In _Guardian_, every **Summon** has access to two types of actions per turn:
 
 These actions form the foundation of what Summons can do during your turn. Understanding how actions are used, lost, or regained is crucial to mastering positioning, offense, and defense.
 
-🎯 Action Types
-🔴 Full Actions
+## Action Types
+
+### Full Actions
+
 Full actions are used for impactful abilities and interactions, including:
 
 Attacking
 
-Casting a Summon Spell (a spell that belongs to the Summon)
+- Casting a Summon Spell (a spell that belongs to the Summon)
 
-Using an activated ability that requires the [A] symbol
+- Using an activated ability that requires the [A] symbol
 
-Executing a Movement Ability (distinct from regular movement)
+- Executing a Movement Ability (distinct from regular movement)
 
-Note: Even if a Summon has multiple Full Actions (via effects), it cannot attack more than once per turn, unless explicitly allowed.
+> Note: Even if a Summon has multiple Full Actions (via effects), it cannot attack more than once per turn, unless explicitly allowed.
 
-🔵 Movement Actions
+### Movement Actions
+
 Movement actions allow a Summon to move on the board. Unless otherwise stated, each Summon can only move once per turn.
 
-💠 Depletion & Reactivation
-Whenever a Summon performs an action, it spends that action. When it has spent both its Full and Movement action, it is said to be Depleted.
+## Depletion & Reactivation
 
-Depletion means:
-The Summon has no remaining actions this turn.
+Whenever a Summon performs an action, it spends that action. When it has spent both its Full and Movement action, it is said to be **Depleted**.
 
-The Summon becomes Deactivated at the end of the turn.
+**Depletion means:**
 
-Reactivation
-During your Active Phase, all your Deactivated Summons automatically Reactivate, regaining both action types (Full and Movement). This happens unless prevented by an effect like Freeze.
+- The Summon has no remaining actions this turn.
 
-❄️ Freeze & Forced Deactivation
-Certain abilities, like Freeze, can forcefully Deactivate a Summon early by Depleting its actions outside the normal flow.
+- The Summon becomes Deactivated at the end of the turn.
 
-Freeze:
+### Reactivation
 
-Immediately Depletes the Summon.
+During your **Active Phase**, all your Deactivated Summons automatically **Reactivate**, regaining both action types (Full and Movement). This happens unless prevented by an effect like **Freeze**.
 
-Prevents Reactivation in the following Active Phase. Instead, the Freeze effect simply ends.
+## Freeze & Forced Deactivation
 
-Frozen Summons cannot move, attack, or use any actions.
+Certain abilities, like **Freeze**, can forcefully Deactivate a Summon early by **Depleting** its actions outside the normal flow.
 
-Cannot counterattack while Frozen.
+#### Freeze:
 
-Forced Deactivation:
+- Immediately Depletes the Summon.
 
-Any effect that Depletes a Summon outside of its own actions is considered a forced Deactivation.
+- Prevents Reactivation in the following Active Phase. Instead, the Freeze effect simply ends.
 
-Deactivated Summons from forced effects can still counterattack and move, unless otherwise restricted.
+- Frozen Summons cannot move, attack, or use any actions.
 
-🔁 Reactivating Mid-Turn
+- Cannot counterattack while Frozen.
+
+#### Forced Deactivation:
+
+- Any effect that Depletes a Summon outside of its own actions is considered a forced Deactivation.
+
+- Deactivated Summons from forced effects can still counterattack and move, unless otherwise restricted.
+
+## Reactivating Mid-Turn
+
 Some cards may allow a Summon to Reactivate during the turn — for example, through spells or abilities that grant extra value.
 
-When this happens:
+**When this happens:**
 
-The Summon regains its Full and/or Movement Action (depending on effect).
+- The Summon regains its Full and/or Movement Action (depending on effect).
 
-However, it still cannot:
+- However, it **still cannot**:
 
-Attack more than once per turn.
+- - Attack more than once per turn.
 
-Move more than once per turn.
+- - Move more than once per turn.
 
-What can a reactivated Summon do?
+### What can a reactivated Summon do?
+
 Everything else — such as:
 
-Use a different activated [A] ability
+- Use a different activated [A] ability
 
-Cast another Summon Spell (if it can afford the cost)
+- Cast another Summon Spell (if it can afford the cost)
 
-Use a Movement Ability (as long as it doesn’t count as basic movement)
+- Use a Movement Ability (as long as it doesn’t count as basic movement)
 
-🔄 Example
-You control a Summon with this ability:
-[A]: Target Summon gets +1A until the end of turn.
+## Example
 
-Turn 1: It uses this ability (spending its Full Action).
+> **You control a Summon with this ability:** >[A]: Target Summon gets +1A until the end of turn.
 
-Later that turn: You use a spell that Reactivates it.
+- Turn 1: It uses this ability (spending its Full Action).
 
-Now: It cannot attack again this turn (if it already attacked), but it can use that [A] ability again or cast a Summon Spell.
+- Later that turn: You use a spell that Reactivates it.
+
+- Now: It cannot attack again this turn (if it already attacked), but it can use that [A] ability again or cast a Summon Spell.
