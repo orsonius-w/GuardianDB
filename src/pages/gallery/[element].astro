@@ -41,7 +41,7 @@ const cards = await query(
 <Layout>
   <Pagesection size="md">
     <h1>{capitalized} Cards</h1>
-    <div class="column-grid">
+    <div class="grid-column">
       {
         cards.map((card) => (
           <a href={`/cards/${card.slug}`} class="card-link">
@@ -64,8 +64,8 @@ const cards = await query(
 <style>
   :root {
     --grid-gap: 1rem;
-    --grid-max-col-count: 3;
-    --grid-min-col-size: 288px;
+    --grid-max-col-count: 4;
+    --grid-min-col-size: 258px;
   }
 
   .card-image {
