@@ -64,7 +64,10 @@ if (!card) {
         <p>
           {card.combat}
         </p>
-        <p class="card-text" set:html={parseRichText(card.text)} />
+        <p class="card-text"></p>
+        <p class="card-text">
+          {card.text && parseRichText(card.text)}
+        </p>
         <div class="wrapper mb-2">
           <div class="col">
             {
