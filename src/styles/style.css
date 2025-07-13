@@ -599,6 +599,39 @@ li {
     --text-color: #d1d2d1;
     --text-outline: #3f403f;
   }
+
+  &.manifest {
+    --text-color: #f9e6c8;
+    --text-outline: #825f3b;
+  }
+
+  &.movement {
+    --text-color: #f2de6d;
+    --text-outline: #ab7f2c;
+  }
+
+  &.perpetual {
+    --text-color: #c0e3ef;
+    --text-outline: #3b5883;
+  }
+  &.onslaught {
+    --text-color: #260e0e;
+    --text-outline: #cb2027;
+  }
+  &.resonance {
+    --text-color: #d0e5aa;
+    --text-outline: #3a7b3b;
+  }
+
+  &.dominate {
+    --text-color: #d1d2d1;
+    --text-outline: #89171a;
+  }
+
+  &.unique {
+    --text-color: #f1f1f1;
+    --text-outline: #1c0f0a;
+  }
 }
 
 .type-badge {
