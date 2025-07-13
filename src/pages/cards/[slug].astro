@@ -68,9 +68,7 @@ const parsedText = parseTextToHTML(card.text);
         <p>
           {card.combat}
         </p>
-        <p class="card-text" set:html={parsedText}>
-          {card.text}
-        </p>
+        <p class="card-text" set:html={parsedText} />
         <div class="wrapper mb-2">
           <div class="col">
             {
