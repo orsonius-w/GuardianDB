@@ -1,0 +1,132 @@
+<em>work in progress</em>
+
+<h2>Filter</h2>
+<form action="get" id="filter-form">
+  <label>
+    Type
+
+    <select name="type">
+      <option value="">All</option>
+      <option value="Guardian">Guardian</option>
+      <option value="Summon">Summon</option>
+      <option value="Spell">Spell</option>
+      <option value="Trap">Trap</option>
+      <option value="Item">Item</option>
+      <option value="Building">Building</option>
+      <option value="Terrain">Terrain</option>
+      <option value="Event">Event</option>
+      <option value="Treasure">Treasure</option>
+    </select>
+  </label>
+
+  <label>
+    Summon Type
+
+    <input type="text" name="summon-type" placeholder="e.g. Dragon, Beast" />
+  </label>
+
+  <label>
+    Spell Subtype
+
+    <select name="spell-subtype">
+      <option value="">All</option>
+      <option value="Quick">Quick</option>
+      <option value="Hex">Hex</option>
+      <option value="Enchantment">Enchantment</option>
+      <option value="Curse">Curse</option>
+      <option value="Rune">Rune</option>
+      <option value="Ritual">Ritual</option>
+    </select>
+  </label>
+
+  <label>
+    Trap Subtype
+
+    <select name="trap-subtype">
+      <option value="">All</option>
+      <option value="Step">Step</option>
+      <option value="Universal">Universal</option>
+      <option value="Zone">Zone</option>
+      <option value="Positionless">Positionless</option>
+    </select>
+  </label>
+
+  <label>
+    Trap Subtype 2
+
+    <input
+      type="checkbox"
+      name="trap-subtype-2"
+      value="Permanent"
+      id="trap-subtype-2-permanent"
+    />
+    <label for="trap-subtype-2-permanent">Permanent</label>
+    <input
+      type="checkbox"
+      name="trap-subtype-2"
+      value="Multi"
+      id="trap-subtype-2-Multi"
+    />
+    <label for="trap-subtype-2-Multi">Multi</label>
+  </label>
+
+  <label>
+    Cost
+    <input type="number" name="cost-min" placeholder="Min Cost" min="0" />
+  </label>
+
+  <label>
+    Combat Type
+    <select name="combat-type">
+      <option value="">All</option>
+      <option value="close-combat">Close Combat</option>
+      <option value="bicombat">Bi Combat R2</option>
+      <option value="ranged-combat">Ranged Combat</option>
+      <option value="magic-combat-r1">Magic Combat R1</option>
+      <option value="magic-combat-r2">Magic Combat R2</option>
+      <option value="dual-combat-r1">Dual Combat R1</option>
+      <option value="dual-combat-r2">Dual Combat R2</option>
+    </select>
+  </label>
+
+  <select name="card_subtypes[]" id="card-building-subtype">
+    <option value="" disabled selected hidden
+      >-- Choose a Building Subtype --</option
+    >
+    <option value="Shrine">Shrine</option>
+    <option value="Temple">Temple</option>
+    <option value="Fortress">Fortress</option>
+    <option value="Portal">Portal</option>
+    <option value="Tower">Tower</option>
+    <option value="Sigil">Sigil</option>
+    <option value="Factory">Factory</option>
+    <option value="Outpost">Outpost</option>
+    <option value="City">City</option>
+  </select>
+
+  <select
+    class="border-gray-200 border-2 p-2 text-gray-800"
+    name="card_subtypes[]"
+    id="card-event-subtype"
+  >
+    <option value="" hidden disabled selected
+      >-- Choose an Event Subtype --</option
+    >
+    <option value="Eco">Eco</option>
+    <option value="Act">Act</option>
+    <option value="Fate">Fate</option>
+    <option value="Weather">Weather</option>
+  </select>
+
+  <select
+    class="border-gray-200 border-2 p-2 text-gray-800"
+    name="card_combat_types[]"
+    id="card-guardian-combat-type"
+  >
+    <option value="" hidden disabled selected>-- Choose a Combat Type --</option
+    >
+    <option value="Physical">Physical</option>
+    <option value="Magical">Magical</option>
+    <option value="Dual">Dual</option>
+  </select>
+</form>

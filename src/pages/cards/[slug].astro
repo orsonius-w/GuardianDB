@@ -48,9 +48,11 @@ if (!card) {
         <p>
           <strong>Cost:</strong>
           {
-            parseCostToIcons(card.cost).map(({ src, alt, key }) => (
-              <img src={src} alt={alt} class="icon" key={key} />
-            ))
+            card.cost
+              ? parseCostToIcons(card.cost).map(({ src, alt, key }) => (
+                  <img src={src} alt={alt} class="icon" key={key} />
+                ))
+              : "None"
           }
           {card.converted && <span class="small-text">({card.converted})</span>}
         </p>
