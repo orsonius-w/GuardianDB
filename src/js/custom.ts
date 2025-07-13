@@ -11,8 +11,3 @@ export function parseCostToIcons(cost: string) {
     };
   });
 }
-
-export function parseRichText(text: string): string {
-  const withIcons = parseCostToIcons(text);
-  return marked(withIcons); // Converts markdown + icons into HTML
-}

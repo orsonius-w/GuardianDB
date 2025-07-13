@@ -5,6 +5,9 @@ import Pagesection from "../../components/sections/pagesection.astro";
 import { query } from "../../lib/db";
 
 import { parseCostToIcons } from "../../js/custom";
+import { parseTextToHTML } from "../../js/parseTextToHtml";
+
+const parsedText = parseTextToHTML(card.text);
 
 export const prerender = false;
 
@@ -65,7 +68,7 @@ if (!card) {
         <p>
           {card.combat}
         </p>
-        <p class="card-text">
+        <p class="card-text" set:html={parsedText}>
           {card.text}
         </p>
         <div class="wrapper mb-2">
