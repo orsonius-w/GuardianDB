@@ -11,6 +11,16 @@ const keywordGroups: Record<string, string | string[]> = {
   dominate: "Dominate -",
   infiltrate: ["Infiltrate -", "Deep Infiltration -"],
   movement: ["Retreat"],
+  trap: [
+    "Pick up",
+    "Pick up -",
+    "Avert",
+    "Avert -",
+    "Jinxed",
+    "Jinxed -",
+    "Boggled",
+    "Boggled -",
+  ],
   shrine: ["Sacrifice -", "Blessing -"],
   skill: [
     "Flying",

@@ -190,6 +190,7 @@ const parsedText = parseTextToHTML(card.text);
     img {
       max-width: 1.5rem;
       display: inline-block;
+      margin-block-end: -6px;
     }
 
     span.keyword {
@@ -211,12 +212,12 @@ const parsedText = parseTextToHTML(card.text);
     min-width: 320px;
   }
 
-  img.icon {
+  .icon {
     width: 24px;
     height: 24px;
     display: inline-block;
-    margin-inline-end: 4px;
-    margin-block-end: -6px;
+    margin-right: 4px;
+    vertical-align: middle;
   }
 
   .action-btn {
