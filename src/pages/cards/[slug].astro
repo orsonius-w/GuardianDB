@@ -44,6 +44,22 @@ const parsedText = parseTextToHTML(card.text);
           loading="lazy"
           decoding="async"
         />
+
+        {
+          card.type === "Terrain" && (
+            <button class="action-btn" id="lightbox-btn">
+              View
+            </button>
+          )
+        }
+
+        {
+          card.type === "Event" && (
+            <button class="action-btn" id="rotate-btn">
+              Rotate
+            </button>
+          )
+        }
       </div>
       <div class="col min-w-320">
         <h2>{card.name}</h2>
@@ -146,6 +162,14 @@ const parsedText = parseTextToHTML(card.text);
         </p>
       </div>
     </div>
+    <div id="lightbox" class="lightbox hidden">
+      <div class="overlay" id="overlay"></div>
+      <img
+        src={card.image}
+        alt="Lightbox Image"
+        class="lightbox-img rotate-90"
+      />
+    </div>
   </Pagesection>
 </Layout>
 
@@ -194,4 +218,79 @@ const parsedText = parseTextToHTML(card.text);
     margin-right: 4px;
     vertical-align: middle;
   }
+
+  .action-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background 0.2s;
+  }
+
+  .action-btn:hover {
+    background: #f0f0f0;
+  }
+
+  .rotate-180 {
+    transform: rotate(180deg);
+  }
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+
+  .lightbox.hidden {
+    display: none;
+  }
+
+  .lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    transition: transform 0.3s;
+  }
+
+  .rotate-90 {
+    transform: rotate(90deg);
+  }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+  }
 </style>
+
+<script>
+  const cardImg = document.getElementById("card-img");
+  const rotateBtn = document.getElementById("rotate-btn");
+  const lightboxBtn = document.getElementById("lightbox-btn");
+  const lightbox = document.getElementById("lightbox");
+  const overlay = document.getElementById("overlay");
+
+  if (rotateBtn && cardImg) {
+    rotateBtn.addEventListener("click", () => {
+      cardImg.classList.toggle("rotate-180");
+    });
+  }
+
+  if (lightboxBtn && lightbox) {
+    lightboxBtn.addEventListener("click", () => {
+      lightbox.classList.remove("hidden");
+    });
+
+    overlay.addEventListener("click", () => {
+      lightbox.classList.add("hidden");
+    });
+  }
+</script>
