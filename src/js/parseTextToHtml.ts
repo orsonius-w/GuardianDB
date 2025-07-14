@@ -11,6 +11,7 @@ const keywordGroups: Record<string, string | string[]> = {
   dominate: "Dominate -",
   infiltrate: ["Infiltrate -", "Deep Infiltration -"],
   movement: ["Retreat"],
+  shrine: ["Sacrifice", "Blessing"],
   skill: [
     "Flying",
     "Zealing",
@@ -61,7 +62,7 @@ export function parseTextToHTML(text: string) {
   );
 
   parsed = parsed.replace(/\[([^\]]+)\]/g, (_, icon: string) => {
-    return `<img src="/icons/${icon}.svg" alt="${icon}" class="icon" />`;
+    return `<img src="/icons/${icon}.png" alt="${icon}" class="icon" />`;
   });
 
   return parsed;
