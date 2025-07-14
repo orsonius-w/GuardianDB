@@ -11,7 +11,7 @@ const keywordGroups: Record<string, string | string[]> = {
   dominate: "Dominate -",
   infiltrate: ["Infiltrate -", "Deep Infiltration -"],
   movement: ["Retreat"],
-  shrine: ["Sacrifice", "Blessing"],
+  shrine: ["Sacrifice -", "Blessing -"],
   skill: [
     "Flying",
     "Zealing",
@@ -23,7 +23,18 @@ const keywordGroups: Record<string, string | string[]> = {
     "Venemous",
     "Battlelash",
   ],
-  unique: ["Solidarity", "Full Potential", "Cache", "Defile"],
+  unique: [
+    "Solidarity",
+    "Full Potential",
+    "Cache",
+    "Defile",
+    "Ignite",
+    "Preordain",
+    "Ascend",
+    "Lay Off",
+    "Discharge",
+    "Delay",
+  ],
 };
 
 const keywordCategories: Record<string, string> = {};
