@@ -2,8 +2,27 @@
 
 const keywordGroups: Record<string, string | string[]> = {
   manifest: "Manifest -",
-  skill: ["Flying", "Zealing", "Charge"],
-  unique: ["Solidarity", "Full Potential"],
+  agility: "Agility -",
+  assault: "Assault -",
+  demise: "Demise -",
+  perpetual: "Perpetual -",
+  onslaught: "Onslaught -",
+  resonance: "Resonance -",
+  dominate: "Dominate -",
+  infiltrate: ["Infiltrate -", "Deep Infiltration -"],
+  movement: ["Retreat"],
+  skill: [
+    "Flying",
+    "Zealing",
+    "Gashing",
+    "Guardprotect",
+    "Goad",
+    "Anticipate",
+    "Devotion",
+    "Venemous",
+    "Battlelash",
+  ],
+  unique: ["Solidarity", "Full Potential", "Cache", "Defile"],
 };
 
 const keywordCategories: Record<string, string> = {};
@@ -18,22 +37,28 @@ for (const [category, keywords] of Object.entries(keywordGroups)) {
   }
 }
 
+// Optional: Helper to get class for a keyword
+function getKeywordClass(keyword: string): string {
+  const category = keywordCategories[keyword];
+  if (category) return category;
+  return keyword.toLowerCase().replace(/\s+/g, "-");
+}
+
 export function parseTextToHTML(text: string) {
   if (!text) return "";
 
   let parsed = text.replace(/\n/g, "<br>");
 
-  parsed = parsed.replace(/\{([\w\s\-\']+)\}/g, (match, keywordRaw) => {
-    const keyword = keywordRaw.trim();
-    const category = keywordCategories[keyword];
-
-    if (category) {
-      return `<span class="keyword ${category}">${keyword}</span>`;
-    } else {
-      const fallbackClass = keyword.toLowerCase().replace(/\s+/g, "-");
-      return `<span class="keyword ${fallbackClass}">${keyword}</span>`;
+  parsed = parsed.replace(
+    /\{([\w\s\-\']+?)(?:\s+(\d+))?\}/g,
+    (_, keywordRaw: string, number: string) => {
+      const keyword = keywordRaw.trim();
+      const cssClass = getKeywordClass(keyword);
+      return `<span class="keyword ${cssClass}">${keyword}${
+        number ? " " + number : ""
+      }</span>`;
     }
-  });
+  );
 
   return parsed;
 }
