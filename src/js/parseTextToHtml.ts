@@ -62,7 +62,7 @@ export function parseTextToHTML(text: string) {
   );
 
   parsed = parsed.replace(/\[([^\]]+)\]/g, (_, icon: string) => {
-    return `<img src="/icons/${icon}.png" alt="${icon}" class="icon" />`;
+    return `<img src="/images/icons/${icon}.png" alt="${icon}" class="icon" />`;
   });
 
   return parsed;
