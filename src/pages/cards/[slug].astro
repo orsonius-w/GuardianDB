@@ -31,7 +31,12 @@ if (!card) {
 const parsedText = parseTextToHTML(card.text);
 ---
 
-<Layout>
+<Layout
+  title={`${card.name} | Guardian`}
+  description={`Card entry for ${card.name}`}
+  image={card.image}
+  url={`https://guardiancg.netlify.app/cards/${slug}`}
+>
   <Pagesection size="md">
     <div class="wrapper">
       <div class="col min-w-320">
