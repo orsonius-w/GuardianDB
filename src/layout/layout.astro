@@ -8,17 +8,21 @@ import "../styles/style.css";
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  url?: string;
 }
 
 const {
   title = "Guardian DB",
   description = "Database of cards for the Guardian card game",
+  image = "/images/logo.svg", // fallback
+  url = "hhttps://guardiancg.netlify.app/", // optional fallback
 } = Astro.props as Props;
 ---
 
 <!doctype html>
 <html lang="en">
-  <Head {title} {description} />
+  <Head {title} {description} {image} {url} />
   <body>
     <div class="page-layout">
       <Header />

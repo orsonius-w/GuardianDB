@@ -3,7 +3,12 @@ import Pagesection from "../../components/sections/pagesection.astro";
 import Layout from "../../layout/layout.astro";
 ---
 
-<Layout>
+<Layout
+  title={`${card.name} | Guardian`}
+  description={`Card entry for ${card.name}`}
+  image={card.image}
+  url={`https://guardiancg.netlify.app/cards/${slug}`}
+>
   <Pagesection size="md">
     <h1>Downloads</h1>
 
