@@ -9,35 +9,64 @@ import Layout from "../../layout/layout.astro";
 
     <h2>Download Table Top Simulator decks here</h2>
     <div class="column-grid grid-3">
-      <div class="grid-item">Darkness Deck</div>
       <div class="grid-item">
-        <a href="/decks/solidarity deck swarm.json" download
-          >Light Deck (solidarity)</a
+        <h3>All Darkness Cards</h3>
+        <img
+          src="/images/cards/UvoreTheExtracter.png"
+          alt="Guardian Card Uvore The Extracter"
+          loading="lazy"
+          decoding="async"
+          height="283"
+          width="200"
+          class="preview-image"
+        />
+        <a
+          class="btn dl-btn"
+          href="/downloads/AllDarknessJuly2025.json"
+          download>Download JSON</a
         >
-      </div>
-      <div class="grid-item">
-        <a href="/decks/Calamity Deck.json" download>Fire-Lightning Deck</a>
-      </div>
-      <div class="grid-item">Pirate (Water Wind) Deck</div>
-      <div class="grid-item">
-        <a href="/decks/Preordain Deck.json" download>Water Deck (preordain)</a>
-      </div>
-      <div class="grid-item">
-        <a href="/decks/IceMill.json" download>Ice Deck</a>
-      </div>
-
-      <div class="grid-item">
-        <a href="/decks/Earth_15_July_2025.json" download>Earth Cards</a>
-        <a href="/decks/Earth_15_July_2025.png" download>Earth Cards PNG</a>
-      </div>
-
-      <div class="grid-item">
-        <a href="/decks/AllDarknessCards_July2025.json" download
-          >Darkness Cards</a
+        <a class="btn dl-btn" href="/downloads/AllDarknessJuly2025.png" download
+          >Download Image</a
         >
-        <a href="/decks/AllDarknessCards_July2025.png" download
-          >Darkness Cards PNG</a
+        <p class="last-update"><small>last update: july 27 2025</small></p>
+      </div>
+      <div class="grid-item">
+        <h3>All Earth Cards</h3>
+        <img
+          src="/images/cards/MorelGuardianOfEarth.png"
+          alt="Guardian Card Uvore The Extracter"
+          loading="lazy"
+          decoding="async"
+          height="283"
+          width="200"
+          class="preview-image"
+        />
+        <a class="btn dl-btn" href="/downloads/AllEarthJULY2025.json" download
+          >Download JSON</a
         >
+        <a class="btn dl-btn" href="/downloads/AllEarthJULY2025.png" download
+          >Download Image</a
+        >
+        <p class="last-update"><small>last update: july 27 2025</small></p>
+      </div>
+      <div class="grid-item">
+        <h3>All Fire Cards</h3>
+        <img
+          src="/images/cards/GarlGuardianOfFire.png"
+          alt="Guardian Card Uvore The Extracter"
+          loading="lazy"
+          decoding="async"
+          height="283"
+          width="200"
+          class="preview-image"
+        />
+        <a class="btn dl-btn" href="/downloads/AllFireJULY2025.json" download
+          >Download JSON</a
+        >
+        <a class="btn dl-btn" href="/downloads/AllFireJULY2025.png" download
+          >Download Image</a
+        >
+        <p class="last-update"><small>last update: july 27 2025</small></p>
       </div>
     </div>
   </Pagesection>
@@ -48,5 +77,50 @@ import Layout from "../../layout/layout.astro";
     --grid-gap: 1rem;
     --grid-max-col-count: var(--grid-col-count);
     --grid-min-col-size: 288px;
+  }
+
+  .grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .preview-image {
+    width: auto;
+    height: 283px;
+    border-radius: 0.5rem;
+  }
+
+  a.btn {
+    text-decoration: none;
+    color: var(--btn-text, inherit);
+    background-color: var(--btn-clr, transparent);
+    padding: var(--btn-size, 0.5rem 1rem);
+    border-radius: var(--btn-radius, 0);
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+
+    &:hover {
+      background-color: var(--btn-hover-clr, var(--btn-clr, transparent));
+      color: var(--btn-hover-text, var(--btn-text, inherit));
+    }
+
+    &.dl-btn {
+      --btn-clr: var(--clr-secondary);
+      --btn-text: var(--clr-white, hsl(0 100 100));
+      --btn-radius: 0.25rem;
+      --btn-hover-clr: hsl(from var(--clr-secondary) h s 40);
+      --btn-hover-text: var(--clr-white, hsl(0 100 100));
+    }
+  }
+
+  .last-update {
+    color: var(--clr-neutral-500);
+    font-style: italic;
+    small {
+      font-size: 80%;
+    }
   }
 </style>
