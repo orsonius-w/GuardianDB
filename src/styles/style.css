@@ -637,6 +637,10 @@ li {
     --text-color: #bf3938;
     --text-outline: #070606;
   }
+  &.ward {
+    --text-color: #e7e66d;
+    --text-outline: #0d7b34;
+  }
 }
 
 .type-badge {

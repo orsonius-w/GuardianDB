@@ -9,6 +9,7 @@ const keywordGroups: Record<string, string | string[]> = {
   onslaught: "Onslaught -",
   resonance: "Resonance -",
   dominate: "Dominate -",
+  ward: "Ward",
   infiltrate: ["Infiltrate -", "Deep Infiltration -"],
   movement: ["Retreat"],
   trap: [
@@ -32,6 +33,15 @@ const keywordGroups: Record<string, string | string[]> = {
     "Devotion",
     "Venemous",
     "Battlelash",
+    "Chill",
+    "Skyscraper",
+    "Retaliate",
+    "Wary",
+    "Life Regen",
+    "Loner",
+    "Stealth",
+    "Alliance",
+    "Twinstrike",
   ],
   unique: [
     "Solidarity",
