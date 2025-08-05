@@ -420,6 +420,10 @@ section {
   overflow: hidden;
 }
 
+.hidden {
+  display: none;
+}
+
 .w-full {
   width: 100%;
 }
