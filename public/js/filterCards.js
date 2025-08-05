@@ -45,10 +45,10 @@ window.addEventListener("DOMContentLoaded", initCardTypeFilter);
 
 function getRarityValue(rarity) {
     const order = {
-        Special: 4,
-        Rare: 3,
-        Uncommon: 2,
-        Common: 1,
+        special: 4,
+        rare: 3,
+        uncommon: 2,
+        common: 1,
     };
     return order[rarity] || 0;
 }
