@@ -96,10 +96,15 @@ function updateSort() {
 
 function toggleDirection() {
     const directionBtn = document.getElementById("sort-direction");
+    const icon = document.getElementById("sort-icon");
+
     const current = directionBtn.dataset.direction;
     const next = current === "asc" ? "desc" : "asc";
     directionBtn.dataset.direction = next;
-    directionBtn.textContent = next === "asc" ? "↑" : "↓";
+
+    if (icon) {
+        icon.setAttribute("name", next === "asc" ? "ci:sort-ascending" : "ci:sort-descending");
+    }
 
     updateSort();
 }

@@ -1,6 +1,7 @@
 ---
 import Pagesection from "../../components/sections/pagesection.astro";
 import Layout from "../../layout/layout.astro";
+import { Icon } from "astro-icon/components";
 import { query } from "../../lib/db";
 
 export const prerender = false;
@@ -42,47 +43,51 @@ const cards = await query(
     <h1>{capitalized} Cards</h1>
   </Pagesection>
   <Pagesection size="md">
-    <!-- Filter Form -->
-    <form id="card-filter-form">
-      <label for="card-type">Filter by Type:</label>
-      <select id="card-type" name="type">
-        <option value="All">All</option>
-        <option value="Guardian">Guardian</option>
-        <option value="Summon">Summon</option>
-        <option value="Spell">Spell</option>
-        <option value="Trap">Trap</option>
-        <option value="Item">Item</option>
-        <option value="Building">Building</option>
-        <option value="Terrain">Terrain</option>
-        <option value="Treasure">Treasure</option>
-        <option value="Event">Event</option>
-        <option value="Worker">Worker</option>
-        <option value="Alchemy">Alchemy</option>
-      </select>
-      <button type="submit">Filter</button>
-    </form>
-    <div id="sort-controls">
-      <label for="sort-key">Sort by:</label>
-      <select id="sort-key">
-        <option value="name">Name</option>
-        <option value="type">Type</option>
-        <option value="converted_cost">Cost</option>
-        <option value="life">Life</option>
-        <option value="mana">Mana</option>
-        <option value="attack">Attack</option>
-        <option value="defense">Defense</option>
-        <option value="magic">Magic</option>
-        <option value="resistance">Resistance</option>
-        <option value="movement">Movement</option>
-        <option value="limitation">Limitation</option>
-        <option value="rarity">Rarity</option>
-      </select>
+    <div class="filter-area">
+      <!-- Filter Form -->
+      <form id="card-filter-form">
+        <label for="card-type">Filter by Type:</label>
+        <select id="card-type" name="type">
+          <option value="All">All</option>
+          <option value="Guardian">Guardian</option>
+          <option value="Summon">Summon</option>
+          <option value="Spell">Spell</option>
+          <option value="Trap">Trap</option>
+          <option value="Item">Item</option>
+          <option value="Building">Building</option>
+          <option value="Terrain">Terrain</option>
+          <option value="Treasure">Treasure</option>
+          <option value="Event">Event</option>
+          <option value="Worker">Worker</option>
+          <option value="Alchemy">Alchemy</option>
+        </select>
+        <button type="submit">Filter</button>
+      </form>
+      <div id="sort-controls">
+        <label for="sort-key">Sort by:</label>
+        <select id="sort-key">
+          <option value="name">Name</option>
+          <option value="type">Type</option>
+          <option value="converted_cost">Cost</option>
+          <option value="life">Life</option>
+          <option value="mana">Mana</option>
+          <option value="attack">Attack</option>
+          <option value="defense">Defense</option>
+          <option value="magic">Magic</option>
+          <option value="resistance">Resistance</option>
+          <option value="movement">Movement</option>
+          <option value="limitation">Limitation</option>
+          <option value="rarity">Rarity</option>
+        </select>
 
-      <button
-        id="sort-direction"
-        data-direction="asc"
-        title="Toggle sort direction">↑</button
-      >
+        <button
+          class="btn-sort"
+          id="sort-direction"
+          data-direction="asc"
+          title="Toggle sort direction"
+          ><Icon id="sort-icon" name="ci:sort-ascending" size="16" /></button
+        >
+      </div>
     </div>
   </Pagesection>
   <Pagesection size="md">
@@ -141,5 +146,35 @@ const cards = await query(
   .card-link {
     display: block;
     text-decoration: none;
+  }
+
+  .filter-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .btn-sort {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+
+    background: transparent;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
   }
 </style>
