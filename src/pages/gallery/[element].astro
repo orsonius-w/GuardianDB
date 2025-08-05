@@ -52,14 +52,38 @@ const cards = await query(
         <option value="Spell">Spell</option>
         <option value="Trap">Trap</option>
         <option value="Item">Item</option>
-        <option value="Treasure">Treasure</option>
-        <option value="Terrain">Terrain</option>
         <option value="Building">Building</option>
+        <option value="Terrain">Terrain</option>
+        <option value="Treasure">Treasure</option>
         <option value="Event">Event</option>
+        <option value="Worker">Worker</option>
         <option value="Alchemy">Alchemy</option>
       </select>
       <button type="submit">Filter</button>
     </form>
+    <div id="sort-controls">
+      <label for="sort-key">Sort by:</label>
+      <select id="sort-key">
+        <option value="name">Name</option>
+        <option value="type">Type</option>
+        <option value="converted_cost">Cost</option>
+        <option value="life">Life</option>
+        <option value="attack">Attack</option>
+        <option value="mana">Mana</option>
+        <option value="magic">Magic</option>
+        <option value="defense">Defense</option>
+        <option value="resistance">Resistance</option>
+        <option value="movement">Movement</option>
+        <option value="limitation">Limitation</option>
+        <option value="rarity">Rarity</option>
+      </select>
+
+      <button
+        id="sort-direction"
+        data-direction="asc"
+        title="Toggle sort direction">↑</button
+      >
+    </div>
   </Pagesection>
   <Pagesection size="md">
     <div class="grid-column">
@@ -69,6 +93,17 @@ const cards = await query(
             href={`/cards/${card.slug}`}
             class="card-link"
             data-type={card.type}
+            data-name={card.name}
+            data-cost={card.converted_cost}
+            data-life={card.life}
+            data-attack={card.attack}
+            data-mana={card.mana}
+            data-magic={card.magic}
+            data-defense={card.defense}
+            data-resistance={card.resistance}
+            data-movement={card.movement}
+            data-limitation={card.limitation}
+            data-rarity={card.rarity}
           >
             <img
               src={card.image}

@@ -40,3 +40,78 @@ function initCardTypeFilter() {
 }
 
 window.addEventListener("DOMContentLoaded", initCardTypeFilter);
+
+/* sorter */
+
+function getRarityValue(rarity) {
+    const order = {
+        Special: 4,
+        Rare: 3,
+        Uncommon: 2,
+        Common: 1,
+    };
+    return order[rarity] || 0;
+}
+
+function sortCards(cards, key, isAsc) {
+    return cards.slice().sort((a, b) => {
+        let aVal = a.dataset[key] || "";
+        let bVal = b.dataset[key] || "";
+
+        if (key === "name" || key === "type") {
+            return isAsc
+                ? aVal.localeCompare(bVal)
+                : bVal.localeCompare(aVal);
+        }
+
+        if (key === "rarity") {
+            aVal = getRarityValue(aVal);
+            bVal = getRarityValue(bVal);
+        } else {
+            aVal = parseInt(aVal) || 0;
+            bVal = parseInt(bVal) || 0;
+        }
+
+        return isAsc ? aVal - bVal : bVal - aVal;
+    });
+}
+
+function renderCards(cards, container) {
+    container.innerHTML = "";
+    cards.forEach((card) => container.appendChild(card));
+}
+
+function updateSort() {
+    const sortKey = document.getElementById("sort-key").value;
+    const directionBtn = document.getElementById("sort-direction");
+    const isAsc = directionBtn.dataset.direction === "asc";
+
+    const allCards = Array.from(document.querySelectorAll(".card-link"));
+    const container = allCards[0]?.parentNode;
+    if (!container) return;
+
+    const sorted = sortCards(allCards, sortKey, isAsc);
+    renderCards(sorted, container);
+}
+
+function toggleDirection() {
+    const directionBtn = document.getElementById("sort-direction");
+    const current = directionBtn.dataset.direction;
+    const next = current === "asc" ? "desc" : "asc";
+    directionBtn.dataset.direction = next;
+    directionBtn.textContent = next === "asc" ? "↑" : "↓";
+
+    updateSort();
+}
+
+function initSortOnly() {
+    const sortKey = document.getElementById("sort-key");
+    const directionBtn = document.getElementById("sort-direction");
+
+    if (sortKey) sortKey.addEventListener("change", updateSort);
+    if (directionBtn) directionBtn.addEventListener("click", toggleDirection);
+
+    updateSort(); // Initial sort
+}
+
+window.addEventListener("DOMContentLoaded", initSortOnly);
