@@ -85,8 +85,15 @@ const cards = await query(
           id="sort-direction"
           data-direction="asc"
           title="Toggle sort direction"
-          ><Icon id="sort-icon" name="ci:sort-ascending" size="16" /></button
         >
+          <Icon name="ci:sort-ascending" size="20" id="icon-asc" />
+          <Icon
+            name="ci:sort-descending"
+            size="20"
+            id="icon-desc"
+            style="display: none;"
+          />
+        </button>
       </div>
     </div>
   </Pagesection>
