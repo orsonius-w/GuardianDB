@@ -40,10 +40,35 @@ const cards = await query(
 <Layout>
   <Pagesection size="md">
     <h1>{capitalized} Cards</h1>
+  </Pagesection>
+  <Pagesection size="md">
+    <!-- Filter Form -->
+    <form id="card-filter-form">
+      <label for="card-type">Filter by Type:</label>
+      <select id="card-type" name="type">
+        <option value="All">All</option>
+        <option value="Guardian">Guardian</option>
+        <option value="Summon">Summon</option>
+        <option value="Spell">Spell</option>
+        <option value="Trap">Trap</option>
+        <option value="Item">Item</option>
+        <option value="Treasure">Treasure</option>
+        <option value="Terrain">Terrain</option>
+        <option value="Building">Building</option>
+        <option value="Event">Event</option>
+        <option value="Alchemy">Alchemy</option>
+      </select>
+    </form>
+  </Pagesection>
+  <Pagesection size="md">
     <div class="grid-column">
       {
         cards.map((card) => (
-          <a href={`/cards/${card.slug}`} class="card-link">
+          <a
+            href={`/cards/${card.slug}`}
+            class="card-link"
+            data-type={card.type}
+          >
             <img
               src={card.image}
               alt={card.name || "Guardian Card"}
@@ -59,6 +84,11 @@ const cards = await query(
     </div>
   </Pagesection>
 </Layout>
+
+<script type="module">
+  import { initCardTypeFilter } from "../../js/filterCards.ts";
+  initCardTypeFilter();
+</script>
 
 <style>
   :root {
