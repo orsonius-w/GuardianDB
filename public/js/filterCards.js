@@ -1,5 +1,17 @@
 // public/js/filterCards.js
 
+function updateCardCount() {
+    const cards = document.querySelectorAll(".card-link");
+    const visibleCount = Array.from(cards).filter(
+        (card) => card.style.display !== "none"
+    ).length;
+
+    const countElement = document.getElementById("card-count");
+    if (countElement) {
+        countElement.textContent = `${visibleCount} card${visibleCount === 1 ? '' : 's'} shown`;
+    }
+}
+
 function normalizeType(type) {
     return type
         .split(",")
@@ -36,10 +48,15 @@ function initCardTypeFilter() {
             const show = matchesFilter(cardType, selected);
             card.style.display = show ? "block" : "none";
         });
+
+        updateCardCount();
     });
 }
 
-window.addEventListener("DOMContentLoaded", initCardTypeFilter);
+window.addEventListener("DOMContentLoaded", () => {
+    initCardTypeFilter();
+    updateCardCount();
+});
 
 /* sorter */
 
@@ -92,6 +109,7 @@ function updateSort() {
 
     const sorted = sortCards(allCards, sortKey, isAsc);
     renderCards(sorted, container);
+    updateCardCount();
 }
 
 function toggleDirection() {
@@ -126,4 +144,8 @@ function initSortOnly() {
     updateSort(); // Initial sort
 }
 
-window.addEventListener("DOMContentLoaded", initSortOnly);
+window.addEventListener("DOMContentLoaded", () => {
+    initSortOnly();
+    updateCardCount();
+});
+
