@@ -35,6 +35,14 @@ if (card.workerCost !== null) extras.push(["Worker cost", card.workerCost]);
 if (card.level !== null) extras.push(["Level", card.level]);
 if (card.duration !== null) extras.push(["Duration", `${card.duration} turns`]);
 
+// Summon Spells live in their own field; the card text repeats them as "[Summon Spell] ..." lines.
+const mainText = card.summonSpells
+  ? card.text.split("\n").filter((l) => !l.trim().startsWith("[Summon Spell]")).join("\n").trim()
+  : card.text;
+const summonSpells = (card.summonSpells || "").split("\n").filter((l) => l.trim()).map((l) => {
+  const m = l.match(/^(Quick\s*-\s*)?(.+?)\s*(\[[^\]]*\])?\s*:\s*(.*)$/);
+  return m ? { quick: !!m[1], name: m[2].trim(), cost: m[3] ?? "", text: m[4] } : { quick: false, name: "", cost: "", text: l };
+});
 ---
 
     <div class="wrapper card-view">
@@ -65,11 +73,18 @@ if (card.duration !== null) extras.push(["Duration", `${card.duration} turns`]);
       {extras.map(([k, v]) => <div><dt>{k}</dt><dd set:html={String(v)} /></div>)}
     </dl>
 
-    {card.text && <div class="card-text" set:html={parseTextToHTML(card.text)} />}
-    {card.summonSpells && (
+    {mainText && <div class="card-text" set:html={parseTextToHTML(mainText)} />}
+    {summonSpells.length > 0 && (
       <div class="card-text summon-spells">
         <h2 class="small-heading">Summon Spells</h2>
-        <p set:html={parseTextToHTML(card.summonSpells)} />
+        {summonSpells.map((sp) => (
+          <p class="summon-spell">
+            <strong class="ss-name">{sp.name}</strong>
+            {sp.quick && <span class="ss-speed">Quick</span>}
+            {sp.cost && <Fragment set:html={parseTextToHTML(sp.cost)} />}
+            {sp.text && <span class="ss-text" set:html={" " + parseTextToHTML(sp.text)} />}
+          </p>
+        ))}
       </div>
     )}
 
@@ -228,6 +243,13 @@ if (card.duration !== null) extras.push(["Duration", `${card.duration} turns`]);
   }
   .lightbox[hidden] { display: none; }
   .lightbox-img { max-width: 92vw; max-height: 92vh; width: auto; object-fit: contain; }
+  .summon-spell { margin: 0.35rem 0 0; }
+  .ss-name { font-weight: 700; }
+  .ss-speed {
+    display: inline-block; margin-inline: 0.35rem 0.15rem; padding: 0 0.45rem; border-radius: 4px; vertical-align: 0.1em;
+    font-size: 0.72em; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: hsl(280 60% 92%); background: hsl(280 45% 38%);
+  }
 </style>
 
 <script>
