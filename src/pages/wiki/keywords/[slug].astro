@@ -15,11 +15,21 @@ const list = cards.filter((c) => !c.token && c.keywords.some((p) => k.printed.in
   {badge && <img slot="before" class="kw-hero" src={badge} alt="" width="72" height="72" />}
   <p slot="before" class="crumbs"><a href="/wiki/keywords/">Keywords</a>{k.entry && <> / {CATEGORY_LABEL[k.entry.category] ?? k.entry.category}</>}</p>
   {k.entry?.confidence === "low" && <p class="pending">This definition hasn't been confirmed yet. When in doubt, the card's own text wins.</p>}
+  {k.entry && <h2 id="rules">Rules</h2>}
   {k.entry ? <Fragment set:html={md(k.entry.body.replace(/^\(Definition pending\.\)\s*/, ""))} /> : <p><em>A full definition for this keyword is coming soon.</em></p>}
+
+  {k.entry?.rulings && k.entry.rulings.length > 0 && (
+    <>
+      <h2 id="rulings">Rulings</h2>
+      <ul class="rulings">
+        {k.entry.rulings.map((r) => <li set:html={md(r).replace(/^<p>|<\/p>\s*$/g, "")} />)}
+      </ul>
+    </>
+  )}
 
   {list.length > 0 && (
     <>
-      <h2>Cards with {k.name} ({list.length})</h2>
+      <h2 id="cards">Cards with {k.name} ({list.length})</h2>
       <div class="kw-cards">
         {list.map((c) => (
           <a href={`/cards/${c.slug}/`} class="kw-card" title={c.name}>
@@ -34,6 +44,9 @@ const list = cards.filter((c) => !c.token && c.keywords.some((p) => k.printed.in
 
 <style>
   .crumbs { color: var(--clr-neutral-300); }
+  .rulings { display: grid; gap: 0.6rem; padding-left: 1.2em; }
+  .rulings li { padding-left: 0.2rem; }
+  .rulings li::marker { color: var(--clr-accent); }
   .kw-hero { float: right; width: 4.5rem; height: 4.5rem; object-fit: contain; margin-inline-start: 1rem; }
   .pending { padding: 0.6rem 1rem; border-left: 3px solid var(--clr-accent); background: hsl(40 100% 60% / 0.08); font-size: var(--fs-sm); }
   .kw-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.75rem; margin-block: 1rem; }

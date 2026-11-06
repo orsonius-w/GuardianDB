@@ -1,722 +1,1052 @@
 [
-  {
-    "name": "Manifest",
-    "category": "trigger",
-    "short": "Triggers when this card enters the board, whether it was cast or put into play by an effect.",
-    "body": "**Manifest** abilities trigger when the card enters play. That covers a normal cast and any effect that puts the card onto the board: a spawned token, a Summon returned from the graveyard, an Item put into play. A Manifest goes on the Stack and can be answered before it resolves. Anything it looks at, such as the top cards of your deck, is looked at as it resolves, not when it triggers.\n\n- A Manifest without \"may\" is not optional.\n- A targeted Manifest may pick its own card unless the text says \"other\".\n- A Summon cast in response (Intervene) puts its Manifest on the Stack above what it answered, so the Manifest resolves first.\n- A Summon coming back from Stasis never left play, so its Manifest does not fire again.",
-    "confidence": "high",
-    "note": "That a targeted Manifest may pick its own card unless it says 'other' is a reading awaiting the designer's confirmation."
-  },
-  {
-    "name": "Resonance",
-    "category": "trigger",
-    "short": "A triggered ability that fires every time its condition is met, not just once.",
-    "body": "**Resonance** abilities say \"whenever ...\" and trigger every time their condition is met, for as long as the card is in play. Each trigger goes on the Stack and can be answered.\n\n- A token entering counts as a Summon entering for \"whenever another ... enters\".\n- \"Whenever you cast a Spell\" triggers at the cast, so it resolves before that Spell does, and still counts if the Spell is negated afterwards. A Spell attached to a Summon is cast by that Summon, not by a player.\n- \"Once per turn\" means once in each turn, yours and your opponent's.\n- A Resonance that acts on its own Summon does nothing if that Summon has left the board by the time it resolves.\n- A Resonance that only generates Energy resolves at once, without the Stack.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Flying",
-    "category": "movement",
-    "short": "Moves past non-Flying Summons and can't be attacked in melee by non-Fliers. Ranged attacks deal it 1 extra damage.",
-    "body": "A Summon with **Flying** has Melee Protection: Summons without Flying can't attack it in melee. Ranged attackers can still hit it, even from an adjacent field, and pure Ranged Combat (not Bi, Dual or Magic) deals a Flier 1 extra damage, added before Defense. A Flier moves past Summons that don't have Flying. Flying gives no extra Movement.\n\n- The protection only works while defending. A Flier that attacks takes its counterattack as normal.\n- A Guardian's attack ignores Flying entirely.\n- Summons with **Skyscraper** can attack Fliers in melee.\n- A fight effect ignores Flying's protection.\n- A Petrified Summon loses Flying.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Perpetual",
-    "category": "static",
-    "short": "A static, always-on effect. It needs no activation and works for as long as the card is in play.",
-    "body": "**Perpetual** marks a continuous effect: it needs no activation, uses no Stack and works for as long as its card is in play. It is printed on any static line that reaches beyond the card itself, such as \"Summons you control have ...\" or a Building's ongoing bonus. An effect that only changes the card itself (\"This Summon gets +1A for each other Summon you control\") is written without it. Runes don't print Perpetual, because every line on a Rune is always on already.\n\nA Perpetual is checked live. When its source leaves play or is Constrained, whatever it gave other cards is gone at once. A Summon in Stasis has no Perpetual effects at all.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Demise",
-    "category": "trigger",
-    "short": "Triggers when this card goes to the graveyard, from any cause.",
-    "body": "**Demise** triggers whenever this card reaches the graveyard, however it got there: destroyed by damage or an effect, sacrificed, a Duration running out, a Trap resolving. The destination is the test, not the cause. Demise goes on the Stack and can be answered.\n\n- It does **not** trigger if the card goes to the Void, back to a hand or deck, or into a Treasure Chest. None of those is a death.\n- A card saved by an \"instead\" effect never reaches the graveyard, so its Demise doesn't fire.\n- A Summon that dies under your opponent's control dies as theirs: its Demise belongs to them, even though the card goes to your graveyard.\n- A Demise that deals damage still does so after its Summon is gone.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Guardprotect",
-    "category": "protection",
-    "short": "While in your Guarded Zone, your Guardian can't be attacked, and damage or life loss aimed at your Guardian goes to this Summon.",
-    "body": "A Summon with **Guardprotect** in your Guarded Zone is a taunt: the enemy can't declare an attack on your Guardian and must attack the protector instead. It also takes everything else aimed at your Guardian: Spell damage, Shockwave, a Manifest's or Demise's damage, Curses, Traps, even your own drawbacks like \"your Guardian loses 1 life\".\n\n- Redirected damage meets the protector's Defense or Resistance; a life loss goes past them.\n- With several protectors, the one nearest death takes it (for Shockwave, the attacker chooses).\n- Damage beyond the protector's Life is lost. It never spills onto the Guardian.\n- A Life **cost** you pay is never redirected.\n- **Breach** attackers ignore the taunt.\n- It guards the Guardian, not your Buildings.\n- A Guardprotect Summon never has Grace.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Onslaught",
-    "category": "trigger",
-    "short": "Triggers after this Summon attacks, once combat is over, if it survived.",
-    "body": "**Onslaught** triggers at the end of combat when this Summon made an attack. It goes on the Stack and can be answered.\n\n- The attacker must survive. One killed by the counterattack gets no Onslaught.\n- A counterattack is not an attack, so defending never triggers Onslaught.\n- It fires once for each attack the Summon makes.\n- Onslaught can be granted by other cards; a granted one fires alongside any printed one.\n- A Constrained Summon loses its printed Onslaught.\n\nOnslaught is the reward for a fight you planned well: pick attacks your Summon can walk away from.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Infiltrate",
-    "category": "trigger",
-    "short": "Triggers the first time this Summon lands on a field on your opponent's side of the board.",
-    "body": "**Infiltrate** triggers the first time this Summon arrives on a field of the opponent's half, however it got there: its own move, a Swift move, a push or pull, a swap, a slide or a teleport. It triggers once per stay on the board. It goes on the Stack, with any target chosen as it triggers; if that target is gone when it resolves, it fizzles.\n\n- The shared fast-lane fields don't count, since they belong to both sides. Stepping out of a fast lane onto any real enemy field, even sideways, does.\n- A Summon that enters play directly on the enemy's half infiltrates too.\n- A bonus printed with no duration is permanent. A duration binds only the sentence it is in.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Assault",
-    "category": "trigger",
-    "short": "Triggers when this Summon declares an attack, and resolves before the attack deals damage.",
-    "body": "**Assault** triggers when this Summon initiates an attack. It goes on the Stack on top of the attack, above the defender's Ward, so it resolves first, before any damage is dealt. That makes it the place for bonuses meant to matter in this fight.\n\n- It only triggers on attacks this Summon declares, never on its counterattacks.\n- If the attack is taken away before it reaches the Stack, for example by a Trap that answers the declaration, the Assault is lost with it.\n- An Assault can be granted, for example by Equipment, and fires each time the Summon attacks.\n- Read the card for how long its effect lasts.",
-    "confidence": "medium",
-    "note": "Older text says an Assault's effect ends right after the attack, but a granted Assault lasts until end of turn; how long is left to each card."
-  },
-  {
-    "name": "Agility",
-    "category": "trigger",
-    "short": "Triggers after this Summon finishes a Movement Action of its own.",
-    "body": "**Agility** triggers when this Summon completes its own Movement Action. The move itself doesn't use the Stack; once it is done, the Agility goes on the Stack and can be answered. A targeted Agility picks its target then.\n\n- Only real movement counts. Being pushed, pulled, swapped or teleported by an effect never triggers it, however far the Summon goes.\n- Movement Abilities (Switch, Retreat, Advance and the rest) are Full Actions, not Movement Actions, so they never trigger Agility, even when they move this Summon.\n- A Swift move after an attack doesn't trigger it either.\n- Some Agilities offer an optional payment, asked after the move.\n- An Agility that only generates Energy resolves at once.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Dominate",
-    "category": "trigger",
-    "short": "Triggers when this Summon slays an enemy Summon in combat.",
-    "body": "**Dominate** triggers when this Summon deals lethal combat damage to an enemy Summon, attacking or counterattacking. It is a kill trigger: the fight must be won outright. The effect is whatever the card prints after \"Dominate\". It goes on the Stack above the slain Summon's Demise, so it resolves first, and it can be answered.\n\n- Dominate can be granted by Spells, Equipment and Perpetuals. Every Dominate a Summon has fires on the same kill.\n- If this Summon has left play before the Dominate resolves, any part that acts on the Summon itself does nothing; the rest still happens.\n- A Constrained Summon's Dominate does nothing.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Diving",
-    "category": "movement",
-    "short": "While in a Sea Terrain, it can't be attacked in melee by Summons without Diving.",
-    "body": "**Diving** only works while this Summon stands in a Sea Terrain. There it has Melee Protection: Summons without Diving can't attack it in melee. Another Diver can, and so can a Summon with **Skyscraper**. Diving gives no extra movement.\n\n- In a Sea Terrain a Diver also passes under Step Traps. On dry ground it springs them like anyone else. Universal and Zone Traps catch Divers anywhere.\n- Several hazards don't affect Divers, among them Slippery ice, Deep Pools, Boulders and Grasping Roots.\n- A Petrified Summon keeps Diving.\n- Granted Diving works exactly like printed Diving. A Constrained Summon loses it.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Intervene",
-    "category": "other",
-    "short": "This card can be cast in response, like a Quick Spell, whenever you hold priority.",
-    "body": "A card with **Intervene** can be cast in answer to something, the way a Quick Spell can: whenever you hold priority, including on your opponent's turn and while the Stack holds something. A Spell with Intervene works exactly like a Quick Spell, whatever its subtype. Summons, Items, Terrains and Buildings with Intervene can be cast in answer too.\n\n- A Summon cast with Intervene puts its Manifest on the Stack above whatever it answered, so the Manifest resolves first and can affect that Spell or attack.\n- Some cards grant Intervene, letting you cast your Incantations as though they had it.\n- A Hex cast with Intervene is still a Hex for cards that ask whether something is a Quick Spell.\n- A Treasure with no other card type never gets it.",
-    "confidence": "medium",
-    "note": "The codex defines Intervene through card rulings; there is no single base definition."
-  },
-  {
-    "name": "Skyscraper",
-    "category": "combat",
-    "short": "Can attack Fliers, and Divers in a Sea Terrain, in melee despite their Melee Protection.",
-    "body": "A Summon with **Skyscraper** is huge enough to reach what others can't. It can attack Summons with Melee Protection in melee range: Fliers, and Divers standing in a Sea Terrain. It is how a Summon without Flying deals with a Flier up close.\n\nSkyscraper doesn't give Flying. It doesn't let the Summon move past others and doesn't protect it from anything. It only removes the Melee Protection obstacle when this Summon picks what to attack.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Swiftstrike",
-    "category": "combat",
-    "short": "The defender can't counterattack this Summon's attack.",
-    "body": "**Swiftstrike** is a Skill, part of the Summon itself, so it never uses the Stack. When a Summon with Swiftstrike attacks, the defender doesn't get its usual counterattack. It is one of the few ways around Guardian's baseline rule that a defender who survives always strikes back.\n\n- **Clash** doesn't get around it: a Clash defender can't hit back against Swiftstrike either.\n- It still applies when an effect makes Summons fight, since fights use the normal combat rules.\n\nSwiftstrike Summons are the safest attackers in the game: pick fights they can't finish and they still come home unhurt.",
-    "confidence": "low",
-    "note": "The codex never defines Swiftstrike in full; it only lists it as a Skill that stops counterattacks."
-  },
-  {
-    "name": "Venomous",
-    "category": "ailment",
-    "short": "When this Summon's combat damage costs a Summon Life, that Summon gets a Poison counter.",
-    "body": "When a Summon with **Venomous** deals combat damage to another Summon, attacking or counterattacking, that Summon gets a Poison counter and becomes **Poisoned**.\n\n- Only a hit that actually takes Life poisons. If Defense or Resistance absorbs the whole hit, there is no Poison, so enough Defense is an answer to Venomous.\n- Nothing is immune to it.\n- Only Summons are poisoned, and a Guardian's attack never involves it.\n- A **Battlelash** attack doesn't stop it: the defender's counterattack still carries Venomous.\n\nPoison counters stack, and each one costs the Summon 1 Life in its controller's Guardian Phase.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Water Breather",
-    "category": "other",
-    "short": "In your Guardian Phase, pay [2] or [1 Water], or sacrifice this Summon, unless it stands in a Sea Terrain.",
-    "body": "A Summon with **Water Breather** needs water. In each of your Guardian Phases you must pay [2] or [1 Water] for it, or it is sacrificed. If it stands in a Sea Terrain, there's nothing to pay.\n\n- Your Energy storage is usually empty in the Guardian Phase, so you may pay with idle Workers. Doing so taps them.\n- Declining, or being unable to pay, drowns the Summon. That is a sacrifice, so its Demise triggers.\n- A Constrained Summon loses Water Breather, and with it any protection the keyword gave.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Zealing",
-    "category": "celerity",
-    "short": "Can move and act on the turn it enters play.",
-    "body": "Summons normally arrive with their action tokens spent and can't move, attack or cast on the turn they enter. A Summon with **Zealing** ignores that: it can move, attack, cast its Spell and use its abilities right away.\n\n- Zealing gained after the Summon entered works the same turn: the actions it couldn't use come back.\n- It is also the way out for a Summon you just took control of, which otherwise can't act that turn.\n- Acting in the turn it entered costs it Grace, so a Zealing Summon in your Guarded Zone must choose between acting and staying safe.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Ward",
-    "category": "trigger",
-    "short": "Triggers when this Summon is attacked, at the declaration, and resolves before the attack deals damage.",
-    "body": "**Ward** triggers when this Summon is declared as an attack's target, whatever the attack then does. The effect is the card's own: drawing cards, changing its stats and so on. It goes on the Stack above the attack and resolves before any damage. A few Wards print a part that waits until after combat.\n\n- If the attacker has an Assault, that resolves first, then the Ward, then the attack.\n- A **Battlelash** attack switches Ward off, so no Ward triggers.\n- If the attack is taken away before it reaches the Stack, for example by a Trap that answers the declaration, the Ward is lost with it.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Chill",
-    "category": "ailment",
-    "short": "Combat damage from this Summon depletes, deactivates and Chills the target. A target already deactivated becomes Frozen instead.",
-    "body": "When a Summon with **Chill** deals battle damage to another Summon, that Summon is depleted and deactivated: it becomes **Chilled**. A Summon that is already Chilled, or deactivated for any other reason, becomes **Frozen** instead, and won't reactivate in its controller's next Active Phase.\n\nCards that say \"Chill target Summon\" apply the same effect directly, with no damage involved.\n\n- An anticipating Summon is deactivated, so a Chill hit freezes it, whatever its doubled Defense.\n- Chill punishes Summons that already acted. Hit a Summon that attacked this turn and it freezes.\n- Some Guardians can grant Chill to a Summon.",
-    "confidence": "medium",
-    "note": "The keyword entry freezes a Chilled target; a later ruling freezes any deactivated target. The body follows the later ruling."
-  },
-  {
-    "name": "Shockwave",
-    "category": "combat",
-    "short": "When this Summon's combat damage gets through, it also deals X damage to the target's controller's Guardian.",
-    "body": "**Shockwave X** is a Skill: when this Summon's combat damage gets through to a target, it also deals X damage to that target's controller's Guardian. X is the number printed after the keyword. It is part of the attack and never uses the Stack.\n\n- It works on Buildings too: damage that reaches a Building's Life sends X to its controller's Guardian.\n- Guardprotect catches it. A protector in the Guarded Zone takes the Shockwave instead, through its Defense against a physical striker or its Resistance against a magic one. With several protectors, the attacker chooses.\n- That redirected hit is not an attack on the protector, so it doesn't counterattack.",
-    "confidence": "medium",
-    "note": "The keyword says 'direct combat damage'; only the Building ruling spells out that the damage must reach Life."
-  },
-  {
-    "name": "No Guardian Attacks",
-    "category": "combat",
-    "short": "Best reading: this Summon cannot attack Guardians.",
-    "body": "(Definition pending.) **No Guardian Attacks** is printed on several cards but isn't defined in the rules codex. The best reading of the wording: a Summon with it can't declare attacks on a Guardian. It can still attack Summons in range, and the rest of combat works as normal. Expect it on Summons whose stats would otherwise pressure a Guardian too easily. Check the card's own reminder text for the exact restriction.",
-    "confidence": "low",
-    "note": "Not covered in the codex at all; the body is a reading of the keyword's name."
-  },
-  {
-    "name": "Company",
-    "category": "condition",
-    "short": "Its effect is on while this Summon is orthogonally adjacent to another Summon you control.",
-    "body": "**Company** is a condition, checked continuously. Its effect, printed after the keyword, is on while at least one other Summon you control stands directly up, down, left or right of this one. Diagonal neighbours don't count. The moment that adjacency breaks, the effect stops. It never uses the Stack.\n\n- A shared fast-lane field belongs to both sides, so it counts for adjacency on either half.\n- A Summon in Stasis counts for nothing, so it keeps no one company.\n- Some cards redefine what counts as adjacent, and Company follows them.\n- Company can be granted by other cards.\n\n**Loner** is its opposite.",
-    "confidence": "medium",
-    "note": "Open: whether a Company 'once per turn' refreshes only in its controller's Active Phase or every turn."
-  },
-  {
-    "name": "Retaliate",
-    "category": "combat",
-    "short": "A Summon that attacks this one from an adjacent field takes X damage before it strikes.",
-    "body": "**Retaliate X** is a Skill: a Summon that attacks this one from an adjacent field takes X damage as the attack resolves, before its own damage, through its Defense. If that kills the attacker, its attack never lands. X is the number printed after the keyword.\n\n- Melee range means distance, not combat type. A Ranged attacker standing next to it is hit; anything attacking from two fields away is not.\n- When X is counted (\"equal to the number of ...\"), it is read the moment Retaliate fires, so changing the count in response changes the damage.\n- Retaliate gained for good adds to any Retaliate the Summon already has.\n- A **Battlelash** attack switches it off.\n- A Building with Retaliate answers every attacker.\n- A Petrified Summon keeps it.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Block",
-    "category": "element",
-    "short": "If active, negates one physical attack against this Summon, then deactivates it.",
-    "body": "**Block** rewards a Summon that held back. When it is attacked by a non-magical attack while active, the attack is negated: no damage and no counterattack, as if the exchange never happened. Then the Blocker is deactivated. It is not depleted, so it keeps its unspent action tokens.\n\n- Only activation state matters. Moving doesn't deactivate, so a Summon can move and still Block, and a freshly cast Summon can Block in its first turn.\n- Reactivating a Blocker gives its Block back.\n- A Dual Combat attacker that chooses physical can be Blocked; a magic attack can't.\n- **Battlelash** deactivates the defender first, so it gets past Block. An anticipating Summon is deactivated and can't Block.\n- A Petrified Summon can still Block while active.",
-    "confidence": "medium",
-    "note": "Open: whether Block also stops a Guardian's attack. The physical-only limit is assembled from older notes."
-  },
-  {
-    "name": "Seabound",
-    "category": "movement",
-    "short": "This Summon's Movement is 0 unless it stands in a Sea Terrain.",
-    "body": "A **Seabound** Summon simply can't leave the water. Outside a Sea Terrain its Movement is 0; inside one it moves with its printed Movement. Unlike Water Breather, there is no upkeep to pay to get around it.\n\n- A Terrain that counts as a Sea Terrain counts for Seabound.\n- Some Seas reach into the middle of the board, letting a Seabound Summon get forward.\n- Some cards remove Seabound from a Summon.\n\nPlan around the Sea: a Seabound Summon is only as mobile as your Terrains let it be.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Shadow Step",
-    "category": "element",
-    "short": "At the end of your turn, if active and unused, it can't be attacked by stronger Summons until your next Active Phase.",
-    "body": "**Shadow Step** is a Darkness posture taken at the end of your own turn. If the Summon is active and still has its full action unspent, you may have it Shadow Step. Until your next Active Phase, it can't be attacked by any Summon whose primary attack is strictly greater than its own.\n\n- Primary attack is Attack for Close and Ranged Summons, Magic for Magic Combat, and the higher of the two for Dual Combat.\n- Summons with an equal or lower primary attack can still attack it.\n- It only stops attacks. Spells and abilities can still target it.\n- A Summon that attacked or used a Full Action that turn can't Shadow Step.",
-    "confidence": "medium",
-    "note": "The 'unspent full action' condition predates the current action system, and whether Shadow Step deactivates the Summon isn't stated."
-  },
-  {
-    "name": "Retreat",
-    "category": "movement",
-    "short": "Movement Ability: this Summon steps away from an adjacent friend and pulls that friend into the field it left.",
-    "body": "**Retreat** is a Movement Ability. Choose an adjacent friendly Summon. This Summon steps one field directly away from it along their shared line, and the friend is pulled into the field this Summon just left. The pair ends up shifted by one field, this Summon leading.\n\n- \"Away\" means away from the friend, never \"toward your Guardian\". A Summon standing on the enemy side of its friend retreats deeper into enemy territory.\n- Like all Movement Abilities it is a Full Action: it deactivates this Summon but spends no action token, and it can only be used in your own turn with an empty Stack, never as a response.\n- It can move a Frozen or Immobilized friend.\n- Arriving in enemy territory this way triggers Infiltrate, but Retreat never triggers Agility.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Absorb",
-    "category": "combat",
-    "short": "Heals this Summon by the combat damage its own attack deals, up to its maximum Life.",
-    "body": "When a Summon with **Absorb** attacks, it heals Life equal to the combat damage it dealt. Only combat counts: damage from Spells and abilities doesn't.\n\n- Only its own attacks count. When it counterattacks, it does not heal.\n- Healing is capped at its maximum Life. It restores lost Life and never raises the maximum.\n- An attack that deals no damage heals nothing.\n- Some cards grant Absorb only while a condition holds, such as while the Summon is a Loner; the same rules apply.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Twin Strike",
-    "category": "combat",
-    "short": "Strikes twice in one attack: two separate hits, each reduced by Defense or Resistance on its own.",
-    "body": "A Summon with **Twin Strike** (also printed Twinstrike) hits twice in sequence within a single attack. These are two separate hits, each reduced by the defender's Defense or Resistance on its own, not one doubled hit. It is still one attack: it doesn't let the Summon declare a second attack that turn.\n\nBecause Defense wears down within a turn, the first hit can strip Defense so that more of the second gets through. If the defender survives both hits, it counterattacks as normal. Twin Strike can also be granted by other cards.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Anticipate",
-    "category": "element",
-    "short": "At the end of your turn, if active, you may deactivate it to double its Defense until your next Active Phase.",
-    "body": "**Anticipate** is Earth's defensive posture. At the end of your own turn, if this Summon is active, you may deactivate it and have it anticipate. Until your next Active Phase, its Defense is doubled.\n\n- It doubles current Defense, buffs included. With Petrified it doubles again, for x4.\n- It only needs the Summon to be active. One that moved or attacked and was then reactivated can still anticipate.\n- Reactivating an anticipating Summon doesn't end the posture.\n- Being deactivated costs it Block and other keywords that need it active.\n- Magic damage goes to Resistance and ignores it entirely. **Off Guard** ignores all its Defense, and **Chill** freezes it.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Life Regen",
-    "category": "protection",
-    "short": "In your Guardian Phase, this Summon regains N Life, never above its maximum.",
-    "body": "**Life Regen N** heals this Summon by N Life in each of its controller's Guardian Phases, where N is the number printed after the keyword. It never takes the Summon above its maximum Life; it only restores Life that was lost.\n\nIt happens early in your turn, before your Draw and Tactic Phases, so a Summon worn down on your opponent's turn gets some Life back before you act. To kill a Life Regen Summon, finish it within a single turn. Some Summons regenerate more under a printed condition, for example while Petrified.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Jinxed",
-    "category": "trap",
-    "short": "The real effect of a Step or Universal Trap, used when a Summon lands on the trapped field itself.",
-    "body": "**Jinxed** and **Boggled** always come as a pair, on Step and Universal Traps only. **Jinxed** names the Trap's real effect: the one that happens when a Summon lands on the trapped field, exactly as with an ordinary Step or Universal Trap.\n\nIf the Summon instead enters the Trap's zone (its row) but misses the trapped field, the Trap may fire with its Boggled effect, usually weaker or just different. Both modes cost the same, and which one applies is decided by where the Summon landed. Zone and Positionless Traps can't have the pair.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Boggled",
-    "category": "trap",
-    "short": "Optional alternate effect when a Summon enters a Jinxed Trap's zone but misses the trapped field.",
-    "body": "**Boggled** is the consolation effect of a Step or Universal Trap that also prints **Jinxed**. When an enemy Summon enters the Trap's zone (its row) without landing on the trapped field, the Trap's owner may activate it anyway. The Summon is treated as though it had stepped on the Trap, but gets the Boggled effect instead of the Jinxed one.\n\n- It costs the same as the Jinxed activation and spends the Trap normally.\n- On a Universal Trap it also catches Flying and Diving Summons entering the zone.\n- It widens the net without changing the Trap: it stays positioned. That is what separates it from **Avert**.",
-    "confidence": "high",
-    "note": "Open: how Boggled works with Multi Traps and on the shared fast-lane fields."
-  },
-  {
-    "name": "Off Guard",
-    "category": "combat",
-    "short": "When this Summon attacks a deactivated Summon, it ignores all of that Summon's Defense and Resistance.",
-    "body": "**Off Guard** punishes a defender caught tapped. When a Summon with Off Guard attacks a deactivated Summon, its damage ignores all of the defender's Defense and Resistance and goes straight to Life.\n\n- It only applies when this Summon is the attacker, and only if the defender is deactivated at that moment.\n- It is the natural answer to an anticipating Earth Summon, whose doubled Defense means nothing to it.\n- A Summon that attacked, used a Full Action, or was frozen or deactivated by an effect is fair game.\n- Some Guardians and effects grant Off Guard until the end of turn.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Loner",
-    "category": "condition",
-    "short": "Its effect is on while no other Summon you control is orthogonally adjacent to this one.",
-    "body": "**Loner** is the reverse of Company. Its effect is on while no friendly Summon stands directly up, down, left or right of this Summon. Diagonal neighbours don't break it. The moment a friend moves next to it the effect stops, and when the friend leaves it is back. It is checked continuously and never uses the Stack.\n\n- Shared fast-lane fields count for adjacency on both sides.\n- A Summon in Stasis counts for nothing and doesn't spoil a Loner.\n- Some Loner effects work once per turn when the Summon is attacked. A **Battlelash** attack switches those off.",
-    "confidence": "medium",
-    "note": "Open: whether a Loner 'once per turn' refreshes only in its controller's Active Phase or every turn."
-  },
-  {
-    "name": "Gashing",
-    "category": "ailment",
-    "short": "When this Summon deals combat damage to a Summon, that Summon becomes Bleeding.",
-    "body": "When a Summon with **Gashing** deals combat damage to another Summon, that Summon becomes **Bleeding**.\n\n- It applies even when Defense absorbs the whole hit: damage dealt is damage dealt.\n- A hit that is prevented completely, for example by Astral, deals no damage and causes no Bleeding.\n- A second Gashing hit doesn't add more Bleeding unless a card makes Bleeding stack.\n\nA Bleeding Summon takes 1 damage at the end of its controller's turn, and 1 damage for each field it moves on its own, which makes Gashing a strong way to pin an enemy in place.",
-    "confidence": "medium",
-    "note": "Not yet ruled: whether a hit fully absorbed by Defense should count, and whether a second Gashing hit should stack."
-  },
-  {
-    "name": "Elusive",
-    "category": "element",
-    "short": "While active, may negate an enemy Spell or Ability targeting it; its controller draws a card and this Summon deactivates.",
-    "body": "**Elusive** is a reaction from the active/deactivated family. While this Summon is active and becomes the target of an enemy Spell or Ability, you may negate that Spell or Ability. If you do, its controller draws a card, and this Summon is deactivated.\n\n- You are asked the moment the Spell or Ability is announced, even with an empty hand.\n- A Summon that becomes Elusive while an enemy Spell or Ability is already aimed at it is asked right then.\n- A Treasure with no other card type is neither a Spell nor an Ability, so Elusive can't answer it.\n- The draw is the price that keeps Elusive from being a free counter.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Pierce",
-    "category": "combat",
-    "short": "Pierce X lowers the defender's Defense by X for this strike. Pierce with no number ignores all Defense and Resistance.",
-    "body": "**Pierce** comes in two forms.\n\n- **Pierce X** lowers the defender's Defense by X for this strike, where X is the printed number. It affects Defense only, not Resistance. Some Pierce only applies against certain defenders, as the card says. Against an anticipating Summon it comes off the already doubled Defense.\n- **Pierce** with no number ignores all of the defender's Defense and Resistance, whenever this Summon attacks or counterattacks.\n\nA defender's counterattack keeps its Pierce even against a **Battlelash** attacker. Older cards print the numberless form as \"Piercing\"; it is the same keyword.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Clash",
-    "category": "combat",
-    "short": "While active, its counterattack lands at the same time as the attack, so it strikes back even if the attack kills it.",
-    "body": "Normally a defender only strikes back if it survives. A Summon with **Clash** that is active when attacked counterattacks at the same time as the attack lands, so it hits back even when the attack kills it.\n\n- It needs the Summon to be active. A deactivated Clash Summon counterattacks the normal way, and only if it survives.\n- Clash changes when the counterattack lands, not whether one can happen. Range still matters, as do Frozen, Swiftstrike and anything else that prevents counterattacks.\n- **Battlelash** deactivates the defender, so it beats Clash.\n- Clash can be granted to a Summon, or to every Summon.",
-    "confidence": "medium",
-    "note": "Open: whether Clash should deactivate the Summon after it fires; at present it does not."
-  },
-  {
-    "name": "Shocking",
-    "category": "ailment",
-    "short": "When this Summon deals combat damage to a Summon, that Summon becomes Shocked.",
-    "body": "When a Summon with **Shocking** deals combat damage to another Summon, that Summon becomes **Shocked**: the next damage it takes is doubled.\n\n- Damage to a Guardian doesn't shock anything.\n- A Shock from combat has no clock. It stays until damage spends it.\n- Shocking can be granted until end of turn by Spells, or by Equipment.\n- Cards that react to a Summon becoming Shocked hear Shocking too.\n\nOrder your attacks: shock a dangerous Summon with one attacker, then finish it with a bigger hit from another.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Choose two",
-    "category": "other",
-    "short": "Pick two of the listed modes when you cast it; both happen, in the order they are printed.",
-    "body": "A card with **Choose two** lists several modes, and you pick two of them as you announce the cast. Modes come first, before targets and before costs, so both are fixed and visible when the card goes on the Stack and your opponent may respond.\n\n- The two modes resolve in the order they are printed on the card, not the order you picked them, so an earlier mode can set up a later one.\n- Until you have made your last pick, nothing has happened: you may step back and keep the card and your Energy.",
-    "confidence": "medium",
-    "note": "The codex covers Choose two only through casting-order and printed-order rulings."
-  },
-  {
-    "name": "Punishing",
-    "category": "ailment",
-    "short": "When this Summon deals combat damage to a Summon, that Summon becomes Punished.",
-    "body": "When a Summon with **Punishing** deals combat damage to another Summon, that Summon becomes **Punished** and gets a Punishment counter.\n\nA Punished Summon doesn't take damage itself. Instead, each time it attacks, its own controller's Guardian takes 1 damage for each Punishment counter on it. The Summon can still fight, but every swing hurts its side.\n\n- Punishment counters stack.\n- A Guardprotect Summon can catch that damage for its Guardian.\n- Punishing currently lands even when Defense absorbs the whole hit.",
-    "confidence": "medium",
-    "note": "Whether a hit fully absorbed by Defense should still punish hasn't been ruled."
-  },
-  {
-    "name": "Vitalize",
-    "category": "combat",
-    "short": "Once per turn, when this Summon deals or takes damage, you may reactivate a deactivated permanent.",
-    "body": "Once per turn, when a Summon with **Vitalize** deals or takes damage, its controller may reactivate up to one target permanent: any deactivated permanent except a Guardian, on either side.\n\n- \"Once per turn\" refreshes every turn, yours and your opponent's.\n- Damage dealt to a Guardian counts.\n- Reactivating only untaps. It doesn't refill action tokens, so a Summon that already attacked can't attack again, but it can use an [A] ability or a Movement Ability.\n- Normally only deactivated permanents are offered. When the Vitalize itself pays off through another card, any permanent may be picked.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Sprint",
-    "category": "celerity",
-    "short": "Can move, but not otherwise act, on the turn it enters play.",
-    "body": "Summons normally can't move, attack or cast on the turn they enter. A Summon with **Sprinting** (printed \"Sprint\" on some older cards) may use its Movement Action on the turn it enters, but nothing else: no attack, no Spell and no Full Action until your next turn.\n\n- It is good for claiming a position at once, such as heading for a fast lane.\n- Grace is bound to your Guarded Zone, so a Sprinter that moves out of it can be attacked that turn.\n- Sprinting can be granted by other cards.",
-    "confidence": "high",
-    "note": "The settled name is Sprinting; four older cards still print Sprint."
-  },
-  {
-    "name": "Goad",
-    "category": "combat",
-    "short": "Whenever another Summon you control attacks, this Summon gets +N Attack until end of turn.",
-    "body": "**Goad N** is a Skill. Whenever **another** Summon you control declares an attack, this Summon gets +N Attack until the end of turn, where N is the number printed after the keyword.\n\n- It never triggers on its own attack, and an enemy's attack does nothing.\n- It stacks: every qualifying attack in the turn adds another +N, and Goad from two sources on one Summon adds both.\n- It applies at the declaration and doesn't use the Stack, so there is no window to respond to it.\n\nOrder matters: swing with your other Summons first, then attack with the Goaded one.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Battlelash",
-    "category": "element",
-    "short": "When this Summon declares an attack, the defender is deactivated and its when-attacked abilities are turned off.",
-    "body": "**Battlelash** is Fire's answer to defensive tricks. When a Summon with Battlelash declares an attack, the defender is deactivated first, before anything else happens, and for that attack its reactive abilities are switched off: no Ward, no Wary, no Retaliate, no Contagious, no Block or Clash, no when-attacked Loner effect, and no activated abilities while the attack is on the Stack.\n\n- The defender's counterattack still happens normally, with whatever its strike carries, such as Venomous or Pierce.\n- Passive states stay: an anticipating Summon keeps its doubled Defense.\n- The defending player's Traps belong to the player, not the Summon, and still spring.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Shadow Cloak",
-    "category": "element",
-    "short": "At the end of your turn, if active and unused, it can't be targeted by enemy Spells or Abilities until your next Active Phase.",
-    "body": "**Shadow Cloak** is a Darkness posture taken at the end of your own turn. If the Summon is active and still has its full action unspent, you may have it Cloak. Until your next Active Phase, it can't be targeted by Spells or Abilities your opponent controls.\n\n- Only the opponent is shut out. Your own Spells and abilities can still target it, unlike **Untouchable**.\n- It doesn't stop attacks; it only stops targeting.\n- Effects that don't target can still reach it.",
-    "confidence": "medium",
-    "note": "The 'unspent full action' condition predates the current action system, and whether cloaking deactivates the Summon isn't stated."
-  },
-  {
-    "name": "Switch",
-    "category": "movement",
-    "short": "Movement Ability: this Summon swaps places with an adjacent friendly Summon.",
-    "body": "**Switch** is a Movement Ability: this Summon exchanges positions with an adjacent friendly Summon.\n\n- Like all Movement Abilities it is a Full Action: it deactivates this Summon but spends no action token, and it can only be used in your own turn with an empty Stack, never as a response.\n- Because it spends no token, ordinary movement is still available, and if something reactivates the Summon it can Switch again.\n- It can move a Frozen or Immobilized friend: being moved is not that Summon's own action.\n- A Summon carried into enemy territory triggers Infiltrate, but Switch never triggers Agility.\n- Some Terrains grant Switch to Summons standing in them.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Untouchable",
-    "category": "protection",
-    "short": "Can't be the target of any Spell, ability or effect, including your own.",
-    "body": "A Summon with **Untouchable** can't be the target of Spells, abilities or effects. Unlike Shadow Cloak or Stealth, it doesn't matter who controls them: your own Spells can't target it either.\n\n- It doesn't stop attacks.\n- Effects that don't target, such as \"each Summon\", still reach it.\n- A sacrifice gets around Untouchable.\n- Untouchable can be granted, for example by an Enchantment.\n\nUntouchable is protection against removal, not against combat: plan to fight it on the board.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Devotion",
-    "category": "condition",
-    "short": "Protects your other Summons in the same zone by taking damage and effects meant for them.",
-    "body": "**Devotion** works like Guardprotect, but for your Summons instead of your Guardian, and only within this Summon's own zone. A Devotion Summon is a tank: it intercepts damage and effects aimed at your other Summons (those without Devotion) in the same zone.\n\n- The zone is this Summon's row on your own half of the board. The matching row on the opponent's half isn't covered.\n- A Summon in Stasis counts for nothing here.\n- A Devotion Summon never has Grace, so even a freshly cast one can be attacked.",
-    "confidence": "medium",
-    "note": "The codex gives only a short definition; how attacks and other effects are intercepted isn't spelled out."
-  },
-  {
-    "name": "Scorch",
-    "category": "ailment",
-    "short": "When this Summon deals combat damage to a Summon, that Summon becomes Burning.",
-    "body": "Whenever a Summon with **Scorch** deals combat damage to another Summon, that Summon becomes **Burning**.\n\n- It applies even when Defense absorbs the whole hit: damage dealt is damage dealt.\n- A hit prevented completely, for example by Astral, deals no damage and sets nothing alight.\n- Burning doesn't stack, so Scorching a Burning Summon again changes nothing.\n\nA Burning Summon takes 1 damage at the start of each of its controller's turns, and its Defense stops regenerating, so every point of Defense it loses stays lost until the Burning is removed.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Wary",
-    "category": "protection",
-    "short": "This Summon can be attacked only once per turn.",
-    "body": "A Summon with **Wary** can only be attacked once per turn. The first attack declared against it lands normally; after that, no other attack can be declared on it for the rest of that turn. The limit resets at the start of every turn, yours and your opponent's.\n\n- If a Wary Summon has to die this turn, the one attack you get must be enough.\n- A **Battlelash** attack ignores Wary: it isn't stopped by it and doesn't use it up.\n- Some Summons are Wary only in a certain state, such as while anticipating.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Deep Infiltration",
-    "category": "trigger",
-    "short": "Triggers the first time this Summon reaches the opponent's Guarded Zone.",
-    "body": "**Deep Infiltration** triggers the first time this Summon arrives on a field of the opponent's Guarded Zone. It works like **Infiltrate** but only counts that back row. It goes on the Stack.\n\n- It is independent of Infiltrate. A card can have Deep Infiltration without Infiltrate, and a Summon that reaches the enemy Guarded Zone without first standing elsewhere on their half fires both at once.\n- Like Infiltrate, any arrival counts: its own move, a push, a swap or a teleport.\n- It triggers once per stay on the board.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Astral",
-    "category": "protection",
-    "short": "Prevents all physical combat damage dealt to this Summon by Summons.",
-    "body": "An **Astral** Summon is a ghostly body: all physical combat damage dealt to it by Summons, from their attacks and their counterattacks, is prevented.\n\n- Magic damage hits it normally.\n- Physical damage from Spells and abilities isn't combat damage, so it lands.\n- Direct damage lands.\n- A Guardian isn't a Summon, so a Guardian's attack lands too.\n- A hit Astral prevents deals no damage at all, so riders like Gashing or Scorch don't apply.\n\nAstral isn't tied to an element; any spirit or ghost may have it. Old cards printing Spectral mean Astral.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Call Back",
-    "category": "movement",
-    "short": "Movement Ability: move an adjacent friendly Summon to the opposite side of this Summon.",
-    "body": "**Call Back** is a Movement Ability. Choose an adjacent friendly Summon: it moves past this Summon to the field on its opposite side. This Summon stays where it is. It is the mirror of **Advance**, where this Summon moves past the friend instead.\n\n- It works only orthogonally, and the landing field must be free.\n- Like all Movement Abilities it is a Full Action: it deactivates this Summon but spends no action token, and it can only be used in your own turn with an empty Stack, never as a response.\n- It can move a Frozen or Immobilized friend.\n- Call Back can be granted, for example by Equipment.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Contagious",
-    "category": "ailment",
-    "short": "A Summon that deals combat damage to this one from an adjacent field becomes Poisoned.",
-    "body": "When a Summon deals combat damage to a **Contagious** Summon from an adjacent field, the striker becomes **Poisoned**. It works on strikes and counter-strikes alike, so a Contagious Summon also poisons whatever hits back when it attacks.\n\n- Melee range only. A Summon that strikes from two or more fields away is not poisoned.\n- Guardians are never poisoned by it.\n- A **Battlelash** attack switches it off, and a Constrained Summon loses it.\n\nA Poisoned Summon loses 1 Life per Poison counter in each of its controller's Guardian Phases.",
-    "confidence": "medium",
-    "note": "Poisoning on counter-strikes and the Guardian exception are how it currently plays, not designer rulings."
-  },
-  {
-    "name": "Combination",
-    "category": "other",
-    "short": "You may cast this Spell with the Mana of a Summon that shares its element instead of paying Energy.",
-    "body": "A Spell with **Combination** may be cast using the Mana of a Summon you control that shares an element with it, instead of paying its Energy cost. You can always cast it normally with Energy instead.\n\n- The Mana cost equals the Spell's total cost, one for one, coloured pips included.\n- It uses that Summon's action, just like casting a Spell attached to it: the Summon spends its Cast token and is deactivated. A Summon that entered this turn can't do it.\n- The Spell keeps its speed: a Quick Combination Spell is still Quick.\n- Some cards give a bonus when cast through Combination.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Advancing Command",
-    "category": "movement",
-    "short": "Movement Ability: move an adjacent friendly Summon 1 field in the direction this Summon is facing.",
-    "body": "**Advancing Command** is a Movement Ability. Choose an adjacent friendly Summon and move it 1 field in the direction this Summon is facing.\n\n- Like all Movement Abilities it is a Full Action: it deactivates this Summon but spends no action token, and it can only be used in your own turn with an empty Stack, never as a response.\n- The moved Summon isn't acting, so even a Frozen or Immobilized friend can be ordered forward.\n- A Summon ordered into enemy territory triggers Infiltrate, but never Agility.\n\n**Assaulting Command** is the 2-field version of this order.",
-    "confidence": "medium",
-    "note": "The codex doesn't define a Summon's facing direction."
-  },
-  {
-    "name": "Coward",
-    "category": "other",
-    "short": "Definition pending; follow the card's own reminder text.",
-    "body": "(Definition pending.) **Coward** is printed on a couple of cards but isn't defined in the rules codex. Until it is, follow the reminder text on the card itself. The name points to a drawback for a Summon that avoids a fair fight, the kind of restriction Guardian otherwise prints in plain words, such as being unable to counterattack. Treat it as a drawback rather than a protection.",
-    "confidence": "low",
-    "note": "Not covered in the codex at all."
-  },
-  {
-    "name": "Swift",
-    "category": "combat",
-    "short": "After this Summon attacks, you may move it up to N fields. This isn't its Movement Action.",
-    "body": "**Swift N** is a Skill: after this Summon attacks, you may move it up to N fields, where N is the number printed after the keyword. This extra move is not its Movement Action.\n\n- A Summon that attacked without moving keeps its ordinary move as well, and uses that first.\n- Only attacks earn it, never counterattacks. An unused Swift move expires at the end of turn.\n- The Swift move triggers Infiltrate and field hazards, but never Agility.\n- Swift doesn't stack: with several sources, the largest N wins.\n- A Constrained Summon loses it.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Anguish",
-    "category": "ailment",
-    "short": "A Summon this one damages in combat becomes Agonized: it can't attack or counterattack this Summon.",
-    "body": "When a Summon with **Anguish** deals combat damage to an enemy Summon, attacking or counterattacking, that Summon becomes **Agonized**. An Agonized Summon can't attack or counterattack the Summon that agonized it.\n\n- Only damage that gets through to Life counts. A hit that Defense absorbs completely doesn't agonize.\n- Agonized has no clock. It lasts until something cleanses it, but only matters while its agonizer lives.\n- A Summon can be agonized by several Summons, and can't fight back against any of them.\n- Anguish can be granted by an Enchantment. A Constrained Summon loses it.",
-    "confidence": "medium",
-    "note": "That only damage reaching Life agonizes is a reading awaiting the designer's confirmation."
-  },
-  {
-    "name": "Fogged",
-    "category": "protection",
-    "short": "Can only be attacked from an adjacent field.",
-    "body": "A **Fogged** Summon can only be attacked from melee range: by an attacker on an adjacent field. Nothing can attack it from two or more fields away. Pure Ranged Combat can't attack an adjacent field, so it can't reach a Fogged Summon at all. To deal with one, you have to stand next to it.\n\n- A Fogged Flier is the exception: Ranged attackers may shoot an adjacent Flier, so they can hit it point-blank.\n- A Guardian's attack ignores Fogged entirely.\n- Spells and abilities aren't attacks and target it normally.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Aura",
-    "category": "static",
-    "short": "A continuous effect that reaches only the zone (row) its source is in.",
-    "body": "**Aura** works like Perpetual, a continuous effect with no activation, but it only reaches the zone its source is in. A zone is a row: your Guarded Zone, Battle Zone 1 or Battle Zone 2.\n\n- An Aura's zone is the source's row on its own half of the board.\n- The printed text decides who is affected. \"Other Pirates you control\" narrows it; an Aura that names enemy Summons reaches enemies standing in that zone.\n- It is checked live: step into the zone and you are affected, leave it and you are not.\n- A shared fast-lane field belongs to both players' Battle Zone 2.",
-    "confidence": "medium",
-    "note": "One entry says an Aura's row runs across the whole board; later rulings limit it to the source's own half. The body follows the later rulings."
-  },
-  {
-    "name": "Choose one",
-    "category": "other",
-    "short": "Pick one of the listed modes as you cast it; only that mode happens.",
-    "body": "A card with **Choose one** lists several modes, and you pick one. On a Spell the mode is announced first, before targets and costs, so it is fixed and visible on the Stack and your opponent knows what is coming. On a Summon's Manifest the modes are shown as choices before any target is asked for.\n\n- Only the chosen mode happens. The others are ignored.\n- When each mode says \"up to one target\", picking a target is picking the mode, and you may pick nothing.",
-    "confidence": "medium",
-    "note": "Covered only through casting-order rulings and a couple of card rulings."
-  },
-  {
-    "name": "Stealth",
-    "category": "protection",
-    "short": "Can't be targeted by enemy sources. Lost for good once it acts (other than moving), takes damage or loses Life.",
-    "body": "A Summon with **Stealth** can't be targeted by enemy sources. Your own effects can still target it.\n\nStealth breaks easily. It is lost for good the first time the Summon:\n- performs any action other than moving,\n- takes damage, or\n- loses Life.\n\nMoving keeps it hidden, so a Stealth Summon can walk into position safely. Attacking, casting a Spell or using an ability reveals it. Once broken, Stealth doesn't come back for the rest of that Summon's time on the board.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Glare",
-    "category": "combat",
-    "short": "At the end of each opponent's turn, if this Summon is active, its printed Glare effect happens at exactly the printed distance.",
-    "body": "**Glare** is a Skill that prints its own effect: \"Glare - [effect]\". At the end of each of your opponent's turns, if the Summon is active, that effect happens. It uses no Stack and isn't an attack, so nothing counterattacks and Grace doesn't stop it.\n\n- The reach is a ring, not a circle. The effect says \"exactly N fields away\", and only something at exactly that distance qualifies, with a diagonal step counting 2.\n- It happens before the End Phase regenerates Defense and Resistance, so stats worn down that turn are still worn.\n- Attacking deactivates a Summon until your next Active Phase, so a Glare Summon that attacks gives up its Glare.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Advance",
-    "category": "movement",
-    "short": "Movement Ability: this Summon moves to the opposite side of an adjacent friendly Summon.",
-    "body": "**Advance** is a Movement Ability: this Summon moves past an adjacent friendly Summon to the field directly beyond it. The friend stays put. It is the mirror of **Call Back**, where the friend moves past this Summon instead.\n\n- It works only orthogonally, and the landing field must be free.\n- Like all Movement Abilities it is a Full Action: it deactivates this Summon but spends no action token, and it can only be used in your own turn with an empty Stack, never as a response.\n- Arriving in enemy territory triggers Infiltrate, but Advance never triggers Agility.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Breach",
-    "category": "combat",
-    "short": "Can attack the enemy Guardian even while a Guardprotect Summon protects it, and that damage is never redirected.",
-    "body": "A Summon with **Breach** ignores Guardprotect's taunt. It can declare an attack directly on the enemy Guardian even while that Guardian is protected, by a Guardprotect Summon or a Guardprotect Building, and the damage it deals there is never redirected to the protector.\n\nIt still has to reach the Guardian the normal way: attacks on a Guardian are declared from that Guardian's Guarded Zone.\n\n- Breach can be granted, including conditionally. A Summon that has Breach only while standing in a certain Terrain loses it the moment it steps out.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Mana Regen",
-    "category": "other",
-    "short": "In your Guardian Phase, this Summon regains N Mana.",
-    "body": "**Mana Regen N** is listed among the effects that happen in the Guardian Phase. Read alongside **Life Regen N**, it restores N Mana to its Summon in each of its controller's Guardian Phases, where N is the number printed after the keyword.\n\nMana is the separate pool a Summon or Guardian uses to cast the Spells attached to it, so Mana Regen lets such a Summon keep casting turn after turn instead of running dry. The codex doesn't say whether it can go above the Summon's maximum Mana.",
-    "confidence": "low",
-    "note": "Only named in the Guardian Phase list; the details are read from Life Regen."
-  },
-  {
-    "name": "Reflex Counter",
-    "category": "combat",
-    "short": "When attacked, this Summon's counterattack strikes first, before the attacker's damage.",
-    "body": "**Reflex Counter** flips Guardian's normal combat order. When this Summon is attacked, it makes its counterattack **before** the attacker's damage resolves.\n\n- If the counter kills the attacker, the attack never lands.\n- If the attacker survives, it attacks as normal, and there is no second counter.\n- It is the ordinary counterattack moved earlier: it needs the usual range, and anything that stops a counterattack, such as being Frozen, stops it too.\n- It is often granted for a limited time, or only while the Summon is active.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Assaulting Command",
-    "category": "movement",
-    "short": "Movement Ability: move an adjacent friendly Summon 2 fields in the direction this Summon is facing.",
-    "body": "**Assaulting Command** is a Movement Ability. Choose an adjacent friendly Summon and move it 2 fields in the direction this Summon is facing. It is the stronger version of **Advancing Command**, which moves the friend 1 field.\n\n- Like all Movement Abilities it is a Full Action: it deactivates this Summon but spends no action token, and it can only be used in your own turn with an empty Stack, never as a response.\n- The moved Summon isn't acting, so even a Frozen or Immobilized friend can be ordered forward.\n- A Summon ordered into enemy territory triggers Infiltrate, but never Agility.",
-    "confidence": "medium",
-    "note": "The codex doesn't define a Summon's facing direction."
-  },
-  {
-    "name": "Frenzy",
-    "category": "other",
-    "short": "You don't control this Summon's actions; when you end your turn it moves toward the nearest enemy and attacks by itself.",
-    "body": "A Summon with **Frenzy** acts on its own. You can't move it, attack with it or use its abilities. Instead, when you end your turn (before the End Phase), it takes its own action: it moves toward the nearest enemy, into attack range if it can, and attacks an enemy in range.\n\n- Its target follows a fixed order: a kill it survives, then any kill, then the enemy Guardian if it can reach it, then the biggest threat.\n- It is still your Summon for every other purpose.\n- A Constrained Summon loses Frenzy.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Resilient",
-    "category": "protection",
-    "short": "The first time each turn this Summon would take damage, prevent all but 1 of it.",
-    "body": "The first time each turn a **Resilient** Summon would take damage, all but 1 of that damage is prevented. It is measured on what would reach its Life, after Defense and any other prevention.\n\n- The first damage of the turn always uses it up, even if it was only 1.\n- It resets every turn, yours and your opponent's.\n\nTo get through, hit it with something small first, then follow with the real attack.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Pick Up",
-    "category": "trap",
-    "short": "Pay the extra cost when the Trap activates, and it returns to your hand instead of the graveyard.",
-    "body": "**Pick Up** lets a Trap come back. When you activate the Trap you may also pay the extra cost printed after the keyword. If you do, the Trap returns to your hand instead of going to the graveyard, ready to be set again.\n\n- You are asked after the Trap's targets are named, since the price can depend on them, for example one discard per card targeted. It is paid as the Trap resolves.\n- Paying the wrong amount buys nothing.\n- Setting a Trap is free, so a Pick Up Trap can be reused for its activation cost plus the Pick Up cost.",
-    "confidence": "medium",
-    "note": "Open: whether Pick Up can be paid on a Boggled activation, and whether a returned Trap can be set again the same turn."
-  },
-  {
-    "name": "Spur",
-    "category": "combat",
-    "short": "Whenever another Summon you control attacks, this Summon gets +N Magic until end of turn.",
-    "body": "**Spur N** is Goad's Magic twin. Whenever **another** Summon you control attacks, this Summon gets +N Magic until the end of turn, where N is the number printed after the keyword.\n\n- Its own attack never spurs it, and an enemy's attack does nothing.\n- Each qualifying attack adds another +N.\n- It is a Skill: part of the Summon, applied as the attack happens, with no Stack and no window to respond.\n- Spur can be granted, and a granted Spur adds to a printed one.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Grovebound",
-    "category": "movement",
-    "short": "In a Forest Terrain, its Movement Action can take it to any free field in that Terrain.",
-    "body": "While a **Grovebound** Summon stands in a Forest Terrain, its Movement Action can take it to any free field in that same Terrain. There is no path and no range limit: it can go past occupied fields.\n\n- It is still the Summon's one Movement Action for the turn, so Agility triggers after it as usual.\n- Outside a Forest Terrain the Summon moves normally, using its own Movement stat.\n\nA Forest becomes home ground: a Grovebound Summon can turn up anywhere inside it.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Leaping",
-    "category": "movement",
-    "short": "A diagonal step costs this Summon 1 Movement instead of 2.",
-    "body": "Normally a diagonal step costs 2 Movement, because it counts as one step across and one step forward. A Summon with **Leaping** makes a true diagonal move at a cost of 1.\n\n- It doesn't lift the Summon over anything. Summons around it still block a diagonal just as they would for anyone else.\n- **Jumping**, printed on some tokens, means exactly the same thing.\n\nLeaping turns a Movement 1 Summon into one that can slip diagonally, which matters a lot on a 5-column board.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Magic Block",
-    "category": "element",
-    "short": "Best reading: Block's magic counterpart. If active, negates one magic attack against this Summon, then deactivates it.",
-    "body": "**Magic Block** appears in the codex only as the magic half of Block, recorded under the name Spell Block: the same shape as Block, for Magic Combat. Read that way: while this Summon is active, it negates one magic attack against it (no damage, no counterattack), and then it is deactivated.\n\nLike Block it should care only about activation state, so a Summon that only moved can still use it, and reactivating the Summon restores it. A Dual Combat attacker choosing the magic route would be stopped by it.",
-    "confidence": "low",
-    "note": "The codex describes it only as 'Spell Block', the magic version of Block; the details are assumed from Block."
-  },
-  {
-    "name": "Refresh",
-    "category": "movement",
-    "short": "Full Action: an adjacent Summon without Refresh reactivates and refills its movement and action.",
-    "body": "**Refresh** is a Full Action printed among the Movement Abilities. Target an adjacent Summon that doesn't have Refresh itself: it reactivates and refills its movement and its action, ready to go again.\n\n- Unlike an ordinary reactivate effect, it restores movement and action as well as the tap state.\n- Two Summons with Refresh can't refresh each other.\n- Using it deactivates the Summon that refreshes.\n- Nothing printed limits it to your own Summons.\n- It is a premium ability, found only on Rare Fairies and Heroes.",
-    "confidence": "medium",
-    "note": "Whether it may target an enemy Summon is a reading of the printed text, not a ruling."
-  },
-  {
-    "name": "Battlewise",
-    "category": "combat",
-    "short": "Attacking doesn't deactivate or deplete this Summon, but it still attacks only once per turn.",
-    "body": "Attacking normally spends a Summon's Attack token and deactivates it. A **Battlewise** Summon spends the token but stays active, so after attacking it can still cast its Spell, use an [A] ability or use a Movement Ability. It still can't attack twice in a turn.\n\n- Because it stays active, keywords that need an active Summon, such as Block, Clash or Glare, still work after it attacks.\n- If its attack fizzles because the target left, the attack is still spent, but the Summon isn't deactivated.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Fragile",
-    "category": "trap",
-    "short": "This Trap must be activated as soon as its condition is met; its owner can't hold it back.",
-    "body": "**Fragile** is a Trap modifier, printed on the type line. A Fragile Trap has no \"may\": the moment its condition is met it activates, and its owner can't choose to wait for a better target.\n\nThat is the price of a strong effect. Your opponent can bait a Fragile Trap with a Summon they don't mind losing, knowing it will go off at once. Set it where the first Summon to trigger it is the one you want to catch.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Avert",
-    "category": "trap",
-    "short": "An alternate activation with its own cost and effect, letting a positioned Trap fire without a Summon stepping on it.",
-    "body": "**Avert** gives a Step or Universal Trap a second way to go off, with its own cost and its own effect. In effect it turns the positioned Trap into a Positionless one: the Avert mode doesn't need a Summon to step on the trapped field.\n\n- Most Avert conditions read the board. They are checked whenever a Summon enters, moves or perishes, and the Avert stays on offer while the condition holds.\n- Some answer an event instead, such as an enemy Summon entering or attacking your Guardian. These are asked once, at that moment; declined, they aren't asked again for that Summon. Unfettered Summons don't set them off.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Burning",
-    "category": "ailment",
-    "short": "Status ailment: takes 1 damage at the start of its controller's turn, and its Defense doesn't regenerate.",
-    "body": "A **Burning** Summon takes 1 damage at the beginning of each of its controller's turns. That is real damage: it goes through Defense and can be prevented. On top of that, its Defense no longer regenerates: Defense lost while Burning stays lost through every End Phase, yours and your opponent's, until the Burning is removed. Worn to 0, it stays at 0.\n\n- Burning doesn't stack.\n- Its damage has no source and no controller, so effects that care about \"a source you control\" ignore it.\n- It is inflicted by **Scorch** and by various Fire cards.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Shocked",
-    "category": "ailment",
-    "short": "Status ailment: the next damage this Summon takes is doubled, then the Shock is spent.",
-    "body": "A **Shocked** Summon takes double damage from the next source of damage that hits it, and then the Shock is used up. The damage is doubled **before** Defense and Resistance: 3 damage becomes 6, and a Summon with 1 Defense takes 5.\n\n- How long it lasts depends on the card. A Shock from combat has no clock and waits until damage spends it. \"Until the end of turn\" ends in the End Phase. \"Until its controller's next Active Phase\" survives into the next turn.\n- It stacks with other doubling effects, for x4.\n- A Summon killed by the doubled hit still counts as having perished Shocked.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Poisoned",
-    "category": "ailment",
-    "short": "Status ailment: loses 1 Life per Poison counter in each of its controller's Guardian Phases. Life loss, not damage.",
-    "body": "A **Poisoned** Summon carries Poison counters, and in each of its controller's Guardian Phases it loses 1 Life for every counter on it. Counters stack.\n\nPoison is life loss, not damage. Defense and Resistance don't reduce it, damage prevention doesn't stop it, and effects that watch for damage don't see it. It has no clock: it lasts until something cleanses it or the Summon leaves play.\n\n- It is inflicted by **Venomous**, **Contagious**, Poison Spores and various cards.\n- Some Curses stop Poison counters from being removed.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Bleeding",
-    "category": "ailment",
-    "short": "Status ailment: 1 damage at its controller's End Phase, plus 1 damage for each field it moves on its own.",
-    "body": "A **Bleeding** Summon takes 1 damage at the end of its controller's turn, plus 1 damage for every field it moves on its own. Both are real damage, reduced by Defense and open to prevention.\n\n- Movement is counted by cost, so a diagonal step counts as 2 fields.\n- Only its own movement bleeds, a Swift move included. Being pushed, pulled or swapped doesn't.\n- Bleeding has no clock and lasts until cleansed. It doesn't stack unless a card says so; when it does, every stack counts again for each field moved.\n- It is inflicted by **Gashing** and by Caltrops.",
-    "confidence": "medium",
-    "note": "No clock, no stacking and no bleeding from forced movement are current readings, not final rulings."
-  },
-  {
-    "name": "Frozen",
-    "category": "ailment",
-    "short": "Status ailment: shut down at once, can't counterattack, and won't reactivate in its controller's next Active Phase.",
-    "body": "A **Frozen** Summon is shut down the instant it freezes, mid-turn included: it loses all its remaining actions for that turn. No movement, no attack, no attached Spell, no [A] ability.\n\n- It can't counterattack.\n- It doesn't reactivate in its controller's next Active Phase. The Freeze ends there instead, and the Summon gets no actions back that turn; it acts again the turn after.\n- Abilities that don't cost an action (no [A]) still work.\n- Other Summons' Movement Abilities can still move it.\n- Chill freezes a Summon that is already deactivated, and some effects hold a Freeze for several turns.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "Petrified",
-    "category": "ailment",
-    "short": "Status ailment: can't attack, move, counterattack or use [A] abilities; its Defense is doubled; no duration.",
-    "body": "A **Petrified** Summon is a statue. It can't attack, move, counterattack or use abilities that cost [A], and it doesn't reactivate in its Active Phase. Its Defense is doubled, or x4 if it is also anticipating.\n\n- It loses Flying, but keeps Diving.\n- Passive abilities keep working: Guardprotect, Retaliate, Auras, bonuses it gives others. Block still works while it is active.\n- Abilities that don't cost [A] can still be used.\n- It has no duration and lasts until cured. Only a few cards, mostly Gargoyles, remove it.\n- Petrified removed at the start of your Active Phase lets the Summon reactivate in that same phase.",
-    "confidence": "high",
-    "note": ""
-  },
-  {
-    "name": "_ailments_overview",
-    "category": "ailment",
-    "short": "Status ailments are conditions inflicted onto Summons in play, such as Poisoned, Burning, Bleeding, Shocked, Frozen and Petrified.",
-    "body": "**Status ailments** are conditions inflicted onto a Summon that is still in play, as opposed to keywords it is born with. They show as badges on the Summon.\n\nTwo families matter. **Burning** and **Bleeding** deal real damage: it goes through Defense and can be prevented. **Poisoned** is life loss: it skips Defense and Resistance, and no damage prevention stops it. Other ailments, such as **Shocked**, **Chilled**, **Frozen**, **Petrified**, **Punished**, **Agonized**, **Immobilized** and **Demoralized**, change what a Summon can do rather than hurting it directly.\n\n- An ailment's damage has no source and no controller, so \"a source you control\" effects never count it.\n- Most ailments have no clock and last until something cleanses them. When a card prints a duration, that duration applies.\n- \"Cleanse\" removes all status ailments from a Summon.\n- A Summon that leaves play loses its Poison and other counters.\n- Nothing ticks while a Summon is in Stasis, and Stasis itself is not an ailment.",
-    "confidence": "high",
-    "note": ""
-  }
+ {
+  "name": "Manifest",
+  "category": "trigger",
+  "short": "Triggers when this card enters the board, whether it was cast or put into play by an effect.",
+  "body": "**Manifest** abilities trigger when the card enters play. That covers a normal cast and any effect that puts the card onto the board: a spawned token, a Summon returned from the graveyard, an Item put into play. A Manifest goes on the Stack and can be answered before it resolves. Anything it looks at, such as the top cards of your deck, is looked at as it resolves, not when it triggers.\n\n- A Manifest without \"may\" is not optional.\n- A Summon cast in response (Intervene) puts its Manifest on the Stack above what it answered, so the Manifest resolves first.\n- A Summon coming back from Stasis never left play, so its Manifest does not fire again.",
+  "confidence": "high",
+  "note": "That a targeted Manifest may pick its own card unless it says 'other' is a reading awaiting the designer's confirmation.",
+  "rulings": [
+   "If something a Manifest named is gone by the time it resolves, that part fizzles: a card no longer in the graveyard can't be returned, and a field that has been taken is skipped.",
+   "A Manifest with a target counts as an ability for cards that guard against \"a Spell or ability targeting this Summon\", such as Ice-Crystal Lizard.",
+   "Naming a Fleeting Summon as a Manifest's target sacrifices it; the Manifest goes on without that target.",
+   "An Item cast in answer to an attack (Glider Harness) puts its Manifest on the Stack above the attack, so the Manifest resolves first.",
+   "An Equipment put into play by an effect fires its Manifest, but it was not cast, so nothing that cares about a cast sees it.",
+   "A Building's Manifest fires as the Building enters play, whether it was cast or put there.",
+   "A Summon that a Manifest returns to the board fires its own Manifest once it lands.",
+   "A Summon that comes back from the Void (for example with Spectralize) is a new arrival: it returns reset, at full Life, and its Manifest fires again."
+  ]
+ },
+ {
+  "name": "Resonance",
+  "category": "trigger",
+  "short": "A triggered ability that fires every time its condition is met, not just once.",
+  "body": "**Resonance** abilities say \"whenever ...\" and trigger every time their condition is met, for as long as the card is in play. Each trigger goes on the Stack and can be answered.\n\n- A token entering counts as a Summon entering for \"whenever another ... enters\".\n- \"Whenever you cast a Spell\" triggers at the cast, so it resolves before that Spell does, and still counts if the Spell is negated afterwards. A Spell attached to a Summon is cast by that Summon, not by a player.\n- \"Once per turn\" means once in each turn, yours and your opponent's.\n- A Resonance that acts on its own Summon does nothing if that Summon has left the board by the time it resolves.\n- A Resonance that only generates Energy resolves at once, without the Stack.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Advanced Recruiters is the exception to tokens counting: its own Soldier token doesn't set it off, or it would recruit forever.",
+   "A \"whenever ... attacks\" Resonance goes on the Stack above the attack's Assault and Ward, so it resolves before both of them.",
+   "If an attack is taken away before it reaches the Stack, its Assault and Ward are lost, but \"whenever ... attacks\" Resonances already triggered and still resolve.",
+   "A Resonance set off by damage or a discard during an attack or a Spell resolves once that attack or Spell is done, after the damage.",
+   "A Resonance that affects a Guardian or a hand still happens if its own card is gone by then; one that affects a card needs that card still on the board.",
+   "A Treasure with no other card type is not a Spell, so it never sets off \"whenever you cast a Spell\".",
+   "\"Your second card each turn\" is counted for both players in every turn, so a card you draw on your opponent's turn can be your first of that turn.",
+   "A Resonance set off while the Stack is resolving goes on top of it, and the other player may answer it before it resolves."
+  ]
+ },
+ {
+  "name": "Flying",
+  "category": "movement",
+  "short": "Moves past non-Flying Summons and can't be attacked in melee by non-Fliers. Ranged attacks deal it 1 extra damage.",
+  "body": "A Summon with **Flying** has Melee Protection: Summons without Flying can't attack it in melee. Ranged attackers can still hit it, even from an adjacent field, and pure Ranged Combat (not Bi, Dual or Magic) deals a Flier 1 extra damage, added before Defense. A Flier moves past Summons that don't have Flying. Flying gives no extra Movement.\n\n- The protection only works while defending. A Flier that attacks takes its counterattack as normal.\n- A Guardian's attack ignores Flying entirely.\n- Summons with **Skyscraper** can attack Fliers in melee.\n- A fight effect ignores Flying's protection.\n- A Petrified Summon loses Flying.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "A Flier with Fogged can only be attacked from an adjacent field, but a Ranged attacker standing next to it can still shoot it.",
+   "Step Traps don't catch a Flier. Universal and Zone Traps do.",
+   "Fliers pass over Grasping Roots and Boulders, and aren't affected by Slippery ice or Deep Pools.",
+   "Inside a Labyrinth, Flying doesn't carry a Summon over an occupied field.",
+   "A Flier can't pass through an enemy Stone Wall.",
+   "Flying granted by a condition is checked live: Drake-Bonded Knight loses Flying the moment its last Dragon leaves, and a perching Gargoyle lands when its Tower falls.",
+   "Aruni, Talon of the High Winds switches off the extra Ranged damage for her side's Fliers."
+  ]
+ },
+ {
+  "name": "Perpetual",
+  "category": "static",
+  "short": "A static, always-on effect. It needs no activation and works for as long as the card is in play.",
+  "body": "**Perpetual** marks a continuous effect: it needs no activation, uses no Stack and works for as long as its card is in play. It is printed on any static line that reaches beyond the card itself, such as \"Summons you control have ...\" or a Building's ongoing bonus. An effect that only changes the card itself (\"This Summon gets +1A for each other Summon you control\") is written without it. Runes don't print Perpetual, because every line on a Rune is always on already.\n\nA Perpetual is checked live. When its source leaves play or is Constrained, whatever it gave other cards is gone at once. A Summon in Stasis has no Perpetual effects at all.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "A Perpetual on \"Summons you control\" covers your Summons wherever they stand, across the Front included, and never an enemy Summon standing on your half.",
+   "Iammorth's \"All Summons are zealing\" covers both players' Summons, and frees Summons that were already summoning-sick when it arrived."
+  ]
+ },
+ {
+  "name": "Demise",
+  "category": "trigger",
+  "short": "Triggers when this card goes to the graveyard, from any cause.",
+  "body": "**Demise** triggers whenever this card reaches the graveyard, however it got there: destroyed by damage or an effect, sacrificed, a Duration running out, a Trap resolving. The destination is the test, not the cause. Demise goes on the Stack and can be answered.\n\n- It does **not** trigger if the card goes to the Void, back to a hand or deck, or into a Treasure Chest. None of those is a death.\n- A card saved by an \"instead\" effect never reaches the graveyard, so its Demise doesn't fire.\n- A Summon that dies under your opponent's control dies as theirs: its Demise belongs to them, even though the card goes to your graveyard.\n- A Demise that deals damage still does so after its Summon is gone.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "A Refraction Mimic copying a Summon copies its Demise too, and that Demise fires when the copy dies.",
+   "When a Summon is slain, the slayer's Dominate goes on the Stack above the slain Summon's Demise and resolves first.",
+   "A Worker that is sacrificed or destroyed has perished, so its Demise fires; a Worker returned to hand has not.",
+   "A Demise that only generates Energy, like Firebelly Salamander's, happens at once without the Stack.",
+   "A Summon taken until the end of turn dies as its taker's, Demise included. Only control that lends a Summon's actions without making it yours (Conversion Trap, Skyborne's swap) leaves its death to its owner.",
+   "Ilsabet's Embrace puts its token on the destroyed Summon's field before that Summon's Demise resolves, so a Demise that spawns something on that field finds it taken."
+  ]
+ },
+ {
+  "name": "Guardprotect",
+  "category": "protection",
+  "short": "While in your Guarded Zone, your Guardian can't be attacked, and damage or life loss aimed at your Guardian goes to this Summon.",
+  "body": "A Summon with **Guardprotect** in your Guarded Zone is a taunt: the enemy can't declare an attack on your Guardian and must attack the protector instead. It also takes everything else aimed at your Guardian: Spell damage, Shockwave, a Manifest's or Demise's damage, Curses, Traps, even your own drawbacks like \"your Guardian loses 1 life\".\n\n- Redirected damage meets the protector's Defense or Resistance; a life loss goes past them.\n- With several protectors, the one nearest death takes it (for Shockwave, the attacker chooses).\n- Damage beyond the protector's Life is lost. It never spills onto the Guardian.\n- A Life **cost** you pay is never redirected.\n- **Breach** attackers ignore the taunt.\n- It guards the Guardian, not your Buildings.\n- A Guardprotect Summon never has Grace.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Damage moved onto a protector keeps its source, so effects that care which card dealt the damage still see the original card.",
+   "Redirected damage is damage to the protector in every way: anything that prevents or doubles damage on it, such as Shocked, applies.",
+   "Direct damage aimed at your Guardian, such as Ice Spikes, ignores the protector's Defense when it is redirected."
+  ]
+ },
+ {
+  "name": "Onslaught",
+  "category": "trigger",
+  "short": "Triggers after this Summon attacks, once combat is over, if it survived.",
+  "body": "**Onslaught** triggers at the end of combat when this Summon made an attack. It goes on the Stack and can be answered.\n\n- The attacker must survive. One killed by the counterattack gets no Onslaught.\n- A counterattack is not an attack, so defending never triggers Onslaught.\n- It fires once for each attack the Summon makes.\n- Onslaught can be granted by other cards; a granted one fires alongside any printed one.\n- A Constrained Summon loses its printed Onslaught.\n\nOnslaught is the reward for a fight you planned well: pick attacks your Summon can walk away from.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "An Onslaught granted until end of turn (Firebrand Barracks) reaches only the Summons on the board when the ability resolves; one that arrives later that turn doesn't get it.",
+   "Firebrand Barracks' sacrifice Onslaught resolves last of the Summon's Onslaughts, so the others happen while it is still there.",
+   "You can't move a Summon while an Onslaught is still waiting on the Stack."
+  ]
+ },
+ {
+  "name": "Infiltrate",
+  "category": "trigger",
+  "short": "Triggers the first time this Summon lands on a field on your opponent's side of the board.",
+  "body": "**Infiltrate** triggers the first time this Summon arrives on a field of the opponent's half, however it got there: its own move, a Swift move, a push or pull, a swap, a slide or a teleport. It triggers once per stay on the board. It goes on the Stack, with any target chosen as it triggers; if that target is gone when it resolves, it fizzles.\n\n- The shared fast-lane fields don't count, since they belong to both sides. Stepping out of a fast lane onto any real enemy field, even sideways, does.\n- A Summon that enters play directly on the enemy's half infiltrates too.\n- A bonus printed with no duration is permanent. A duration binds only the sentence it is in.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Aerial Infiltrator's Infiltrate gives it Flying for good, but its extra Movement only for that turn.",
+   "A targeted Infiltrate whose effect is \"this Summon deals\" or \"sacrifice this Summon\" does nothing if that Summon has left the board by the time it resolves.",
+   "An Infiltrate that asks a question, like Seaport Cutpurse's look, asks it as it resolves.",
+   "Damage or life loss an Infiltrate aims at the enemy Guardian is caught by a Guardprotect Summon."
+  ]
+ },
+ {
+  "name": "Assault",
+  "category": "trigger",
+  "short": "Triggers when this Summon declares an attack, and resolves before the attack deals damage.",
+  "body": "**Assault** triggers when this Summon initiates an attack. It goes on the Stack on top of the attack, above the defender's Ward, so it resolves first, before any damage is dealt. That makes it the place for bonuses meant to matter in this fight.\n\n- It only triggers on attacks this Summon declares, never on its counterattacks.\n- If the attack is taken away before it reaches the Stack, for example by a Trap that answers the declaration, the Assault is lost with it.\n- An Assault can be granted, for example by Equipment, and fires each time the Summon attacks.\n- Read the card for how long its effect lasts.",
+  "confidence": "medium",
+  "note": "Older text says an Assault's effect ends right after the attack, but a granted Assault lasts until end of turn; how long is left to each card.",
+  "rulings": [
+   "A \"whenever ... attacks\" effect on another card resolves before the attacker's Assault.",
+   "Mountainheart Maul's granted Assault gives +3 Defense until the end of the turn, each time its wearer attacks."
+  ]
+ },
+ {
+  "name": "Agility",
+  "category": "trigger",
+  "short": "Triggers after this Summon finishes a Movement Action of its own.",
+  "body": "**Agility** triggers when this Summon completes its own Movement Action. The move itself doesn't use the Stack; once it is done, the Agility goes on the Stack and can be answered. A targeted Agility picks its target then.\n\n- Only real movement counts. Being pushed, pulled, swapped or teleported by an effect never triggers it, however far the Summon goes.\n- Movement Abilities (Switch, Retreat, Advance and the rest) are Full Actions, not Movement Actions, so they never trigger Agility, even when they move this Summon.\n- A Swift move after an attack doesn't trigger it either.\n- Some Agilities offer an optional payment, asked after the move.\n- An Agility that only generates Energy resolves at once.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Agility still triggers inside a Labyrinth, even though the move there is a single straight line.",
+   "A Grovebound Summon's move to any free field of its Forest is still its Movement Action, so Agility triggers.",
+   "An Agility that gives +1 Movement to a Summon that has already used its Movement Action (Tailwind Courier) changes nothing that turn."
+  ]
+ },
+ {
+  "name": "Dominate",
+  "category": "trigger",
+  "short": "Triggers when this Summon slays an enemy Summon in combat.",
+  "body": "**Dominate** triggers when this Summon deals lethal combat damage to an enemy Summon, attacking or counterattacking. It is a kill trigger: the fight must be won outright. The effect is whatever the card prints after \"Dominate\". It goes on the Stack above the slain Summon's Demise, so it resolves first, and it can be answered.\n\n- Dominate can be granted by Spells, Equipment and Perpetuals. Every Dominate a Summon has fires on the same kill.\n- If this Summon has left play before the Dominate resolves, any part that acts on the Summon itself does nothing; the rest still happens.\n- A Constrained Summon's Dominate does nothing.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Only a kill in battle counts. A Summon destroyed by a Spell, an ability, a Trap, a sacrifice or Bleeding was not slain, so no Dominate triggers.",
+   "Scorching Red Dragon's Dominate can hit a Summon, a Building or either Guardian, chosen as it fires.",
+   "Will-Crusher Vampire's \"once per turn\" is counted per Vampire: its second kill in a turn raises nothing.",
+   "Will-Crusher Vampire raises the slain Summon at the end of the turn of the kill, so a kill on a counterattack rises at the end of the opponent's turn.",
+   "If its controller has no free Guarded Zone field, or the card has left the graveyard by then, the Will-Crusher's slain Summon stays dead. A token leaves no card to raise."
+  ]
+ },
+ {
+  "name": "Diving",
+  "category": "movement",
+  "short": "While in a Sea Terrain, it can't be attacked in melee by Summons without Diving.",
+  "body": "**Diving** only works while this Summon stands in a Sea Terrain. There it has Melee Protection: Summons without Diving can't attack it in melee. Another Diver can, and so can a Summon with **Skyscraper**. Diving gives no extra movement.\n\n- In a Sea Terrain a Diver also passes under Step Traps. On dry ground it springs them like anyone else. Universal and Zone Traps catch Divers anywhere.\n- Several hazards don't affect Divers, among them Slippery ice, Deep Pools, Boulders and Grasping Roots.\n- A Petrified Summon keeps Diving.\n- Granted Diving works exactly like printed Diving. A Constrained Summon loses it.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Under Lacurath's toll, a Summon with Diving or Water Breather pays nothing in a Sea; a Constrained one has lost the exemption and pays.",
+   "An Avert whose condition says \"Flying or diving\" counts a Diving Summon."
+  ]
+ },
+ {
+  "name": "Intervene",
+  "category": "other",
+  "short": "This card can be cast in response, like a Quick Spell, whenever you hold priority.",
+  "body": "A card with **Intervene** can be cast in answer to something, the way a Quick Spell can: whenever you hold priority, including on your opponent's turn and while the Stack holds something. A Spell with Intervene works exactly like a Quick Spell, whatever its subtype. Summons, Items, Terrains and Buildings with Intervene can be cast in answer too.\n\n- A Summon cast with Intervene puts its Manifest on the Stack above whatever it answered, so the Manifest resolves first and can affect that Spell or attack.\n- Some cards grant Intervene, letting you cast your Incantations as though they had it.\n- A Hex cast with Intervene is still a Hex for cards that ask whether something is a Quick Spell.\n- A Treasure with no other card type never gets it.",
+  "confidence": "medium",
+  "note": "The codex defines Intervene through card rulings; there is no single base definition.",
+  "rulings": [
+   "An Intervene card can be cast while one of your own effects is still waiting on your decision, when other Summons and non-Quick Spells can't be.",
+   "An Item cast with Intervene names its Manifest's target as it is cast, and that Manifest resolves above what it answered.",
+   "A Terrain or Building cast with Intervene opens no response window of its own; the other player answers it in the window that is already open."
+  ]
+ },
+ {
+  "name": "Skyscraper",
+  "category": "combat",
+  "short": "Can attack Fliers, and Divers in a Sea Terrain, in melee despite their Melee Protection.",
+  "body": "A Summon with **Skyscraper** is huge enough to reach what others can't. It can attack Summons with Melee Protection in melee range: Fliers, and Divers standing in a Sea Terrain. It is how a Summon without Flying deals with a Flier up close.\n\nSkyscraper doesn't give Flying. It doesn't let the Summon move past others and doesn't protect it from anything. It only removes the Melee Protection obstacle when this Summon picks what to attack.",
+  "confidence": "high",
+  "note": "",
+  "rulings": []
+ },
+ {
+  "name": "Swiftstrike",
+  "category": "combat",
+  "short": "The defender can't counterattack this Summon's attack.",
+  "body": "**Swiftstrike** is a Skill, part of the Summon itself, so it never uses the Stack. When a Summon with Swiftstrike attacks, the defender doesn't get its usual counterattack. It is one of the few ways around Guardian's baseline rule that a defender who survives always strikes back.\n\n- **Clash** doesn't get around it: a Clash defender can't hit back against Swiftstrike either.\n\nSwiftstrike Summons are the safest attackers in the game: pick fights they can't finish and they still come home unhurt.",
+  "confidence": "low",
+  "note": "The codex never defines Swiftstrike in full; it only lists it as a Skill that stops counterattacks.",
+  "rulings": []
+ },
+ {
+  "name": "Venomous",
+  "category": "ailment",
+  "short": "When this Summon's combat damage costs a Summon Life, that Summon gets a Poison counter.",
+  "body": "When a Summon with **Venomous** deals combat damage to another Summon, attacking or counterattacking, that Summon gets a Poison counter and becomes **Poisoned**.\n\n- Only a hit that actually takes Life poisons. If Defense or Resistance absorbs the whole hit, there is no Poison, so enough Defense is an answer to Venomous.\n- Nothing is immune to it.\n- Only Summons are poisoned, and a Guardian's attack never involves it.\n- A **Battlelash** attack doesn't stop it: the defender's counterattack still carries Venomous.\n\nPoison counters stack, and each one costs the Summon 1 Life in its controller's Guardian Phase.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Poison makes a Summon lose Life rather than take damage, so Defense and damage prevention (Talas, Massive Force Field) don't stop it.",
+   "A Poisoned Summon in Stasis loses no Life while it is there.",
+   "Poison counters leave with the Summon: one returned to hand comes back clean."
+  ]
+ },
+ {
+  "name": "Water Breather",
+  "category": "other",
+  "short": "In your Guardian Phase, pay [2] or [1 Water], or sacrifice this Summon, unless it stands in a Sea Terrain.",
+  "body": "A Summon with **Water Breather** needs water. In each of your Guardian Phases you must pay [2] or [1 Water] for it, or it is sacrificed. If it stands in a Sea Terrain, there's nothing to pay.\n\n- Your Energy storage is usually empty in the Guardian Phase, so you may pay with idle Workers. Doing so taps them.\n- Declining, or being unable to pay, drowns the Summon. That is a sacrifice, so its Demise triggers.\n- A Constrained Summon loses Water Breather, and with it any protection the keyword gave.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "A Water Breather is immune to a Deep Pool's toll.",
+   "Under Lacurath's toll, a Water Breather standing in a Sea is exempt; a Constrained one has lost that exemption."
+  ]
+ },
+ {
+  "name": "Zealing",
+  "category": "celerity",
+  "short": "Can move and act on the turn it enters play.",
+  "body": "Summons normally arrive with their action tokens spent and can't move, attack or cast on the turn they enter. A Summon with **Zealing** ignores that: it can move, attack, cast its Spell and use its abilities right away.\n\n- Zealing gained after the Summon entered works the same turn: the actions it couldn't use come back.\n- It is also the way out for a Summon you just took control of, which otherwise can't act that turn.\n- Acting in the turn it entered costs it Grace, so a Zealing Summon in your Guarded Zone must choose between acting and staying safe.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Iammorth's \"All Summons are zealing\" frees every Summon on the board, both players', including ones already summoning-sick when it arrived.",
+   "Skyward Herald's Zealing is checked once, as its Manifest resolves."
+  ]
+ },
+ {
+  "name": "Ward",
+  "category": "trigger",
+  "short": "Triggers when this Summon is attacked, at the declaration, and resolves before the attack deals damage.",
+  "body": "**Ward** triggers when this Summon is declared as an attack's target, whatever the attack then does. The effect is the card's own: drawing cards, changing its stats and so on. It goes on the Stack above the attack and resolves before any damage. A few Wards print a part that waits until after combat.\n\n- If the attacker has an Assault, that resolves first, then the Ward, then the attack.\n- A **Battlelash** attack switches Ward off, so no Ward triggers.\n- If the attack is taken away before it reaches the Stack, for example by a Trap that answers the declaration, the Ward is lost with it.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "A Battlelash attack also switches off a Ward's \"after combat\" part.",
+   "A \"whenever ... attacks\" effect on another card resolves before the defender's Ward."
+  ]
+ },
+ {
+  "name": "Chill",
+  "category": "ailment",
+  "short": "Combat damage from this Summon depletes, deactivates and Chills the target. A target already deactivated becomes Frozen instead.",
+  "body": "When a Summon with **Chill** deals battle damage to another Summon, that Summon is depleted and deactivated: it becomes **Chilled**. A Summon that is already Chilled, or deactivated for any other reason, becomes **Frozen** instead, and won't reactivate in its controller's next Active Phase.\n\nCards that say \"Chill target Summon\" apply the same effect directly, with no damage involved.\n\n- An anticipating Summon is deactivated, so a Chill hit freezes it, whatever its doubled Defense.\n- Chill punishes Summons that already acted. Hit a Summon that attacked this turn and it freezes.\n- Some Guardians can grant Chill to a Summon.",
+  "confidence": "medium",
+  "note": "The keyword entry freezes a Chilled target; a later ruling freezes any deactivated target. The body follows the later ruling.",
+  "rulings": [
+   "A Summon frozen partway through a turn loses all its remaining actions for that turn at once.",
+   "A Frozen Summon can't counterattack.",
+   "A Frozen Summon can still use abilities that don't deactivate it or spend an action.",
+   "When a Frozen Summon thaws in its controller's Active Phase, only the Frozen status ends; it doesn't regain that turn's actions."
+  ]
+ },
+ {
+  "name": "Shockwave",
+  "category": "combat",
+  "short": "When this Summon's combat damage gets through, it also deals X damage to the target's controller's Guardian.",
+  "body": "**Shockwave X** is a Skill: when this Summon's combat damage gets through to a target, it also deals X damage to that target's controller's Guardian. X is the number printed after the keyword. It is part of the attack and never uses the Stack.\n\n- It works on Buildings too: damage that reaches a Building's Life sends X to its controller's Guardian.\n- Guardprotect catches it. A protector in the Guarded Zone takes the Shockwave instead, through its Defense against a physical striker or its Resistance against a magic one. With several protectors, the attacker chooses.\n- That redirected hit is not an attack on the protector, so it doesn't counterattack.",
+  "confidence": "medium",
+  "note": "The keyword says 'direct combat damage'; only the Building ruling spells out that the damage must reach Life.",
+  "rulings": [
+   "A Shockwave redirected onto a protector was never aimed at it, so the protector's reactions to being attacked or damaged don't fire."
+  ]
+ },
+ {
+  "name": "No Guardian Attacks",
+  "category": "combat",
+  "short": "Best reading: this Summon cannot attack Guardians.",
+  "body": "(Definition pending.) **No Guardian Attacks** is printed on several cards but isn't defined in the rules codex. The best reading of the wording: a Summon with it can't declare attacks on a Guardian. It can still attack Summons in range, and the rest of combat works as normal. Expect it on Summons whose stats would otherwise pressure a Guardian too easily. Check the card's own reminder text for the exact restriction.",
+  "confidence": "low",
+  "note": "Not covered in the codex at all; the body is a reading of the keyword's name.",
+  "rulings": []
+ },
+ {
+  "name": "Company",
+  "category": "condition",
+  "short": "Its effect is on while this Summon is orthogonally adjacent to another Summon you control.",
+  "body": "**Company** is a condition, checked continuously. Its effect, printed after the keyword, is on while at least one other Summon you control stands directly up, down, left or right of this one. Diagonal neighbours don't count. The moment that adjacency breaks, the effect stops. It never uses the Stack.\n\n- A shared fast-lane field belongs to both sides, so it counts for adjacency on either half.\n- A Summon in Stasis counts for nothing, so it keeps no one company.\n- Some cards redefine what counts as adjacent, and Company follows them.\n- Company can be granted by other cards.\n\n**Loner** is its opposite.",
+  "confidence": "medium",
+  "note": "Open: whether a Company 'once per turn' refreshes only in its controller's Active Phase or every turn.",
+  "rulings": [
+   "A Stone Wall is not a Summon, so it never keeps a Summon company."
+  ]
+ },
+ {
+  "name": "Retaliate",
+  "category": "combat",
+  "short": "A Summon that attacks this one from an adjacent field takes X damage before it strikes.",
+  "body": "**Retaliate X** is a Skill: a Summon that attacks this one from an adjacent field takes X damage as the attack resolves, before its own damage, through its Defense. If that kills the attacker, its attack never lands. X is the number printed after the keyword.\n\n- Melee range means distance, not combat type. A Ranged attacker standing next to it is hit; anything attacking from two fields away is not.\n- When X is counted (\"equal to the number of ...\"), it is read the moment Retaliate fires, so changing the count in response changes the damage.\n- Retaliate gained for good adds to any Retaliate the Summon already has.\n- A **Battlelash** attack switches it off.\n- A Petrified Summon keeps it.",
+  "confidence": "high",
+  "note": "",
+  "rulings": []
+ },
+ {
+  "name": "Block",
+  "category": "element",
+  "short": "If active, negates one physical attack against this Summon, then deactivates it.",
+  "body": "**Block** rewards a Summon that held back. When it is attacked by a non-magical attack while active, the attack is negated. Then the Blocker is deactivated. It is not depleted, so it keeps its unspent action tokens.\n\n- Only activation state matters. Moving doesn't deactivate, so a Summon can move and still Block, and a freshly cast Summon can Block in its first turn.\n- Reactivating a Blocker gives its Block back.\n- A Dual Combat attacker that chooses physical can be Blocked; a magic attack can't.\n- **Battlelash** deactivates the defender first, so it gets past Block. An anticipating Summon is deactivated and can't Block.\n- A Petrified Summon can still Block while active.",
+  "confidence": "medium",
+  "note": "Open: whether Block also stops a Guardian's attack. The physical-only limit is assembled from older notes.",
+  "rulings": []
+ },
+ {
+  "name": "Seabound",
+  "category": "movement",
+  "short": "This Summon's Movement is 0 unless it stands in a Sea Terrain.",
+  "body": "A **Seabound** Summon simply can't leave the water. Outside a Sea Terrain its Movement is 0; inside one it moves with its printed Movement. Unlike Water Breather, there is no upkeep to pay to get around it.\n\n- A Terrain that counts as a Sea Terrain counts for Seabound.\n- Some Seas reach into the middle of the board, letting a Seabound Summon get forward.\n- Some cards remove Seabound from a Summon.\n\nPlan around the Sea: a Seabound Summon is only as mobile as your Terrains let it be.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Smugglers' Channel is a Sea across both Battle Zone 2s, so it lets a Seabound Summon reach the middle of the board."
+  ]
+ },
+ {
+  "name": "Shadow Step",
+  "category": "element",
+  "short": "At the end of your turn, if active and unused, it can't be attacked by stronger Summons until your next Active Phase.",
+  "body": "**Shadow Step** is a Darkness posture taken at the end of your own turn. If the Summon is active and still has its full action unspent, you may have it Shadow Step. Until your next Active Phase, it can't be attacked by any Summon whose primary attack is strictly greater than its own.\n\n- Primary attack is Attack for Close and Ranged Summons, Magic for Magic Combat, and the higher of the two for Dual Combat.\n- Summons with an equal or lower primary attack can still attack it.\n- It only stops attacks. Spells and abilities can still target it.\n- A Summon that attacked or used a Full Action that turn can't Shadow Step.",
+  "confidence": "medium",
+  "note": "The 'unspent full action' condition predates the current action system, and whether Shadow Step deactivates the Summon isn't stated.",
+  "rulings": []
+ },
+ {
+  "name": "Retreat",
+  "category": "movement",
+  "short": "Movement Ability: this Summon steps away from an adjacent friend and pulls that friend into the field it left.",
+  "body": "**Retreat** is a Movement Ability. Choose an adjacent friendly Summon. This Summon steps one field directly away from it along their shared line, and the friend is pulled into the field this Summon just left. The pair ends up shifted by one field, this Summon leading.\n\n- \"Away\" means away from the friend, never \"toward your Guardian\". A Summon standing on the enemy side of its friend retreats deeper into enemy territory.\n- Like all Movement Abilities it is a Full Action: it deactivates this Summon but spends no action token, and it can only be used in your own turn with an empty Stack, never as a response.\n- It can move a Frozen or Immobilized friend.\n- Arriving in enemy territory this way triggers Infiltrate, but Retreat never triggers Agility.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Retreat can't be used inside a Labyrinth.",
+   "After a Retreat, the field this Summon left is occupied by its friend, so a card that cares about \"the field this Summon left\" finds the friend there.",
+   "Retreat costs only the tap, so a Summon that is reactivated can Retreat again in the same turn.",
+   "A friend pulled out of its own Guarded Zone by Retreat loses Grace."
+  ]
+ },
+ {
+  "name": "Absorb",
+  "category": "combat",
+  "short": "Heals this Summon by the combat damage its own attack deals, up to its maximum Life.",
+  "body": "When a Summon with **Absorb** attacks, it heals Life equal to the combat damage it dealt. Only combat counts: damage from Spells and abilities doesn't.\n\n- Only its own attacks count. When it counterattacks, it does not heal.\n- Healing is capped at its maximum Life. It restores lost Life and never raises the maximum.\n- An attack that deals no damage heals nothing.\n- Some cards grant Absorb only while a condition holds, such as while the Summon is a Loner; the same rules apply.",
+  "confidence": "high",
+  "note": "",
+  "rulings": []
+ },
+ {
+  "name": "Twin Strike",
+  "category": "combat",
+  "short": "Strikes twice in one attack: two separate hits, each reduced by Defense or Resistance on its own.",
+  "body": "A Summon with **Twin Strike** (also printed Twinstrike) hits twice in sequence within a single attack. These are two separate hits, each reduced by the defender's Defense or Resistance on its own, not one doubled hit. It is still one attack: it doesn't let the Summon declare a second attack that turn.\n\nBecause Defense wears down within a turn, the first hit can strip Defense so that more of the second gets through. If the defender survives both hits, it counterattacks as normal. Twin Strike can also be granted by other cards.",
+  "confidence": "high",
+  "note": "",
+  "rulings": []
+ },
+ {
+  "name": "Anticipate",
+  "category": "element",
+  "short": "At the end of your turn, if active, you may deactivate it to double its Defense until your next Active Phase.",
+  "body": "**Anticipate** is Earth's defensive posture. At the end of your own turn, if this Summon is active, you may deactivate it and have it anticipate. Until your next Active Phase, its Defense is doubled.\n\n- It doubles current Defense, buffs included. With Petrified it doubles again, for x4.\n- It only needs the Summon to be active. One that moved or attacked and was then reactivated can still anticipate.\n- Reactivating an anticipating Summon doesn't end the posture.\n- Being deactivated costs it Block and other keywords that need it active.\n- Magic damage goes to Resistance and ignores it entirely. **Off Guard** ignores all its Defense, and **Chill** freezes it.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "A Defense buff gained while the Summon is already anticipating is doubled too.",
+   "A Battlelash attack doesn't take away an anticipating Summon's doubled Defense.",
+   "Anticipating is a state other cards can check: Shell Master is Wary while anticipating."
+  ]
+ },
+ {
+  "name": "Life Regen",
+  "category": "protection",
+  "short": "In your Guardian Phase, this Summon regains N Life, never above its maximum.",
+  "body": "**Life Regen N** heals this Summon by N Life in each of its controller's Guardian Phases, where N is the number printed after the keyword. It never takes the Summon above its maximum Life; it only restores Life that was lost.\n\nIt happens early in your turn, before your Draw and Tactic Phases, so a Summon worn down on your opponent's turn gets some Life back before you act. To kill a Life Regen Summon, finish it within a single turn. Some Summons regenerate more under a printed condition, for example while Petrified.",
+  "confidence": "high",
+  "note": "",
+  "rulings": []
+ },
+ {
+  "name": "Jinxed",
+  "category": "trap",
+  "short": "The real effect of a Step or Universal Trap, used when a Summon lands on the trapped field itself.",
+  "body": "**Jinxed** and **Boggled** always come as a pair, on Step and Universal Traps only. **Jinxed** names the Trap's real effect: the one that happens when a Summon lands on the trapped field, exactly as with an ordinary Step or Universal Trap.\n\nIf the Summon instead enters the Trap's zone (its row) but misses the trapped field, the Trap may fire with its Boggled effect, usually weaker or just different. Both modes cost the same, and which one applies is decided by where the Summon landed. Zone and Positionless Traps can't have the pair.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "The Trap's owner gets a choice only in the Boggled case; a Summon landing on the trapped field gets the Jinxed effect."
+  ]
+ },
+ {
+  "name": "Boggled",
+  "category": "trap",
+  "short": "Optional alternate effect when a Summon enters a Jinxed Trap's zone but misses the trapped field.",
+  "body": "**Boggled** is the consolation effect of a Step or Universal Trap that also prints **Jinxed**. When an enemy Summon enters the Trap's zone (its row) without landing on the trapped field, the Trap's owner may activate it anyway. The Summon is treated as though it had stepped on the Trap, but gets the Boggled effect instead of the Jinxed one.\n\n- It costs the same as the Jinxed activation and spends the Trap normally.\n- On a Universal Trap it also catches Flying and Diving Summons entering the zone.\n- It widens the net without changing the Trap: it stays positioned. That is what separates it from **Avert**.",
+  "confidence": "high",
+  "note": "Open: how Boggled works with Multi Traps and on the shared fast-lane fields.",
+  "rulings": [
+   "Boggled has nothing to do with Stasis; Caught in the Maelstrom's Boggled mode just happens to use it."
+  ]
+ },
+ {
+  "name": "Off Guard",
+  "category": "combat",
+  "short": "When this Summon attacks a deactivated Summon, it ignores all of that Summon's Defense and Resistance.",
+  "body": "**Off Guard** punishes a defender caught tapped. When a Summon with Off Guard attacks a deactivated Summon, its damage ignores all of the defender's Defense and Resistance and goes straight to Life.\n\n- It only applies when this Summon is the attacker, and only if the defender is deactivated at that moment.\n- It is the natural answer to an anticipating Earth Summon, whose doubled Defense means nothing to it.\n- A Summon that attacked, used a Full Action, or was frozen or deactivated by an effect is fair game.\n- Some Guardians and effects grant Off Guard until the end of turn.",
+  "confidence": "high",
+  "note": "",
+  "rulings": []
+ },
+ {
+  "name": "Loner",
+  "category": "condition",
+  "short": "Its effect is on while no other Summon you control is orthogonally adjacent to this one.",
+  "body": "**Loner** is the reverse of Company. Its effect is on while no friendly Summon stands directly up, down, left or right of this Summon. Diagonal neighbours don't break it. The moment a friend moves next to it the effect stops, and when the friend leaves it is back. It is checked continuously and never uses the Stack.\n\n- Shared fast-lane fields count for adjacency on both sides.\n- A Summon in Stasis counts for nothing and doesn't spoil a Loner.\n- Some Loner effects work once per turn when the Summon is attacked. A **Battlelash** attack switches those off.",
+  "confidence": "medium",
+  "note": "Open: whether a Loner 'once per turn' refreshes only in its controller's Active Phase or every turn.",
+  "rulings": [
+   "A Stone Wall is not a Summon, so standing next to one doesn't break Loner."
+  ]
+ },
+ {
+  "name": "Gashing",
+  "category": "ailment",
+  "short": "When this Summon deals combat damage to a Summon, that Summon becomes Bleeding.",
+  "body": "When a Summon with **Gashing** deals combat damage to another Summon, that Summon becomes **Bleeding**.\n\n- A hit that is prevented completely, for example by Astral, deals no damage and causes no Bleeding.\n\nA Bleeding Summon takes 1 damage at the end of its controller's turn, which makes Gashing a strong way to pin an enemy in place.",
+  "confidence": "medium",
+  "note": "Not yet ruled: whether a hit fully absorbed by Defense should count, and whether a second Gashing hit should stack.",
+  "rulings": [
+   "Bleeding deals real damage: Defense reduces it and damage prevention can stop it.",
+   "A Bleeding Summon that moves takes its full Bleeding damage for each field, so Salted Wounds adds 1 per field moved.",
+   "Under Haemophilia, Bleeding stacks for every Summon, and each stack deals its damage.",
+   "A Bleeding Summon in Stasis takes no Bleeding damage while it is there."
+  ]
+ },
+ {
+  "name": "Elusive",
+  "category": "element",
+  "short": "While active, may negate an enemy Spell or Ability targeting it; its controller draws a card and this Summon deactivates.",
+  "body": "**Elusive** is a reaction from the active/deactivated family. While this Summon is active and becomes the target of an enemy Spell or Ability, you may negate that Spell or Ability. If you do, its controller draws a card, and this Summon is deactivated.\n\n- You are asked the moment the Spell or Ability is announced, even with an empty hand.\n- A Treasure with no other card type is neither a Spell nor an Ability, so Elusive can't answer it.\n- The draw is the price that keeps Elusive from being a free counter.",
+  "confidence": "high",
+  "note": "",
+  "rulings": []
+ },
+ {
+  "name": "Pierce",
+  "category": "combat",
+  "short": "Pierce X lowers the defender's Defense by X for this strike. Pierce with no number ignores all Defense and Resistance.",
+  "body": "**Pierce** comes in two forms.\n\n- **Pierce X** lowers the defender's Defense by X for this strike, where X is the printed number. It affects Defense only, not Resistance. Some Pierce only applies against certain defenders, as the card says. Against an anticipating Summon it comes off the already doubled Defense.\n- **Pierce** with no number ignores all of the defender's Defense and Resistance, whenever this Summon attacks or counterattacks.\n\nA defender's counterattack keeps its Pierce even against a **Battlelash** attacker. Older cards print the numberless form as \"Piercing\"; it is the same keyword.",
+  "confidence": "high",
+  "note": "",
+  "rulings": []
+ },
+ {
+  "name": "Clash",
+  "category": "combat",
+  "short": "While active, its counterattack lands at the same time as the attack, so it strikes back even if the attack kills it.",
+  "body": "Normally a defender only strikes back if it survives. A Summon with **Clash** that is active when attacked counterattacks at the same time as the attack lands, so it hits back even when the attack kills it.\n\n- It needs the Summon to be active. A deactivated Clash Summon counterattacks the normal way, and only if it survives.\n- Clash changes when the counterattack lands, not whether one can happen. Range still matters, as do Frozen, Swiftstrike and anything else that prevents counterattacks.\n- **Battlelash** deactivates the defender, so it beats Clash.\n- Clash can be granted to a Summon, or to every Summon.",
+  "confidence": "medium",
+  "note": "Open: whether Clash should deactivate the Summon after it fires; at present it does not.",
+  "rulings": []
+ },
+ {
+  "name": "Shocking",
+  "category": "ailment",
+  "short": "When this Summon deals combat damage to a Summon, that Summon becomes Shocked.",
+  "body": "When a Summon with **Shocking** deals combat damage to another Summon, that Summon becomes **Shocked**: the next damage it takes is doubled.\n\n- Damage to a Guardian doesn't shock anything.\n- A Shock from combat has no clock. It stays until damage spends it.\n- Shocking can be granted until end of turn by Spells, or by Equipment.\n- Cards that react to a Summon becoming Shocked hear Shocking too.\n\nOrder your attacks: shock a dangerous Summon with one attacker, then finish it with a bigger hit from another.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "The doubling comes before Defense and Resistance: a Shocked Summon with 1 Defense hit for 3 takes 5.",
+   "Shocked stacks with other doubling, such as Curse of Searing Wounds, for four times the damage."
+  ]
+ },
+ {
+  "name": "Choose two",
+  "category": "other",
+  "short": "Pick two of the listed modes when you cast it; both happen, in the order they are printed.",
+  "body": "A card with **Choose two** lists several modes, and you pick two of them as you announce the cast. Modes come first, before targets and before costs, so both are fixed and visible when the card goes on the Stack and your opponent may respond.\n\n- The two modes resolve in the order they are printed on the card, not the order you picked them, so an earlier mode can set up a later one.\n- Until you have made your last pick, nothing has happened: you may step back and keep the card and your Energy.",
+  "confidence": "medium",
+  "note": "The codex covers Choose two only through casting-order and printed-order rulings.",
+  "rulings": [
+   "On Oath of the Deep Halls, the Equipment found by its search mode can be the one its next mode puts into play."
+  ]
+ },
+ {
+  "name": "Punishing",
+  "category": "ailment",
+  "short": "When this Summon deals combat damage to a Summon, that Summon becomes Punished.",
+  "body": "When a Summon with **Punishing** deals combat damage to another Summon, that Summon becomes **Punished** and gets a Punishment counter.\n\nA Punished Summon doesn't take damage itself. Instead, each time it attacks, its own controller's Guardian takes 1 damage for each Punishment counter on it. The Summon can still fight, but every swing hurts its side.\n\n- Punishment counters stack.\n- A Guardprotect Summon can catch that damage for its Guardian.\n- Punishing currently lands even when Defense absorbs the whole hit.",
+  "confidence": "medium",
+  "note": "Whether a hit fully absorbed by Defense should still punish hasn't been ruled.",
+  "rulings": []
+ },
+ {
+  "name": "Vitalize",
+  "category": "combat",
+  "short": "Once per turn, when this Summon deals or takes damage, you may reactivate a deactivated permanent.",
+  "body": "Once per turn, when a Summon with **Vitalize** deals or takes damage, its controller may reactivate up to one target permanent: any deactivated permanent except a Guardian, on either side.\n\n- \"Once per turn\" refreshes every turn, yours and your opponent's.\n- Damage dealt to a Guardian counts.\n- Reactivating only untaps. It doesn't refill action tokens, so a Summon that already attacked can't attack again, but it can use an [A] ability or a Movement Ability.\n- Normally only deactivated permanents are offered. When the Vitalize itself pays off through another card, any permanent may be picked.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Vitality's Might also gives Vitalize to Summons that arrive after it resolved, until your next Active Phase."
+  ]
+ },
+ {
+  "name": "Sprint",
+  "category": "celerity",
+  "short": "Can move, but not otherwise act, on the turn it enters play.",
+  "body": "Summons normally can't move, attack or cast on the turn they enter. A Summon with **Sprinting** (printed \"Sprint\" on some older cards) may use its Movement Action on the turn it enters, but nothing else: no attack, no Spell and no Full Action until your next turn.\n\n- It is good for claiming a position at once, such as heading for a fast lane.\n- Grace is bound to your Guarded Zone, so a Sprinter that moves out of it can be attacked that turn.\n- Sprinting can be granted by other cards.",
+  "confidence": "high",
+  "note": "The settled name is Sprinting; four older cards still print Sprint.",
+  "rulings": [
+   "Windlance Outrider grants Sprinting to your other Knights and Dragons, and that includes a Summon made a Knight by Accolade."
+  ]
+ },
+ {
+  "name": "Goad",
+  "category": "combat",
+  "short": "Whenever another Summon you control attacks, this Summon gets +N Attack until end of turn.",
+  "body": "**Goad N** is a Skill. Whenever **another** Summon you control declares an attack, this Summon gets +N Attack until the end of turn, where N is the number printed after the keyword.\n\n- It never triggers on its own attack, and an enemy's attack does nothing.\n- It stacks: every qualifying attack in the turn adds another +N, and Goad from two sources on one Summon adds both.\n- It applies at the declaration and doesn't use the Stack, so there is no window to respond to it.\n\nOrder matters: swing with your other Summons first, then attack with the Goaded one.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "A Goad granted by Bountyleaf Ranger is checked at every attack rather than given once, so it only counts while the Ranger's condition holds."
+  ]
+ },
+ {
+  "name": "Battlelash",
+  "category": "element",
+  "short": "When this Summon declares an attack, the defender is deactivated and its when-attacked abilities are turned off.",
+  "body": "**Battlelash** is Fire's answer to defensive tricks. When a Summon with Battlelash declares an attack, the defender is deactivated first, before anything else happens, and for that attack its reactive abilities are switched off: no Ward, no Wary, no Retaliate, no Contagious, no Block or Clash, no when-attacked Loner effect, and no activated abilities while the attack is on the Stack.\n\n- The defender's counterattack still happens normally, with whatever its strike carries, such as Venomous or Pierce.\n- Passive states stay: an anticipating Summon keeps its doubled Defense.\n- The defending player's Traps belong to the player, not the Summon, and still spring.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Every part of the defender's Ward is switched off, including a part that waits until after combat, such as Snow Covered Mimic's freeze.",
+   "Wary neither stops a Battlelash attack nor is used up by it, so another Summon may still declare an attack on the Wary Summon that turn.",
+   "The defender stays deactivated after the attack, so it can't Block or use [A] abilities later that turn unless something reactivates it.",
+   "Battlelash is applied before anything else at the declaration, so the defender gets no chance to use a when-attacked effect first."
+  ]
+ },
+ {
+  "name": "Shadow Cloak",
+  "category": "element",
+  "short": "At the end of your turn, if active and unused, it can't be targeted by enemy Spells or Abilities until your next Active Phase.",
+  "body": "**Shadow Cloak** is a Darkness posture taken at the end of your own turn. If the Summon is active and still has its full action unspent, you may have it Cloak. Until your next Active Phase, it can't be targeted by Spells or Abilities your opponent controls.\n\n- Only the opponent is shut out. Your own Spells and abilities can still target it, unlike **Untouchable**.\n- It doesn't stop attacks; it only stops targeting.\n- Effects that don't target can still reach it.",
+  "confidence": "medium",
+  "note": "The 'unspent full action' condition predates the current action system, and whether cloaking deactivates the Summon isn't stated.",
+  "rulings": []
+ },
+ {
+  "name": "Switch",
+  "category": "movement",
+  "short": "Movement Ability: this Summon swaps places with an adjacent friendly Summon.",
+  "body": "**Switch** is a Movement Ability: this Summon exchanges positions with an adjacent friendly Summon.\n\n- Like all Movement Abilities it is a Full Action: it deactivates this Summon but spends no action token, and it can only be used in your own turn with an empty Stack, never as a response.\n- Because it spends no token, ordinary movement is still available, and if something reactivates the Summon it can Switch again.\n- It can move a Frozen or Immobilized friend: being moved is not that Summon's own action.\n- A Summon carried into enemy territory triggers Infiltrate, but Switch never triggers Agility.\n- Some Terrains grant Switch to Summons standing in them.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Switch is not a Forest rule: Lush Forest grants it, and only to Nature Summons standing in that Terrain.",
+   "Inside a Labyrinth Terrain, such as The King's Labyrinth, Switch and the other Movement Abilities can't be used.",
+   "A Summon can't Switch on the turn it enters, even with Sprinting, because Switch is a Full Action.",
+   "A freshly cast friend switched out of your Guarded Zone loses Grace at once; Grace never leaves that zone."
+  ]
+ },
+ {
+  "name": "Untouchable",
+  "category": "protection",
+  "short": "Can't be the target of any Spell, ability or effect, including your own.",
+  "body": "A Summon with **Untouchable** can't be the target of Spells, abilities or effects. Unlike Shadow Cloak or Stealth, it doesn't matter who controls them: your own Spells can't target it either.\n\n- It doesn't stop attacks.\n- Effects that don't target, such as \"each Summon\", still reach it.\n- A sacrifice gets around Untouchable.\n- Untouchable can be granted, for example by an Enchantment.\n\nUntouchable is protection against removal, not against combat: plan to fight it on the board.",
+  "confidence": "high",
+  "note": "",
+  "rulings": []
+ },
+ {
+  "name": "Devotion",
+  "category": "condition",
+  "short": "Protects your other Summons in the same zone by taking damage and effects meant for them.",
+  "body": "**Devotion** works like Guardprotect, but for your Summons instead of your Guardian, and only within this Summon's own zone. A Devotion Summon is a tank: it intercepts damage and effects aimed at your other Summons (those without Devotion) in the same zone.\n\n- The zone is this Summon's row on your own half of the board. The matching row on the opponent's half isn't covered.\n- A Summon in Stasis counts for nothing here.\n- A Devotion Summon never has Grace, so even a freshly cast one can be attacked.",
+  "confidence": "medium",
+  "note": "The codex gives only a short definition; how attacks and other effects are intercepted isn't spelled out.",
+  "rulings": [
+   "A shared fast-lane field belongs to both players' Battle Zone 2, so it counts as part of the Devotion Summon's zone when that zone is Battle Zone 2."
+  ]
+ },
+ {
+  "name": "Scorch",
+  "category": "ailment",
+  "short": "When this Summon deals combat damage to a Summon, that Summon becomes Burning.",
+  "body": "Whenever a Summon with **Scorch** deals combat damage to another Summon, that Summon becomes **Burning**.\n\n- It applies even when Defense absorbs the whole hit: damage dealt is damage dealt.\n- A hit prevented completely, for example by Astral, deals no damage and sets nothing alight.\n- Burning doesn't stack, so Scorching a Burning Summon again changes nothing.\n\nA Burning Summon takes 1 damage at the start of each of its controller's turns, and its Defense stops regenerating, so every point of Defense it loses stays lost until the Burning is removed.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Scorch can be conditional: Drake-Bonded Knight has Scorch only while you control a Dragon, and loses it the moment the last one leaves."
+  ]
+ },
+ {
+  "name": "Wary",
+  "category": "protection",
+  "short": "This Summon can be attacked only once per turn.",
+  "body": "A Summon with **Wary** can only be attacked once per turn. The first attack declared against it lands normally; after that, no other attack can be declared on it for the rest of that turn. The limit resets at the start of every turn, yours and your opponent's.\n\n- If a Wary Summon has to die this turn, the one attack you get must be enough.\n- A **Battlelash** attack ignores Wary: it isn't stopped by it and doesn't use it up.\n- Some Summons are Wary only in a certain state, such as while anticipating.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Wary is used up when the first attack is declared, not when it lands."
+  ]
+ },
+ {
+  "name": "Deep Infiltration",
+  "category": "trigger",
+  "short": "Triggers the first time this Summon reaches the opponent's Guarded Zone.",
+  "body": "**Deep Infiltration** triggers the first time this Summon arrives on a field of the opponent's Guarded Zone. It works like **Infiltrate** but only counts that back row. It goes on the Stack.\n\n- It is independent of Infiltrate. A card can have Deep Infiltration without Infiltrate, and a Summon that reaches the enemy Guarded Zone without first standing elsewhere on their half fires both at once.\n- Like Infiltrate, any arrival counts: its own move, a push, a swap or a teleport.\n- It triggers once per stay on the board.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Infiltrate does not include Deep Infiltration: only cards that print Deep Infiltration have it.",
+   "Like Infiltrate, a gain it prints with no duration is permanent, such as Dark Infiltrator's +2A and +2 max Life."
+  ]
+ },
+ {
+  "name": "Astral",
+  "category": "protection",
+  "short": "Prevents all physical combat damage dealt to this Summon by Summons.",
+  "body": "An **Astral** Summon is a ghostly body: all physical combat damage dealt to it by Summons, from their attacks and their counterattacks, is prevented.\n\n- Magic damage hits it normally.\n- Physical damage from Spells and abilities isn't combat damage, so it lands.\n- Direct damage lands.\n- A Guardian isn't a Summon, so a Guardian's attack lands too.\n- A hit Astral prevents deals no damage at all, so riders like Gashing or Scorch don't apply.\n\nAstral isn't tied to an element; any spirit or ghost may have it. Old cards printing Spectral mean Astral.",
+  "confidence": "high",
+  "note": "",
+  "rulings": []
+ },
+ {
+  "name": "Call Back",
+  "category": "movement",
+  "short": "Movement Ability: move an adjacent friendly Summon to the opposite side of this Summon.",
+  "body": "**Call Back** is a Movement Ability. Choose an adjacent friendly Summon: it moves past this Summon to the field on its opposite side. This Summon stays where it is. It is the mirror of **Advance**, where this Summon moves past the friend instead.\n\n- It works only orthogonally, and the landing field must be free.\n- Like all Movement Abilities it is a Full Action: it deactivates this Summon but spends no action token, and it can only be used in your own turn with an empty Stack, never as a response.\n- It can move a Frozen or Immobilized friend.\n- Call Back can be granted, for example by Equipment.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "A friend called back across the Front triggers its Infiltrate, but being moved this way never triggers its Agility.",
+   "Inside a Labyrinth Terrain, Call Back can't be used.",
+   "A Summon can't use Call Back on the turn it enters, because it is a Full Action.",
+   "Effects that care about Call Back, such as Agatha, Squadron Leader's, count every Call Back on your side, printed or granted."
+  ]
+ },
+ {
+  "name": "Contagious",
+  "category": "ailment",
+  "short": "A Summon that deals combat damage to this one from an adjacent field becomes Poisoned.",
+  "body": "When a Summon deals combat damage to a **Contagious** Summon from an adjacent field, the striker becomes **Poisoned**.\n\n- Melee range only. A Summon that strikes from two or more fields away is not poisoned.\n- Guardians are never poisoned by it.\n- A **Battlelash** attack switches it off, and a Constrained Summon loses it.\n\nA Poisoned Summon loses 1 Life per Poison counter in each of its controller's Guardian Phases.",
+  "confidence": "medium",
+  "note": "Poisoning on counter-strikes and the Guardian exception are how it currently plays, not designer rulings.",
+  "rulings": [
+   "Melee range means distance, not Combat Type: a Ranged Summon that strikes from an adjacent field is Poisoned too."
+  ]
+ },
+ {
+  "name": "Combination",
+  "category": "other",
+  "short": "You may cast this Spell with the Mana of a Summon that shares its element instead of paying Energy.",
+  "body": "A Spell with **Combination** may be cast using the Mana of a Summon you control that shares an element with it, instead of paying its Energy cost. You can always cast it normally with Energy instead.\n\n- The Mana cost equals the Spell's total cost, one for one, coloured pips included.\n- It uses that Summon's action, just like casting a Spell attached to it: the Summon spends its Cast token and is deactivated. A Summon that entered this turn can't do it.\n- The Spell keeps its speed: a Quick Combination Spell is still Quick.\n- Some cards give a bonus when cast through Combination.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Effects that stop a Summon's attached Spells don't stop Combination either; Sol's Decree doesn't stop it.",
+   "You can cast a Combination Spell with no Energy at all, as long as a Summon sharing its element has enough Mana and its action available.",
+   "Channel Insight is the first card with a Combination bonus: cast through Combination, it draws two."
+  ]
+ },
+ {
+  "name": "Advancing Command",
+  "category": "movement",
+  "short": "Movement Ability: move an adjacent friendly Summon 1 field in the direction this Summon is facing.",
+  "body": "**Advancing Command** is a Movement Ability. Choose an adjacent friendly Summon and move it 1 field in the direction this Summon is facing.\n\n- Like all Movement Abilities it is a Full Action: it deactivates this Summon but spends no action token, and it can only be used in your own turn with an empty Stack, never as a response.\n- The moved Summon isn't acting, so even a Frozen or Immobilized friend can be ordered forward.\n- A Summon ordered into enemy territory triggers Infiltrate, but never Agility.\n\n**Assaulting Command** is the 2-field version of this order.",
+  "confidence": "medium",
+  "note": "The codex doesn't define a Summon's facing direction.",
+  "rulings": [
+   "Inside a Labyrinth Terrain, Advancing Command can't be used.",
+   "A Summon can't use it on the turn it enters, because it is a Full Action.",
+   "A freshly cast friend ordered out of your Guarded Zone loses Grace at once."
+  ]
+ },
+ {
+  "name": "Coward",
+  "category": "other",
+  "short": "Definition pending; follow the card's own reminder text.",
+  "body": "(Definition pending.) **Coward** is printed on a couple of cards but isn't defined in the rules codex. Until it is, follow the reminder text on the card itself. The name points to a drawback for a Summon that avoids a fair fight, the kind of restriction Guardian otherwise prints in plain words, such as being unable to counterattack. Treat it as a drawback rather than a protection.",
+  "confidence": "low",
+  "note": "Not covered in the codex at all.",
+  "rulings": []
+ },
+ {
+  "name": "Swift",
+  "category": "combat",
+  "short": "After this Summon attacks, you may move it up to N fields. This isn't its Movement Action.",
+  "body": "**Swift N** is a Skill: after this Summon attacks, you may move it up to N fields, where N is the number printed after the keyword. This extra move is not its Movement Action.\n\n- A Summon that attacked without moving keeps its ordinary move as well, and uses that first.\n- Only attacks earn it, never counterattacks. An unused Swift move expires at the end of turn.\n- The Swift move triggers Infiltrate and field hazards, but never Agility.\n- Swift doesn't stack: with several sources, the largest N wins.\n- A Constrained Summon loses it.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "A Swift move counts toward 'moved N fields this turn' effects, such as Frozen Tundra.",
+   "Swift is a Skill: the extra move doesn't go on the Stack and can't be answered as a trigger.",
+   "Granted Swift follows the same no-stacking rule: under Galewarden Valkyrie, a Summon that already has Swift 2 keeps Swift 2, not 3."
+  ]
+ },
+ {
+  "name": "Anguish",
+  "category": "ailment",
+  "short": "A Summon this one damages in combat becomes Agonized: it can't attack or counterattack this Summon.",
+  "body": "When a Summon with **Anguish** deals combat damage to an enemy Summon, attacking or counterattacking, that Summon becomes **Agonized**. An Agonized Summon can't attack or counterattack the Summon that agonized it.\n\n- Agonized has no clock. It lasts until something cleanses it, but only matters while its agonizer lives.\n- A Summon can be agonized by several Summons, and can't fight back against any of them.\n- Anguish can be granted by an Enchantment. A Constrained Summon loses it.",
+  "confidence": "medium",
+  "note": "That only damage reaching Life agonizes is a reading awaiting the designer's confirmation.",
+  "rulings": [
+   "Agonized is a status ailment, so a cleanse that removes all status ailments, such as Warm Bath's, removes it too."
+  ]
+ },
+ {
+  "name": "Fogged",
+  "category": "protection",
+  "short": "Can only be attacked from an adjacent field.",
+  "body": "A **Fogged** Summon can only be attacked from melee range: by an attacker on an adjacent field. Nothing can attack it from two or more fields away. Pure Ranged Combat can't attack an adjacent field, so it can't reach a Fogged Summon at all. To deal with one, you have to stand next to it.\n\n- A Fogged Flier is the exception: Ranged attackers may shoot an adjacent Flier, so they can hit it point-blank.\n- A Guardian's attack ignores Fogged entirely.\n- Spells and abilities aren't attacks and target it normally.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Fogged can be granted: Corsair Cloudbank gives it to its owner's Pirates standing in that Terrain.",
+   "Fogged is about distance, not Combat Type: any attacker on an adjacent field that may legally attack it there can do so."
+  ]
+ },
+ {
+  "name": "Aura",
+  "category": "static",
+  "short": "A continuous effect that reaches only the zone (row) its source is in.",
+  "body": "**Aura** works like Perpetual, a continuous effect with no activation, but it only reaches the zone its source is in. A zone is a row: your Guarded Zone, Battle Zone 1 or Battle Zone 2.\n\n- An Aura's zone is the source's row on its own half of the board.\n- The printed text decides who is affected. \"Other Pirates you control\" narrows it; an Aura that names enemy Summons reaches enemies standing in that zone.\n- It is checked live: step into the zone and you are affected, leave it and you are not.\n- A shared fast-lane field belongs to both players' Battle Zone 2.",
+  "confidence": "medium",
+  "note": "One entry says an Aura's row runs across the whole board; later rulings limit it to the source's own half. The body follows the later rulings.",
+  "rulings": [
+   "A Constrained Summon still gets bonuses from another card's Aura; Constrained only strips the Summon's own abilities.",
+   "A Petrified Summon's Aura keeps working, since it is a passive ability.",
+   "An Aura source in Stasis has no effect until it returns.",
+   "Hoarfrost Colossus shows an Aura that restricts: enemy Summons in its zone that deal magic damage may attack only the Colossus."
+  ]
+ },
+ {
+  "name": "Choose one",
+  "category": "other",
+  "short": "Pick one of the listed modes as you cast it; only that mode happens.",
+  "body": "A card with **Choose one** lists several modes, and you pick one. On a Spell the mode is announced first, before targets and costs, so it is fixed and visible on the Stack and your opponent knows what is coming. On a Summon's Manifest the modes are shown as choices before any target is asked for.\n\n- Only the chosen mode happens. The others are ignored.",
+  "confidence": "medium",
+  "note": "Covered only through casting-order rulings and a couple of card rulings.",
+  "rulings": [
+   "A copy of a modal Spell, such as one made by Mirror of Profoundness, keeps the mode chosen for the original.",
+   "On a 'Choose two' card, the chosen modes resolve in printed order, whichever you picked first."
+  ]
+ },
+ {
+  "name": "Stealth",
+  "category": "protection",
+  "short": "Can't be targeted by enemy sources. Lost for good once it acts (other than moving), takes damage or loses Life.",
+  "body": "A Summon with **Stealth** can't be targeted by enemy sources. Your own effects can still target it.\n\nStealth breaks easily. It is lost for good the first time the Summon:\n- performs any action other than moving,\n- takes damage, or\n- loses Life.\n\nMoving keeps it hidden, so a Stealth Summon can walk into position safely. Attacking, casting a Spell or using an ability reveals it. Once broken, Stealth doesn't come back for the rest of that Summon's time on the board.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Damage absorbed by Luster still counts as taking damage, so it breaks Stealth."
+  ]
+ },
+ {
+  "name": "Glare",
+  "category": "combat",
+  "short": "At the end of each opponent's turn, if this Summon is active, its printed Glare effect happens at exactly the printed distance.",
+  "body": "**Glare** is a Skill that prints its own effect: \"Glare - [effect]\". At the end of each of your opponent's turns, if the Summon is active, that effect happens. It uses no Stack and isn't an attack, so nothing counterattacks and Grace doesn't stop it.\n\n- The reach is a ring, not a circle. The effect says \"exactly N fields away\", and only something at exactly that distance qualifies, with a diagonal step counting 2.\n- It happens before the End Phase regenerates Defense and Resistance, so stats worn down that turn are still worn.\n- Attacking deactivates a Summon until your next Active Phase, so a Glare Summon that attacks gives up its Glare.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Some cards fire a Glare outside its normal timing: Sightline Snare has an active Glare Cyclops deal its Glare damage at once, onto a Summon the Trap just Shocked, so it is doubled.",
+   "Glare can be granted: Elder of the Anvil gives it to your other Cyclops."
+  ]
+ },
+ {
+  "name": "Advance",
+  "category": "movement",
+  "short": "Movement Ability: this Summon moves to the opposite side of an adjacent friendly Summon.",
+  "body": "**Advance** is a Movement Ability: this Summon moves past an adjacent friendly Summon to the field directly beyond it. The friend stays put. It is the mirror of **Call Back**, where the friend moves past this Summon instead.\n\n- It works only orthogonally, and the landing field must be free.\n- Like all Movement Abilities it is a Full Action: it deactivates this Summon but spends no action token, and it can only be used in your own turn with an empty Stack, never as a response.\n- Arriving in enemy territory triggers Infiltrate, but Advance never triggers Agility.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Inside a Labyrinth Terrain, Advance can't be used.",
+   "A Summon can't Advance on the turn it enters, because it is a Full Action.",
+   "Advancing into the enemy Guarded Zone also triggers Deep Infiltration, since any arrival counts."
+  ]
+ },
+ {
+  "name": "Breach",
+  "category": "combat",
+  "short": "Can attack the enemy Guardian even while a Guardprotect Summon protects it, and that damage is never redirected.",
+  "body": "A Summon with **Breach** ignores Guardprotect's taunt. It can declare an attack directly on the enemy Guardian even while that Guardian is protected, by a Guardprotect Summon or a Guardprotect Building, and the damage it deals there is never redirected to the protector.\n\nIt still has to reach the Guardian the normal way: attacks on a Guardian are declared from that Guardian's Guarded Zone.\n\n- Breach can be granted, including conditionally. A Summon that has Breach only while standing in a certain Terrain loses it the moment it steps out.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Breach doesn't lift a Summon's own restrictions: Battering Ram can still attack only Guardians and Buildings, and Breach is what lets it reach a Guardian behind a Guardprotect Summon."
+  ]
+ },
+ {
+  "name": "Mana Regen",
+  "category": "other",
+  "short": "In your Guardian Phase, this Summon regains N Mana.",
+  "body": "**Mana Regen N** is listed among the effects that happen in the Guardian Phase. Read alongside **Life Regen N**, it restores N Mana to its Summon in each of its controller's Guardian Phases, where N is the number printed after the keyword.\n\nMana is the separate pool a Summon or Guardian uses to cast the Spells attached to it, so Mana Regen lets such a Summon keep casting turn after turn instead of running dry. The codex doesn't say whether it can go above the Summon's maximum Mana.",
+  "confidence": "low",
+  "note": "Only named in the Guardian Phase list; the details are read from Life Regen.",
+  "rulings": []
+ },
+ {
+  "name": "Reflex Counter",
+  "category": "combat",
+  "short": "When attacked, this Summon's counterattack strikes first, before the attacker's damage.",
+  "body": "**Reflex Counter** flips Guardian's normal combat order. When this Summon is attacked, it makes its counterattack **before** the attacker's damage resolves.\n\n- If the counter kills the attacker, the attack never lands.\n- If the attacker survives, it attacks as normal, and there is no second counter.\n- It is the ordinary counterattack moved earlier: it needs the usual range, and anything that stops a counterattack, such as being Frozen, stops it too.\n- It is often granted for a limited time, or only while the Summon is active.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "A Dual Combat Summon's Reflex Counter uses whichever of Attack or Magic deals more to that attacker.",
+   "It does nothing against a Guardian's attack, because Guardians are never counterattacked.",
+   "A conditional Reflex Counter is read live: Dawnbreak Dragon has it only while active and loses it the moment it is deactivated.",
+   "Anything that stops a normal counterattack stops it too, including Stunned and 'can't counterattack' text."
+  ]
+ },
+ {
+  "name": "Assaulting Command",
+  "category": "movement",
+  "short": "Movement Ability: move an adjacent friendly Summon 2 fields in the direction this Summon is facing.",
+  "body": "**Assaulting Command** is a Movement Ability. Choose an adjacent friendly Summon and move it 2 fields in the direction this Summon is facing. It is the stronger version of **Advancing Command**, which moves the friend 1 field.\n\n- Like all Movement Abilities it is a Full Action: it deactivates this Summon but spends no action token, and it can only be used in your own turn with an empty Stack, never as a response.\n- The moved Summon isn't acting, so even a Frozen or Immobilized friend can be ordered forward.\n- A Summon ordered into enemy territory triggers Infiltrate, but never Agility.",
+  "confidence": "medium",
+  "note": "The codex doesn't define a Summon's facing direction.",
+  "rulings": [
+   "Inside a Labyrinth Terrain, Assaulting Command can't be used.",
+   "A Summon can't use it on the turn it enters, because it is a Full Action.",
+   "A freshly cast friend ordered out of your Guarded Zone loses Grace at once."
+  ]
+ },
+ {
+  "name": "Frenzy",
+  "category": "other",
+  "short": "You don't control this Summon's actions; when you end your turn it moves toward the nearest enemy and attacks by itself.",
+  "body": "A Summon with **Frenzy** acts on its own. You can't move it, attack with it or use its abilities. Instead, when you end your turn (before the End Phase), it takes its own action: it moves toward the nearest enemy, into attack range if it can, and attacks an enemy in range.\n\n- Its target follows a fixed order: a kill it survives, then any kill, then the enemy Guardian if it can reach it, then the biggest threat.\n- It is still your Summon for every other purpose.\n- A Constrained Summon loses Frenzy.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Older reminder text on Bloodhungry Frenzy says the controller chooses targets and paths; under the current rule the game chooses for you."
+  ]
+ },
+ {
+  "name": "Resilient",
+  "category": "protection",
+  "short": "The first time each turn this Summon would take damage, prevent all but 1 of it.",
+  "body": "The first time each turn a **Resilient** Summon would take damage, all but 1 of that damage is prevented. It is measured on what would reach its Life, after Defense and any other prevention.\n\n- The first damage of the turn always uses it up, even if it was only 1.\n- It resets every turn, yours and your opponent's.\n\nTo get through, hit it with something small first, then follow with the real attack.",
+  "confidence": "high",
+  "note": "",
+  "rulings": []
+ },
+ {
+  "name": "Pick Up",
+  "category": "trap",
+  "short": "Pay the extra cost when the Trap activates, and it returns to your hand instead of the graveyard.",
+  "body": "**Pick Up** lets a Trap come back. When you activate the Trap you may also pay the extra cost printed after the keyword. If you do, the Trap returns to your hand instead of going to the graveyard, ready to be set again.\n\n- You are asked after the Trap's targets are named, since the price can depend on them, for example one discard per card targeted. It is paid as the Trap resolves.\n- Paying the wrong amount buys nothing.\n- Setting a Trap is free, so a Pick Up Trap can be reused for its activation cost plus the Pick Up cost.",
+  "confidence": "medium",
+  "note": "Open: whether Pick Up can be paid on a Boggled activation, and whether a returned Trap can be set again the same turn.",
+  "rulings": []
+ },
+ {
+  "name": "Spur",
+  "category": "combat",
+  "short": "Whenever another Summon you control attacks, this Summon gets +N Magic until end of turn.",
+  "body": "**Spur N** is Goad's Magic twin. Whenever **another** Summon you control attacks, this Summon gets +N Magic until the end of turn, where N is the number printed after the keyword.\n\n- Its own attack never spurs it, and an enemy's attack does nothing.\n- Each qualifying attack adds another +N.\n- It is a Skill: part of the Summon, applied as the attack happens, with no Stack and no window to respond.\n- Spur can be granted, and a granted Spur adds to a printed one.",
+  "confidence": "high",
+  "note": "",
+  "rulings": []
+ },
+ {
+  "name": "Grovebound",
+  "category": "movement",
+  "short": "In a Forest Terrain, its Movement Action can take it to any free field in that Terrain.",
+  "body": "While a **Grovebound** Summon stands in a Forest Terrain, its Movement Action can take it to any free field in that same Terrain. There is no path and no range limit: it can go past occupied fields.\n\n- It is still the Summon's one Movement Action for the turn, so Agility triggers after it as usual.\n- Outside a Forest Terrain the Summon moves normally, using its own Movement stat.\n\nA Forest becomes home ground: a Grovebound Summon can turn up anywhere inside it.",
+  "confidence": "high",
+  "note": "",
+  "rulings": []
+ },
+ {
+  "name": "Leaping",
+  "category": "movement",
+  "short": "A diagonal step costs this Summon 1 Movement instead of 2.",
+  "body": "Normally a diagonal step costs 2 Movement, because it counts as one step across and one step forward. A Summon with **Leaping** makes a true diagonal move at a cost of 1.\n\n- It doesn't lift the Summon over anything. Summons around it still block a diagonal just as they would for anyone else.\n- **Jumping**, printed on some tokens, means exactly the same thing.\n\nLeaping turns a Movement 1 Summon into one that can slip diagonally, which matters a lot on a 5-column board.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Inside a Labyrinth Terrain, Leaping does nothing: every move there is a straight line."
+  ]
+ },
+ {
+  "name": "Magic Block",
+  "category": "element",
+  "short": "Best reading: Block's magic counterpart. If active, negates one magic attack against this Summon, then deactivates it.",
+  "body": "**Magic Block** appears in the codex only as the magic half of Block, recorded under the name Spell Block: the same shape as Block, for Magic Combat. Read that way: while this Summon is active, it negates one magic attack against it (no damage, no counterattack), and then it is deactivated.\n\nLike Block it should care only about activation state, so a Summon that only moved can still use it, and reactivating the Summon restores it. A Dual Combat attacker choosing the magic route would be stopped by it.",
+  "confidence": "low",
+  "note": "The codex describes it only as 'Spell Block', the magic version of Block; the details are assumed from Block.",
+  "rulings": []
+ },
+ {
+  "name": "Refresh",
+  "category": "movement",
+  "short": "Full Action: an adjacent Summon without Refresh reactivates and refills its movement and action.",
+  "body": "**Refresh** is a Full Action printed among the Movement Abilities. Target an adjacent Summon that doesn't have Refresh itself: it reactivates and refills its movement and its action, ready to go again.\n\n- Unlike an ordinary reactivate effect, it restores movement and action as well as the tap state.\n- Two Summons with Refresh can't refresh each other.\n- Using it deactivates the Summon that refreshes.\n- It is a premium ability, found only on Rare Fairies and Heroes.",
+  "confidence": "medium",
+  "note": "Whether it may target an enemy Summon is a reading of the printed text, not a ruling.",
+  "rulings": [
+   "Like other Movement Abilities, it can only be used in your own turn with an empty Stack, and not on the turn the Summon enters."
+  ]
+ },
+ {
+  "name": "Battlewise",
+  "category": "combat",
+  "short": "Attacking doesn't deactivate or deplete this Summon, but it still attacks only once per turn.",
+  "body": "Attacking normally spends a Summon's Attack token and deactivates it. A **Battlewise** Summon spends the token but stays active, so after attacking it can still cast its Spell, use an [A] ability or use a Movement Ability. It still can't attack twice in a turn.\n\n- Because it stays active, keywords that need an active Summon, such as Block, Clash or Glare, still work after it attacks.\n- If its attack fizzles because the target left, the attack is still spent, but the Summon isn't deactivated.",
+  "confidence": "high",
+  "note": "",
+  "rulings": []
+ },
+ {
+  "name": "Fragile",
+  "category": "trap",
+  "short": "This Trap must be activated as soon as its condition is met; its owner can't hold it back.",
+  "body": "**Fragile** is a Trap modifier, printed on the type line. A Fragile Trap has no \"may\": the moment its condition is met it activates, and its owner can't choose to wait for a better target.\n\nThat is the price of a strong effect. Your opponent can bait a Fragile Trap with a Summon they don't mind losing, knowing it will go off at once. Set it where the first Summon to trigger it is the one you want to catch.",
+  "confidence": "high",
+  "note": "",
+  "rulings": []
+ },
+ {
+  "name": "Avert",
+  "category": "trap",
+  "short": "An alternate activation with its own cost and effect, letting a positioned Trap fire without a Summon stepping on it.",
+  "body": "**Avert** gives a Step or Universal Trap a second way to go off, with its own cost and its own effect. In effect it turns the positioned Trap into a Positionless one: the Avert mode doesn't need a Summon to step on the trapped field.\n\n- Most Avert conditions read the board. They are checked whenever a Summon enters, moves or perishes, and the Avert stays on offer while the condition holds.\n- Some answer an event instead, such as an enemy Summon entering or attacking your Guardian. These are asked once, at that moment; declined, they aren't asked again for that Summon. Unfettered Summons don't set them off.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "On the card, the Avert cost is printed between the word Avert and the dash.",
+   "Vortex Trap's Avert is asked when the attack on your Guardian is declared; if you pay, the attacker is gone and the attack never lands.",
+   "Unbroken Faith holds the destruction while you decide: if you pay, it doesn't happen, and the rest of that effect still resolves."
+  ]
+ },
+ {
+  "name": "Burning",
+  "category": "ailment",
+  "short": "Status ailment: takes 1 damage at the start of its controller's turn, and its Defense doesn't regenerate.",
+  "body": "A **Burning** Summon takes 1 damage at the beginning of each of its controller's turns. That is real damage: it goes through Defense and can be prevented. On top of that, its Defense no longer regenerates: Defense lost while Burning stays lost through every End Phase, yours and your opponent's, until the Burning is removed. Worn to 0, it stays at 0.\n\n- Burning doesn't stack.\n- Its damage has no source and no controller, so effects that care about \"a source you control\" ignore it.\n- It is inflicted by **Scorch** and by various Fire cards.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Burning damage is never doubled by Curse of Searing Wounds and never counts for Garl, because it has no source.",
+   "Kindlemaster adds 1 to every instance of damage to a Burning enemy Summon, Burning's own tick included, and copies stack.",
+   "Under Curse of Embers, Burning can't be removed from the cursed player's Summons.",
+   "Blaze Contagion spreads all at once: a Summon set alight by it doesn't spread it in the same resolution, and it hits its caster's Summons too.",
+   "A Summon in Stasis doesn't take Burning damage; nothing on it ticks until it returns."
+  ]
+ },
+ {
+  "name": "Shocked",
+  "category": "ailment",
+  "short": "Status ailment: the next damage this Summon takes is doubled, then the Shock is spent.",
+  "body": "A **Shocked** Summon takes double damage from the next source of damage that hits it, and then the Shock is used up. The damage is doubled **before** Defense and Resistance: 3 damage becomes 6, and a Summon with 1 Defense takes 5.\n\n- How long it lasts depends on the card. A Shock from combat has no clock and waits until damage spends it. \"Until the end of turn\" ends in the End Phase. \"Until its controller's next Active Phase\" survives into the next turn.\n- It stacks with other doubling effects, for x4.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "When a card deals damage and then Shocks, as Storm-Rigger does, that same damage isn't doubled; the Shock waits for the next hit.",
+   "Sightline Snare is the combo case: it Shocks, then an active Glare Cyclops hits that Summon for doubled damage.",
+   "A Shocking Summon's combat damage to a Guardian doesn't Shock anything."
+  ]
+ },
+ {
+  "name": "Poisoned",
+  "category": "ailment",
+  "short": "Status ailment: loses 1 Life per Poison counter in each of its controller's Guardian Phases. Life loss, not damage.",
+  "body": "A **Poisoned** Summon carries Poison counters, and in each of its controller's Guardian Phases it loses 1 Life for every counter on it. Counters stack.\n\nPoison is life loss, not damage. Defense and Resistance don't reduce it, damage prevention doesn't stop it, and effects that watch for damage don't see it. It has no clock: it lasts until something cleanses it or the Summon leaves play.\n\n- It is inflicted by **Venomous**, **Contagious**, Poison Spores and various cards.\n- Some Curses stop Poison counters from being removed.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Damage prevention never stops Poison: Massive Force Field and Talas's damage prevention don't apply.",
+   "Under Curse of Lingering Venom, Poison counters can't be removed from the cursed player's Summons, but their other ailments can still be cleansed.",
+   "Poison Spores may be placed in a Guarded Zone, since they deal no damage.",
+   "A Summon in Stasis loses no Life to Poison until it returns.",
+   "A Summon that leaves play loses its Poison counters."
+  ]
+ },
+ {
+  "name": "Bleeding",
+  "category": "ailment",
+  "short": "Status ailment: 1 damage at its controller's End Phase, plus 1 damage for each field it moves on its own.",
+  "body": "A **Bleeding** Summon takes 1 damage at the end of its controller's turn, plus 1 damage for every field it moves. Both are real damage, reduced by Defense and open to prevention.\n\n- Movement is counted by cost, so a diagonal step counts as 2 fields.\n- It is inflicted by **Gashing** and by Caltrops.",
+  "confidence": "medium",
+  "note": "No clock, no stacking and no bleeding from forced movement are current readings, not final rulings.",
+  "rulings": [
+   "Under Haemophilia, Bleeding stacks for every Summon, and each stack bleeds again for every field moved.",
+   "Salted Wounds adds 1 to every Bleeding damage event, including each field moved.",
+   "On Slippery ground every field slid counts for Bleeding.",
+   "A Summon killed by Bleeding was not slain, so 'slain' effects don't trigger.",
+   "Bleeding damage has no source, so effects that care about a source don't see it.",
+   "A Summon already Bleeding that walks onto Caltrops takes the damage and nothing more.",
+   "A Summon in Stasis doesn't bleed until it returns."
+  ]
+ },
+ {
+  "name": "Frozen",
+  "category": "ailment",
+  "short": "Status ailment: shut down at once, can't counterattack, and won't reactivate in its controller's next Active Phase.",
+  "body": "A **Frozen** Summon is shut down the instant it freezes, mid-turn included: it loses all its remaining actions for that turn. No movement, no attack, no attached Spell, no [A] ability.\n\n- It can't counterattack.\n- It doesn't reactivate in its controller's next Active Phase. The Freeze ends there instead, and the Summon gets no actions back that turn; it acts again the turn after.\n- Abilities that don't cost an action (no [A]) still work.\n- Other Summons' Movement Abilities can still move it.\n- Chill freezes a Summon that is already deactivated, and some effects hold a Freeze for several turns.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Rimecrack's Time Counters hold the Freeze: one comes off in each of its controller's Active Phases instead of the thaw, and the Summon acts again only in the Active Phase after the last is gone.",
+   "If a Summon with Time Counters is thawed some other way, the counters are removed too.",
+   "Ice Mantle on the same Summon keeps it Frozen even after its last Time Counter is gone.",
+   "'Destroy target Frozen Summon' can take a Summon frozen by anything."
+  ]
+ },
+ {
+  "name": "Petrified",
+  "category": "ailment",
+  "short": "Status ailment: can't attack, move, counterattack or use [A] abilities; its Defense is doubled; no duration.",
+  "body": "A **Petrified** Summon is a statue. It can't attack, move, counterattack or use abilities that cost [A], and it doesn't reactivate in its Active Phase. Its Defense is doubled, or x4 if it is also anticipating.\n\n- It loses Flying, but keeps Diving.\n- Passive abilities keep working: Guardprotect, Retaliate, Auras, bonuses it gives others. Block still works while it is active.\n- Abilities that don't cost [A] can still be used.\n- It has no duration and lasts until cured. Only a few cards, mostly Gargoyles, remove it.\n- Petrified removed at the start of your Active Phase lets the Summon reactivate in that same phase.",
+  "confidence": "high",
+  "note": "",
+  "rulings": [
+   "Cave Troll can cure itself of every status ailment, Petrified included; the Gargoyle-only rule is about removing Petrified from other Summons.",
+   "Massive Force Field prevents only damage, so it doesn't stop Petrify.",
+   "A Gargoyle with Perching is grounded while Petrified, like any other Flier.",
+   "Stone sleep is a one-time Persist followed by Petrified, so a sacrifice or Death Strike still gets past it.",
+   "A night Gargoyle petrifies itself at the end of your turn and wakes at your Active Phase, so on the opponent's turn it is a grounded statue with doubled Defense and no counterattack.",
+   "Desertify replaces an effect's destruction with Petrified, and its ability can send a Petrified Summon to the Void."
+  ]
+ },
+ {
+  "name": "_ailments_overview",
+  "category": "ailment",
+  "short": "Status ailments are conditions inflicted onto Summons in play, such as Poisoned, Burning, Bleeding, Shocked, Frozen and Petrified.",
+  "body": "**Status ailments** are conditions inflicted onto a Summon that is still in play, as opposed to keywords it is born with. They show as badges on the Summon.\n\nTwo families matter. **Burning** and **Bleeding** deal real damage: it goes through Defense and can be prevented. **Poisoned** is life loss: it skips Defense and Resistance, and no damage prevention stops it. Other ailments, such as **Shocked**, **Chilled**, **Frozen**, **Petrified**, **Punished**, **Agonized**, **Immobilized** and **Demoralized**, change what a Summon can do rather than hurting it directly.\n\n- An ailment's damage has no source and no controller, so \"a source you control\" effects never count it.\n- Most ailments have no clock and last until something cleanses them. When a card prints a duration, that duration applies.\n- \"Cleanse\" removes all status ailments from a Summon.\n- A Summon that leaves play loses its Poison and other counters.\n- Nothing ticks while a Summon is in Stasis, and Stasis itself is not an ailment.",
+  "confidence": "high",
+  "note": ""
+ }
 ]

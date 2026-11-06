@@ -5,7 +5,7 @@ import { marked } from "marked";
 import data from "../data/keywords.json";
 import { keywordCounts, keywordSlug } from "./cards";
 
-export type Keyword = { name: string; category: string; short: string; body: string; confidence?: string; note?: string };
+export type Keyword = { name: string; category: string; short: string; body: string; rulings?: string[]; confidence?: string; note?: string };
 const entries = (data as Keyword[]).filter((k) => !k.name.startsWith("_"));
 export const ailmentsOverview = (data as Keyword[]).find((k) => k.name === "_ailments_overview");
 
