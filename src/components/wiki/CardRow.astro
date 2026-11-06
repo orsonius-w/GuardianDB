@@ -8,7 +8,7 @@ const rows = Astro.props.items.map((i) => ({ ...i, card: cards.find((c) => c.slu
   {rows.map(({ card, title, text }) => (
     <figure>
       <a href={`/cards/${card!.slug}/`}>
-        <img src={card!.image ?? ""} alt={card!.name} width={card!.imageWidth} height={card!.imageHeight} loading="lazy" decoding="async" />
+        <img src={card!.image ?? ""} alt={card!.name} width={card!.imageWidth} height={card!.imageHeight} style={`max-width:${card!.imageWidth}px`} loading="lazy" decoding="async" />
       </a>
       <figcaption><strong>{title ?? card!.name}</strong>{text && <small>{text}</small>}</figcaption>
     </figure>
@@ -17,8 +17,10 @@ const rows = Astro.props.items.map((i) => ({ ...i, card: cards.find((c) => c.slu
 
 <style>
   .card-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); gap: 1rem; margin-block: 1.5rem; }
+  /* a single card shouldn't fill the whole column */
+  .card-row:has(> figure:only-child) { max-width: 18rem; }
   figure { margin: 0; display: grid; gap: 0.5rem; align-content: start; text-align: center; }
-  img { border-radius: 8px; height: auto; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5); transition: transform 0.15s; }
+  img { width: 100%; border-radius: 8px; height: auto; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5); transition: transform 0.15s; }
   a:hover img { transform: translateY(-3px); }
   figcaption { display: grid; gap: 0.15rem; line-height: 1.35; }
   small { color: var(--clr-neutral-300); font-size: var(--fs-sm); }

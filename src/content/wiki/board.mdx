@@ -8,7 +8,7 @@ order: 10
 import BoardDiagram from "../../components/wiki/BoardDiagram.astro";
 import Callout from "../../components/wiki/Callout.astro";
 
-The board is a grid of **5 columns and 6 rows**. Each player owns the three rows on their side. The two outermost fields of each side's front row are **fused** with the opponent's, so the board has **28 playable fields**, not 30.
+The board is a grid of **5 columns and 6 rows**, split into **your side** and **your opponent's side**: each player owns the three rows nearest to them. The two outermost fields of each side's front row are **fused** with the opponent's, so the board has **28 playable fields**, not 30.
 
 <BoardDiagram />
 
@@ -22,7 +22,7 @@ From your Guardian outward:
 | **Guarded Zone** | Your back row. New Summons enter here. Your last line of defense. |
 | **Battle Zone 1** | Your middle row. |
 | **Battle Zone 2** | Your front row, touching the Front. |
-| **The Front** | The line between the two sides. Summons can cross it like any other step. |
+| **The Front** | The line between your side of the board and your opponent's. |
 
 An enemy Summon that reaches your Guarded Zone can attack your Guardian and your Buildings. Your Guardian, in turn, can attack enemy Summons standing in your Guarded Zone.
 

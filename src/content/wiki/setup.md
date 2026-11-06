@@ -7,9 +7,8 @@ order: 3
 
 1. **Place your Guardian** in your Guardian Zone.
 2. **Shuffle** your Main Deck and your Treasure Chest, and put each in its zone.
-3. **Choose up to 3 Tactics** and put them face down.
-4. **Decide who goes first.**
-5. **Draw 6 cards.** Each player may **mulligan once**: shuffle any or all of the 6 back and draw the same number again.
+3. **Decide who goes first.**
+4. **Draw 6 cards.** Each player may **mulligan once**: shuffle any or all of the 6 back and draw the same number again.
 
 ## The first turn
 

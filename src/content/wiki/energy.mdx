@@ -40,4 +40,18 @@ Drawing from your Treasure Chest therefore lowers your cap.
 
 ## Mana
 
-**Mana** is separate from Energy. Summons and Guardians that have Spells printed on them have a Mana stat. They spend that Mana to cast those Spells. Mana never pays for cards from your hand.
+**Mana** is separate from Energy. It only exists on Summons and Guardians that have a Spell printed on them, a **Summon Spell**, and it pays only for that Spell. Mana never pays for cards from your hand.
+
+<div class="mana-example">
+<CardRow items={[{ slug: "healing-nix", title: "Healing Nix", text: "3 Mana · Summon Spell: Treat Wounds [1 Mana]" }]} />
+<div>
+
+Healing Nix has **3 Mana**. Its Summon Spell, *Treat Wounds*, costs **1 Mana**: "Regenerate 2 Life of target Summon."
+
+- Casting it spends Healing Nix's **Cast** token and deactivates it, like an attack. So it casts at most once per turn.
+- Each cast takes 1 Mana from the Mana stat. With 3 Mana, Healing Nix can cast Treat Wounds three times over the game.
+- **Mana does not refill by itself.** Effects like **Mana Regen** give it back, but never above the printed value.
+- A Summon Spell is cast in your own Tactic Phase, unless it says **Quick**.
+
+</div>
+</div>

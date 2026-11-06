@@ -80,3 +80,8 @@
   margin-block: 1.5rem;
 }
 .figure-row > * { margin: 0 !important; }
+
+/* a card beside its explanation */
+.mana-example { display: grid; grid-template-columns: minmax(11rem, 15rem) 1fr; gap: 1.5rem; align-items: start; }
+.mana-example .card-row { margin-block: 0.5rem; }
+@media (width < 640px) { .mana-example { grid-template-columns: 1fr; } }
