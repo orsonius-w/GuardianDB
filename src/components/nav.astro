@@ -28,7 +28,7 @@ import { Icon } from "astro-icon/components";
     {
       navData.map((item) => (
         <li>
-          <a href={item.path} aria-current={(item.path === "/" ? Astro.url.pathname === "/" : Astro.url.pathname.startsWith(item.path)) ? "page" : undefined}>{item.name}</a>
+          <a href={item.path} aria-current={item.match.some((m) => Astro.url.pathname.startsWith(m)) ? "page" : undefined}>{item.name}</a>
         </li>
       ))
     }

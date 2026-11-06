@@ -1,8 +1,9 @@
 ---
-// Card grid with live filter / search / sort. Filtering runs in the browser,
-// the page itself is static. Filter state is mirrored in the URL (?q=...&type=...)
-// so a filtered view can be shared as a link.
+// Card grid + table with live filter / search / sort, "Show more" batches and a quick-view.
+// Filtering runs in the browser; the page itself is static. Filter state is mirrored in the URL
+// (?q=...&type=...) so a filtered view can be shared, and an open quick-view adds #card=<slug>.
 import { Icon } from "astro-icon/components";
+import CardDetail from "./CardDetail.astro";
 import { ELEMENTS, TYPES, RARITIES, keywordCounts, type Card } from "../../lib/cards";
 
 interface Props {
@@ -11,111 +12,129 @@ interface Props {
 }
 const { cards, showElementFilter = false } = Astro.props;
 
+const PAGE = 60; // keep in step with PAGE in the script below
 const keywordOptions = [...keywordCounts.entries()]
   .filter(([k, n]) => n >= 2 && /^[A-Z]/.test(k))
   .sort((a, b) => a[0].localeCompare(b[0]));
-const maxCost = Math.max(...cards.map((c) => c.costTotal), 0);
-// Before the script runs, only the first batch is visible (keep in step with PAGE below).
-const firstBatch = new Set(cards.filter((c) => !c.token).slice(0, 60).map((c) => c.id));
+const COSTS = ["0", "1", "2", "3", "4", "5", "6", "7+"];
+const firstBatch = new Set(cards.filter((c) => !c.token).slice(0, PAGE).map((c) => c.id));
+const elementOrder = Object.fromEntries(ELEMENTS.map((e, i) => [e.name, i]));
+// Table view rows are built in the browser from this compact list (keeps the page small).
+const tableData = cards.map((c) => [
+  c.id, c.slug, c.name, c.cost.map((p) => `${p.n}:${p.el}`).join(","), c.typeLine, c.elements.join(" / "), c.rarity,
+  c.life, c.attack, c.defense, c.magic, c.resistance, c.type === "Summon" ? c.movement : null,
+]);
+const dataFor = (card: Card) => ({
+  "data-id": card.id,
+  "data-slug": card.slug,
+  "data-name": card.name,
+  "data-s": `${card.name} ${card.typeLine} ${card.text} ${card.summonSpells}`.toLowerCase(),
+  "data-type": card.type,
+  "data-treasure": card.treasure ? "1" : "",
+  "data-elements": card.elements.join("|"),
+  "data-element-order": elementOrder[card.elements[0]] ?? 99,
+  "data-rarity": card.rarity,
+  "data-cost": card.costTotal,
+  "data-kw": card.keywords.join("|"),
+  "data-token": card.token ? "1" : "",
+  "data-attack": card.attack ?? "",
+  "data-life": card.life ?? "",
+  "data-movement": card.movement ?? "",
+});
 ---
 
 <form class="gallery-filter" id="gallery-filter" role="search" onsubmit="return false">
-  <label class="field field-search">
-    <span>Search</span>
-    <input type="search" name="q" placeholder="Name, text or tribe…" autocomplete="off" />
-  </label>
+  <div class="filter-row">
+    <label class="field field-search">
+      <span>Search</span>
+      <input type="search" name="q" placeholder="Name, text or tribe…" autocomplete="off" />
+    </label>
 
-  <label class="field">
-    <span>Type</span>
-    <select name="type">
-      <option value="">All</option>
-      {TYPES.map((t) => <option value={t}>{t}</option>)}
-    </select>
-  </label>
-
-  {showElementFilter && (
     <label class="field">
-      <span>Element</span>
-      <select name="element">
+      <span>Type</span>
+      <select name="type">
         <option value="">All</option>
-        {ELEMENTS.map((e) => <option value={e.name}>{e.name}</option>)}
+        {TYPES.map((t) => <option value={t}>{t}</option>)}
       </select>
     </label>
-  )}
 
-  <label class="field">
-    <span>Rarity</span>
-    <select name="rarity">
-      <option value="">All</option>
-      {RARITIES.map((r) => <option value={r}>{r}</option>)}
-    </select>
-  </label>
-
-  <label class="field field-small">
-    <span>Cost</span>
-    <select name="cost">
-      <option value="">All</option>
-      {Array.from({ length: maxCost + 1 }, (_, i) => <option value={i}>{i}</option>)}
-    </select>
-  </label>
-
-  <label class="field">
-    <span>Keyword</span>
-    <select name="kw">
-      <option value="">All</option>
-      {keywordOptions.map(([k, n]) => <option value={k}>{k} ({n})</option>)}
-    </select>
-  </label>
-
-  <label class="field field-check">
-    <input type="checkbox" name="tokens" value="1" />
-    <span>Show tokens</span>
-  </label>
-
-  <div class="field field-sort">
-    <label>
-      <span>Sort by</span>
-      <select name="sort">
-        <option value="name">Name</option>
-        <option value="cost">Cost</option>
-        <option value="type">Type</option>
-        <option value="rarity">Rarity</option>
-        <option value="attack">Attack</option>
-        <option value="life">Life</option>
-        <option value="movement">Movement</option>
+    <label class="field">
+      <span>Rarity</span>
+      <select name="rarity">
+        <option value="">All</option>
+        {RARITIES.map((r) => <option value={r}>{r}</option>)}
       </select>
     </label>
-    <button type="button" class="btn-sort" id="sort-direction" data-direction="asc" title="Toggle sort direction">
-      <Icon name="ci:sort-ascending" size="22" class="icon-asc" />
-      <Icon name="ci:sort-descending" size="22" class="icon-desc" />
-      <span class="visually-hidden">Toggle sort direction</span>
-    </button>
+
+    <label class="field">
+      <span>Keyword</span>
+      <select name="kw">
+        <option value="">All</option>
+        {keywordOptions.map(([k, n]) => <option value={k}>{k} ({n})</option>)}
+      </select>
+    </label>
   </div>
 
-  <button type="reset" class="btn-reset">Reset</button>
+  <div class="filter-row">
+    {showElementFilter && (
+      <fieldset class="pick element-pick" aria-label="Element">
+        <input type="hidden" name="element" value="" />
+        {ELEMENTS.map((e) => (
+          <button type="button" class="pick-btn" data-field="element" data-value={e.name} title={e.name} aria-pressed="false">
+            <img src={`/images/elements/${e.slug}.webp`} alt={e.name} width="30" height="30" />
+          </button>
+        ))}
+      </fieldset>
+    )}
+
+    <fieldset class="pick cost-pick" aria-label="Cost">
+      <input type="hidden" name="cost" value="" />
+      {COSTS.map((c) => (
+        <button type="button" class="pick-btn cost" data-field="cost" data-value={c} title={`Cost ${c}`} aria-pressed="false">{c}</button>
+      ))}
+    </fieldset>
+
+    <label class="field field-check">
+      <input type="checkbox" name="tokens" value="1" />
+      <span>Tokens</span>
+    </label>
+
+    <div class="field field-sort">
+      <label>
+        <span>Sort by</span>
+        <select name="sort">
+          <option value="name">Name</option>
+          {showElementFilter && <option value="element">Element</option>}
+          <option value="cost">Cost</option>
+          <option value="type">Type</option>
+          <option value="rarity">Rarity</option>
+          <option value="attack">Attack</option>
+          <option value="life">Life</option>
+          <option value="movement">Movement</option>
+        </select>
+      </label>
+      <button type="button" class="btn-sort" id="sort-direction" data-direction="asc" title="Toggle sort direction">
+        <Icon name="ci:sort-ascending" size="22" class="icon-asc" />
+        <Icon name="ci:sort-descending" size="22" class="icon-desc" />
+        <span class="visually-hidden">Toggle sort direction</span>
+      </button>
+    </div>
+
+    <div class="view-switch" role="group" aria-label="View">
+      <input type="hidden" name="view" value="" />
+      <button type="button" class="view-btn" data-view="" aria-pressed="true">Cards</button>
+      <button type="button" class="view-btn" data-view="table" aria-pressed="false">Table</button>
+    </div>
+
+    <button type="reset" class="btn-reset">Reset</button>
+  </div>
 </form>
 
 <p class="card-count" id="card-count" aria-live="polite">{cards.filter((c) => !c.token).length} cards</p>
 
 <div class="grid-column card-grid" id="card-grid">
   {cards.map((card) => (
-    <a
-      href={`/cards/${card.slug}/`}
-      class="card-link"
-      hidden={!firstBatch.has(card.id)}
-      data-name={card.name}
-      data-s={`${card.name} ${card.typeLine} ${card.text} ${card.summonSpells}`.toLowerCase()}
-      data-type={card.type}
-      data-treasure={card.treasure ? "1" : ""}
-      data-elements={card.elements.join("|")}
-      data-rarity={card.rarity}
-      data-cost={card.costTotal}
-      data-kw={card.keywords.join("|")}
-      data-token={card.token ? "1" : ""}
-      data-attack={card.attack ?? ""}
-      data-life={card.life ?? ""}
-      data-movement={card.movement ?? ""}
-    >
+    <a href={`/cards/${card.slug}/`} class="card-link item" hidden={!firstBatch.has(card.id)} {...dataFor(card)}>
       {card.image ? (
         <img src={card.image} alt={card.name} width={card.imageWidth} height={card.imageHeight} class="card-image" loading="lazy" decoding="async" />
       ) : (
@@ -125,45 +144,92 @@ const firstBatch = new Set(cards.filter((c) => !c.token).slice(0, 60).map((c) =>
   ))}
 </div>
 
+<div class="table-wrap" id="card-table-wrap" hidden>
+  <table class="card-table">
+    <thead>
+      <tr><th>Name</th><th>Cost</th><th>Type</th><th>Element</th><th>Rarity</th><th title="Life">Life</th><th title="Attack">Atk</th><th title="Defense">Def</th><th title="Magic">Mag</th><th title="Resistance">Res</th><th title="Movement">Mov</th></tr>
+    </thead>
+    <tbody id="card-table"></tbody>
+  </table>
+</div>
+
+<script type="application/json" id="table-data" set:html={JSON.stringify(tableData)} />
+
 <p class="no-results" id="no-results" hidden>No cards match these filters.</p>
 <div class="more-wrap"><button type="button" class="btn-more" id="show-more" hidden>Show more</button></div>
 
+<dialog class="quick-view" id="quick-view" aria-label="Card details">
+  <div class="qv-bar">
+    <button type="button" class="qv-btn" data-qv="prev" aria-label="Previous card">←</button>
+    <a class="qv-open" id="qv-open" href="#">Open card page</a>
+    <button type="button" class="qv-btn" data-qv="next" aria-label="Next card">→</button>
+    <button type="button" class="qv-btn qv-close" data-qv="close" aria-label="Close">✕</button>
+  </div>
+  <div class="qv-body" id="qv-body"></div>
+</dialog>
+
+<!-- One hidden card view so its styles ship with this page; the quick-view fills in fetched card pages. -->
+{cards[0] && <div hidden aria-hidden="true" class="qv-style-carrier"><CardDetail card={cards[0]} /></div>}
+
 <script>
   const RARITY_ORDER: Record<string, number> = { Common: 1, Uncommon: 2, Rare: 3, "Special Rare": 4 };
+  const PAGE = 60; // cards shown per batch; "Show more" adds another batch
+  const ELEMENT_NAMES = ["Light", "Darkness", "Fire", "Water", "Earth", "Wind", "Lightning", "Ice", "Nature", "Neutral"];
   const form = document.getElementById("gallery-filter") as HTMLFormElement;
   const grid = document.getElementById("card-grid")!;
+  const tbody = document.getElementById("card-table")!;
+  const tableWrap = document.getElementById("card-table-wrap")!;
   const count = document.getElementById("card-count")!;
   const empty = document.getElementById("no-results")!;
-  const dirBtn = document.getElementById("sort-direction") as HTMLButtonElement;
   const more = document.getElementById("show-more") as HTMLButtonElement;
-  const items = Array.from(grid.querySelectorAll<HTMLAnchorElement>(".card-link"));
-  const PAGE = 60; // cards shown per batch; "Show more" adds another batch
+  const dirBtn = document.getElementById("sort-direction") as HTMLButtonElement;
+  const tiles = Array.from(grid.querySelectorAll<HTMLElement>(".item"));
+  // Table rows are created on first use of the table view.
+  const rows = new Map<string, HTMLElement>();
+  const ICON: Record<string, string> = { darkness: "Dark", dark: "Dark" };
+  const pip = (n: string, el: string) => {
+    if (el === "neutral") return /^\d$|^X$/.test(n) ? `<img src="/images/icons/${n}.png" alt="${n}" class="icon" />` : `<span class="icon-chip">${n}</span>`;
+    const f = ICON[el] ?? el;
+    return Array.from({ length: Math.min(Number(n) || 1, 9) }, () => `<img src="/images/icons/${f}.png" alt="${el}" class="icon" />`).join("");
+  };
+  function buildRows() {
+    if (rows.size) return;
+    const data = JSON.parse(document.getElementById("table-data")!.textContent || "[]") as any[][];
+    const esc = (v: unknown) => String(v ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;");
+    for (const [id, slug, name, cost, typeLine, elements, rarity, ...st] of data) {
+      const tr = document.createElement("tr");
+      tr.className = "item";
+      tr.dataset.id = id;
+      tr.dataset.slug = slug;
+      const costCell = String(cost).split(",").filter(Boolean).map((p) => pip(...(p.split(":") as [string, string]))).join("");
+      tr.innerHTML = `<td><a href="/cards/${slug}/" class="card-link-row">${esc(name)}</a></td><td class="cost">${costCell}</td>`
+        + `<td>${esc(typeLine)}</td><td>${esc(elements)}</td><td>${esc(rarity)}</td>` + st.map((v) => `<td>${esc(v)}</td>`).join("");
+      rows.set(id, tr);
+    }
+  }
   let limit = PAGE;
+  let visibleOrder: HTMLElement[] = [];
+
+  const field = (name: string) => form.elements.namedItem(name) as HTMLInputElement | null;
 
   function state() {
     const f = new FormData(form);
+    const get = (k: string) => String(f.get(k) || "");
     return {
-      q: String(f.get("q") || "").trim().toLowerCase(),
-      type: String(f.get("type") || ""),
-      element: String(f.get("element") || ""),
-      rarity: String(f.get("rarity") || ""),
-      cost: String(f.get("cost") || ""),
-      kw: String(f.get("kw") || ""),
-      tokens: f.get("tokens") === "1",
-      sort: String(f.get("sort") || "name"),
-      dir: dirBtn.dataset.direction || "asc",
+      q: get("q").trim().toLowerCase(), type: get("type"), element: get("element"), rarity: get("rarity"),
+      cost: get("cost"), kw: get("kw"), tokens: f.get("tokens") === "1", sort: get("sort") || "name",
+      dir: dirBtn.dataset.direction || "asc", view: get("view"),
     };
   }
+  type State = ReturnType<typeof state>;
 
-  function matches(el: HTMLElement, s: ReturnType<typeof state>) {
+  function matches(el: HTMLElement, s: State) {
     const d = el.dataset;
     if (d.token && !s.tokens) return false;
-    if (s.type) {
-      if (s.type === "Treasure" ? !d.treasure : d.type !== s.type) return false;
-    }
+    if (s.type && (s.type === "Treasure" ? !d.treasure : d.type !== s.type)) return false;
     if (s.element && !(d.elements || "").split("|").includes(s.element)) return false;
     if (s.rarity && d.rarity !== s.rarity) return false;
-    if (s.cost && d.cost !== s.cost) return false;
+    if (s.cost && (s.cost === "7+" ? Number(d.cost) < 7 : d.cost !== s.cost)) return false;
     if (s.kw && !(d.kw || "").split("|").includes(s.kw)) return false;
     if (s.q && !s.q.split(/\s+/).every((w) => (d.s || "").includes(w))) return false;
     return true;
@@ -173,33 +239,70 @@ const firstBatch = new Set(cards.filter((c) => !c.token).slice(0, 60).map((c) =>
     const d = el.dataset;
     if (key === "name") return d.name || "";
     if (key === "type") return (d.type || "") + (d.name || "");
+    if (key === "element") return Number(d.elementOrder);
     if (key === "rarity") return RARITY_ORDER[d.rarity || ""] || 0;
     const v = d[key];
     return v === "" || v === undefined ? -1 : Number(v);
   }
 
+  function syncPickers(s: State) {
+    form.querySelectorAll<HTMLButtonElement>(".pick-btn").forEach((b) => {
+      b.setAttribute("aria-pressed", String((s as any)[b.dataset.field!] === b.dataset.value));
+    });
+    form.querySelectorAll<HTMLButtonElement>(".view-btn").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.view === s.view)));
+  }
+
   function apply(pushUrl = true, keepLimit = false) {
     const s = state();
     if (!keepLimit) limit = PAGE;
-    const sorted = items.slice().sort((a, b) => {
+    syncPickers(s);
+    if (s.view === "table") buildRows();
+    const sorted = tiles.slice().sort((a, b) => {
       const va = sortValue(a, s.sort), vb = sortValue(b, s.sort);
-      const r = typeof va === "number" && typeof vb === "number" ? va - vb || (a.dataset.name || "").localeCompare(b.dataset.name || "") : String(va).localeCompare(String(vb));
+      const r = typeof va === "number" && typeof vb === "number"
+        ? va - vb || (a.dataset.name || "").localeCompare(b.dataset.name || "")
+        : String(va).localeCompare(String(vb));
       return s.dir === "asc" ? r : -r;
     });
-    let matched = 0;
+    grid.querySelectorAll(".group-head").forEach((h) => h.remove());
+    let matched = 0, lastGroup = "";
+    visibleOrder = [];
+    const tileFrag: Node[] = [], rowFrag: Node[] = [];
     for (const el of sorted) {
       const ok = matches(el, s);
       if (ok) matched++;
-      el.hidden = !ok || matched > limit;
+      const show = ok && matched <= limit;
+      const row = rows.get(el.dataset.id!);
+      el.hidden = !show;
+      if (row) row.hidden = !show;
+      if (show) {
+        visibleOrder.push(el);
+        // group headings when sorted by element
+        if (s.sort === "element") {
+          const g = ELEMENT_NAMES[Number(el.dataset.elementOrder)] ?? "Other";
+          if (g !== lastGroup) {
+            const h = document.createElement("h3");
+            h.className = "group-head";
+            h.innerHTML = `<img src="/images/elements/${g.toLowerCase()}.webp" alt="" width="28" height="28" /> ${g}`;
+            tileFrag.push(h);
+            lastGroup = g;
+          }
+        }
+      }
+      tileFrag.push(el);
+      if (row) rowFrag.push(row);
     }
-    grid.append(...sorted);
+    grid.append(...tileFrag);
+    tbody.append(...rowFrag);
+    grid.hidden = s.view === "table";
+    tableWrap.hidden = s.view !== "table";
+
     const visible = Math.min(matched, limit);
-    count.textContent = matched > visible
-      ? `Showing ${visible} of ${matched} cards`
-      : `${matched} card${matched === 1 ? "" : "s"}`;
+    count.textContent = matched > visible ? `Showing ${visible} of ${matched} cards` : `${matched} card${matched === 1 ? "" : "s"}`;
     empty.hidden = matched > 0;
     more.hidden = matched <= limit;
     more.textContent = `Show ${Math.min(PAGE, matched - visible)} more`;
+
     if (pushUrl) {
       const p = new URLSearchParams();
       for (const [k, v] of Object.entries(s)) {
@@ -207,54 +310,113 @@ const firstBatch = new Set(cards.filter((c) => !c.token).slice(0, 60).map((c) =>
         if (v && !(k === "sort" && v === "name") && !(k === "dir" && v === "asc")) p.set(k, String(v));
       }
       const qs = p.toString();
-      history.replaceState(null, "", qs ? `?${qs}` : location.pathname);
+      history.replaceState(null, "", (qs ? `?${qs}` : location.pathname) + location.hash);
     }
   }
 
-  // restore state from the URL
+  // ---- restore state from the URL ----
   const params = new URLSearchParams(location.search);
   for (const [k, v] of params) {
-    const field = form.elements.namedItem(k) as HTMLInputElement | HTMLSelectElement | null;
-    if (!field) continue;
-    if (field instanceof HTMLInputElement && field.type === "checkbox") field.checked = v === "1";
-    else field.value = v;
+    const f = field(k);
+    if (!f) continue;
+    if (f.type === "checkbox") f.checked = v === "1";
+    else f.value = v;
   }
   if (params.get("dir") === "desc") dirBtn.dataset.direction = "desc";
 
+  // ---- events ----
   let t: number | undefined;
   form.addEventListener("input", () => { clearTimeout(t); t = window.setTimeout(apply, 120); });
   form.addEventListener("change", () => apply());
-  form.addEventListener("reset", () => { dirBtn.dataset.direction = "asc"; setTimeout(apply, 0); });
-  dirBtn.addEventListener("click", () => {
-    dirBtn.dataset.direction = dirBtn.dataset.direction === "asc" ? "desc" : "asc";
-    apply();
+  form.addEventListener("reset", () => {
+    dirBtn.dataset.direction = "asc";
+    setTimeout(() => { form.querySelectorAll<HTMLInputElement>("input[type=hidden]").forEach((h) => (h.value = "")); apply(); }, 0);
   });
+  form.querySelectorAll<HTMLButtonElement>(".pick-btn").forEach((b) =>
+    b.addEventListener("click", () => {
+      const f = field(b.dataset.field!)!;
+      f.value = f.value === b.dataset.value ? "" : b.dataset.value!; // click again to clear
+      apply();
+    }));
+  form.querySelectorAll<HTMLButtonElement>(".view-btn").forEach((b) =>
+    b.addEventListener("click", () => { field("view")!.value = b.dataset.view!; apply(); }));
+  dirBtn.addEventListener("click", () => { dirBtn.dataset.direction = dirBtn.dataset.direction === "asc" ? "desc" : "asc"; apply(); });
   more.addEventListener("click", () => { limit += PAGE; apply(false, true); });
   apply(false);
+
+  // ---- quick-view ----
+  const dialog = document.getElementById("quick-view") as HTMLDialogElement;
+  const qvBody = document.getElementById("qv-body")!;
+  const qvOpen = document.getElementById("qv-open") as HTMLAnchorElement;
+  const cache = new Map<string, string>();
+  let current = "";
+
+  async function show(slug: string) {
+    current = slug;
+    qvOpen.href = `/cards/${slug}/`;
+    if (!cache.has(slug)) {
+      qvBody.innerHTML = `<p class="qv-loading">Loading…</p>`;
+      try {
+        const html = await (await fetch(`/cards/${slug}/`)).text();
+        const view = new DOMParser().parseFromString(html, "text/html").querySelector(".card-view");
+        view?.querySelectorAll(".prev-next, #lightbox, #rotate-btn").forEach((n) => n.remove());
+        cache.set(slug, view?.outerHTML ?? "");
+      } catch { location.href = `/cards/${slug}/`; return; }
+    }
+    if (current !== slug) return;
+    qvBody.innerHTML = cache.get(slug)!;
+    if (!dialog.open) dialog.showModal();
+    history.replaceState(null, "", `${location.pathname}${location.search}#card=${slug}`);
+  }
+  function close() {
+    dialog.close();
+  }
+  dialog.addEventListener("close", () => history.replaceState(null, "", location.pathname + location.search));
+  function step(dir: number) {
+    const i = visibleOrder.findIndex((el) => el.dataset.slug === current);
+    const nextEl = visibleOrder[i + dir];
+    if (nextEl) show(nextEl.dataset.slug!);
+  }
+  const openFrom = (e: MouseEvent, slug?: string) => {
+    if (!slug || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; // let new-tab clicks through
+    e.preventDefault();
+    show(slug);
+  };
+  grid.addEventListener("click", (e) => openFrom(e, (e.target as HTMLElement).closest<HTMLElement>(".item")?.dataset.slug));
+  tbody.addEventListener("click", (e) => {
+    const row = (e.target as HTMLElement).closest<HTMLElement>(".item");
+    openFrom(e, row?.dataset.slug);
+  });
+  dialog.addEventListener("click", (e) => {
+    const b = (e.target as HTMLElement).closest<HTMLElement>("[data-qv]");
+    if (b) return b.dataset.qv === "close" ? close() : step(b.dataset.qv === "next" ? 1 : -1);
+    if (e.target === dialog) close(); // click on the backdrop
+  });
+  dialog.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") step(1);
+    if (e.key === "ArrowLeft") step(-1);
+  });
+  const fromHash = location.hash.match(/^#card=([\w-]+)/);
+  if (fromHash) show(fromHash[1]);
 </script>
 
 <style>
   .gallery-filter {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem 1rem;
-    align-items: end;
+    display: grid;
+    gap: 0.9rem;
     padding: 1rem;
     border: 1px solid hsl(0 0 100 / 0.15);
     border-radius: var(--radius-md);
     background: hsl(0 0 100 / 0.03);
   }
+  .filter-row { display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; align-items: end; }
 
   .field {
     display: grid;
     gap: 0.25rem;
     font-size: var(--fs-sm);
     color: var(--clr-neutral-200);
-
-    > span, label > span {
-      font-family: var(--ff-secondary);
-      letter-spacing: 0.5px;
-    }
+    > span, label > span { font-family: var(--ff-secondary); letter-spacing: 0.5px; }
   }
   .field-search { flex: 1 1 16rem; }
   .field-check { display: flex; align-items: center; gap: 0.5rem; padding-block-end: 0.5rem; }
@@ -275,67 +437,113 @@ const firstBatch = new Set(cards.filter((c) => !c.token).slice(0, 60).map((c) =>
   }
   input[type="checkbox"] { width: 1.1rem; height: 1.1rem; accent-color: var(--clr-primary); }
 
-  .btn-sort, .btn-reset {
+  .pick { display: flex; flex-wrap: wrap; gap: 0.3rem; border: 0; padding: 0; margin: 0; }
+  .pick-btn {
+    display: grid; place-items: center;
+    min-width: 2.4rem; height: 2.4rem; padding: 0.2rem;
+    color: inherit; font-weight: var(--fw-bold); font-family: var(--ff-brand);
+    background: var(--clr-neutral-800);
+    border: 1px solid var(--clr-neutral-600);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: transform 0.1s, border-color 0.1s, background-color 0.1s;
+    img { width: 1.8rem; height: 1.8rem; }
+    &:hover { border-color: var(--clr-neutral-300); }
+    &[aria-pressed="true"] { border-color: var(--clr-accent); background: hsl(40 100% 60% / 0.18); transform: scale(1.08); }
+  }
+  .element-pick:has([aria-pressed="true"]) .pick-btn:not([aria-pressed="true"]) img { opacity: 0.45; }
+
+  .btn-sort, .btn-reset, .view-btn {
     color: inherit;
     background: var(--clr-neutral-800);
     border: 1px solid var(--clr-neutral-600);
     border-radius: var(--radius-base);
-    padding: 0.4rem 0.6rem;
+    padding: 0.4rem 0.7rem;
     cursor: pointer;
   }
   .btn-sort svg { width: 22px; height: 22px; }
   .btn-sort[data-direction="asc"] .icon-desc,
   .btn-sort[data-direction="desc"] .icon-asc { display: none; }
-  .btn-reset:hover, .btn-sort:hover { background: var(--clr-neutral-700); }
+  .btn-reset:hover, .btn-sort:hover, .view-btn:hover { background: var(--clr-neutral-700); }
+  .view-switch { display: flex; }
+  .view-btn { border-radius: 0; }
+  .view-btn:first-of-type { border-radius: var(--radius-base) 0 0 var(--radius-base); }
+  .view-btn:last-of-type { border-radius: 0 var(--radius-base) var(--radius-base) 0; border-left: 0; }
+  .view-btn[aria-pressed="true"] { background: var(--clr-primary); color: hsl(200 95% 10%); border-color: var(--clr-primary); font-weight: var(--fw-bold); }
 
   .card-count { margin-block: 1rem; color: var(--clr-neutral-300); }
+  .no-results { color: var(--clr-neutral-300); font-style: italic; }
   .more-wrap { display: flex; justify-content: center; margin-block: 2rem; }
   .btn-more {
-    padding: 0.7rem 2rem;
-    font-size: var(--fs-md);
-    color: white;
-    background: var(--clr-neutral-800);
-    border: 1px solid var(--clr-neutral-600);
-    border-radius: var(--radius-full);
-    cursor: pointer;
+    padding: 0.7rem 2rem; font-size: var(--fs-md); color: white;
+    background: var(--clr-neutral-800); border: 1px solid var(--clr-neutral-600); border-radius: var(--radius-full); cursor: pointer;
     &:hover { background: var(--clr-neutral-700); border-color: var(--clr-primary); }
   }
-  .no-results { color: var(--clr-neutral-300); font-style: italic; }
 
-  .card-grid {
-    --grid-gap: 1rem;
-    --grid-max-col-count: 5;
-    --grid-min-col-size: 180px;
+  .card-grid { --grid-gap: 1rem; --grid-max-col-count: 5; --grid-min-col-size: 180px; }
+  .card-grid[hidden], .table-wrap[hidden], :global(.item[hidden]) { display: none; }
+  .card-grid :global(.group-head) {
+    grid-column: 1 / -1;
+    display: flex; align-items: center; gap: 0.5rem;
+    margin: 1rem 0 0;
+    padding-block-end: 0.4rem;
+    border-bottom: 1px solid hsl(0 0 100 / 0.15);
+    font-size: var(--fs-lg);
   }
+  .card-grid :global(.group-head img) { width: 1.75rem; height: 1.75rem; }
 
   .card-link {
     display: block;
     text-decoration: none;
     border-radius: 8px;
     transition: transform 0.15s ease-in-out;
-
     &:hover, &:focus-visible { transform: translateY(-4px); }
   }
-  .card-link[hidden] { display: none; }
-
-  .card-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-  }
-
+  .card-image { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); }
   .card-placeholder {
-    aspect-ratio: 500 / 709;
-    display: grid;
-    place-content: center;
-    gap: 0.5rem;
-    padding: 1rem;
-    text-align: center;
-    color: var(--clr-neutral-100);
-    background: var(--clr-neutral-800);
-    border: 1px dashed var(--clr-neutral-600);
-    border-radius: 8px;
-    font-family: var(--ff-secondary);
+    aspect-ratio: 500 / 709; display: grid; place-content: center; gap: 0.5rem; padding: 1rem; text-align: center;
+    color: var(--clr-neutral-100); background: var(--clr-neutral-800); border: 1px dashed var(--clr-neutral-600);
+    border-radius: 8px; font-family: var(--ff-secondary);
   }
+
+  .table-wrap { overflow-x: auto; border: 1px solid hsl(0 0 100 / 0.12); border-radius: var(--radius-md); }
+  .card-table { width: 100%; border-collapse: collapse; font-size: var(--fs-sm); }
+  .card-table th {
+    position: sticky; top: 0; text-align: left; padding: 0.55rem 0.75rem;
+    background: var(--clr-neutral-800); font-family: var(--ff-secondary); color: var(--clr-neutral-200); white-space: nowrap;
+  }
+  .card-table :global(td) { padding: 0.45rem 0.75rem; border-top: 1px solid hsl(0 0 100 / 0.07); vertical-align: middle; }
+  .card-table :global(tr.item) { cursor: pointer; }
+  .card-table :global(tr.item:hover td) { background: hsl(0 0 100 / 0.04); }
+  .card-table :global(td:nth-child(n + 6)) { text-align: center; font-variant-numeric: tabular-nums; }
+  .card-table :global(.cost) { white-space: nowrap; }
+  .card-table .cost :global(.icon) { width: 1.2em; height: 1.2em; }
+  .card-table :global(.card-link-row) { font-weight: var(--fw-medium); text-decoration: none; }
+
+  .quick-view {
+    width: min(64rem, 94vw);
+    max-height: 92vh;
+    padding: 0;
+    color: inherit;
+    background: var(--clr-neutral-900);
+    border: 1px solid var(--clr-neutral-600);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+    &::backdrop { background: rgba(0, 0, 0, 0.75); }
+  }
+  .qv-bar {
+    position: sticky; top: 0; z-index: 2;
+    display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 0.9rem;
+    background: var(--clr-neutral-900); border-bottom: 1px solid hsl(0 0 100 / 0.1);
+  }
+  .qv-open { margin-inline: auto; font-size: var(--fs-sm); }
+  .qv-btn {
+    width: 2.3rem; height: 2.3rem; color: inherit; font-size: 1.1rem; cursor: pointer;
+    background: var(--clr-neutral-800); border: 1px solid var(--clr-neutral-600); border-radius: var(--radius-full);
+    &:hover { border-color: var(--clr-primary); }
+  }
+  .qv-body { padding: 1.5rem; }
+  .qv-body :global(.image-button) { cursor: default; }
+  .qv-body :global(.card-name) { font-size: var(--fs-2xl); }
+  .qv-body :global(.qv-loading) { color: var(--clr-neutral-300); }
 </style>

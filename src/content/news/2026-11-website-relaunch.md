@@ -3,6 +3,7 @@ title: The website is back
 description: A rebuilt card gallery with every card, a new rules wiki and keyword pages.
 date: 2026-11-06
 category: Site
+image: /images/hero.webp
 ---
 
 After a long quiet stretch, the Guardian website has been rebuilt from the ground up.
@@ -10,8 +11,11 @@ After a long quiet stretch, the Guardian website has been rebuilt from the groun
 ## What's new
 
 - **Every card is in the gallery.** More than 1,800 cards, across all nine elements and Neutral, now come straight from the game's own card database, so the gallery stays in step with the game.
-- **Search and filters.** Search card names and rules text, and filter by element, type, rarity, cost and keyword. Every filtered view has its own link you can share.
+- **Search and filters.** Search card names and rules text, filter by element, type, rarity, cost and keyword, switch to a table view, and open any card in a quick view. Every filtered view has its own link you can share.
 - **A new rules wiki.** Turn structure, the board, combat, actions, Energy and the Treasure Chest, rewritten against the current rules.
+- **Learn to play.** A [newcomer page](/learn/) walks through a game in four steps, with the Quick Start guide as a download.
+- **Starter decks.** All [pre-constructed decks](/decks/) with full decklists, Treasure Chests and cost curves.
+- **Lore.** A first look at [Kaimun](/lore/), the world Guardian is set in.
 - **Keyword pages.** Every keyword has its own page with a definition and every card that uses it. Hover a keyword on a card page for a quick reminder.
 
 ## Still to come

@@ -20,8 +20,19 @@ const news = defineCollection({
     description: z.string(),
     date: z.coerce.date(),
     category: z.string().default("News"),
+    image: z.string().optional(), // cover image, e.g. /images/hero.webp
     draft: z.boolean().default(false),
   }),
 });
 
-export const collections = { wiki, news };
+const lore = defineCollection({
+  loader: glob({ pattern: "*.{md,mdx}", base: "./src/content/lore" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    order: z.number().default(100),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { wiki, news, lore };

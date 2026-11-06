@@ -1,0 +1,243 @@
+---
+import fs from "node:fs";
+// The full card view: image, type line, cost, text, stats, keywords.
+// Used by the card pages and by the gallery's quick-view (which loads a card page and shows this part).
+import { ELEMENTS, keywordSlug, isStat, type Card } from "../../lib/cards";
+import { parseTextToHTML, costHTML } from "../../js/parseTextToHtml";
+
+interface Props { card: Card; }
+const { card } = Astro.props;
+const element = ELEMENTS.find((e) => e.name === card.elements[0]) ?? ELEMENTS[ELEMENTS.length - 1];
+const landscape = (card.imageWidth ?? 0) > (card.imageHeight ?? 1);
+
+// Combat type icon from the game ("Ranged Combat R2-3" -> ranged-combat, "Magic Combat R1" -> magic-combat-r1)
+const combatKey = card.combat.toLowerCase().replace(/^ranged combat.*/, "ranged-combat").replace(/^bi combat.*/, "bi-combat").replace(/\s+/g, "-");
+const combatIcon = fs.existsSync(`public/images/combat/${combatKey}.webp`) ? `/images/combat/${combatKey}.webp` : null;
+
+const hasStats = ["Summon", "Guardian", "Building"].includes(card.type);
+type Stat = { key: string; label: string; value: number };
+const stat = (key: string, label: string, value: number | null): Stat[] => (isStat(value) ? [{ key, label, value: value as number }] : []);
+// Row 1: Life and Mana. Row 2: the combat stats and Move - the same order as the card's stat bar.
+const statRows: Stat[][] = hasStats
+  ? [
+      [...stat("life", "Life", card.life), ...stat("mana", "Mana", card.mana)],
+      [
+        ...stat("attack", "Attack", card.attack), ...stat("defense", "Defense", card.defense),
+        ...stat("magic", "Magic", card.magic), ...stat("resistance", "Resistance", card.resistance),
+        ...(card.type === "Summon" ? stat("move", "Move", card.movement) : []),
+      ],
+    ].filter((r) => r.length)
+  : [];
+
+const extras: [string, string | number][] = [];
+if (card.activationCost.length) extras.push(["Activation cost", costHTML(card.activationCost)]);
+if (card.workerCost !== null) extras.push(["Worker cost", card.workerCost]);
+if (card.level !== null) extras.push(["Level", card.level]);
+if (card.duration !== null) extras.push(["Duration", `${card.duration} turns`]);
+
+---
+
+    <div class="wrapper card-view">
+  <div class="col min-w-320 image-col">
+    {card.image ? (
+      <button class="image-button" id="lightbox-btn" type="button" aria-label={`Enlarge ${card.name}`}>
+        <img src={card.image} alt={card.name} width={card.imageWidth} height={card.imageHeight}
+          class:list={["card-image", { landscape }]} id="card-img" />
+      </button>
+    ) : (
+      <div class="card-placeholder">No image yet</div>
+    )}
+    {card.type === "Event" && card.image && (
+      <button class="action-btn" id="rotate-btn" type="button">Rotate (Side A / B)</button>
+    )}
+  </div>
+
+  <div class="col min-w-320 info-col">
+    <h1 class="card-name">{card.name}</h1>
+    <p class="type-line">
+      {card.typeLine}
+      <span class={`badge mini ${element.cls}`}>{card.elements.join(" / ")}</span>
+    </p>
+
+    <dl class="facts">
+      <div><dt>Cost</dt><dd>{card.cost.length ? <Fragment set:html={costHTML(card.cost)} /> : "None"}</dd></div>
+      {card.combat && <div><dt>Combat</dt><dd class="combat">{combatIcon && <img src={combatIcon} alt="" width="28" height="28" />}{card.combat}</dd></div>}
+      {extras.map(([k, v]) => <div><dt>{k}</dt><dd set:html={String(v)} /></div>)}
+    </dl>
+
+    {card.text && <div class="card-text" set:html={parseTextToHTML(card.text)} />}
+    {card.summonSpells && (
+      <div class="card-text summon-spells">
+        <h2 class="small-heading">Summon Spells</h2>
+        <p set:html={parseTextToHTML(card.summonSpells)} />
+      </div>
+    )}
+
+    {statRows.length > 0 && (
+      <div class="stats">
+        {statRows.map((row) => (
+          <dl class="stat-row">
+            {row.map((st) => (
+              <div class={`stat stat-${st.key}`}>
+                <dt>{st.label}</dt>
+                <dd>
+                  <img src={st.key === "move" ? `/images/stats/move_${Math.max(0, Math.min(3, st.value))}.png` : `/images/stats/${st.key}.png`} alt="" width="88" height="87" />
+                  {st.key !== "move" && <span class="stat-value">{st.value}</span>}
+                  {st.key === "move" && <span class="visually-hidden">{st.value}</span>}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        ))}
+      </div>
+    )}
+
+    <p class="meta">
+      {card.rarity && <span>{card.rarity}</span>}
+      {card.limit !== null && <span>{typeof card.limit === "number" ? `Limit ${card.limit}` : card.limit}</span>}
+      {card.token && <span>Token</span>}
+    </p>
+
+    {card.keywords.length > 0 && (
+      <p class="keyword-list">
+        Keywords:
+        {card.keywords.map((k) => <a href={`/wiki/keywords/${keywordSlug(k)}/`}>{k}</a>)}
+      </p>
+    )}
+
+    <slot />
+  </div>
+</div>
+
+{card.image && (
+  <div id="lightbox" class="lightbox" hidden>
+    <img src={card.image} alt={card.name} class="lightbox-img" />
+  </div>
+)}
+
+<style>
+  .crumbs { color: var(--clr-neutral-300); margin-block-end: 1.5rem; }
+  .card-view { --gap: 3rem; align-items: start; }
+  .col.min-w-320 { min-width: 320px; }
+  .image-col { flex: 0 1 400px; display: grid; gap: 0.75rem; justify-items: start; }
+  .info-col { flex: 1 1 360px; }
+
+  .image-button { padding: 0; border: 0; background: none; cursor: zoom-in; width: 100%; }
+  .card-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+
+    &.landscape { max-width: 560px; }
+    &.flipped { transform: rotate(180deg); }
+  }
+  .card-placeholder {
+    width: 100%; max-width: 400px; aspect-ratio: 500 / 709;
+    display: grid; place-content: center;
+    border: 1px dashed var(--clr-neutral-600); border-radius: 12px;
+    color: var(--clr-neutral-300);
+  }
+
+  .card-name { font-size: var(--fs-3xl); margin-block-end: 0.25em; }
+  .type-line {
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-md);
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: center;
+  }
+  .badge.mini {
+    padding: 0.2rem 0.7rem;
+    font-size: var(--fs-sm);
+    border-radius: var(--radius-full);
+  }
+
+  .facts, .stats { display: grid; gap: 0.5rem; margin-block: 1rem; }
+  .facts div { display: flex; gap: 1rem; align-items: center; }
+  dt { font-weight: var(--fw-bold); min-width: 7.5rem; color: var(--clr-neutral-200); }
+  dd { display: flex; align-items: center; flex-wrap: wrap; }
+  dd.combat { gap: 0.4rem; }
+  dd.combat img { width: 1.75rem; height: 1.75rem; object-fit: contain; }
+
+  .stats {
+    display: grid;
+    gap: 0.75rem;
+    margin-block: 1.25rem;
+    padding: 1rem 1.25rem;
+    background: hsl(0 0 100 / 0.04);
+    border-radius: var(--radius-md);
+  }
+  .stat-row { display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; }
+  .stat {
+    display: flex;
+    flex-direction: column-reverse; /* icon on top, label underneath */
+    align-items: center;
+    gap: 0.45rem;
+    width: 4.5rem;
+
+    dt { min-width: 0; font-size: var(--fs-xs); font-weight: var(--fw-medium); text-transform: uppercase; letter-spacing: 0.5px; color: var(--clr-neutral-300); }
+    dd { position: relative; display: grid; place-items: center; width: 3.25rem; height: 3.25rem; }
+    dd img { width: 100%; height: 100%; object-fit: contain; }
+  }
+  .stat-value {
+    position: absolute;
+    inset: 0 0 var(--orb-offset, 0) 0;
+    display: grid;
+    place-items: center;
+    font-family: var(--ff-brand);
+    font-size: 1.4rem;
+    font-weight: var(--fw-bold);
+    color: white;
+    text-shadow: 0 0 3px #000, 0 1px 2px #000, 0 0 6px rgba(0, 0, 0, 0.8);
+  }
+  /* the hexagon shields carry their orb lower than the frame centre */
+  .stat-attack, .stat-defense, .stat-magic, .stat-resistance { --orb-offset: 18%; }
+  .stat-attack .stat-value, .stat-defense .stat-value, .stat-magic .stat-value, .stat-resistance .stat-value { transform: translateY(9px); }
+  .stat-move dd { width: 2.9rem; height: 3.5rem; }
+
+  .card-text {
+    border: solid 1px hsl(0 0 100 / 0.3);
+    border-radius: var(--radius-base);
+    padding: 1rem;
+    line-height: 1.7;
+    margin-block: 1rem;
+  }
+  .small-heading { font-size: var(--fs-base); margin-block: 0 0.5em; text-transform: uppercase; letter-spacing: 1px; }
+
+  .meta { display: flex; flex-wrap: wrap; gap: 0.5rem; color: var(--clr-neutral-200); }
+  .meta span { padding: 0.15rem 0.6rem; border: 1px solid var(--clr-neutral-600); border-radius: var(--radius-full); font-size: var(--fs-sm); }
+
+  .keyword-list { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+
+
+  .action-btn {
+    background: var(--clr-neutral-800);
+    color: inherit;
+    border: 1px solid var(--clr-neutral-600);
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-base);
+    cursor: pointer;
+  }
+
+  .lightbox {
+    position: fixed; inset: 0; z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    cursor: zoom-out;
+  }
+  .lightbox[hidden] { display: none; }
+  .lightbox-img { max-width: 92vw; max-height: 92vh; width: auto; object-fit: contain; }
+</style>
+
+<script>
+  const img = document.getElementById("card-img");
+  const rotate = document.getElementById("rotate-btn");
+  const open = document.getElementById("lightbox-btn");
+  const box = document.getElementById("lightbox");
+
+  rotate?.addEventListener("click", () => img?.classList.toggle("flipped"));
+  open?.addEventListener("click", () => { if (box) box.hidden = false; });
+  box?.addEventListener("click", () => { box.hidden = true; });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && box) box.hidden = true; });
+</script>

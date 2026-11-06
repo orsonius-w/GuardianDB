@@ -15,7 +15,7 @@ Live at https://guardiancg.netlify.app. It's built with [Astro](https://astro.bu
 ## Updating the cards after a game build
 
 1. Export the card database in the game as usual. This updates `docs/card_database.csv`.
-2. `npm run sync`. This reads the CSV and the card PNGs, then writes `src/data/cards.json` and `public/cards/**/*.webp`. Only changed images are re-encoded. At the end it lists any card it couldn't find art for.
+2. `npm run sync`. This reads the CSV and the card PNGs, then writes `src/data/cards.json` and `public/cards/**/*.webp`. Only changed images are re-encoded. At the end it lists any card it couldn't find art for. The same run also updates the client version and patch notes (`client.json`), the starter decks (`decks.json`), the keyword badges, combat and element icons, and the Quick Start PDF.
 3. Check it with `npm run dev`, then commit and push. Netlify deploys automatically.
 
 The sync script expects the game repo at `C:/Users/otan/Documents/guardian-cg`. Use another location with
@@ -30,10 +30,15 @@ scripts/sync-cards.mjs        game repo -> cards.json + webp images
 src/data/cards.json           generated, don't edit by hand
 src/data/keywords.json        keyword glossary (hand-written; tooltips and keyword pages)
 src/data/navData.ts           main navigation
+src/data/site.ts              itch / Discord links (empty = hidden)
+src/data/decks.json           generated: starter decks
+src/data/client.json          generated: client version + patch notes
+src/content/lore/*.md         lore pages (frontmatter: title, description, order, draft)
+src/components/wiki/          visual components for wiki pages (MDX)
 src/content/wiki/*.md         wiki pages (frontmatter: title, description, section, order)
 src/content/news/*.md         news posts (frontmatter: title, description, date, category)
 src/components/cards/         gallery grid + filter
-src/pages/                    routes: /gallery, /cards/[slug], /wiki, /news, /downloads
+src/pages/                    routes: /learn, /gallery, /cards/[slug], /decks, /lore, /play, /wiki, /news
 src/styles/style.css          global styles and design tokens
 src/styles/wiki-style.css     wiki layout and article styles
 public/                       static files (images, icons, downloads)
@@ -42,5 +47,6 @@ public/                       static files (images, icons, downloads)
 ## Writing content
 
 - **A wiki page:** add a `.md` file to `src/content/wiki/` with `title`, `section` and `order`. It appears in the sidebar automatically. Sections are ordered in `src/lib/wiki.ts`.
-- **A news post:** add a `.md` file to `src/content/news/`. Set `draft: true` to hide it.
+- **A news post:** add a `.md` file to `src/content/news/`, with an optional `image:` cover. Set `draft: true` to hide it.
+- **A lore page:** add a `.md` file to `src/content/lore/` with `title`, `description` and `order`.
 - **A keyword definition:** edit `src/data/keywords.json`. `short` is the hover tooltip, `body` is the markdown on the keyword's page. Every keyword printed on a card gets a page, with or without an entry.

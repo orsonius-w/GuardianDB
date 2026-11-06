@@ -1,0 +1,187 @@
+---
+// Newcomer landing page: quick start download, how a game works in four steps, where to go next.
+import Layout from "../../layout/layout.astro";
+import Pagesection from "../../components/sections/pagesection.astro";
+import BoardDiagram from "../../components/wiki/BoardDiagram.astro";
+import EnergyRow from "../../components/wiki/EnergyRow.astro";
+import RangeGrid from "../../components/wiki/RangeGrid.astro";
+import CardRow from "../../components/wiki/CardRow.astro";
+import fs from "node:fs";
+import { decks } from "../../lib/decks";
+
+const hasPdf = fs.existsSync("public/downloads/guardian-quick-start.pdf");
+const steps = [
+  { title: "Choose your Guardian", short: "Guardian & deck" },
+  { title: "Make Energy", short: "Energy" },
+  { title: "Take the board", short: "The board" },
+  { title: "Strike the Guardian", short: "Combat & winning" },
+];
+const featuredDecks = decks.filter((d) => ["talas_talanted", "garls_gruesome", "nebuls_necromancy", "snaebjoerns_snacks"].includes(d.id));
+---
+
+<Layout title="Learn to Play | Guardian" description="New to Guardian? Learn how a game works in four steps, download the Quick Start guide, and pick a starter deck.">
+  <section class="learn-hero">
+    <img src="/images/hero.webp" alt="" class="bg" />
+    <div class="shade"></div>
+    <div class="base-layout content">
+      <div>
+        <h1>Learn to Play</h1>
+        <p class="tag">Guardian is learned in a few games. Read the four steps below, grab the Quick Start guide, and play a starter deck against the computer.</p>
+        <div class="actions">
+          {hasPdf && <a class="link filled" href="/downloads/guardian-quick-start.pdf" download>Quick Start guide (PDF)</a>}
+          <a class="link outline" href="/wiki/intro/">Read the rules</a>
+          <a class="link outline" href="/play/">Get the client</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Pagesection size="md">
+    <p class="eyebrow">Step by step</p>
+    <h2 class="section-h">How a game works</h2>
+    <div class="steps" id="steps">
+      <div class="step-tabs" role="tablist">
+        {steps.map((s, i) => (
+          <button role="tab" type="button" id={`tab-${i}`} aria-controls={`panel-${i}`} aria-selected={i === 0 ? "true" : "false"} tabindex={i === 0 ? 0 : -1}>
+            <span class="num">{i + 1}</span>{s.short}
+          </button>
+        ))}
+      </div>
+
+      <div class="step-panel" role="tabpanel" id="panel-0" aria-labelledby="tab-0">
+        <div class="panel-text">
+          <h3>1. Choose your Guardian</h3>
+          <p>Your <strong>Guardian</strong> is your champion. It starts in play with <strong>15 Life</strong>, makes 1 Energy every turn, and its abilities shape your whole deck.</p>
+          <p>Around it you bring a <strong>Main Deck</strong> of at least 55 cards and a <strong>Treasure Chest</strong> of 5 powerful cards that you buy into during the game.</p>
+          <a href="/wiki/components/">What you need →</a>
+        </div>
+        <CardRow items={[{ slug: "talas-defender-of-the-meek", title: "Talas, Defender of the Meek", text: "A Light Guardian" }]} />
+      </div>
+
+      <div class="step-panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1" hidden>
+        <div class="panel-text">
+          <h3>2. Make Energy</h3>
+          <p>Every card costs <strong>Energy</strong>. Play one <strong>Worker</strong> per turn: each one makes Energy, turn after turn. Elemental Energy pays its own element's costs and grey Neutral costs.</p>
+          <p>Unspent Energy carries over, up to the number of cards left in your Treasure Chest.</p>
+          <a href="/wiki/energy/">Energy & Mana →</a>
+        </div>
+        <div>
+          <EnergyRow />
+          <CardRow items={[{ slug: "northern-farmer", title: "A Worker", text: "Northern Farmer makes Light Energy" }]} />
+        </div>
+      </div>
+
+      <div class="step-panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
+        <div class="panel-text">
+          <h3>3. Take the board</h3>
+          <p>Summons enter in your back row, the <strong>Guarded Zone</strong>, and march across a 28-field grid. A diagonal step costs 2, enemies block the way, and the two <strong>fast lanes</strong> on the flanks are the quickest route across.</p>
+          <p>Where a Summon stands decides what it can attack, and what can attack it.</p>
+          <a href="/wiki/board/">The board →</a>
+        </div>
+        <BoardDiagram />
+      </div>
+
+      <div class="step-panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden>
+        <div class="panel-text">
+          <h3>4. Strike the Guardian</h3>
+          <p>Combat is one blow at a time: the <strong>attacker strikes first</strong>, and the defender hits back only if it survives and can reach. Ranged Summons can shoot without taking a counterattack.</p>
+          <p>Get a Summon into the enemy's Guarded Zone and attack their Guardian. Bring it from 15 Life to 0 and you win. You also win if your opponent has to draw from an empty deck.</p>
+          <a href="/wiki/combat/">Combat →</a>
+        </div>
+        <div class="ranges">
+          <RangeGrid min={1} max={1} label="Close Combat" caption="next to it" icon="/images/combat/close-combat.webp" size={5} />
+          <RangeGrid min={2} max={2} label="Ranged R2" caption="exactly 2 away" icon="/images/combat/ranged-combat.webp" size={5} />
+        </div>
+      </div>
+    </div>
+  </Pagesection>
+
+  {featuredDecks.length > 0 && (
+    <Pagesection size="base">
+      <h2 class="section-h">Ready for your first game?</h2>
+      <p>Start with a ready-made deck. Each one is built around a single Guardian.</p>
+      <div class="first-decks">
+        {featuredDecks.map((d) => (
+          <a href={`/decks/${d.slug}/`}>
+            {d.guardian?.image && <img src={d.guardian.image} alt="" width={d.guardian.imageWidth} height={d.guardian.imageHeight} loading="lazy" />}
+            <strong>{d.name}</strong>
+          </a>
+        ))}
+      </div>
+      <p><a href="/decks/">All {decks.length} starter decks →</a></p>
+    </Pagesection>
+  )}
+
+  <Pagesection size="md">
+    <div class="next">
+      <a href="/wiki/reading-a-card/"><strong>Reading a card</strong><span>Everything printed on a card.</span></a>
+      <a href="/wiki/turn-structure/"><strong>Turn structure</strong><span>The five phases of a turn.</span></a>
+      <a href="/wiki/keywords/"><strong>Keywords</strong><span>Every keyword, with the cards that use it.</span></a>
+      <a href="/lore/"><strong>The world of Kaimun</strong><span>Where Guardian is set.</span></a>
+    </div>
+  </Pagesection>
+</Layout>
+
+<script>
+  const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>("#steps [role=tab]"));
+  function select(i: number) {
+    tabs.forEach((t, j) => {
+      t.setAttribute("aria-selected", String(i === j));
+      t.tabIndex = i === j ? 0 : -1;
+      (document.getElementById(t.getAttribute("aria-controls")!) as HTMLElement).hidden = i !== j;
+    });
+    tabs[i].focus();
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => select(i));
+    t.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") select((i + 1) % tabs.length);
+      if (e.key === "ArrowLeft") select((i - 1 + tabs.length) % tabs.length);
+    });
+  });
+</script>
+
+<style>
+  .learn-hero { position: relative; min-height: min(56dvh, 30rem); display: grid; align-items: end; padding-block: 5rem 3rem; overflow: hidden; }
+  .learn-hero .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .learn-hero .shade { position: absolute; inset: 0; background: linear-gradient(#000000a1, #07070780 40%, var(--clr-neutral-900)); }
+  .learn-hero .content { position: relative; }
+  .learn-hero h1 { font-size: var(--fs-4xl); margin-block-end: 0.25em; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6); }
+  .tag { max-width: 40rem; font-size: var(--fs-md); text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7); }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-block-start: 1.5rem; }
+  .actions .link { font-size: var(--fs-md); padding: 0.6rem 1.25rem; color: white; }
+  .link.outline { border: 1px solid hsl(0 0 100 / 0.6); &:hover { background: hsl(0 0 100 / 0.1); } }
+
+  .eyebrow { color: var(--clr-accent); font-family: var(--ff-secondary); letter-spacing: 1px; text-transform: uppercase; font-size: var(--fs-sm); margin: 0; }
+  .section-h { font-size: var(--fs-2xl); margin-block: 0.2em 0.8em; }
+
+  .step-tabs { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 0.5rem; margin-block-end: 1.5rem; }
+  .step-tabs button {
+    display: flex; align-items: center; gap: 0.6rem; padding: 0.8rem 1rem; text-align: left; cursor: pointer;
+    color: var(--clr-neutral-200); font-family: var(--ff-secondary); font-size: var(--fs-md);
+    background: hsl(0 0 100 / 0.04); border: 1px solid hsl(0 0 100 / 0.12); border-radius: var(--radius-md);
+  }
+  .step-tabs button[aria-selected="true"] { color: white; border-color: var(--clr-accent); background: hsl(40 100% 60% / 0.12); }
+  .num { flex: none; width: 1.8rem; height: 1.8rem; display: grid; place-items: center; border-radius: 50%; background: var(--clr-accent); color: #2a1d00; font-weight: var(--fw-bold); font-size: var(--fs-sm); }
+  .step-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+  .step-panel[hidden] { display: none; }
+  @media (width < 800px) { .step-panel { grid-template-columns: 1fr; } }
+  .panel-text h3 { font-size: var(--fs-xl); }
+  .panel-text p { color: var(--clr-neutral-100); }
+  .step-panel :global(.card-row) { max-width: 15rem; grid-template-columns: 1fr; }
+  .ranges { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+  .first-decks { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: 1.25rem; margin-block: 1.25rem; }
+  .first-decks a { display: grid; gap: 0.5rem; color: inherit; text-decoration: none; font-family: var(--ff-secondary); }
+  .first-decks img { border-radius: 8px; height: auto; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5); transition: transform 0.15s; }
+  .first-decks a:hover img { transform: translateY(-4px); }
+
+  .next { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; }
+  .next a {
+    display: grid; gap: 0.25rem; padding: 1.1rem 1.25rem; color: inherit; text-decoration: none;
+    border: 1px solid hsl(0 0 100 / 0.12); border-radius: var(--radius-md);
+    strong { font-size: var(--fs-md); }
+    span { color: var(--clr-neutral-300); font-size: var(--fs-sm); }
+    &:hover { border-color: var(--clr-primary); color: inherit; }
+  }
+</style>

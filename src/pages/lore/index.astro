@@ -1,0 +1,32 @@
+---
+import WikiLayout from "../../layout/wikilayout.astro";
+import { lorePages, loreNav } from "../../lib/lore";
+import { md } from "../../lib/keywords";
+import intro from "../../data/lore-intro.md?raw";
+
+const pages = await lorePages();
+const nav = await loreNav();
+---
+
+<WikiLayout title="Kaimun" description="The world in which Guardian is set." nav={nav} home={{ title: "Lore home", href: "/lore/" }} titleSuffix="Guardian Lore">
+  <Fragment set:html={md(intro)} />
+  <div class="lore-index">
+    {pages.map((p) => (
+      <a href={`/lore/${p.id}/`} class="lore-tile">
+        <strong>{p.data.title}</strong>
+        {p.data.description && <span>{p.data.description}</span>}
+      </a>
+    ))}
+  </div>
+</WikiLayout>
+
+<style>
+  .lore-index { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1rem; margin-block: 2rem; }
+  .lore-tile {
+    display: grid; gap: 0.3rem; align-content: start; padding: 1.1rem 1.25rem; color: inherit; text-decoration: none;
+    border: 1px solid hsl(0 0 100 / 0.12); border-radius: var(--radius-md); background: hsl(0 0 100 / 0.02);
+    strong { font-family: var(--ff-secondary); font-size: var(--fs-md); }
+    span { color: var(--clr-neutral-300); font-size: var(--fs-sm); line-height: 1.5; }
+    &:hover { border-color: var(--clr-accent); color: inherit; }
+  }
+</style>

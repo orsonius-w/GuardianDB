@@ -15,9 +15,10 @@ const { Content } = await render(post);
 <Layout title={`${post.data.title} | Guardian`} description={post.data.description}>
   <Pagesection size="md">
     <article class="wiki-article">
-      <p class="news-meta"><a href="/news/">News</a> · <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time></p>
+      <p class="news-meta"><a href="/news/">News</a> · {post.data.category} · <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time></p>
       <h1>{post.data.title}</h1>
       <p class="lede">{post.data.description}</p>
+      {post.data.image && <img class="cover" src={post.data.image} alt="" />}
       <div class="prose"><Content /></div>
     </article>
   </Pagesection>
@@ -25,4 +26,5 @@ const { Content } = await render(post);
 
 <style>
   .news-meta { color: var(--clr-neutral-400); }
+  .cover { margin-block: 1.5rem 0; border-radius: var(--radius-md); height: auto; }
 </style>

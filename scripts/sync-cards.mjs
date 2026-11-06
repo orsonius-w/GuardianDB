@@ -309,4 +309,37 @@ async function syncIcons() {
   console.log(`icons: ${n} updated${missing.length ? `, missing: ${missing.join(", ")}` : ""}`);
 }
 
-main().then(syncClient).then(syncIcons);
+// ---------- starter decks (the player pre-cons from engine/game/deck_catalog.gd) ----------
+function syncDecks() {
+  const catalog = path.join(REPO, "engine/game/deck_catalog.gd");
+  if (!fs.existsSync(catalog)) return console.log("decks.json: skipped (deck_catalog.gd not found)");
+  const src = fs.readFileSync(catalog, "utf8");
+  const list = src.slice(src.indexOf("const STARTER_DECKS"), src.indexOf("]", src.indexOf("const STARTER_DECKS")));
+  const decks = [];
+  for (const m of list.matchAll(/\{"id":\s*"([^"]+)",\s*"name":\s*"([^"]+)"([^}]*)\}/g)) {
+    if (/"ai":\s*true/.test(m[3])) continue; // the computer's own decks
+    const file = path.join(REPO, "data/decks", m[1] + ".tres");
+    if (!fs.existsSync(file)) continue;
+    const t = fs.readFileSync(file, "utf8");
+    const guardian = (t.match(/guardian_id\s*=\s*"([^"]+)"/) || [])[1] ?? "";
+    const mainBlock = (t.match(/main_deck\s*=\s*\{([\s\S]*?)\}/) || [])[1] ?? "";
+    const main = [...mainBlock.matchAll(/"([^"]+)":\s*(\d+)/g)].map((x) => ({ id: x[1], count: Number(x[2]) }));
+    const chest = [...((t.match(/treasure_chest\s*=\s*Array\[String\]\(\[([^\]]*)\]/) || [])[1] ?? "").matchAll(/"([^"]+)"/g)].map((x) => x[1]);
+    decks.push({ id: m[1], slug: m[1].replace(/_/g, "-"), name: m[2], guardian, main, chest });
+  }
+  fs.writeFileSync(path.join(SITE, "src/data/decks.json"), JSON.stringify(decks, null, 1));
+  console.log(`decks.json: ${decks.length} starter decks`);
+}
+
+// ---------- downloads ----------
+function syncDownloads() {
+  const pdf = path.join(REPO, "Claude outputs/guardian-quick-start/Guardian-Quick-Start.pdf");
+  const dest = path.join(SITE, "public/downloads/guardian-quick-start.pdf");
+  if (!fs.existsSync(pdf)) return;
+  if (fs.existsSync(dest) && fs.statSync(dest).mtimeMs >= fs.statSync(pdf).mtimeMs) return;
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
+  fs.copyFileSync(pdf, dest);
+  console.log("downloads: Quick Start PDF updated");
+}
+
+main().then(syncClient).then(syncIcons).then(syncDecks).then(syncDownloads);

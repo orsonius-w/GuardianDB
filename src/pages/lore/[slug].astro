@@ -1,0 +1,16 @@
+---
+import { render } from "astro:content";
+import WikiLayout from "../../layout/wikilayout.astro";
+import { lorePages, loreNav } from "../../lib/lore";
+
+export async function getStaticPaths() {
+  return (await lorePages()).map((page) => ({ params: { slug: page.id }, props: { page } }));
+}
+const { page } = Astro.props;
+const { Content } = await render(page);
+const nav = await loreNav();
+---
+
+<WikiLayout title={page.data.title} description={page.data.description} nav={nav} home={{ title: "Lore home", href: "/lore/" }} titleSuffix="Guardian Lore">
+  <Content />
+</WikiLayout>

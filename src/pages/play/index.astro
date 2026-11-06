@@ -7,7 +7,8 @@ import Pagesection from "../../components/sections/pagesection.astro";
 import { md } from "../../lib/keywords";
 import client from "../../data/client.json";
 
-const ITCH_URL = "https://orsonius.itch.io/guardian";
+import { SITE_LINKS } from "../../data/site";
+const ITCH_URL = SITE_LINKS.itch;
 
 const shotDir = "public/images/client";
 const shots = fs.existsSync(shotDir)
@@ -42,12 +43,16 @@ const fmt = (d: string) => new Date(d).toLocaleDateString("en-GB", { day: "numer
   )}
 
   <Pagesection size="base">
+    <h2>Game modes</h2>
     <div class="features">
-      <div><h2>Online matches</h2><p>Play a friend over the internet, one on one.</p></div>
-      <div><h2>Computer opponent</h2><p>Practise against an AI that knows every card, or enter a computer tournament.</p></div>
-      <div><h2>Deck builder</h2><p>Every card in the gallery, plus ready-made pre-constructed decks to start from.</p></div>
-      <div><h2>Story campaign</h2><p>Follow Talas, a Light Guardian, through a campaign that teaches the game step by step. In progress.</p></div>
+      <div><h3>Online match</h3><p>Play a friend over the internet, one on one.</p></div>
+      <div><h3>Versus computer</h3><p>Practise against an AI that knows every card, with any starter deck or your own.</p></div>
+      <div><h3>Computer tournament</h3><p>Enter a Swiss-style tournament against computer opponents.</p></div>
+      <div><h3>Story campaign</h3><p>Follow Talas, a Light Guardian, through battles that teach the game step by step.</p><span class="tag">In progress</span></div>
+      <div class="soon"><h3>Dungeon</h3><p>A roguelike run through themed dungeons with a deck that grows as you go.</p><span class="tag">Coming</span></div>
+      <div class="soon"><h3>Draft</h3><p>Build a deck one pick at a time from three cards, then play it.</p><span class="tag">Coming</span></div>
     </div>
+    <p class="deck-cta">Not sure what to play? Browse the <a href="/decks/">starter decks</a>.</p>
   </Pagesection>
 
   <Pagesection size="base">
@@ -63,7 +68,7 @@ const fmt = (d: string) => new Date(d).toLocaleDateString("en-GB", { day: "numer
 
   {client.notes.length > 0 && (
     <Pagesection size="md">
-      <h2>Patch notes</h2>
+      <h2 id="patch-notes">Patch notes</h2>
       <div class="notes">
         {client.notes.map((n, i) => (
           <details open={i < 2}>
@@ -92,10 +97,13 @@ const fmt = (d: string) => new Date(d).toLocaleDateString("en-GB", { day: "numer
 
   .features {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem;
-    > div { padding: 1.25rem; border: 1px solid hsl(0 0 100 / 0.12); border-radius: var(--radius-md); background: hsl(0 0 100 / 0.02); }
-    h2 { font-size: var(--fs-lg); margin-block: 0 0.4em; }
+    > div { position: relative; padding: 1.25rem; border: 1px solid hsl(0 0 100 / 0.12); border-radius: var(--radius-md); background: hsl(0 0 100 / 0.02); }
+    > div.soon { opacity: 0.7; border-style: dashed; }
+    h3 { font-size: var(--fs-lg); margin-block: 0 0.4em; }
     p { margin: 0; color: var(--clr-neutral-200); }
   }
+  .tag { position: absolute; top: 0.9rem; right: 0.9rem; padding: 0.1rem 0.6rem; border-radius: var(--radius-full); font-size: var(--fs-xs); background: hsl(40 100% 60% / 0.16); color: var(--clr-accent); text-transform: uppercase; letter-spacing: 0.5px; }
+  .deck-cta { margin-block-start: 1rem; color: var(--clr-neutral-200); }
 
   .install { max-width: 60rem; ul { display: grid; gap: 0.5rem; } code { font-family: monospace; padding: 0 0.3em; background: hsl(0 0 100 / 0.08); border-radius: 3px; } }
 

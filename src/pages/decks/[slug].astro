@@ -1,0 +1,128 @@
+---
+import Layout from "../../layout/layout.astro";
+import Pagesection from "../../components/sections/pagesection.astro";
+import { decks, type Deck } from "../../lib/decks";
+import { costHTML } from "../../js/parseTextToHtml";
+import { SITE_LINKS } from "../../data/site";
+
+export function getStaticPaths() {
+  return decks.map((deck) => ({ params: { slug: deck.slug }, props: { deck } }));
+}
+const { deck } = Astro.props as { deck: Deck };
+const maxCurve = Math.max(...deck.curve, 1);
+const TYPE_ORDER = ["Summon", "Spell", "Trap", "Item", "Building", "Terrain", "Event", "Worker", "Treasure"];
+const sections = [...deck.byType.entries()].sort((a, b) => TYPE_ORDER.indexOf(a[0]) - TYPE_ORDER.indexOf(b[0]));
+const plural = (t: string) => (t.endsWith("y") ? t.slice(0, -1) + "ies" : t + "s");
+---
+
+<Layout title={`${deck.name} | Starter Decks | Guardian`} description={`${deck.name}: a ${deck.mainElement.name} starter deck led by ${deck.guardian?.name}. Full decklist and Treasure Chest.`} image={deck.guardian?.image ?? undefined}>
+  <Pagesection size="md">
+    <p class="crumbs"><a href="/decks/">Starter Decks</a> / {deck.mainElement.name}</p>
+    <div class="deck-head">
+      {deck.guardian?.image && (
+        <a href={`/cards/${deck.guardian.slug}/`} class="guardian"><img src={deck.guardian.image} alt={deck.guardian.name} width={deck.guardian.imageWidth} height={deck.guardian.imageHeight} /></a>
+      )}
+      <div>
+        <h1>{deck.name}</h1>
+        <p class="sub">Guardian: <a href={`/cards/${deck.guardian?.slug}/`}>{deck.guardian?.name}</a></p>
+        <div class="facts">
+          <span><strong>{deck.total}</strong> cards</span>
+          <span><strong>{deck.chest.length}</strong> in the Treasure Chest</span>
+          <span class="els">{deck.elements.map(([e, n]) => <span><img src={`/images/elements/${e.toLowerCase()}.webp`} alt="" width="22" height="22" />{e} {n}</span>)}</span>
+        </div>
+
+        <h2 class="small-h">Cost curve</h2>
+        <div class="curve" role="img" aria-label={`Cost curve: ${deck.curve.map((n, i) => `${n} at cost ${i === 7 ? "7+" : i}`).join(", ")}`}>
+          {deck.curve.map((n, i) => (
+            <div class="bar"><span class="n">{n || ""}</span><span class="b" style={`height:${(n / maxCurve) * 100}%`} /><span class="c">{i === 7 ? "7+" : i}</span></div>
+          ))}
+        </div>
+        <p class="note">Workers are left out of the curve: they cost nothing to play.</p>
+        {SITE_LINKS.itch && <a class="link filled play" href="/play/">Play this deck in the client</a>}
+      </div>
+    </div>
+  </Pagesection>
+
+  <Pagesection size="base">
+    <div class="lists">
+      {sections.map(([type, entries]) => (
+        <section>
+          <h2>{plural(type)} <small>{entries.reduce((t, e) => t + e.count, 0)}</small></h2>
+          <ul class="decklist">
+            {entries.map(({ card, count }) => (
+              <li>
+                <span class="count">{count}×</span>
+                <a href={`/cards/${card.slug}/`} data-img={card.image}>{card.name}</a>
+                <span class="cost" set:html={costHTML(card.cost)} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  </Pagesection>
+
+  <Pagesection size="base">
+    <h2>Treasure Chest</h2>
+    <div class="chest">
+      {deck.chest.map((c) => (
+        <a href={`/cards/${c.slug}/`} title={c.name}>{c.image ? <img src={c.image} alt={c.name} width={c.imageWidth} height={c.imageHeight} loading="lazy" decoding="async" /> : c.name}</a>
+      ))}
+    </div>
+  </Pagesection>
+
+  <img class="hover-preview" id="hover-preview" alt="" hidden />
+</Layout>
+
+<script>
+  // Show the card image next to the pointer when hovering a decklist entry.
+  const prev = document.getElementById("hover-preview") as HTMLImageElement;
+  document.querySelectorAll<HTMLAnchorElement>(".decklist a[data-img]").forEach((a) => {
+    a.addEventListener("mouseenter", () => { prev.src = a.dataset.img!; prev.hidden = false; });
+    a.addEventListener("mouseleave", () => { prev.hidden = true; });
+    a.addEventListener("mousemove", (e) => {
+      const x = Math.min(e.clientX + 24, innerWidth - 260), y = Math.min(e.clientY - 120, innerHeight - 360);
+      prev.style.transform = `translate(${x}px, ${Math.max(8, y)}px)`;
+    });
+  });
+</script>
+
+<style>
+  .crumbs { color: var(--clr-neutral-300); }
+  .deck-head { display: grid; grid-template-columns: minmax(12rem, 18rem) 1fr; gap: 2.5rem; align-items: start; }
+  @media (width < 700px) { .deck-head { grid-template-columns: 1fr; } .guardian { max-width: 16rem; } }
+  .guardian img { border-radius: 12px; height: auto; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55); }
+  h1 { font-size: var(--fs-3xl); margin-block-end: 0.2em; }
+  .sub { font-size: var(--fs-md); }
+  .facts { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; color: var(--clr-neutral-200); margin-block: 1rem; }
+  .els { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .els > span { display: inline-flex; align-items: center; gap: 0.3rem; }
+  .els img { width: 1.3rem; height: 1.3rem; }
+  .small-h { font-size: var(--fs-sm); text-transform: uppercase; letter-spacing: 1px; color: var(--clr-neutral-400); margin-block: 1.5rem 0.5rem; }
+  .curve { display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; height: 9rem; max-width: 26rem; }
+  .bar { display: grid; grid-template-rows: auto 1fr auto; align-items: end; justify-items: center; height: 100%; }
+  .bar .b { width: 100%; background: var(--clr-accent); border-radius: 3px 3px 0 0; min-height: 2px; }
+  .bar .n { font-size: var(--fs-xs); color: var(--clr-neutral-200); }
+  .bar .c { font-size: var(--fs-xs); color: var(--clr-neutral-400); padding-block-start: 0.2rem; }
+  .note { font-size: var(--fs-xs); color: var(--clr-neutral-400); }
+  .play { display: inline-block; margin-block-start: 1rem; color: white; }
+
+  .lists { columns: 3 16rem; column-gap: 2.5rem; }
+  .lists section { break-inside: avoid; margin-block-end: 1.75rem; }
+  .lists h2 { font-size: var(--fs-lg); margin-block: 0 0.5rem; padding-block-end: 0.3rem; border-bottom: 1px solid hsl(0 0 100 / 0.15); }
+  .lists h2 small { color: var(--clr-neutral-400); font-size: var(--fs-sm); }
+  .decklist { list-style: none; padding: 0; }
+  .decklist li { display: grid; grid-template-columns: 2rem 1fr auto; gap: 0.5rem; align-items: center; padding: 0.15rem 0; }
+  .count { color: var(--clr-neutral-300); font-variant-numeric: tabular-nums; }
+  .decklist a { text-decoration: none; color: var(--clr-neutral-50); }
+  .decklist a:hover { color: var(--clr-primary); }
+  .cost { white-space: nowrap; }
+  .cost :global(.icon) { width: 1.2em; height: 1.2em; }
+
+  .chest { display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); gap: 1rem; }
+  .chest img { border-radius: 8px; height: auto; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5); }
+
+  .hover-preview { position: fixed; left: 0; top: 0; z-index: 50; width: 240px; height: auto; border-radius: 10px; pointer-events: none; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6); }
+  .hover-preview[hidden] { display: none; }
+  @media (hover: none) { .hover-preview { display: none; } }
+</style>

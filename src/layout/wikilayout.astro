@@ -5,20 +5,27 @@ import Pagesection from "../components/sections/pagesection.astro";
 import { wikiNav } from "../lib/wiki";
 import "../styles/wiki-style.css";
 
-interface Props { title: string; description?: string; }
-const { title, description } = Astro.props;
-const nav = await wikiNav();
+interface Props {
+  title: string;
+  description?: string;
+  // Optional custom sidebar (the lore section uses its own). Defaults to the wiki's.
+  nav?: [string, { title: string; href: string }[]][];
+  home?: { title: string; href: string };
+  titleSuffix?: string;
+}
+const { title, description, home = { title: "Wiki home", href: "/wiki/" }, titleSuffix = "Guardian Wiki" } = Astro.props;
+const nav = Astro.props.nav ?? (await wikiNav());
 const here = Astro.url.pathname.replace(/\/?$/, "/");
 ---
 
-<Layout title={`${title} | Guardian Wiki`} description={description}>
+<Layout title={`${title} | ${titleSuffix}`} description={description}>
   <Pagesection size="base">
     <div class="wiki">
       <aside class="wiki-nav">
         <details open>
-          <summary>Wiki contents</summary>
+          <summary>Contents</summary>
           <nav aria-label="Wiki">
-            <a href="/wiki/" class="wiki-home" aria-current={here === "/wiki/" ? "page" : undefined}>Wiki home</a>
+            <a href={home.href} class="wiki-home" aria-current={here === home.href ? "page" : undefined}>{home.title}</a>
             {nav.map(([section, items]) => (
               <div class="wiki-group">
                 <h2>{section}</h2>
