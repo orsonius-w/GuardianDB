@@ -1,11 +1,11 @@
 ---
-
+const year = new Date().getFullYear();
 ---
 
 <footer>
   <div class="base-layout">
     <div class="copyright">
-      <p>Guardian CG &copy; <span id="copyright"></span></p>
+      <p>Guardian CG &copy; 2010–{year}</p>
     </div>
   </div>
 </footer>
@@ -20,9 +20,3 @@
   }
 </style>
 
-<script>
-  // @ts-ignore
-  document.querySelector("#copyright").textContent = new Date()
-    .getFullYear()
-    .toString();
-</script>

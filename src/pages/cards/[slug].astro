@@ -1,302 +1,224 @@
 ---
-// Imports
 import Layout from "../../layout/layout.astro";
 import Pagesection from "../../components/sections/pagesection.astro";
-import { query } from "../../lib/db";
+import { cards, ELEMENTS, keywordSlug, isStat, type Card } from "../../lib/cards";
+import { parseTextToHTML, costHTML } from "../../js/parseTextToHtml";
 
-import { parseCostToIcons } from "../../js/custom";
-import { parseTextToHTML } from "../../js/parseTextToHtml";
-
-export const prerender = false;
-
-// Build-time paths
-export async function getStaticPaths() {
-  const cards = await query("SELECT slug FROM cards");
-  return cards.map((card) => ({
-    params: { slug: card.slug },
-  }));
+export function getStaticPaths() {
+  return cards.map((card, i) => ({ params: { slug: card.slug }, props: { card } }));
 }
 
-// Get data for a specific slug
-const { slug } = Astro.params;
-const cards = await query("SELECT * FROM cards WHERE slug = $1 LIMIT 1", [
-  slug,
-]);
-const card = cards[0];
+const { card } = Astro.props as { card: Card };
+const element = ELEMENTS.find((e) => e.name === card.elements[0]) ?? ELEMENTS[ELEMENTS.length - 1];
+const landscape = (card.imageWidth ?? 0) > (card.imageHeight ?? 1);
 
-if (!card) {
-  throw new Error(`Card with slug "${slug}" not found`);
-}
+// Previous / next card within the same element, alphabetical, tokens skipped.
+const siblings = cards.filter((c) => c.elements[0] === card.elements[0] && !c.token);
+const pos = siblings.findIndex((c) => c.id === card.id);
+const prev = pos > 0 ? siblings[pos - 1] : null;
+const next = pos >= 0 && pos < siblings.length - 1 ? siblings[pos + 1] : null;
 
-const parsedText = parseTextToHTML(card.text);
+const hasStats = ["Summon", "Guardian", "Building"].includes(card.type);
+const stats: [string, number | null][] = hasStats
+  ? [
+      ["Life", card.life], ["Mana", card.mana],
+      ["Attack", card.attack], ["Defense", card.defense],
+      ["Magic", card.magic], ["Resistance", card.resistance],
+      ["Move", card.type === "Summon" ? card.movement : null],
+    ].filter(([, v]) => isStat(v as number | null)) as [string, number | null][]
+  : [];
+
+const extras: [string, string | number][] = [];
+if (card.activationCost.length) extras.push(["Activation cost", costHTML(card.activationCost)]);
+if (card.workerCost !== null) extras.push(["Worker cost", card.workerCost]);
+if (card.level !== null) extras.push(["Level", card.level]);
+if (card.duration !== null) extras.push(["Duration", `${card.duration} turns`]);
+
+const description = `${card.typeLine} — ${card.text.replace(/\s+/g, " ").slice(0, 150)}`;
 ---
 
 <Layout
   title={`${card.name} | Guardian`}
-  description={`Card entry for ${card.name}`}
-  image={card.image}
-  url={`https://guardiancg.netlify.app/cards/${slug}`}
+  description={description}
+  image={card.image ?? undefined}
+  url={`https://guardiancg.netlify.app/cards/${card.slug}/`}
 >
   <Pagesection size="md">
-    <div class="wrapper">
-      <div class="col min-w-320">
-        <img
-          src={card.image}
-          alt={card.name || "Guardian Card"}
-          width="300"
-          height="300"
-          class="card-image"
-          loading="lazy"
-          decoding="async"
-        />
+    <p class="crumbs">
+      <a href="/gallery/">Gallery</a> / <a href={`/gallery/${element.slug}/`}>{element.name}</a> / {card.name}
+    </p>
 
-        {
-          card.type === "Terrain" && (
-            <button class="action-btn" id="lightbox-btn">
-              View
-            </button>
-          )
-        }
-
-        {
-          card.type === "Event" && (
-            <button class="action-btn" id="rotate-btn">
-              Rotate
-            </button>
-          )
-        }
+    <div class="wrapper card-view">
+      <div class="col min-w-320 image-col">
+        {card.image ? (
+          <button class="image-button" id="lightbox-btn" type="button" aria-label={`Enlarge ${card.name}`}>
+            <img src={card.image} alt={card.name} width={card.imageWidth} height={card.imageHeight}
+              class:list={["card-image", { landscape }]} id="card-img" />
+          </button>
+        ) : (
+          <div class="card-placeholder">No image yet</div>
+        )}
+        {card.type === "Event" && card.image && (
+          <button class="action-btn" id="rotate-btn" type="button">Rotate (Side A / B)</button>
+        )}
       </div>
-      <div class="col min-w-320">
-        <h2>{card.name}</h2>
 
-        <p>
-          <strong>Cost:</strong>
-          {
-            card.cost
-              ? parseCostToIcons(card.cost).map(({ src, alt, key }) => (
-                  <img src={src} alt={alt} class="icon" key={key} />
-                ))
-              : "None"
-          }
-          {card.converted && <span class="small-text">({card.converted})</span>}
-        </p>
-        <p>
-          {card.type}
-          {card.subtype && ` - ${card.subtype}`}
-          {card.element && ` - ${card.element}`}
-          {card.extra && ` ,${card.extra}`}
-        </p>
-        <p>
-          {card.combat}
-        </p>
-        <p class="card-text" set:html={parsedText} />
-        <div class="wrapper mb-2">
-          <div class="col">
-            {
-              card.life !== undefined && card.life !== null && (
-                <span>
-                  <strong>Life: </strong> {card.life}
-                </span>
-              )
-            }
-          </div>
-          <div class="col">
-            {
-              card.mana !== undefined && card.mana !== null && (
-                <span>
-                  <strong>Mana: </strong> {card.mana}
-                </span>
-              )
-            }
-          </div>
-        </div>
-        <div class="wrapper mb-2">
-          <div class="col">
-            {
-              card.attack !== undefined && card.attack !== null && (
-                <span>
-                  <strong>Attack: </strong> {card.attack}
-                </span>
-              )
-            }
-          </div>
-          <div class="col">
-            {
-              card.defense !== undefined && card.defense !== null && (
-                <span>
-                  <strong>Defense: </strong> {card.defense}
-                </span>
-              )
-            }
-          </div>
-        </div>
-        <div class="wrapper mb-2">
-          <div class="col">
-            {
-              card.magic !== undefined && card.magic !== null && (
-                <span>
-                  <strong>Magic: </strong> {card.magic}
-                </span>
-              )
-            }
-          </div>
-          <div class="col">
-            {
-              card.resistance !== undefined && card.resistance !== null && (
-                <span>
-                  <strong>Resistance: </strong> {card.resistance}
-                </span>
-              )
-            }
-          </div>
-        </div>
-        <p>
-          {
-            card.movement !== undefined && card.movement !== null && (
-              <span>
-                <strong>Move:</strong> {card.movement}
-              </span>
-            )
-          }
+      <div class="col min-w-320 info-col">
+        <h1 class="card-name">{card.name}</h1>
+        <p class="type-line">
+          {card.typeLine}
+          <span class={`badge mini ${element.cls}`}>{card.elements.join(" / ")}</span>
         </p>
 
-        <p>
-          <strong>Limitation: </strong>
-          {card.limitation && `${card.limitation}, `}
-          {card.rarity}
+        <dl class="facts">
+          <div><dt>Cost</dt><dd>{card.cost.length ? <Fragment set:html={costHTML(card.cost)} /> : "None"}</dd></div>
+          {card.combat && <div><dt>Combat</dt><dd>{card.combat}</dd></div>}
+          {extras.map(([k, v]) => <div><dt>{k}</dt><dd set:html={String(v)} /></div>)}
+        </dl>
+
+        {card.text && <div class="card-text" set:html={parseTextToHTML(card.text)} />}
+        {card.summonSpells && (
+          <div class="card-text summon-spells">
+            <h2 class="small-heading">Summon Spells</h2>
+            <p set:html={parseTextToHTML(card.summonSpells)} />
+          </div>
+        )}
+
+        {stats.length > 0 && (
+          <dl class="stats">
+            {stats.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+          </dl>
+        )}
+
+        <p class="meta">
+          {card.rarity && <span>{card.rarity}</span>}
+          {card.limit !== null && <span>{typeof card.limit === "number" ? `Limit ${card.limit}` : card.limit}</span>}
+          {card.token && <span>Token</span>}
         </p>
+
+        {card.keywords.length > 0 && (
+          <p class="keyword-list">
+            Keywords:
+            {card.keywords.map((k) => <a href={`/wiki/keywords/${keywordSlug(k)}/`}>{k}</a>)}
+          </p>
+        )}
+
+        <nav class="prev-next" aria-label="Browse cards">
+          {prev ? <a href={`/cards/${prev.slug}/`} rel="prev">← {prev.name}</a> : <span />}
+          {next ? <a href={`/cards/${next.slug}/`} rel="next">{next.name} →</a> : <span />}
+        </nav>
       </div>
     </div>
-    <div id="lightbox" class="lightbox hidden">
-      <div class="overlay" id="overlay"></div>
-      <img
-        src={card.image}
-        alt="Lightbox Image"
-        class="lightbox-img rotate-90"
-      />
-    </div>
+
+    {card.image && (
+      <div id="lightbox" class="lightbox" hidden>
+        <img src={card.image} alt={card.name} class="lightbox-img" />
+      </div>
+    )}
   </Pagesection>
 </Layout>
 
 <style>
+  .crumbs { color: var(--clr-neutral-300); margin-block-end: 1.5rem; }
+  .card-view { --gap: 3rem; align-items: start; }
+  .col.min-w-320 { min-width: 320px; }
+  .image-col { flex: 0 1 400px; display: grid; gap: 0.75rem; justify-items: start; }
+  .info-col { flex: 1 1 360px; }
+
+  .image-button { padding: 0; border: 0; background: none; cursor: zoom-in; width: 100%; }
   .card-image {
     width: 100%;
-    max-width: 400px; /* Cap image size for single page view */
+    max-width: 400px;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+
+    &.landscape { max-width: 560px; }
+    &.flipped { transform: rotate(180deg); }
+  }
+  .card-placeholder {
+    width: 100%; max-width: 400px; aspect-ratio: 500 / 709;
+    display: grid; place-content: center;
+    border: 1px dashed var(--clr-neutral-600); border-radius: 12px;
+    color: var(--clr-neutral-300);
+  }
+
+  .card-name { font-size: var(--fs-3xl); margin-block-end: 0.25em; }
+  .type-line {
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-md);
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: center;
+  }
+  .badge.mini {
+    padding: 0.2rem 0.7rem;
+    font-size: var(--fs-sm);
+    border-radius: var(--radius-full);
+  }
+
+  .facts, .stats { display: grid; gap: 0.5rem; margin-block: 1rem; }
+  .facts div { display: flex; gap: 1rem; align-items: center; }
+  dt { font-weight: var(--fw-bold); min-width: 7.5rem; color: var(--clr-neutral-200); }
+  dd { display: flex; align-items: center; flex-wrap: wrap; }
+
+  .stats {
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    padding: 1rem;
+    background: hsl(0 0 100 / 0.04);
+    border-radius: var(--radius-md);
+
+    div { display: flex; justify-content: space-between; gap: 0.5rem; }
+    dt { min-width: 0; }
+    dd { font-weight: var(--fw-bold); font-size: var(--fs-md); }
   }
 
   .card-text {
     border: solid 1px hsl(0 0 100 / 0.3);
+    border-radius: var(--radius-base);
     padding: 1rem;
-
-    img {
-      max-width: 1.5rem;
-      display: inline-block;
-      margin-block-end: -6px;
-    }
-
-    span.keyword {
-      font-size: 120%;
-      font-family: var(--ff-brand);
-    }
+    line-height: 1.7;
+    margin-block: 1rem;
   }
+  .small-heading { font-size: var(--fs-base); margin-block: 0 0.5em; text-transform: uppercase; letter-spacing: 1px; }
 
-  .small-text {
-    font-size: 0.8rem;
-    color: hsl(0 0 100 / 0.6);
-  }
+  .meta { display: flex; flex-wrap: wrap; gap: 0.5rem; color: var(--clr-neutral-200); }
+  .meta span { padding: 0.15rem 0.6rem; border: 1px solid var(--clr-neutral-600); border-radius: var(--radius-full); font-size: var(--fs-sm); }
 
-  .wrapper {
-    flex-wrap: wrap;
-  }
+  .keyword-list { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
 
-  .col.min-w-320 {
-    min-width: 320px;
-  }
-
-  .icon {
-    width: 24px;
-    height: 24px;
-    display: inline-block;
-    margin-right: 4px;
-    vertical-align: middle;
+  .prev-next {
+    display: flex; justify-content: space-between; gap: 1rem;
+    margin-block-start: 2rem; padding-block-start: 1rem;
+    border-top: 1px solid hsl(0 0 100 / 0.15);
   }
 
   .action-btn {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background: white;
-    border: none;
-    padding: 4px 8px;
-    border-radius: 4px;
+    background: var(--clr-neutral-800);
+    color: inherit;
+    border: 1px solid var(--clr-neutral-600);
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-base);
     cursor: pointer;
-    font-size: 0.9rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: background 0.2s;
-  }
-
-  .action-btn:hover {
-    background: #f0f0f0;
-  }
-
-  .rotate-180 {
-    transform: rotate(180deg);
   }
 
   .lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
+    position: fixed; inset: 0; z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    cursor: zoom-out;
   }
-
-  .lightbox.hidden {
-    display: none;
-  }
-
-  .lightbox-img {
-    max-width: 90vw;
-    max-height: 90vh;
-    transition: transform 0.3s;
-  }
-
-  .rotate-90 {
-    transform: rotate(90deg);
-  }
-
-  .overlay {
-    position: fixed;
-    inset: 0;
-  }
+  .lightbox[hidden] { display: none; }
+  .lightbox-img { max-width: 92vw; max-height: 92vh; width: auto; object-fit: contain; }
 </style>
 
 <script>
-  const cardImg = document.getElementById("card-img");
-  const rotateBtn = document.getElementById("rotate-btn");
-  const lightboxBtn = document.getElementById("lightbox-btn");
-  const lightbox = document.getElementById("lightbox");
-  const overlay = document.getElementById("overlay");
+  const img = document.getElementById("card-img");
+  const rotate = document.getElementById("rotate-btn");
+  const open = document.getElementById("lightbox-btn");
+  const box = document.getElementById("lightbox");
 
-  if (rotateBtn && cardImg) {
-    rotateBtn.addEventListener("click", () => {
-      cardImg.classList.toggle("rotate-180");
-    });
-  }
-
-  if (lightboxBtn && lightbox) {
-    lightboxBtn.addEventListener("click", () => {
-      lightbox.classList.remove("hidden");
-    });
-
-    overlay.addEventListener("click", () => {
-      lightbox.classList.add("hidden");
-    });
-  }
+  rotate?.addEventListener("click", () => img?.classList.toggle("flipped"));
+  open?.addEventListener("click", () => { if (box) box.hidden = false; });
+  box?.addEventListener("click", () => { box.hidden = true; });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && box) box.hidden = true; });
 </script>

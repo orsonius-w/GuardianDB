@@ -1,11 +1,10 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-import netlify from "@astrojs/netlify";
-
 import icon from "astro-icon";
 
-// https://astro.build/config
+// Fully static site: `npm run build` writes plain HTML to dist/, Netlify serves it from its CDN.
 export default defineConfig({
+  site: "https://guardiancg.netlify.app",
   integrations: [icon()],
-  adapter: netlify(),
+  trailingSlash: "ignore",
 });

@@ -668,3 +668,51 @@ li {
     --background-color: hsl(9 63 40 / 75);
   }
 }
+
+/* --- card text icons & keyword links (shared by card pages and wiki) --- */
+.icon {
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  vertical-align: -0.35em;
+  margin-inline: 0.05em;
+}
+.icon-chip {
+  display: inline-block;
+  padding: 0 0.4em;
+  margin-inline: 0.1em;
+  font-size: 0.85em;
+  border: 1px solid hsl(0 0 100 / 0.35);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+.keyword-link {
+  text-decoration: none;
+  &:hover .keyword, &:focus-visible .keyword { text-decoration: underline; }
+}
+.card-text .keyword {
+  font-size: 115%;
+  font-family: var(--ff-brand);
+}
+
+/* keyword tooltip (card text) */
+.keyword-link[data-tip] { position: relative; }
+.keyword-link[data-tip]:hover::after,
+.keyword-link[data-tip]:focus-visible::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 6px);
+  z-index: 20;
+  width: max-content;
+  max-width: 18rem;
+  padding: 0.5rem 0.75rem;
+  font: 400 0.85rem/1.4 var(--ff-base);
+  letter-spacing: 0;
+  text-shadow: none;
+  color: var(--clr-neutral-50);
+  background: var(--clr-neutral-950);
+  border: 1px solid var(--clr-neutral-600);
+  border-radius: var(--radius-base);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}

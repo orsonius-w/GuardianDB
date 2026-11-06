@@ -1,0 +1,15 @@
+---
+import WikiLayout from "../../layout/wikilayout.astro";
+import { allKeywords, ailmentsOverview, md } from "../../lib/keywords";
+const ailments = allKeywords().filter((k) => k.entry?.category === "ailment");
+---
+
+<WikiLayout title="Status Ailments" description="Burning, Shocked, Poisoned and the other conditions Summons can suffer.">
+  {ailmentsOverview && <Fragment set:html={md(ailmentsOverview.body)} />}
+  {ailments.map((k) => (
+    <section>
+      <h2 id={k.slug}><a href={`/wiki/keywords/${k.slug}/`}>{k.name}</a></h2>
+      <Fragment set:html={md(k.entry!.body)} />
+    </section>
+  ))}
+</WikiLayout>

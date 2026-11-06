@@ -1,37 +1,17 @@
 ---
-import Layout from "../../layout/layout.astro";
-import Pagesection from "../../components/sections/pagesection.astro";
+import WikiLayout from "../../layout/wikilayout.astro";
+import { wikiNav } from "../../lib/wiki";
+const nav = await wikiNav();
 ---
 
-<Layout>
-  <Pagesection size="md">
-    <h2>Wiki</h2>
-    <p>Learn all about Guardian the card game.</p>
-
-    <ol>
-      <li>
-        <a href="/wiki/intro/">Introduction</a>
-      </li>
-      <li>
-        <a href="/wiki/preparation/">Game Preparation</a>
-      </li>
-      <li>
-        <a href="/wiki/components/">Components</a>
-      </li>
-    </ol>
-  </Pagesection>
-
-  <Pagesection size="md">
-    <h3>Topics:</h3>
-    <ul>
-      <li>Card Types</li>
-      <li>Elements</li>
-      <li>Card Mechanics</li>
-      <li>Game Mechanics</li>
-      <li><a href="/wiki/actions">Actions and Depletion</a></li>
-      <li>
-        <a href="/wiki/keywords/">Keywords</a>
-      </li>
-    </ul>
-  </Pagesection>
-</Layout>
+<WikiLayout title="Guardian Wiki" description="Everything you need to learn and play Guardian.">
+  <p>New to Guardian? Start with the <a href="/wiki/intro/">Introduction</a>, then read <a href="/wiki/turn-structure/">Turn Structure</a> and <a href="/wiki/combat/">Combat</a>. That's enough to play your first game.</p>
+  <div class="wiki-index">
+    {nav.map(([section, items]) => (
+      <section class="wiki-index-group">
+        <h2>{section}</h2>
+        <ul>{items.map((i) => <li><a href={i.href}>{i.title}</a></li>)}</ul>
+      </section>
+    ))}
+  </div>
+</WikiLayout>

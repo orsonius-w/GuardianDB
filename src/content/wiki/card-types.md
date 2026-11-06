@@ -1,0 +1,86 @@
+---
+title: Card Types
+description: Guardians, Summons, Spells, Traps, Items, Workers, Buildings, Terrains, Events and Treasures.
+section: Cards
+order: 40
+---
+
+## Incantations and the rest
+
+- **Incantations** are **cast**: Summons, Spells, Items, Buildings and Terrains. They go on the Stack and can be **Negated**.
+- **Non-Incantations** are **played** or **set**: Workers, Events and Traps. They can't be Negated and don't use the Stack.
+- **Guardians** and **Tactics** have rules of their own.
+
+## Guardian
+
+Your champion. 15 Life, one per deck, never in your hand or deck. Its combat type is **Physical**, **Magical** or **Hybrid** (dual). Guardian Abilities often build a whole deck around them. [All Guardians](/gallery/?type=Guardian)
+
+## Summon
+
+Your units on the grid. Summons have Life, Mana, Attack, Defense, Magic, Resistance and Movement, plus a combat type. Their subtypes name a **tribe** and a **class**, such as *Elf, Archer*. **Heroes** are especially strong Summons, and you can have only one Hero in play. If you cast a new one, the old one is sacrificed. [All Summons](/gallery/?type=Summon)
+
+## Spell
+
+Cast from your hand. Subtypes:
+
+| Subtype | How it works |
+|---|---|
+| **Hex** | Your own Tactic Phase, empty Stack. Resolves, then goes to the graveyard. |
+| **Quick** | Spell Speed 2: cast whenever you have priority, even in response. |
+| **Enchantment** | Attaches to a permanent and stays with it. |
+| **Rune** | Stays in play with a lasting or repeating effect. |
+| **Curse** | Lasts a set Duration and affects the opponent. |
+| **Ritual** | A delayed effect that resolves after its preparation time. |
+
+## Trap
+
+Set **face down for free**; you pay only when you activate it.
+
+- **Step**: covers one field and springs when an enemy Summon lands on it.
+- **Universal**: like Step, but also catches Summons that don't "step" onto the field, such as fliers.
+- **Zone**: covers a whole zone (row).
+- **Positionless**: needs no field. You may have at most 2.
+- **Permanent** Traps stay after activating, and **Multi** Traps have several activations.
+
+Your own Summons never spring your Traps.
+
+## Item
+
+Sits in your Extended Zone. **Artifacts** give lasting or activated effects. **Equipment** is cast unattached, then equipped to a Summon at Hex speed for free, which spends 1 Durability. **Storage** Items raise your Energy storage cap.
+
+## Worker
+
+Your Energy engine. One Worker per turn, no Life, can't attack or be attacked. Some decks run Workers of two elements that make either kind.
+
+## Building
+
+A permanent off the grid that counts as being in your Guarded Zone. It costs Energy **plus a Worker cost**: that many of your Workers return to your hand as you cast it. Buildings have Life and Defense, no Resistance. They're attacked from your Guarded Zone and never counterattack.
+
+## Terrain
+
+Changes the battlefield. A Terrain's **Level** says how much of the board it covers:
+
+| Level | Area |
+|---|---|
+| 0 | The whole board. Only one Level 0 Terrain can exist; a new one destroys the old. |
+| 1 | One whole side of the board. |
+| 2 | Several zones. |
+| 3 | One zone. |
+| 4 | Several fields that don't form a full zone. |
+| 5 | A single field. |
+
+## Event
+
+Free to play, **one per turn**, and never on the Stack. An Event is **two-sided**: one side affects you, the other your opponent. It lasts for its Duration, and the player its bottom side faces may turn it around for a cost.
+
+## Tactic
+
+Up to three per deck, chosen before the game, one active at a time. Part of the full rules; none released yet.
+
+## Treasure
+
+The cards of your [Treasure Chest](/wiki/treasure-chest/).
+
+## Tokens
+
+Summons, Items and Buildings created by effects. A token that would go to a graveyard or the Void simply stops existing.

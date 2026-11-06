@@ -14,13 +14,12 @@ import { Icon } from "astro-icon/components";
     } else {
       navToggle.setAttribute("aria-expanded", "false");
     }
-    console.log(navOpened);
   });
 </script>
 
 <button aria-controls="primary-nav" aria-expanded="false">
   <span class="visually-hidden"> Menu </span>
-  <Icon name="ci:hamburger" size="64" />
+  <Icon name="ci:hamburger" size="64" class="icon-hamburger" />
   <Icon name="ci:close-md" size="64" class="icon-close" />
 </button>
 
@@ -29,7 +28,7 @@ import { Icon } from "astro-icon/components";
     {
       navData.map((item) => (
         <li>
-          <a href={item.path}>{item.name}</a>
+          <a href={item.path} aria-current={(item.path === "/" ? Astro.url.pathname === "/" : Astro.url.pathname.startsWith(item.path)) ? "page" : undefined}>{item.name}</a>
         </li>
       ))
     }
@@ -51,6 +50,10 @@ import { Icon } from "astro-icon/components";
       border-radius: var(--radius-base);
       transition: 0.2s;
       font-size: var(--fs-md);
+
+      &[aria-current="page"] {
+        background-color: hsl(0 0 100 / 0.12);
+      }
 
       &:not(:has(svg)):hover,
       &:not(:has(svg)):focus-visible {

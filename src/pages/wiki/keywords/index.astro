@@ -1,0 +1,53 @@
+---
+import WikiLayout from "../../../layout/wikilayout.astro";
+import { allKeywords, CATEGORY_LABEL } from "../../../lib/keywords";
+
+const list = allKeywords();
+const groups = new Map<string, typeof list>();
+for (const k of list) {
+  const cat = k.entry?.category ?? "other";
+  if (!groups.has(cat)) groups.set(cat, []);
+  groups.get(cat)!.push(k);
+}
+const order = Object.keys(CATEGORY_LABEL);
+const sorted = [...groups.entries()].sort((a, b) => order.indexOf(a[0]) - order.indexOf(b[0]));
+---
+
+<WikiLayout title="Keywords" description={`All ${list.length} keywords printed on Guardian cards, with the cards that use them.`}>
+  <label class="kw-search">
+    <span class="visually-hidden">Filter keywords</span>
+    <input type="search" id="kw-filter" placeholder="Filter keywords…" />
+  </label>
+  {sorted.map(([cat, items]) => (
+    <section class="kw-group">
+      <h2>{CATEGORY_LABEL[cat] ?? cat}</h2>
+      <dl class="kw-list">
+        {items.map((k) => (
+          <div class="kw-row" data-name={k.name.toLowerCase()}>
+            <dt><a href={`/wiki/keywords/${k.slug}/`}>{k.name}</a> {k.count > 0 && <small>{k.count} cards</small>}</dt>
+            <dd>{k.entry?.short ?? "Definition coming soon."}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  ))}
+</WikiLayout>
+
+<script>
+  const input = document.getElementById("kw-filter") as HTMLInputElement;
+  input?.addEventListener("input", () => {
+    const q = input.value.trim().toLowerCase();
+    document.querySelectorAll<HTMLElement>(".kw-row").forEach((r) => (r.hidden = !!q && !r.dataset.name!.includes(q)));
+    document.querySelectorAll<HTMLElement>(".kw-group").forEach((g) => (g.hidden = !g.querySelector(".kw-row:not([hidden])")));
+  });
+</script>
+
+<style>
+  .kw-search input { width: 100%; max-width: 24rem; padding: 0.5rem 0.75rem; color: inherit; background: var(--clr-neutral-800); border: 1px solid var(--clr-neutral-600); border-radius: var(--radius-base); }
+  .kw-list { display: grid; gap: 0.75rem; }
+  .kw-row { display: grid; grid-template-columns: 13rem 1fr; gap: 1rem; padding-block-end: 0.75rem; border-bottom: 1px solid hsl(0 0 100 / 0.08); }
+  .kw-row[hidden], .kw-group[hidden] { display: none; }
+  .kw-row dt a { font-weight: var(--fw-bold); }
+  .kw-row small { display: block; color: var(--clr-neutral-400); }
+  @media (width < 600px) { .kw-row { grid-template-columns: 1fr; gap: 0.25rem; } }
+</style>

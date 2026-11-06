@@ -1,31 +1,128 @@
 ---
 import Layout from "../layout/layout.astro";
+import Pagesection from "../components/sections/pagesection.astro";
+import { cards, ELEMENTS } from "../lib/cards";
+import { newsPosts, formatDate } from "../lib/news";
+
+const total = cards.filter((c) => !c.token).length;
+const guardians = cards.filter((c) => c.type === "Guardian").length;
+const latest = (await newsPosts()).slice(0, 3);
+
+// A few featured cards: rare Summons with art, picked fresh at each build.
+const pool = cards.filter((c) => c.image && c.type === "Summon" && (c.rarity === "Special Rare" || c.rarity === "Rare") && !c.token);
+const featured = Array.from({ length: 5 }, (_, i) => pool[Math.floor((i + 0.5) * pool.length / 5)]).filter(Boolean);
 ---
 
-<Layout title="Home | GuardianDB">
-  <div class="w-full">
-    <div class="relative w-full h-100">
-      <img src="/images/hero.png" alt="Hero Image" class="hero-image" />
-      <div class="bg-home-hero w-full h-full absolute"></div>
+<Layout title="Guardian — the tactical card game">
+  <section class="hero">
+    <img src="/images/hero.webp" alt="" class="hero-image" fetchpriority="high" />
+    <div class="hero-shade"></div>
+    <div class="base-layout hero-content">
+      <div>
+        <h1>Guard<span>ian</span></h1>
+        <p class="hero-tag">A collectible card game of tactical grid combat. Command a Guardian, summon an army, and win the battle on the board as much as in your hand.</p>
+        <div class="hero-actions">
+          <a href="/wiki/intro/" class="link filled">Learn to play</a>
+          <a href="/gallery/" class="link outline">Browse {total} cards</a>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <Pagesection size="lg">
+    <div class="pillars">
+      <div>
+        <h2>Position is power</h2>
+        <p>Summons enter beside your Guardian and fight their way across a 28-field grid. Flanks, fast lanes and zones decide as much as the cards you draw.</p>
+        <a href="/wiki/board/">The board →</a>
+      </div>
+      <div>
+        <h2>Strike first</h2>
+        <p>Combat is sequential: the attacker hits first, and only a survivor strikes back. Who attacks, from where and in which order is the game.</p>
+        <a href="/wiki/combat/">Combat →</a>
+      </div>
+      <div>
+        <h2>Nine elements</h2>
+        <p>{guardians} Guardians, more than {Math.floor(total / 100) * 100} cards, and a Treasure Chest of five powerful cards you buy into during the game.</p>
+        <a href="/wiki/elements/">Elements →</a>
+      </div>
+    </div>
+  </Pagesection>
+
+  {featured.length > 0 && (
+    <Pagesection size="base">
+      <h2>From the gallery</h2>
+      <div class="featured">
+        {featured.map((c) => (
+          <a href={`/cards/${c.slug}/`} title={c.name}><img src={c.image} alt={c.name} width={c.imageWidth} height={c.imageHeight} loading="lazy" decoding="async" /></a>
+        ))}
+      </div>
+      <div class="element-row">
+        {ELEMENTS.map((e) => <a href={`/gallery/${e.slug}/`} class={`badge ${e.cls}`}>{e.name}</a>)}
+      </div>
+    </Pagesection>
+  )}
+
+  {latest.length > 0 && (
+    <Pagesection size="md">
+      <h2>News</h2>
+      <div class="news">
+        {latest.map((p) => (
+          <a href={`/news/${p.id}/`}>
+            <small>{formatDate(p.data.date)}</small>
+            <strong>{p.data.title}</strong>
+            <span>{p.data.description}</span>
+          </a>
+        ))}
+      </div>
+    </Pagesection>
+  )}
 </Layout>
 
 <style>
-  .hero-image {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    color: transparent;
-    object-position: center;
-    object-fit: cover;
+  .hero {
+    position: relative;
+    min-height: min(80dvh, 46rem);
+    display: grid;
+    align-items: end;
+    padding-block: 6rem 4rem;
+    margin-block-start: -1rem;
+    overflow: hidden;
+  }
+  .hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .hero-shade { position: absolute; inset: 0; background: linear-gradient(#000000a1, #0707076b 40%, var(--clr-neutral-900)); }
+  .hero-content { position: relative; }
+  .hero h1 { font-size: var(--fs-5xl); margin-block-end: 0.25em; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6); }
+  .hero-tag { max-width: 38rem; font-size: var(--fs-md); text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7); }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-block-start: 1.5rem; }
+  .hero-actions .link { font-size: var(--fs-md); padding: 0.6rem 1.25rem; color: white; }
+  .link.outline { border: 1px solid hsl(0 0 100 / 0.6); padding: 0.6rem 1.25rem; &:hover { background: hsl(0 0 100 / 0.1); } }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 2.5rem;
+    h2 { font-size: var(--fs-xl); }
   }
 
-  .bg-home-hero {
-    background: linear-gradient(#000000a1, #0707076b, #070707a1);
+  .featured {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    img { border-radius: 8px; height: auto; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5); transition: transform 0.15s; }
+    a:hover img { transform: translateY(-4px); }
+  }
+  .element-row {
+    display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block-start: 1.5rem;
+    .badge { padding: 0.35rem 0.8rem; font-size: var(--fs-sm); border-radius: var(--radius-full); text-decoration: none; }
+  }
+
+  .news {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem;
+    a { display: grid; gap: 0.25rem; padding: 1rem 1.25rem; color: inherit; text-decoration: none; border: 1px solid hsl(0 0 100 / 0.12); border-radius: var(--radius-md); }
+    a:hover { border-color: var(--clr-primary); }
+    small { color: var(--clr-neutral-400); }
+    strong { font-size: var(--fs-md); }
+    span { color: var(--clr-neutral-200); }
   }
 </style>

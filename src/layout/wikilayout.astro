@@ -1,18 +1,43 @@
 ---
+// Wiki page frame: sidebar navigation + article. Used by every /wiki page.
 import Layout from "./layout.astro";
 import Pagesection from "../components/sections/pagesection.astro";
-
+import { wikiNav } from "../lib/wiki";
 import "../styles/wiki-style.css";
 
-const { frontmatter, content } = Astro.props;
+interface Props { title: string; description?: string; }
+const { title, description } = Astro.props;
+const nav = await wikiNav();
+const here = Astro.url.pathname.replace(/\/?$/, "/");
 ---
 
-<Layout>
-  <Pagesection size="md">
-    <h1>{frontmatter.title}</h1>
-    <p>{frontmatter.description}</p>
-    <article>
-      <slot />
-    </article>
+<Layout title={`${title} | Guardian Wiki`} description={description}>
+  <Pagesection size="base">
+    <div class="wiki">
+      <aside class="wiki-nav">
+        <details open>
+          <summary>Wiki contents</summary>
+          <nav aria-label="Wiki">
+            <a href="/wiki/" class="wiki-home" aria-current={here === "/wiki/" ? "page" : undefined}>Wiki home</a>
+            {nav.map(([section, items]) => (
+              <div class="wiki-group">
+                <h2>{section}</h2>
+                <ul>
+                  {items.map((i) => (
+                    <li><a href={i.href} aria-current={here === i.href || (i.href !== "/wiki/" && here.startsWith(i.href) && i.href.includes("keywords")) ? "page" : undefined}>{i.title}</a></li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
+        </details>
+      </aside>
+      <article class="wiki-article">
+        <slot name="before" />
+        <h1>{title}</h1>
+        {description && <p class="lede">{description}</p>}
+        <div class="prose"><slot /></div>
+      </article>
+    </div>
   </Pagesection>
 </Layout>

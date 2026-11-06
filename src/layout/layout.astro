@@ -14,15 +14,16 @@ interface Props {
 
 const {
   title = "Guardian DB",
-  description = "Database of cards for the Guardian card game",
-  image = "/images/logo.svg", // fallback
-  url = "hhttps://guardiancg.netlify.app/", // optional fallback
+  description = "Guardian, a tactical-grid collectible card game: card gallery, rules wiki and downloads.",
+  image = "/images/hero.webp",
+  url = new URL(Astro.url.pathname, Astro.site).href,
 } = Astro.props as Props;
+const absImage = new URL(image, Astro.site).href;
 ---
 
 <!doctype html>
 <html lang="en">
-  <Head {title} {description} {image} {url} />
+  <Head {title} {description} image={absImage} {url} />
   <body>
     <div class="page-layout">
       <Header />

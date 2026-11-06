@@ -3,17 +3,18 @@ import Pagesection from "../../components/sections/pagesection.astro";
 import Layout from "../../layout/layout.astro";
 ---
 
-<Layout>
+<Layout title="Downloads | Guardian" description="Tabletop Simulator decks and other resources for Guardian.">
   <Pagesection size="md">
     <h1>Downloads</h1>
 
-    <h2>Download Table Top Simulator decks here</h2>
+    <h2>Tabletop Simulator decks</h2>
+    <p class="note">These decks are from July 2025 and predate many current cards. Refreshed decks are on the way.</p>
     <div class="column-grid grid-3">
       <div class="grid-item">
         <h3>All Darkness Cards</h3>
         <img
           src="/images/cards/UvoreTheExtracter.png"
-          alt="Guardian Card Uvore The Extracter"
+          alt="Uvore, the Extracter"
           loading="lazy"
           decoding="async"
           height="283"
@@ -34,7 +35,7 @@ import Layout from "../../layout/layout.astro";
         <h3>All Earth Cards</h3>
         <img
           src="/images/cards/MorelGuardianOfEarth.png"
-          alt="Guardian Card Uvore The Extracter"
+          alt="Morel, Guardian of Earth"
           loading="lazy"
           decoding="async"
           height="283"
@@ -53,7 +54,7 @@ import Layout from "../../layout/layout.astro";
         <h3>All Fire Cards</h3>
         <img
           src="/images/cards/GarlGuardianOfFire.png"
-          alt="Guardian Card Uvore The Extracter"
+          alt="Garl, Guardian of Fire"
           loading="lazy"
           decoding="async"
           height="283"
@@ -119,6 +120,8 @@ import Layout from "../../layout/layout.astro";
       --btn-hover-text: var(--clr-white, hsl(0 100 100));
     }
   }
+
+  .note { color: var(--clr-neutral-300); }
 
   .last-update {
     color: var(--clr-neutral-500);

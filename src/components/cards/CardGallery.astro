@@ -1,0 +1,317 @@
+---
+// Card grid with live filter / search / sort. Filtering runs in the browser,
+// the page itself is static. Filter state is mirrored in the URL (?q=...&type=...)
+// so a filtered view can be shared as a link.
+import { Icon } from "astro-icon/components";
+import { ELEMENTS, TYPES, RARITIES, keywordCounts, type Card } from "../../lib/cards";
+
+interface Props {
+  cards: Card[];
+  showElementFilter?: boolean;
+}
+const { cards, showElementFilter = false } = Astro.props;
+
+const keywordOptions = [...keywordCounts.entries()]
+  .filter(([k, n]) => n >= 2 && /^[A-Z]/.test(k))
+  .sort((a, b) => a[0].localeCompare(b[0]));
+const maxCost = Math.max(...cards.map((c) => c.costTotal), 0);
+---
+
+<form class="gallery-filter" id="gallery-filter" role="search" onsubmit="return false">
+  <label class="field field-search">
+    <span>Search</span>
+    <input type="search" name="q" placeholder="Name, text or tribe…" autocomplete="off" />
+  </label>
+
+  <label class="field">
+    <span>Type</span>
+    <select name="type">
+      <option value="">All</option>
+      {TYPES.map((t) => <option value={t}>{t}</option>)}
+    </select>
+  </label>
+
+  {showElementFilter && (
+    <label class="field">
+      <span>Element</span>
+      <select name="element">
+        <option value="">All</option>
+        {ELEMENTS.map((e) => <option value={e.name}>{e.name}</option>)}
+      </select>
+    </label>
+  )}
+
+  <label class="field">
+    <span>Rarity</span>
+    <select name="rarity">
+      <option value="">All</option>
+      {RARITIES.map((r) => <option value={r}>{r}</option>)}
+    </select>
+  </label>
+
+  <label class="field field-small">
+    <span>Cost</span>
+    <select name="cost">
+      <option value="">All</option>
+      {Array.from({ length: maxCost + 1 }, (_, i) => <option value={i}>{i}</option>)}
+    </select>
+  </label>
+
+  <label class="field">
+    <span>Keyword</span>
+    <select name="kw">
+      <option value="">All</option>
+      {keywordOptions.map(([k, n]) => <option value={k}>{k} ({n})</option>)}
+    </select>
+  </label>
+
+  <label class="field field-check">
+    <input type="checkbox" name="tokens" value="1" />
+    <span>Show tokens</span>
+  </label>
+
+  <div class="field field-sort">
+    <label>
+      <span>Sort by</span>
+      <select name="sort">
+        <option value="name">Name</option>
+        <option value="cost">Cost</option>
+        <option value="type">Type</option>
+        <option value="rarity">Rarity</option>
+        <option value="attack">Attack</option>
+        <option value="life">Life</option>
+        <option value="movement">Movement</option>
+      </select>
+    </label>
+    <button type="button" class="btn-sort" id="sort-direction" data-direction="asc" title="Toggle sort direction">
+      <Icon name="ci:sort-ascending" size="22" class="icon-asc" />
+      <Icon name="ci:sort-descending" size="22" class="icon-desc" />
+      <span class="visually-hidden">Toggle sort direction</span>
+    </button>
+  </div>
+
+  <button type="reset" class="btn-reset">Reset</button>
+</form>
+
+<p class="card-count" id="card-count" aria-live="polite">{cards.filter((c) => !c.token).length} cards</p>
+
+<div class="grid-column card-grid" id="card-grid">
+  {cards.map((card) => (
+    <a
+      href={`/cards/${card.slug}/`}
+      class="card-link"
+      hidden={card.token}
+      data-name={card.name}
+      data-s={`${card.name} ${card.typeLine} ${card.text} ${card.summonSpells}`.toLowerCase()}
+      data-type={card.type}
+      data-treasure={card.treasure ? "1" : ""}
+      data-elements={card.elements.join("|")}
+      data-rarity={card.rarity}
+      data-cost={card.costTotal}
+      data-kw={card.keywords.join("|")}
+      data-token={card.token ? "1" : ""}
+      data-attack={card.attack ?? ""}
+      data-life={card.life ?? ""}
+      data-movement={card.movement ?? ""}
+    >
+      {card.image ? (
+        <img src={card.image} alt={card.name} width={card.imageWidth} height={card.imageHeight} class="card-image" loading="lazy" decoding="async" />
+      ) : (
+        <div class="card-placeholder"><span>{card.name}</span><small>{card.typeLine}</small></div>
+      )}
+    </a>
+  ))}
+</div>
+
+<p class="no-results" id="no-results" hidden>No cards match these filters.</p>
+
+<script>
+  const RARITY_ORDER: Record<string, number> = { Common: 1, Uncommon: 2, Rare: 3, "Special Rare": 4 };
+  const form = document.getElementById("gallery-filter") as HTMLFormElement;
+  const grid = document.getElementById("card-grid")!;
+  const count = document.getElementById("card-count")!;
+  const empty = document.getElementById("no-results")!;
+  const dirBtn = document.getElementById("sort-direction") as HTMLButtonElement;
+  const items = Array.from(grid.querySelectorAll<HTMLAnchorElement>(".card-link"));
+
+  function state() {
+    const f = new FormData(form);
+    return {
+      q: String(f.get("q") || "").trim().toLowerCase(),
+      type: String(f.get("type") || ""),
+      element: String(f.get("element") || ""),
+      rarity: String(f.get("rarity") || ""),
+      cost: String(f.get("cost") || ""),
+      kw: String(f.get("kw") || ""),
+      tokens: f.get("tokens") === "1",
+      sort: String(f.get("sort") || "name"),
+      dir: dirBtn.dataset.direction || "asc",
+    };
+  }
+
+  function matches(el: HTMLElement, s: ReturnType<typeof state>) {
+    const d = el.dataset;
+    if (d.token && !s.tokens) return false;
+    if (s.type) {
+      if (s.type === "Treasure" ? !d.treasure : d.type !== s.type) return false;
+    }
+    if (s.element && !(d.elements || "").split("|").includes(s.element)) return false;
+    if (s.rarity && d.rarity !== s.rarity) return false;
+    if (s.cost && d.cost !== s.cost) return false;
+    if (s.kw && !(d.kw || "").split("|").includes(s.kw)) return false;
+    if (s.q && !s.q.split(/\s+/).every((w) => (d.s || "").includes(w))) return false;
+    return true;
+  }
+
+  function sortValue(el: HTMLElement, key: string): string | number {
+    const d = el.dataset;
+    if (key === "name") return d.name || "";
+    if (key === "type") return (d.type || "") + (d.name || "");
+    if (key === "rarity") return RARITY_ORDER[d.rarity || ""] || 0;
+    const v = d[key];
+    return v === "" || v === undefined ? -1 : Number(v);
+  }
+
+  function apply(pushUrl = true) {
+    const s = state();
+    let shown = 0;
+    for (const el of items) {
+      const ok = matches(el, s);
+      el.hidden = !ok;
+      if (ok) shown++;
+    }
+    const sorted = items.slice().sort((a, b) => {
+      const va = sortValue(a, s.sort), vb = sortValue(b, s.sort);
+      const r = typeof va === "number" && typeof vb === "number" ? va - vb || (a.dataset.name || "").localeCompare(b.dataset.name || "") : String(va).localeCompare(String(vb));
+      return s.dir === "asc" ? r : -r;
+    });
+    grid.append(...sorted);
+    count.textContent = `${shown} card${shown === 1 ? "" : "s"}`;
+    empty.hidden = shown > 0;
+    if (pushUrl) {
+      const p = new URLSearchParams();
+      for (const [k, v] of Object.entries(s)) {
+        if (k === "tokens") { if (v) p.set(k, "1"); continue; }
+        if (v && !(k === "sort" && v === "name") && !(k === "dir" && v === "asc")) p.set(k, String(v));
+      }
+      const qs = p.toString();
+      history.replaceState(null, "", qs ? `?${qs}` : location.pathname);
+    }
+  }
+
+  // restore state from the URL
+  const params = new URLSearchParams(location.search);
+  for (const [k, v] of params) {
+    const field = form.elements.namedItem(k) as HTMLInputElement | HTMLSelectElement | null;
+    if (!field) continue;
+    if (field instanceof HTMLInputElement && field.type === "checkbox") field.checked = v === "1";
+    else field.value = v;
+  }
+  if (params.get("dir") === "desc") dirBtn.dataset.direction = "desc";
+
+  let t: number | undefined;
+  form.addEventListener("input", () => { clearTimeout(t); t = window.setTimeout(apply, 120); });
+  form.addEventListener("change", () => apply());
+  form.addEventListener("reset", () => { dirBtn.dataset.direction = "asc"; setTimeout(apply, 0); });
+  dirBtn.addEventListener("click", () => {
+    dirBtn.dataset.direction = dirBtn.dataset.direction === "asc" ? "desc" : "asc";
+    apply();
+  });
+  if (params.toString()) apply(false);
+</script>
+
+<style>
+  .gallery-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    align-items: end;
+    padding: 1rem;
+    border: 1px solid hsl(0 0 100 / 0.15);
+    border-radius: var(--radius-md);
+    background: hsl(0 0 100 / 0.03);
+  }
+
+  .field {
+    display: grid;
+    gap: 0.25rem;
+    font-size: var(--fs-sm);
+    color: var(--clr-neutral-200);
+
+    > span, label > span {
+      font-family: var(--ff-secondary);
+      letter-spacing: 0.5px;
+    }
+  }
+  .field-search { flex: 1 1 16rem; }
+  .field-check { display: flex; align-items: center; gap: 0.5rem; padding-block-end: 0.5rem; }
+  .field-sort { display: flex; align-items: end; gap: 0.25rem; }
+  .field-sort label { display: grid; gap: 0.25rem; }
+
+  input[type="search"], select {
+    width: 100%;
+    padding: 0.5rem 0.625rem;
+    color: var(--clr-white, white);
+    background: var(--clr-neutral-800);
+    border: 1px solid var(--clr-neutral-600);
+    border-radius: var(--radius-base);
+  }
+  input[type="search"]:focus-visible, select:focus-visible, button:focus-visible {
+    outline: 2px solid var(--clr-primary);
+    outline-offset: 1px;
+  }
+  input[type="checkbox"] { width: 1.1rem; height: 1.1rem; accent-color: var(--clr-primary); }
+
+  .btn-sort, .btn-reset {
+    color: inherit;
+    background: var(--clr-neutral-800);
+    border: 1px solid var(--clr-neutral-600);
+    border-radius: var(--radius-base);
+    padding: 0.4rem 0.6rem;
+    cursor: pointer;
+  }
+  .btn-sort svg { width: 22px; height: 22px; }
+  .btn-sort[data-direction="asc"] .icon-desc,
+  .btn-sort[data-direction="desc"] .icon-asc { display: none; }
+  .btn-reset:hover, .btn-sort:hover { background: var(--clr-neutral-700); }
+
+  .card-count { margin-block: 1rem; color: var(--clr-neutral-300); }
+  .no-results { color: var(--clr-neutral-300); font-style: italic; }
+
+  .card-grid {
+    --grid-gap: 1rem;
+    --grid-max-col-count: 5;
+    --grid-min-col-size: 180px;
+  }
+
+  .card-link {
+    display: block;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: transform 0.15s ease-in-out;
+
+    &:hover, &:focus-visible { transform: translateY(-4px); }
+  }
+  .card-link[hidden] { display: none; }
+
+  .card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  }
+
+  .card-placeholder {
+    aspect-ratio: 500 / 709;
+    display: grid;
+    place-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+    color: var(--clr-neutral-100);
+    background: var(--clr-neutral-800);
+    border: 1px dashed var(--clr-neutral-600);
+    border-radius: 8px;
+    font-family: var(--ff-secondary);
+  }
+</style>

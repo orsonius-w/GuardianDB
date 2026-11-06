@@ -1,0 +1,40 @@
+---
+import WikiLayout from "../../../layout/wikilayout.astro";
+import { allKeywords, md, CATEGORY_LABEL } from "../../../lib/keywords";
+import { cards } from "../../../lib/cards";
+
+export function getStaticPaths() {
+  return allKeywords().map((k) => ({ params: { slug: k.slug }, props: { k } }));
+}
+const { k } = Astro.props;
+const list = cards.filter((c) => !c.token && c.keywords.some((p) => k.printed.includes(p)));
+---
+
+<WikiLayout title={k.name} description={k.entry?.short}>
+  <p slot="before" class="crumbs"><a href="/wiki/keywords/">Keywords</a>{k.entry && <> / {CATEGORY_LABEL[k.entry.category] ?? k.entry.category}</>}</p>
+  {k.entry?.confidence === "low" && <p class="pending">This definition hasn't been confirmed yet. When in doubt, the card's own text wins.</p>}
+  {k.entry ? <Fragment set:html={md(k.entry.body.replace(/^\(Definition pending\.\)\s*/, ""))} /> : <p><em>A full definition for this keyword is coming soon.</em></p>}
+
+  {list.length > 0 && (
+    <>
+      <h2>Cards with {k.name} ({list.length})</h2>
+      <div class="kw-cards">
+        {list.map((c) => (
+          <a href={`/cards/${c.slug}/`} class="kw-card" title={c.name}>
+            {c.image ? <img src={c.image} alt={c.name} width={c.imageWidth} height={c.imageHeight} loading="lazy" decoding="async" /> : <span>{c.name}</span>}
+          </a>
+        ))}
+      </div>
+      {list.length > 12 && <p><a href={`/gallery/?kw=${encodeURIComponent(k.printed[0])}`}>Open these in the gallery with filters →</a></p>}
+    </>
+  )}
+</WikiLayout>
+
+<style>
+  .crumbs { color: var(--clr-neutral-300); }
+  .pending { padding: 0.6rem 1rem; border-left: 3px solid var(--clr-accent); background: hsl(40 100% 60% / 0.08); font-size: var(--fs-sm); }
+  .kw-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.75rem; margin-block: 1rem; }
+  .kw-card img { border-radius: 6px; height: auto; transition: transform 0.15s; }
+  .kw-card:hover img { transform: translateY(-3px); }
+  .kw-card span { display: grid; place-items: center; aspect-ratio: 500/709; border: 1px dashed var(--clr-neutral-600); border-radius: 6px; padding: 0.5rem; text-align: center; }
+</style>

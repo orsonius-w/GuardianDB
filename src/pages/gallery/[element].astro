@@ -1,192 +1,46 @@
 ---
 import Pagesection from "../../components/sections/pagesection.astro";
 import Layout from "../../layout/layout.astro";
-import { Icon } from "astro-icon/components";
-import { query } from "../../lib/db";
+import CardGallery from "../../components/cards/CardGallery.astro";
+import { cards, ELEMENTS } from "../../lib/cards";
 
-export const prerender = false;
-
-// Tell Astro to pre-render one page per element
-export async function getStaticPaths() {
-  const elements = [
-    "Darkness",
-    "Light",
-    "Fire",
-    "Water",
-    "Earth",
-    "Wind",
-    "Nature",
-    "Lightning",
-    "Ice",
-  ];
-
-  return elements.map((el) => ({
-    params: { element: el.toLowerCase() },
-  }));
+export function getStaticPaths() {
+  return ELEMENTS.map((el) => ({ params: { element: el.slug }, props: { el } }));
 }
 
-// Get element from URL param
-const { element } = Astro.params;
-
-// Capitalize it to match DB values
-const capitalized = element.charAt(0).toUpperCase() + element.slice(1);
-
-// Fetch matching cards from DB
-const cards = await query(
-  "SELECT * FROM cards WHERE element = $1 ORDER BY name ASC",
-  [capitalized]
-);
+const { el } = Astro.props;
+const list = cards.filter((c) => c.elements.includes(el.name));
 ---
 
-<Layout>
+<Layout title={`${el.name} Cards | Guardian`} description={`All ${el.name} cards of the Guardian card game.`}>
   <Pagesection size="md">
-    <h1>{capitalized} Cards</h1>
+    <p class="crumbs"><a href="/gallery/">Gallery</a> / {el.name}</p>
+    <h1>{el.name} Cards</h1>
+    <nav class="element-switch" aria-label="Elements">
+      {ELEMENTS.map((e) => (
+        <a href={`/gallery/${e.slug}/`} class={`badge ${e.cls}`} aria-current={e.slug === el.slug ? "page" : undefined}>{e.name}</a>
+      ))}
+    </nav>
   </Pagesection>
-  <Pagesection size="md">
-    <div class="filter-area">
-      <!-- Filter Form -->
-      <form id="card-filter-form">
-        <label for="card-type">Filter by Type:</label>
-        <select id="card-type" name="type">
-          <option value="All">All</option>
-          <option value="Guardian">Guardian</option>
-          <option value="Summon">Summon</option>
-          <option value="Spell">Spell</option>
-          <option value="Trap">Trap</option>
-          <option value="Item">Item</option>
-          <option value="Building">Building</option>
-          <option value="Terrain">Terrain</option>
-          <option value="Treasure">Treasure</option>
-          <option value="Event">Event</option>
-          <option value="Worker">Worker</option>
-          <option value="Alchemy">Alchemy</option>
-        </select>
-        <button type="submit">Filter</button>
-      </form>
-
-      <!-- count display -->
-      <p id="card-count"></p>
-
-      <!-- sorring form -->
-      <div id="sort-controls">
-        <label for="sort-key">Sort by:</label>
-        <select id="sort-key">
-          <option value="name">Name</option>
-          <option value="type">Type</option>
-          <option value="converted_cost">Cost</option>
-          <option value="life">Life</option>
-          <option value="mana">Mana</option>
-          <option value="attack">Attack</option>
-          <option value="defense">Defense</option>
-          <option value="magic">Magic</option>
-          <option value="resistance">Resistance</option>
-          <option value="movement">Movement</option>
-          <option value="limitation">Limitation</option>
-          <option value="rarity">Rarity</option>
-        </select>
-
-        <button
-          class="btn-sort"
-          id="sort-direction"
-          data-direction="asc"
-          title="Toggle sort direction"
-        >
-          <Icon name="ci:sort-ascending" size="20" id="icon-asc" />
-          <Icon
-            name="ci:sort-descending"
-            size="20"
-            id="icon-desc"
-            style="display: none;"
-          />
-        </button>
-      </div>
-    </div>
-  </Pagesection>
-  <Pagesection size="md">
-    <div class="grid-column">
-      {
-        cards.map((card) => (
-          <a
-            href={`/cards/${card.slug}`}
-            class="card-link"
-            data-type={card.type}
-            data-name={card.name}
-            data-converted_cost={card.converted_cost}
-            data-life={card.life}
-            data-attack={card.attack}
-            data-mana={card.mana}
-            data-magic={card.magic}
-            data-defense={card.defense}
-            data-resistance={card.resistance}
-            data-movement={card.movement}
-            data-limitation={card.limitation}
-            data-rarity={card.rarity}
-          >
-            <img
-              src={card.image}
-              alt={card.name || "Guardian Card"}
-              width="300"
-              height="300"
-              class="card-image"
-              loading="lazy"
-              decoding="async"
-            />
-          </a>
-        ))
-      }
-    </div>
+  <Pagesection size="base">
+    <CardGallery cards={list} />
   </Pagesection>
 </Layout>
 
-<script src="/js/filterCards.js" type="module"></script>
-
 <style>
-  :root {
-    --grid-gap: 1rem;
-    --grid-max-col-count: 4;
-    --grid-min-col-size: 258px;
-  }
-
-  .card-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
-  }
-
-  .card-link {
-    display: block;
-    text-decoration: none;
-  }
-
-  .filter-area {
+  .crumbs { color: var(--clr-neutral-300); }
+  .element-switch {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-  }
+    gap: 0.5rem;
 
-  .btn-sort {
-    border: none;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    overflow: visible;
-
-    background: transparent;
-
-    /* inherit font & color from ancestor */
-    color: inherit;
-    font: inherit;
-
-    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
-    line-height: normal;
-
-    /* Corrects font smoothing for webkit */
-    -webkit-font-smoothing: inherit;
-    -moz-osx-font-smoothing: inherit;
-
-    /* Corrects inability to style clickable `input` types in iOS */
-    -webkit-appearance: none;
+    .badge {
+      padding: 0.35rem 0.8rem;
+      font-size: var(--fs-sm);
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      opacity: 0.65;
+    }
+    .badge[aria-current="page"], .badge:hover { opacity: 1; }
   }
 </style>
