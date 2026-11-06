@@ -2,19 +2,61 @@
 import WikiLayout from "../../layout/wikilayout.astro";
 import { allKeywords, ailmentsOverview, md, badgeFor } from "../../lib/keywords";
 const ailments = allKeywords().filter((k) => k.entry?.category === "ailment");
+
+// Field hazards, written from the rules codex (keywords-and-skills.md, "hazards on the board").
+const hazards = [
+  { name: "Fire Brand", el: ["fire"], text: "A non-Fire Summon that **enters** this field takes 1 direct damage. Standing on it does nothing more. Lasts 3 rounds." },
+  { name: "Slippery", el: ["ice"], text: "A Summon moving on a slippery field moves **2 fields for each 1 Movement**, until a taken field or the edge of the board stops it. Fliers, Divers and Unfettered Summons aren't affected. Permanent." },
+  { name: "Grasping Roots", el: ["nature"], text: "A Summon that moves onto this field **stops there** and can't move until its controller's next Active Phase. Fliers and Divers pass over. Each player has at most 2, and never in a Guarded Zone. Permanent." },
+  { name: "Caltrops", el: ["earth"], text: "A Summon that enters this field takes 1 physical damage for each Caltrops here, up to 3. If any of it gets past Defense, the Summon becomes **Bleeding**. Every field a move passes through counts. Never in a Guarded Zone. Permanent." },
+  { name: "Boulder", el: ["earth"], text: "The field is **blocked**: no Summon can enter it or pass through it. Fliers, Divers and Unfettered Summons pass over, but nothing can land on it. Never in a Guarded Zone. Permanent." },
+  { name: "Deep Pool", el: ["water"], text: "At the end of its controller's turn, a Summon standing in a Deep Pool must pay [2] or [1 Water], or it is **sacrificed**. Divers, Water Breathers, Fliers and Unfettered Summons are safe." },
+  { name: "Gloom", el: ["darkness"], text: "Summons standing on this field get **-1A/-1D/-1M/-1R** for each layer of Gloom, up to 3 layers. The penalty ends when the Summon leaves. Permanent." },
+  { name: "Poison Spores", el: ["darkness", "nature"], text: "A Summon that moves onto this field becomes **Poisoned**. Every field a move passes through counts." },
+  { name: "Penance Mark", el: ["light"], text: "An **enemy** Summon that enters this field becomes **Punished**. Fliers are caught too." },
+  { name: "Tornado", el: ["wind"], text: "Moves 2 fields in random directions at every End Phase. Every Summon on a field it reaches, or that enters its field, **returns to its owner's hand**. Lasts 6 turns." },
+];
+const iconize = (s: string) => md(s).replace(/\[(\d)\]/g, '<img src="/images/icons/$1.png" alt="$1" class="icon" />').replace(/\[1 Water\]/g, '<img src="/images/icons/water.png" alt="Water" class="icon" />');
 ---
 
-<WikiLayout title="Status Ailments" description="Burning, Shocked, Poisoned and the other conditions Summons can suffer.">
+<WikiLayout title="Status Ailments & Hazards" description="Conditions that stick to Summons, and markers that change fields of the board.">
+  <h2 id="ailments">Status ailments</h2>
   {ailmentsOverview && <Fragment set:html={md(ailmentsOverview.body)} />}
   {ailments.map((k) => (
     <section>
-      <h2 id={k.slug} class="ail-h">{badgeFor(k.slug) && <img src={badgeFor(k.slug)} alt="" width="36" height="36" />}<a href={`/wiki/keywords/${k.slug}/`}>{k.name}</a></h2>
+      <h3 id={k.slug} class="ail-h">{badgeFor(k.slug) && <img src={badgeFor(k.slug)} alt="" width="36" height="36" />}<a href={`/wiki/keywords/${k.slug}/`}>{k.name}</a></h3>
       <Fragment set:html={md(k.entry!.body)} />
     </section>
   ))}
+
+  <h2 id="hazards">Hazards</h2>
+  <p>A <strong>hazard</strong> is a marker on a field of the board, left there by a card. It isn't a card itself: it can't be targeted, and both players can see it, how long it lasts and which card left it.</p>
+  <ul>
+    <li>A hazard affects <strong>every</strong> Summon, your own included, unless its text says otherwise.</li>
+    <li>Moving, being pushed, being cast and being spawned onto a field all count as <strong>entering</strong> it.</li>
+    <li>A hazard that lasts "3" lasts three <strong>rounds</strong>: one is counted off at the start of each of its owner's turns.</li>
+    <li>Two of the same hazard on one field each do their work.</li>
+  </ul>
+  <div class="hazards">
+    {hazards.map((h) => (
+      <section class="hazard" id={h.name.toLowerCase().replace(/\s+/g, "-")}>
+        <h3>
+          <span class="els">{h.el.map((e) => <img src={`/images/elements/${e}.webp`} alt={e} width="26" height="26" />)}</span>
+          {h.name}
+        </h3>
+        <Fragment set:html={iconize(h.text)} />
+      </section>
+    ))}
+  </div>
 </WikiLayout>
 
 <style>
   .ail-h { display: flex; align-items: center; gap: 0.6rem; }
   .ail-h img { width: 2.2rem; height: 2.2rem; }
+  .hazards { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 1rem; margin-block: 1.5rem; }
+  .hazard { padding: 1rem 1.2rem; border: 1px solid hsl(0 0 100 / 0.12); border-radius: var(--radius-md); background: hsl(0 0 100 / 0.02); }
+  .hazard h3 { display: flex; align-items: center; gap: 0.5rem; font-size: var(--fs-lg); margin-block: 0 0.5rem; }
+  .els { display: flex; gap: 0.2rem; }
+  .els img { width: 1.6rem; height: 1.6rem; }
+  .hazard :global(p) { margin: 0; line-height: 1.55; color: var(--clr-neutral-100); font-size: var(--fs-sm); }
 </style>

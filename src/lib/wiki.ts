@@ -12,6 +12,6 @@ export async function wikiNav() {
     groups.get(p.data.section)!.push({ title: p.data.title, href: `/wiki/${p.id}/` });
   }
   const ref = groups.get("Reference")!;
-  ref.push({ title: "Keywords", href: "/wiki/keywords/" }, { title: "Status Ailments", href: "/wiki/status-ailments/" });
+  ref.push({ title: "Keywords", href: "/wiki/keywords/" }, { title: "Status Ailments & Hazards", href: "/wiki/status-ailments/" });
   return [...groups.entries()].filter(([, items]) => items.length);
 }

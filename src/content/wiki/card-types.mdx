@@ -1,20 +1,13 @@
 ---
 title: Card Types
-description: Guardians, Summons, Spells, Traps, Items, Workers, Buildings, Terrains, Events and Treasures.
+description: Guardians, Summons, Spells, Traps, Items, Workers, Buildings, Terrains, Events and Treasures, each with an example.
 section: Cards
 order: 40
 ---
 
+import CardSide from "../../components/wiki/CardSide.astro";
 import CardRow from "../../components/wiki/CardRow.astro";
 import Callout from "../../components/wiki/Callout.astro";
-
-<CardRow items={[
-  { slug: "owl-griffin", title: "Summon", text: "Units on the board." },
-  { slug: "sanctified-ray", title: "Spell: Hex", text: "One-shot effect in your main phase." },
-  { slug: "tend-to-wounds", title: "Spell: Quick", text: "Cast any time you could respond." },
-  { slug: "conversion-trap", title: "Trap", text: "Set for free, paid when it goes off." },
-  { slug: "northern-farmer", title: "Worker", text: "Makes Energy every turn." },
-]} />
 
 ## Incantations and the rest
 
@@ -24,15 +17,42 @@ import Callout from "../../components/wiki/Callout.astro";
 
 ## Guardian
 
-Your champion. 15 Life, one per deck, never in your hand or deck. Its combat type is **Physical**, **Magical** or **Hybrid** (dual). Guardian Abilities often build a whole deck around them. [All Guardians](/gallery/?type=Guardian)
+<CardSide cards={[{ slug: "lucius-grace-wing-king", caption: "A Light Guardian" }]}>
+
+Your champion. **15 Life**, one per deck, and never in your hand or deck.
+
+- Its combat type is **Physical**, **Magical** or **Hybrid** (dual). It decides which stat the Guardian attacks with.
+- A **Guardian Ability** works all game long. Lucius gives Knights and Dragons the Switch keyword.
+- Most Guardians also have an activated **Ability**, which uses the Guardian's action for the turn.
+
+[All Guardians](/gallery/?type=Guardian)
+
+</CardSide>
 
 ## Summon
 
-Your units on the grid. Summons have Life, Mana, Attack, Defense, Magic, Resistance and Movement, plus a combat type. Their subtypes name a **tribe** and a **class**, such as *Elf, Archer*. **Heroes** are especially strong Summons, and you can have only one Hero in play. If you cast a new one, the old one is sacrificed. [All Summons](/gallery/?type=Summon)
+<CardSide cards={[{ slug: "agile-serval", caption: "No rules text, just stats" }]}>
+
+Your units on the grid. Every Summon has **Life, Mana, Attack, Defense, Magic, Resistance and Movement**, and a combat type.
+
+- Agile Serval is as simple as a Summon gets: a cost, a combat type (Close Combat), and its stats along the bottom. No rules text.
+- Subtypes name a **tribe** and a **class**, such as *Elf, Archer*. Many cards care about them.
+- **Heroes** are especially strong Summons. You can have only one in play: casting a new one sacrifices the old one.
+
+See [Reading a Card](/wiki/reading-a-card/) for every part of a Summon. [All Summons](/gallery/?type=Summon)
+
+</CardSide>
 
 ## Spell
 
-Cast from your hand. Subtypes:
+Cast from your hand. A Spell's subtype decides when you can cast it and what happens to it afterwards.
+
+<CardRow items={[
+  { slug: "freeze-over", title: "Hex", text: "Freeze target Summon." },
+  { slug: "erase-magic", title: "Quick", text: "Negate target Incantation." },
+  { slug: "burning-might", title: "Enchantment", text: "Enchanted Summon gets +3A." },
+  { slug: "free-for-all", title: "Rune", text: "All Summons have Clash." },
+]} />
 
 | Subtype | How it works |
 |---|---|
@@ -40,36 +60,68 @@ Cast from your hand. Subtypes:
 | **Quick** | Spell Speed 2: cast whenever you have priority, even in response. |
 | **Enchantment** | Attaches to a permanent and stays with it. |
 | **Rune** | Stays in play with a lasting or repeating effect. |
-| **Curse** | Lasts a set Duration and affects the opponent. |
-| **Ritual** | A delayed effect that resolves after its preparation time. |
+| **Curse** | Lasts a set Duration and affects the opponent, like [Curse of Forgetfulness](/cards/curse-of-forgetfulness/). |
+| **Ritual** | A delayed effect that resolves after its Preparation Time, like [Infinite Paths](/cards/infinite-paths/). |
 
 ## Trap
 
-Set **face down for free**; you pay only when you activate it.
+<CardSide cards={[{ slug: "gallows-step", caption: "Step Trap" }, { slug: "ambushed-strike", caption: "Positionless Trap" }]}>
 
-- **Step**: covers one field and springs when an enemy Summon lands on it.
+Set **face down for free**. You pay only when you activate it, and only if you want to.
+
+- **Step**: covers one field and springs when an enemy Summon lands on it. Gallows Step makes that Summon's controller sacrifice it.
 - **Universal**: like Step, but also catches Summons that don't "step" onto the field, such as fliers.
 - **Zone**: covers a whole zone (row).
-- **Positionless**: needs no field. You may have at most 2.
+- **Positionless**: needs no field, and waits for a moment its text names. Ambushed Strike springs when an enemy Summon enters the board. You may have at most 2.
 - **Permanent** Traps stay after activating, and **Multi** Traps have several activations.
 
 Your own Summons never spring your Traps.
+
+</CardSide>
 
 <Callout title="Think of Traps as prevention">They punish an opponent who walks in carelessly. They won't rescue a board you've already lost.</Callout>
 
 ## Item
 
-Sits in your Extended Zone. **Artifacts** give lasting or activated effects. **Equipment** is cast unattached, then equipped to a Summon at Hex speed for free, which spends 1 Durability. **Storage** Items raise your Energy storage cap.
+<CardSide cards={[{ slug: "sword-of-light", caption: "Equipment" }, { slug: "sturdy-hand-net", caption: "Artifact" }]}>
+
+Items sit in your Extended Zone, beside the board.
+
+- **Equipment** is cast unattached, then equipped to a Summon at Hex speed for free. Each equip spends 1 **Durability**: Sword of Light can be equipped 4 times.
+- **Artifacts** give lasting or activated effects. Sturdy Hand-Net spawns a Fish token for [1] and its [A].
+- **Storage** Items keep Energy beyond your storage cap. See [Energy & Mana](/wiki/energy/#storage-cards).
+
+</CardSide>
 
 ## Worker
 
-Your Energy engine. One Worker per turn, no Life, can't attack or be attacked. Some decks run Workers of two elements that make either kind.
+<CardSide cards={[{ slug: "snow-glider", caption: "[A]: Generate [Ice]." }]}>
+
+Your Energy engine. You may play **one Worker per turn**, for free.
+
+- Snow Glider makes 1 Ice Energy when you activate it ([A]).
+- Workers have no Life, can't attack and can't be attacked.
+- Some Workers belong to two elements and make either kind.
+
+[How Energy works](/wiki/energy/)
+
+</CardSide>
 
 ## Building
 
-A permanent off the grid that counts as being in your Guarded Zone. It costs Energy **plus a Worker cost**: that many of your Workers return to your hand as you cast it. Buildings have Life and Defense, no Resistance. They're attacked from your Guarded Zone and never counterattack.
+<CardSide cards={[{ slug: "goblin-siegeworks", caption: "Worker cost in the medallion" }]}>
+
+A permanent off the grid that counts as being in your Guarded Zone.
+
+- It costs Energy **plus a Worker cost**: that many of your Workers return to your hand as you cast it.
+- Buildings have Life and Defense, no Resistance. Enemy Summons attack them from your Guarded Zone, and they never counterattack.
+- Goblin Siegeworks spawns a Battering Ram token for [2][1 Fire] and its [A].
+
+</CardSide>
 
 ## Terrain
+
+<CardSide cards={[{ slug: "lush-forest", caption: "A Nature Terrain" }]}>
 
 Changes the battlefield. A Terrain's **Level** says how much of the board it covers:
 
@@ -82,14 +134,31 @@ Changes the battlefield. A Terrain's **Level** says how much of the board it cov
 | 4 | Several fields that don't form a full zone. |
 | 5 | A single field. |
 
+</CardSide>
+
 ## Event
 
-Free to play, **one per turn**, and never on the Stack. An Event is **two-sided**: one side affects you, the other your opponent. It lasts for its Duration, and the player its bottom side faces may turn it around for a cost.
+<CardSide cards={[{ slug: "still-waters", caption: "Side A and Side B" }]}>
+
+Free to play, **one per turn**, and never on the Stack.
+
+- An Event is **two-sided**: one side affects you, the other your opponent. You choose which side is yours as it enters.
+- Still Waters: on one side, Spells cost [1] less and Summons [1] more. The other side has the opposite effect.
+- It lasts for its Duration. The player its bottom side faces may turn it around for a cost.
+
+</CardSide>
 
 ## Treasure
 
-The cards of your [Treasure Chest](/wiki/treasure-chest/).
+<CardSide cards={[{ slug: "shyrads-verdict", caption: "A Treasure" }]}>
+
+The cards of your [Treasure Chest](/wiki/treasure-chest/). Strong, limited to one copy, and bought with Energy during the game.
+
+- Shyrad's Verdict destroys a Summon and refunds [2 Lightning].
+- A plain Treasure like this one is cast like a Hex, but doesn't count as a Spell.
+
+</CardSide>
 
 ## Tokens
 
-Summons, Items and Buildings created by effects. A token that would go to a graveyard or the Void simply stops existing.
+Summons, Items and Buildings created by effects, such as the Fish of Sturdy Hand-Net. A token that would go to a graveyard or the Void simply stops existing.
