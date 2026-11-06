@@ -424,6 +424,11 @@ section {
   display: none;
 }
 
+/* the hidden attribute always wins over component display rules */
+[hidden] {
+  display: none !important;
+}
+
 .w-full {
   width: 100%;
 }
