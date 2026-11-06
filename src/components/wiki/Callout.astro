@@ -1,0 +1,24 @@
+---
+// Highlighted box inside a wiki page. tone: "rule" (gold), "tip" (blue) or "warn" (red).
+interface Props { title?: string; tone?: "rule" | "tip" | "warn"; }
+const { title, tone = "rule" } = Astro.props;
+---
+<aside class={`callout ${tone}`}>
+  {title && <strong class="callout-title">{title}</strong>}
+  <slot />
+</aside>
+
+<style>
+  .callout {
+    --c: var(--clr-accent);
+    margin-block: 1.25rem;
+    padding: 0.9rem 1.2rem;
+    border-left: 3px solid var(--c);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    background: color-mix(in hsl, var(--c) 9%, transparent);
+  }
+  .callout.tip { --c: var(--clr-primary); }
+  .callout.warn { --c: var(--clr-secondary); }
+  .callout-title { display: block; color: var(--c); margin-block-end: 0.25rem; font-family: var(--ff-secondary); }
+  .callout :global(p:last-child), .callout :global(ul:last-child), .callout :global(ol:last-child) { margin-block-end: 0; }
+</style>

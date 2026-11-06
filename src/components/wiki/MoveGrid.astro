@@ -1,0 +1,58 @@
+---
+// Where a Summon can move: orthogonal steps cost 1, a diagonal step costs 2.
+// Enemies block the way (fliers pass over them); nobody can end on an occupied field.
+interface Props {
+  move: number;
+  enemies?: [number, number][];
+  friends?: [number, number][];
+  flying?: boolean;
+  size?: number;
+  caption?: string;
+}
+const { move, enemies = [], friends = [], flying = false, size = 5, caption } = Astro.props;
+const c = Math.floor(size / 2);
+const key = (x: number, y: number) => `${x},${y}`;
+const enemy = new Set(enemies.map(([x, y]) => key(x, y)));
+const friend = new Set(friends.map(([x, y]) => key(x, y)));
+
+// Dijkstra over the grid
+const best = new Map<string, number>([[key(c, c), 0]]);
+const queue: [number, number, number][] = [[0, c, c]];
+while (queue.length) {
+  queue.sort((a, b) => a[0] - b[0]);
+  const [cost, x, y] = queue.shift()!;
+  for (let dx = -1; dx <= 1; dx++) for (let dy = -1; dy <= 1; dy++) {
+    if (!dx && !dy) continue;
+    const nx = x + dx, ny = y + dy, step = dx && dy ? 2 : 1, nc = cost + step;
+    if (nx < 0 || ny < 0 || nx >= size || ny >= size || nc > move) continue;
+    if (enemy.has(key(nx, ny)) && !flying) continue;
+    if (nc < (best.get(key(nx, ny)) ?? Infinity)) { best.set(key(nx, ny), nc); queue.push([nc, nx, ny]); }
+  }
+}
+const cells = Array.from({ length: size * size }, (_, i) => {
+  const x = i % size, y = Math.floor(i / size), k = key(x, y);
+  const occupied = enemy.has(k) || friend.has(k);
+  return { me: x === c && y === c, enemy: enemy.has(k), friend: friend.has(k), reach: !occupied && best.has(k) && !(x === c && y === c) };
+});
+---
+<figure class="move">
+  <div class="g" style={`--n:${size}`} role="img" aria-label={caption}>
+    {cells.map((cell) => (
+      <span class:list={{ reach: cell.reach, me: cell.me, enemy: cell.enemy, friend: cell.friend }}>
+        {cell.me ? "●" : cell.enemy ? "✕" : cell.friend ? "○" : ""}
+      </span>
+    ))}
+  </div>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  .move { margin: 1.25rem 0; display: grid; gap: 0.6rem; justify-items: center; text-align: center; }
+  .g { display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 3px; width: min(100%, 14rem); }
+  .g span { aspect-ratio: 1; display: grid; place-items: center; border-radius: 4px; background: hsl(0 0 100 / 0.07); font-weight: var(--fw-bold); color: white; }
+  .g span.reach { background: hsl(40 70% 52%); }
+  .g span.me { background: var(--clr-primary); }
+  .g span.enemy { background: hsl(3 60% 42%); }
+  .g span.friend { background: hsl(200 30% 35%); }
+  figcaption { color: var(--clr-neutral-300); font-size: var(--fs-sm); max-width: min(100%, 13rem); }
+</style>

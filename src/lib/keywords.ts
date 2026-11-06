@@ -1,5 +1,6 @@
 // Keyword glossary: src/data/keywords.json (hand-maintained, written from the rules codex).
 // Each entry: { name, category, short, body (markdown), confidence, note }.
+import fs from "node:fs";
 import { marked } from "marked";
 import data from "../data/keywords.json";
 import { keywordCounts, keywordSlug } from "./cards";
@@ -38,3 +39,6 @@ export function allKeywords() {
   }
   return [...map.values()].sort((a, b) => a.name.localeCompare(b.name));
 }
+
+// The game's badge icon for a keyword, if one was synced into public/images/badges/.
+export const badgeFor = (slug: string) => (fs.existsSync(`public/images/badges/${slug}.webp`) ? `/images/badges/${slug}.webp` : null);

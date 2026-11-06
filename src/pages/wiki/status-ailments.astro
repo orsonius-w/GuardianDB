@@ -1,6 +1,6 @@
 ---
 import WikiLayout from "../../layout/wikilayout.astro";
-import { allKeywords, ailmentsOverview, md } from "../../lib/keywords";
+import { allKeywords, ailmentsOverview, md, badgeFor } from "../../lib/keywords";
 const ailments = allKeywords().filter((k) => k.entry?.category === "ailment");
 ---
 
@@ -8,8 +8,13 @@ const ailments = allKeywords().filter((k) => k.entry?.category === "ailment");
   {ailmentsOverview && <Fragment set:html={md(ailmentsOverview.body)} />}
   {ailments.map((k) => (
     <section>
-      <h2 id={k.slug}><a href={`/wiki/keywords/${k.slug}/`}>{k.name}</a></h2>
+      <h2 id={k.slug} class="ail-h">{badgeFor(k.slug) && <img src={badgeFor(k.slug)} alt="" width="36" height="36" />}<a href={`/wiki/keywords/${k.slug}/`}>{k.name}</a></h2>
       <Fragment set:html={md(k.entry!.body)} />
     </section>
   ))}
 </WikiLayout>
+
+<style>
+  .ail-h { display: flex; align-items: center; gap: 0.6rem; }
+  .ail-h img { width: 2.2rem; height: 2.2rem; }
+</style>

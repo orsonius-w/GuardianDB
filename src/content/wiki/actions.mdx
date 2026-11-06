@@ -1,0 +1,61 @@
+---
+title: Actions & Activation
+description: Action tokens, deactivation, summoning sickness and casting Summons.
+section: Summons
+order: 20
+---
+
+import ActionTokens from "../../components/wiki/ActionTokens.astro";
+import Callout from "../../components/wiki/Callout.astro";
+
+Every Summon runs on **two separate systems**: a budget of **action tokens**, and an **activation state**. Keeping them apart is the key to reading card text correctly.
+
+<ActionTokens />
+
+## Action tokens
+
+Every Summon has three tokens, each usable once per turn:
+
+1. **Attack**
+2. **Cast**: cast a Spell printed on the Summon, paid with its Mana
+3. **Move**
+
+Spending tokens is called **depleting**. A card that *depletes* a Summon takes away all its remaining tokens.
+
+## Active or deactivated
+
+Separately, a Summon is either **active** or **deactivated**. Some actions deactivate it the moment they're done:
+
+| Action | Deactivates? | Spends a token? |
+|---|---|---|
+| Attack | Yes | Attack |
+| Cast a Summon Spell | Yes | Cast |
+| An ability with the **[A]** symbol | Yes | No |
+| A Movement Ability (e.g. Switch) | Yes | No |
+| Ordinary movement | **No** | Move |
+| An ability paid only with Energy (no [A]) | No | No |
+
+Anything that deactivates a Summon is called a **Full Action**.
+
+## What each action needs
+
+- **Attack or Cast**: the matching token **and** an active Summon.
+- **[A] ability or Movement Ability**: an active Summon only.
+- **Moving**: the Move token only. A deactivated Summon can still move.
+
+So an effect that only *deactivates* stops attacks and [A] abilities but not movement. An effect that only *depletes* stops attacks, casting and movement but not [A] abilities. **Freeze** does both, and also skips the next reactivation.
+
+## Getting actions back
+
+- **Your Active Phase** refills every token **and** reactivates everything.
+- A card that **reactivates** a Summon mid-turn only untaps it. It does **not** give back spent tokens. A Summon that already attacked and is reactivated still can't attack again, but it can use an [A] ability.
+
+## Summoning sickness
+
+<Callout title="The turn it arrives">A Summon enters play with **no tokens** but **active**. It can't attack, cast, move or use [A] abilities on the turn it arrives. Keywords like **Sprint** and **Zealing** are the exceptions. It's protected by [Grace](/wiki/combat/#grace) while it waits in your Guarded Zone.</Callout>
+
+## Casting Summons
+
+- A new Summon normally enters your **Guarded Zone**, and you may cast as many there as you can pay for.
+- You may also cast a Summon into your **Battle Zone 1 or 2**, on a field orthogonally adjacent to a Summon you already control in that zone. You can do this **once per turn**.
+- Summons are cast in your own Tactic Phase with the Stack empty. Summons with **Intervene** are the exception.

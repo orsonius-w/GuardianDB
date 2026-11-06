@@ -1,4 +1,5 @@
 ---
+import fs from "node:fs";
 import Layout from "../../layout/layout.astro";
 import Pagesection from "../../components/sections/pagesection.astro";
 import { cards, ELEMENTS, keywordSlug, isStat, type Card } from "../../lib/cards";
@@ -17,6 +18,10 @@ const siblings = cards.filter((c) => c.elements[0] === card.elements[0] && !c.to
 const pos = siblings.findIndex((c) => c.id === card.id);
 const prev = pos > 0 ? siblings[pos - 1] : null;
 const next = pos >= 0 && pos < siblings.length - 1 ? siblings[pos + 1] : null;
+
+// Combat type icon from the game ("Ranged Combat R2-3" -> ranged-combat, "Magic Combat R1" -> magic-combat-r1)
+const combatKey = card.combat.toLowerCase().replace(/^ranged combat.*/, "ranged-combat").replace(/^bi combat.*/, "bi-combat").replace(/\s+/g, "-");
+const combatIcon = fs.existsSync(`public/images/combat/${combatKey}.webp`) ? `/images/combat/${combatKey}.webp` : null;
 
 const hasStats = ["Summon", "Guardian", "Building"].includes(card.type);
 type Stat = { key: string; label: string; value: number };
@@ -77,7 +82,7 @@ const description = `${card.typeLine} — ${card.text.replace(/\s+/g, " ").slice
 
         <dl class="facts">
           <div><dt>Cost</dt><dd>{card.cost.length ? <Fragment set:html={costHTML(card.cost)} /> : "None"}</dd></div>
-          {card.combat && <div><dt>Combat</dt><dd>{card.combat}</dd></div>}
+          {card.combat && <div><dt>Combat</dt><dd class="combat">{combatIcon && <img src={combatIcon} alt="" width="28" height="28" />}{card.combat}</dd></div>}
           {extras.map(([k, v]) => <div><dt>{k}</dt><dd set:html={String(v)} /></div>)}
         </dl>
 
@@ -178,6 +183,8 @@ const description = `${card.typeLine} — ${card.text.replace(/\s+/g, " ").slice
   .facts div { display: flex; gap: 1rem; align-items: center; }
   dt { font-weight: var(--fw-bold); min-width: 7.5rem; color: var(--clr-neutral-200); }
   dd { display: flex; align-items: center; flex-wrap: wrap; }
+  dd.combat { gap: 0.4rem; }
+  dd.combat img { width: 1.75rem; height: 1.75rem; object-fit: contain; }
 
   .stats {
     display: grid;
@@ -210,8 +217,9 @@ const description = `${card.typeLine} — ${card.text.replace(/\s+/g, " ").slice
     color: white;
     text-shadow: 0 0 3px #000, 0 1px 2px #000, 0 0 6px rgba(0, 0, 0, 0.8);
   }
-  /* the hexagon shields carry their orb in the upper part */
+  /* the hexagon shields carry their orb lower than the frame centre */
   .stat-attack, .stat-defense, .stat-magic, .stat-resistance { --orb-offset: 18%; }
+  .stat-attack .stat-value, .stat-defense .stat-value, .stat-magic .stat-value, .stat-resistance .stat-value { transform: translateY(9px); }
   .stat-move dd { width: 2.9rem; height: 3.5rem; }
 
   .card-text {

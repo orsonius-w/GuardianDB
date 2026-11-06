@@ -1,0 +1,31 @@
+---
+title: Reading a Card
+description: Everything printed on a Summon, and the card types you'll meet first.
+section: Getting Started
+order: 5
+---
+
+import CardAnatomy from "../../components/wiki/CardAnatomy.astro";
+import CardRow from "../../components/wiki/CardRow.astro";
+
+Summons are your units on the board. Here is everything printed on one.
+
+<CardAnatomy />
+
+Owl Griffin has 3 Life, 1 Attack, Movement 2 and **Flying**. In the gallery and in the client, every keyword shows its meaning when you point at it.
+
+## Cost
+
+A cost has a grey number and element symbols. The **grey number is Neutral**: any Energy can pay it. **Each element symbol** must be paid with Energy of that element. See [Energy & Mana](/wiki/energy/).
+
+## The card types you'll meet first
+
+<CardRow items={[
+  { slug: "owl-griffin", title: "Summon", text: "Units on the board. Most of the game is about them." },
+  { slug: "sanctified-ray", title: "Spell: Hex", text: "One-shot effect, cast in your own main phase." },
+  { slug: "tend-to-wounds", title: "Spell: Quick", text: "Cast any time you could answer something." },
+  { slug: "conversion-trap", title: "Trap", text: "Set face down for free, paid only when it goes off." },
+  { slug: "northern-farmer", title: "Worker", text: "Makes Energy every turn. One per turn, free." },
+]} />
+
+Later you'll meet **Items**, lasting Spells (**Enchantments, Runes, Curses, Rituals**), **Buildings**, **Terrains** and two-sided **Events**. See [Card Types](/wiki/card-types/).

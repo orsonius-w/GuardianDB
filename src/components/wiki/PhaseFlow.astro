@@ -1,0 +1,32 @@
+---
+// The five phases of a turn as a horizontal flow (wraps on small screens).
+const phases = [
+  { n: 1, name: "Active", text: "Untap, get actions back, Workers and Guardian make Energy." },
+  { n: 2, name: "Guardian", text: "Start-of-turn effects: regeneration, Poison." },
+  { n: 3, name: "Draw", text: "Draw 1 card." },
+  { n: 4, name: "Tactic", text: "Your main phase: play, move, attack.", main: true },
+  { n: 5, name: "End", text: "Effects end, extra Energy is lost, hand down to 7." },
+];
+---
+<ol class="phases">
+  {phases.map((p) => (
+    <li class:list={{ main: p.main }}>
+      <span class="n">{p.n}</span>
+      <strong>{p.name}</strong>
+      <small>{p.text}</small>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .phases { list-style: none; padding: 0 !important; margin-block: 1.5rem !important; display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); gap: 0.5rem; counter-reset: none; }
+  .phases li {
+    position: relative; display: grid; gap: 0.3rem; align-content: start; margin: 0 !important;
+    padding: 0.9rem; border-radius: var(--radius-md);
+    background: hsl(0 0 100 / 0.05); border: 1px solid hsl(0 0 100 / 0.1);
+  }
+  .phases li.main { border-color: var(--clr-accent); background: hsl(40 100% 60% / 0.1); }
+  .n { width: 1.7rem; height: 1.7rem; display: grid; place-items: center; border-radius: 50%; background: var(--clr-accent); color: #2a1d00; font-weight: var(--fw-bold); font-size: var(--fs-sm); }
+  strong { font-family: var(--ff-secondary); font-size: var(--fs-md); }
+  small { color: var(--clr-neutral-300); line-height: 1.45; }
+</style>

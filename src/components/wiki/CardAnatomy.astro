@@ -1,0 +1,64 @@
+---
+// Owl Griffin with numbered markers, explained in a legend beside it.
+import { cards } from "../../lib/cards";
+const card = cards.find((c) => c.slug === "owl-griffin")!;
+const marks: [number, number][] = [[9, 6.5], [66, 6.5], [93, 16], [72, 53.6], [72, 58.6], [88, 66], [6, 95.5], [52, 99]];
+const stats = [
+  { key: "life", label: "Life", v: card.life, t: "at 0 it dies" },
+  { key: "mana", label: "Mana", v: card.mana, t: "for its own Spells" },
+  { key: "attack", label: "Attack", v: card.attack, t: "physical damage" },
+  { key: "defense", label: "Defense", v: card.defense, t: "blocks physical" },
+  { key: "magic", label: "Magic", v: card.magic, t: "magic damage" },
+  { key: "resistance", label: "Resistance", v: card.resistance, t: "blocks magic" },
+];
+---
+<div class="anatomy">
+  <div class="anat-card">
+    <img src={card.image!} alt={card.name} width={card.imageWidth} height={card.imageHeight} />
+    {marks.map(([x, y], i) => <span class="mk" style={`left:${x}%;top:${y}%`}>{i + 1}</span>)}
+  </div>
+  <div>
+    <ol class="legend">
+      <li><span><strong>Element</strong>: Light.</span></li>
+      <li><span><strong>Name.</strong></span></li>
+      <li><span><strong>Cost</strong>: a grey 1 and one Light symbol, so 2 Energy, at least one of it Light.</span></li>
+      <li><span><strong>Type line</strong>: the card type (Summon), its kinds (Griffin) and its element.</span></li>
+      <li><span><strong>Combat type</strong>: how far it can attack. See <a href="/wiki/combat/#combat-types">Combat</a>.</span></li>
+      <li><span><strong>Rules text</strong>: keywords and abilities. Text in brackets is a reminder of what a keyword does.</span></li>
+      <li><span><strong>Copy limit</strong>: how many copies a deck may hold.</span></li>
+      <li><span><strong>Stats</strong>, left to right:</span></li>
+    </ol>
+    <div class="stat-strip">
+      {stats.map((s) => (
+        <div><span class={`orb ${s.key}`}><img src={`/images/stats/${s.key}.png`} alt="" /><b>{s.v}</b></span><strong>{s.label}</strong><small>{s.t}</small></div>
+      ))}
+      <div><span class="orb"><img src={`/images/stats/move_${card.movement}.png`} alt="" /></span><strong>Movement</strong><small>fields per turn</small></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .anatomy { display: grid; grid-template-columns: minmax(14rem, 19rem) 1fr; gap: 2rem; align-items: start; margin-block: 1.5rem 2rem; }
+  @media (width < 700px) { .anatomy { grid-template-columns: 1fr; } .anat-card { max-width: 19rem; } }
+  .anat-card { position: relative; margin: 0.75rem; }
+  .anat-card img { border-radius: 12px; height: auto; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5); }
+  .mk {
+    position: absolute; transform: translate(-50%, -50%);
+    width: 1.6rem; height: 1.6rem; display: grid; place-items: center;
+    border-radius: 50%; background: #c0392b; color: white; font-weight: 800; font-size: 0.85rem;
+    border: 2px solid white; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  .legend { margin: 0 !important; padding-left: 0 !important; list-style: none; counter-reset: m; display: grid; gap: 0.1rem; }
+  .legend li { counter-increment: m; display: flex; gap: 0.75rem; align-items: baseline; padding: 0.35rem 0; border-bottom: 1px solid hsl(0 0 100 / 0.08); margin: 0 !important; }
+  .legend li::before {
+    content: counter(m); flex: none; width: 1.4rem; height: 1.4rem; display: grid; place-items: center;
+    border-radius: 50%; background: #c0392b; color: white; font-weight: 800; font-size: 0.75rem;
+  }
+  .stat-strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(5.4rem, 1fr)); gap: 0.75rem 0.5rem; margin-block: 1rem; text-align: center; }
+  .stat-strip > div { display: grid; justify-items: center; gap: 0.15rem; line-height: 1.25; }
+  .stat-strip small { color: var(--clr-neutral-300); font-size: var(--fs-xs); }
+  .orb { position: relative; width: 2.8rem; height: 2.8rem; display: grid; place-items: center; }
+  .orb img { width: 100%; height: 100%; object-fit: contain; }
+  .orb b { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--ff-brand); font-size: 1.15rem; color: white; text-shadow: 0 0 3px #000, 0 1px 2px #000; }
+  .orb.attack b, .orb.defense b, .orb.magic b, .orb.resistance b { transform: translateY(5px); }
+</style>

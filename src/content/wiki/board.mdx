@@ -1,0 +1,55 @@
+---
+title: The Board
+description: The grid, the zones, the Front and the fast lanes.
+section: The Battlefield
+order: 10
+---
+
+import BoardDiagram from "../../components/wiki/BoardDiagram.astro";
+import Callout from "../../components/wiki/Callout.astro";
+
+The board is a grid of **5 columns and 6 rows**. Each player owns the three rows on their side. The two outermost fields of each side's front row are **fused** with the opponent's, so the board has **28 playable fields**, not 30.
+
+<BoardDiagram />
+
+## Zones
+
+From your Guardian outward:
+
+| Zone | What it is |
+|---|---|
+| **Guardian Zone** | Where your Guardian stands, behind your back row. |
+| **Guarded Zone** | Your back row. New Summons enter here. Your last line of defense. |
+| **Battle Zone 1** | Your middle row. |
+| **Battle Zone 2** | Your front row, touching the Front. |
+| **The Front** | The line between the two sides. Summons can cross it like any other step. |
+
+An enemy Summon that reaches your Guarded Zone can attack your Guardian and your Buildings. Your Guardian, in turn, can attack enemy Summons standing in your Guarded Zone.
+
+## The fast lanes
+
+The outer field of Battle Zone 2 on each flank is **one shared field** for both players. A fast lane field:
+
+- holds **one Summon**, like any field
+- counts as being on **both** players' sides at once, so it is in your Battle Zone 2 and in your opponent's
+- can hold **both players' Traps** at the same time
+
+The lanes give slower Summons a quicker route around the flank, while the center is about control. Entering a fast lane is **not** yet entering enemy territory: Infiltrate triggers only when a Summon lands on one of the opponent's own fields.
+
+## What the first turns usually look like
+
+<Callout title="Turns 1–2" tone="tip">Play a Worker each turn. Cast a cheap Summon or two into your Guarded Zone. They can't act yet, but [Grace](/wiki/combat/#grace) keeps them safe from attacks on the turn they arrive.</Callout>
+<Callout title="Turns 3–4" tone="tip">Move up into the Battle Zones. Set a Trap or two on fields the enemy will want to walk through. Keep a body at home in your Guarded Zone.</Callout>
+<Callout title="Later" tone="tip">Trade Summons in the middle, push through a fast lane, and once a Summon stands in the enemy's Guarded Zone, start hitting their Guardian.</Callout>
+
+## Off the grid
+
+Only Summons stand on the grid, with rare exceptions such as Outposts. Everything else has its own zone:
+
+- **Worker Zone**: your Workers
+- **Building Zone**: your Buildings, which count as being in your Guarded Zone
+- **Trap Zone**: Traps set on fields, at most 2 per zone. Two Traps may share a field.
+- **Positionless Trap Zone**: up to 2 Positionless Traps
+- **Extended Zone**: Items, Runes, Enchantments, Events and other cards in play that are not on the grid
+- **Deck, Treasure Chest and Graveyard**
+- **The Void**: cards removed from the game for good

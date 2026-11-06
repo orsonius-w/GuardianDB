@@ -266,4 +266,47 @@ function syncClient() {
   console.log(`client.json: ${version} (build ${build}), ${notes.length} patch notes`);
 }
 
-main().then(syncClient);
+// ---------- UI icons: keyword badges, combat types, element symbols, board texture ----------
+// Copied from the game so the site uses the same art. Keyed by the website's keyword slug.
+const BADGES = {
+  absorb: "absorb_skill_badge", agility: "agility_badge", assault: "assault_badge", battlelash: "battlelash_skill_badge",
+  block: "block_skill_badge", breach: "breach_skill_badge", chill: "chill_skill_badge", company: "company_skill_badge",
+  coward: "coward_skill_badge", "deep-infiltration": "deep_infiltrate badges", demise: "demise_badge", devotion: "devotion_skill_badge",
+  diving: "diving_skill_badge", dominate: "dominate_badge", elusive: "elusive_skill_badge", flying: "flying_skill_badge",
+  fogged: "fogged_skill_badge", guardprotect: "guardprotect_skill_badge", infiltrate: "infiltrate badges", "life-regen": "liferegen_skill_badge",
+  loner: "loner_skill_badge", "magic-block": "magic_block_skill_badge", manifest: "manifest_badge", onslaught: "onslaught_badge",
+  perpetual: "perpetual_badge", punishing: "punishment_skill_badge", resonance: "resonance badges", retaliate: "retaliate_skill_badge",
+  seabound: "seabound_skill_badge", "shadow-cloak": "shadow_cloak_skill_badge", "shadow-step": "shadow_step_skill_badge",
+  shocking: "shockingl_skill_badge", skyscraper: "skyscraper_skill_badge", sprint: "sprinting_skill_badge", stealth: "stealth_skill_badge",
+  swiftstrike: "swiftstrike_skill_badge", "twin-strike": "twinstrike_skill_badge", untouchable: "untouchable_skill_badge",
+  venomous: "venemous_skill_badge", ward: "ward_badge", "water-breather": "water_breather_skill_badge",
+  bleeding: "status_ailment_bleeding", burning: "status_ailment_burning", frozen: "status_ailment_frozen",
+  petrified: "status_ailment_petrified", poisoned: "status_ailment_poison", shocked: "status_ailment_shocked",
+};
+const COMBAT = {
+  "close-combat": "close_combat", "ranged-combat": "ranged_combat", "bi-combat": "bi_combat",
+  "magic-combat-r1": "magic_combat_r1", "magic-combat-r2": "magic_combat_r2", "dual-combat-r1": "dual_combat_r1", "dual-combat-r2": "dual_combat_r2",
+};
+const QUICKSTART = "Claude outputs/guardian-quick-start/img";
+const ELEMENT_SYMBOLS = ["neutral", "light", "darkness", "fire", "water", "earth", "wind", "lightning", "ice", "nature"];
+
+async function syncIcons() {
+  const icons = path.join(REPO, "assets/images/ui/icons");
+  const jobs = [];
+  for (const [slug, file] of Object.entries(BADGES)) jobs.push([path.join(icons, file + ".png"), `public/images/badges/${slug}.webp`, 96]);
+  for (const [slug, file] of Object.entries(COMBAT)) jobs.push([path.join(icons, file + ".png"), `public/images/combat/${slug}.webp`, 160]);
+  for (const el of ELEMENT_SYMBOLS) jobs.push([path.join(REPO, QUICKSTART, el + ".png"), `public/images/elements/${el}.webp`, 96]);
+  jobs.push([path.join(REPO, QUICKSTART, "ground.jpg"), "public/images/wiki/ground.webp", 900]);
+  let n = 0, missing = [];
+  for (const [src, rel, w] of jobs) {
+    const dest = path.join(SITE, rel);
+    if (!fs.existsSync(src)) { missing.push(path.basename(src)); continue; }
+    if (fs.existsSync(dest) && fs.statSync(dest).mtimeMs >= fs.statSync(src).mtimeMs) continue;
+    fs.mkdirSync(path.dirname(dest), { recursive: true });
+    await sharp(src).resize({ width: w, withoutEnlargement: true }).webp({ quality: 85 }).toFile(dest);
+    n++;
+  }
+  console.log(`icons: ${n} updated${missing.length ? `, missing: ${missing.join(", ")}` : ""}`);
+}
+
+main().then(syncClient).then(syncIcons);

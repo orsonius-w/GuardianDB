@@ -68,42 +68,15 @@
   ul { padding-left: 1.1em; }
 }
 
-/* --- board diagram --- */
-.board-diagram {
-  max-width: 30rem;
-  margin: 1.5rem auto 2rem;
-  text-align: center;
-  font-size: var(--fs-sm);
-}
-.bd-guardian {
-  margin: 0.4rem auto;
-  width: 40%;
-  padding: 0.4rem;
-  border: 1px solid var(--clr-accent);
-  border-radius: var(--radius-base);
-  color: var(--clr-accent);
-  font-family: var(--ff-secondary);
-}
-.bd-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(6, 2.6rem);
-  gap: 3px;
-}
-.bd-cell {
-  display: grid;
-  place-items: center;
-  border-radius: 3px;
-  font-size: 0.75em;
-  background: hsl(200 40% 25%);
-}
-.bd-cell.opp { background: hsl(3 35% 28%); }
-.bd-cell.g { filter: brightness(1.25); }
-.bd-cell.lane { grid-row: span 2; background: hsl(40 60% 30%); font-weight: var(--fw-bold); }
-.bd-cell.lane.l { grid-column: 1; }
-.bd-cell.lane.r { grid-column: 5; grid-row: 3 / span 2; }
-.bd-cell.front { border-top: 3px solid var(--clr-accent); }
-.bd-legend { margin-block-start: 0.75rem; color: var(--clr-neutral-300); }
-
 .element-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block: 1rem; }
 .element-links .badge { padding: 0.4rem 0.9rem; border-radius: var(--radius-full); text-decoration: none; font-size: var(--fs-sm); }
+
+/* rows of small figures (grids, diagrams) inside wiki pages */
+.figure-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1.5rem 1rem;
+  align-items: start;
+  margin-block: 1.5rem;
+}
+.figure-row > * { margin: 0 !important; }

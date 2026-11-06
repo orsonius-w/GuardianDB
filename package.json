@@ -10,6 +10,7 @@
     "sync": "node scripts/sync-cards.mjs"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.3.14",
     "astro": "^5.10.1",
     "astro-icon": "^1.1.5",
     "marked": "^16.0.0",

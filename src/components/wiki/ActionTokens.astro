@@ -1,0 +1,36 @@
+---
+// The three action tokens and the separate active / deactivated state.
+---
+<div class="tokens">
+  <div class="tk-group">
+    <span class="tk-title">Action tokens, once per turn each</span>
+    <div class="tk-row">
+      <span class="tk"><img src="/images/combat/close-combat.webp" alt="" />Attack</span>
+      <span class="tk"><img src="/images/stats/mana.png" alt="" />Cast</span>
+      <span class="tk"><img src="/images/stats/move_2.png" alt="" />Move</span>
+    </div>
+  </div>
+  <span class="plus">+</span>
+  <div class="tk-group">
+    <span class="tk-title">Activation state</span>
+    <div class="tk-row">
+      <span class="state on">Active</span>
+      <span class="arrow">⇄</span>
+      <span class="state off">Deactivated</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .tokens { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-block: 1.5rem; padding: 1rem 1.25rem; border-radius: var(--radius-md); background: hsl(0 0 100 / 0.04); }
+  .tk-group { display: grid; gap: 0.5rem; }
+  .tk-title { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 1px; color: var(--clr-neutral-400); }
+  .tk-row { display: flex; align-items: center; gap: 0.5rem; }
+  .tk { display: grid; justify-items: center; gap: 0.2rem; width: 4.2rem; padding: 0.5rem 0.25rem; border-radius: var(--radius-md); background: hsl(0 0 100 / 0.06); font-size: var(--fs-sm); }
+  .tk img { width: 2rem; height: 2rem; object-fit: contain; }
+  .plus { font-size: 1.6rem; color: var(--clr-neutral-400); }
+  .state { padding: 0.6rem 0.9rem; border-radius: var(--radius-md); font-weight: var(--fw-bold); font-size: var(--fs-sm); }
+  .state.on { background: hsl(140 40% 30%); }
+  .state.off { background: hsl(0 0 100 / 0.08); color: var(--clr-neutral-300); transform: rotate(-8deg); }
+  .arrow { color: var(--clr-neutral-400); }
+</style>

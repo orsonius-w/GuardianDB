@@ -1,6 +1,6 @@
 ---
 import WikiLayout from "../../../layout/wikilayout.astro";
-import { allKeywords, CATEGORY_LABEL } from "../../../lib/keywords";
+import { allKeywords, CATEGORY_LABEL, badgeFor } from "../../../lib/keywords";
 
 const list = allKeywords();
 const groups = new Map<string, typeof list>();
@@ -24,7 +24,7 @@ const sorted = [...groups.entries()].sort((a, b) => order.indexOf(a[0]) - order.
       <dl class="kw-list">
         {items.map((k) => (
           <div class="kw-row" data-name={k.name.toLowerCase()}>
-            <dt><a href={`/wiki/keywords/${k.slug}/`}>{k.name}</a> {k.count > 0 && <small>{k.count} cards</small>}</dt>
+            <dt>{badgeFor(k.slug) ? <img class="kw-badge" src={badgeFor(k.slug)} alt="" width="28" height="28" /> : <span class="kw-badge" />}<a href={`/wiki/keywords/${k.slug}/`}>{k.name}</a> {k.count > 0 && <small>{k.count} cards</small>}</dt>
             <dd>{k.entry?.short ?? "Definition coming soon."}</dd>
           </div>
         ))}
@@ -47,7 +47,10 @@ const sorted = [...groups.entries()].sort((a, b) => order.indexOf(a[0]) - order.
   .kw-list { display: grid; gap: 0.75rem; }
   .kw-row { display: grid; grid-template-columns: 13rem 1fr; gap: 1rem; padding-block-end: 0.75rem; border-bottom: 1px solid hsl(0 0 100 / 0.08); }
   .kw-row[hidden], .kw-group[hidden] { display: none; }
+  .kw-row dt { display: grid; grid-template-columns: 1.75rem 1fr; column-gap: 0.5rem; align-items: center; }
   .kw-row dt a { font-weight: var(--fw-bold); }
+  .kw-row small { grid-column: 2; }
+  .kw-badge { width: 1.75rem; height: 1.75rem; object-fit: contain; }
   .kw-row small { display: block; color: var(--clr-neutral-400); }
   @media (width < 600px) { .kw-row { grid-template-columns: 1fr; gap: 0.25rem; } }
 </style>

@@ -1,0 +1,50 @@
+---
+// The 28-field board on the game's ground texture, with zone labels and the fast lanes.
+const rows = ["Guarded Zone", "Battle Zone 1", "Battle Zone 2", "Battle Zone 2", "Battle Zone 1", "Guarded Zone"];
+---
+<figure class="board">
+  <div class="labels" aria-hidden="true">
+    {rows.map((r, i) => <span class:list={{ yours: i > 2 }} style={`grid-row:${i + 2}`}>{r}</span>)}
+  </div>
+  <div class="field-wrap">
+    <div class="zone theirs">Opponent's Guardian Zone</div>
+    <div class="fields" role="img" aria-label="The board: 5 columns, 6 rows, fast lanes on both flanks of the middle two rows">
+      {Array.from({ length: 30 }, (_, i) => {
+        const x = i % 5, y = Math.floor(i / 5);
+        if ((x === 0 || x === 4) && y === 3) return null; // covered by the fast lane
+        if ((x === 0 || x === 4) && y === 2) return <span class="lane" style={`grid-column:${x + 1};grid-row:3 / span 2`}>Fast lane</span>;
+        return <span class:list={{ yours: y > 2, front: y === 3 }} style={`grid-column:${x + 1};grid-row:${y + 1}`} />;
+      })}
+    </div>
+    <div class="zone yours">Your Guardian Zone</div>
+  </div>
+  <figcaption>The dashed line between the two Battle Zone 2 rows is <strong>the Front</strong>. Each fast lane is one shared field that belongs to both players.</figcaption>
+</figure>
+
+<style>
+  .board { display: grid; grid-template-columns: auto minmax(0, 22rem); gap: 0.75rem; justify-content: center; margin: 1.5rem auto 2rem; }
+  .labels { display: grid; grid-template-rows: 2rem repeat(6, 1fr) 2rem; row-gap: 4px; padding-block: 4px; font-size: var(--fs-xs); color: var(--clr-neutral-300); text-align: right; }
+  .labels span { display: grid; align-items: center; }
+  .labels span.yours { color: hsl(15 60% 70%); }
+  .field-wrap { display: grid; grid-template-rows: 2rem auto 2rem; gap: 4px; }
+  .zone { display: grid; place-items: center; border-radius: 4px; font-size: var(--fs-xs); font-weight: var(--fw-bold); letter-spacing: 1px; text-transform: uppercase; }
+  .zone.theirs { background: #2c3550; color: #e9dfc6; }
+  .zone.yours { background: #6b2a22; color: #f4e7c8; }
+  .fields {
+    display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(6, 1fr); gap: 4px;
+    padding: 4px; border-radius: 4px;
+    background: url("/images/wiki/ground.webp") center / cover;
+  }
+  .fields span {
+    aspect-ratio: 1; border-radius: 4px;
+    background: rgba(40, 60, 120, 0.3); border: 1.5px solid rgba(255, 255, 255, 0.7);
+  }
+  .fields span.yours { background: rgba(150, 40, 30, 0.28); }
+  .fields span.front { box-shadow: 0 -4px 0 -1px transparent; border-top: 2px dashed #fff6dc; }
+  .fields .lane {
+    aspect-ratio: auto; display: grid; place-items: center; text-align: center;
+    background: rgba(214, 170, 60, 0.6); border: 2.5px solid #fff6dc;
+    color: #3a2a08; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; line-height: 1.1; padding: 0.2rem;
+  }
+  figcaption { grid-column: 1 / -1; text-align: center; color: var(--clr-neutral-300); font-size: var(--fs-sm); max-width: 32rem; margin-inline: auto; }
+</style>
