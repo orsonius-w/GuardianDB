@@ -298,6 +298,14 @@ async function syncIcons() {
   for (const el of ELEMENT_SYMBOLS) jobs.push([path.join(REPO, QUICKSTART, el + ".png"), `public/images/elements/${el}.webp`, 96]);
   jobs.push([path.join(REPO, QUICKSTART, "ground.jpg"), "public/images/wiki/ground.webp", 900]);
   jobs.push([path.join(REPO, "Claude outputs/htp_assets/card_back.png"), "public/images/wiki/card-back.webp", 200]);
+  // brand: the game's logo and the main-menu key art used by the home page hero
+  jobs.push([path.join(REPO, "assets/images/ui/guardian_logo.png"), "public/images/brand/logo.webp", 900]);
+  // client screenshots for the home page (the game's build/ folder holds the designer's captures)
+  for (const [src, out] of [
+    ["campaign_map.png", "1-campaign-map"], ["story_intro_talas.png", "2-story"], ["campaign_screen.png", "3-campaign"],
+    ["stage_1_3_flanks.png", "board"], ["deck_builder_builder.png", "deck-builder"], ["bot_match.png", "bot-match"],
+  ]) jobs.push([path.join(REPO, "build", src), `public/images/client/${out}.webp`, 1600]);
+  for (let i = 1; i <= 4; i++) jobs.push([path.join(REPO, `assets/images/backgrounds/main_menu_bg (${i}).png`), `public/images/hero/hero-${i}.webp`, 1920]);
   let n = 0, missing = [];
   for (const [src, rel, w] of jobs) {
     const dest = path.join(SITE, rel);
@@ -343,4 +351,19 @@ function syncDownloads() {
   console.log("downloads: Quick Start PDF updated");
 }
 
-main().then(syncClient).then(syncIcons).then(syncDecks).then(syncDownloads);
+// ---------- favicons from the game icon ----------
+async function syncFavicons() {
+  const src = path.join(REPO, "assets/GuardianIcon.png");
+  if (!fs.existsSync(src)) return;
+  const out = [["public/favicon-32.png", 32], ["public/favicon-192.png", 192], ["public/favicon-512.png", 512], ["public/apple-touch-icon.png", 180]];
+  let n = 0;
+  for (const [rel, size] of out) {
+    const dest = path.join(SITE, rel);
+    if (fs.existsSync(dest) && fs.statSync(dest).mtimeMs >= fs.statSync(src).mtimeMs) continue;
+    await sharp(src).resize(size, size).png().toFile(dest);
+    n++;
+  }
+  if (n) console.log(`favicons: ${n} updated`);
+}
+
+main().then(syncClient).then(syncIcons).then(syncDecks).then(syncDownloads).then(syncFavicons);

@@ -4,6 +4,7 @@
 // (?q=...&type=...) so a filtered view can be shared, and an open quick-view adds #card=<slug>.
 import { Icon } from "astro-icon/components";
 import CardDetail from "./CardDetail.astro";
+import TiltCards from "../home/TiltCards.astro";
 import { ELEMENTS, TYPES, RARITIES, keywordCounts, type Card } from "../../lib/cards";
 
 interface Props {
@@ -134,7 +135,7 @@ const dataFor = (card: Card) => ({
 
 <div class="grid-column card-grid" id="card-grid">
   {cards.map((card) => (
-    <a href={`/cards/${card.slug}/`} class="card-link item" hidden={!firstBatch.has(card.id)} {...dataFor(card)}>
+    <a href={`/cards/${card.slug}/`} class="card-link item tilt" hidden={!firstBatch.has(card.id)} {...dataFor(card)}>
       {card.image ? (
         <img src={card.image} alt={card.name} width={card.imageWidth} height={card.imageHeight} class="card-image" loading="lazy" decoding="async" />
       ) : (
@@ -170,6 +171,7 @@ const dataFor = (card: Card) => ({
 
 <!-- One hidden card view so its styles ship with this page; the quick-view fills in fetched card pages. -->
 {cards[0] && <div hidden aria-hidden="true" class="qv-style-carrier"><CardDetail card={cards[0]} /></div>}
+<TiltCards />
 
 <script>
   const RARITY_ORDER: Record<string, number> = { Common: 1, Uncommon: 2, Rare: 3, "Special Rare": 4 };
@@ -497,7 +499,7 @@ const dataFor = (card: Card) => ({
     text-decoration: none;
     border-radius: 8px;
     transition: transform 0.15s ease-in-out;
-    &:hover, &:focus-visible { transform: translateY(-4px); }
+    &:focus-visible, &:hover:not(.tilting) { transform: translateY(-4px); }
   }
   .card-image { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); }
   .card-placeholder {

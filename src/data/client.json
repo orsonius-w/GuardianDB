@@ -1,8 +1,20 @@
 {
- "version": "Alpha 0.3.138e",
- "build": 921,
+ "version": "Alpha 0.3.138g",
+ "build": 923,
  "synced": "2026-11-06",
  "notes": [
+  {
+   "build": 923,
+   "date": "2026-11-06",
+   "version": "0.3.138g",
+   "body": "Four rulings the game did not follow yet:\n- **A Summon pushed, pulled or swapped onto your Step Trap sets it off** (the forced-movement ruling). Sliding over one still does not, and Gallows Step and the other \"moves onto\" Traps still want the Summon's own move.\n- **Mordrec's Gabl is a true replacement:** a Summon he sends into the Void instead of the graveyard fires no Demise. He asks at the death, before anything resolves.\n- **Crystal Bastion is one of the protectors you pick from:** a Shockwave asks which protector takes it (Bastion or Summon) on a Summon or a Building. With no pick, the one nearest death takes it.\n- **Goad adds up:** a printed Goad plus Bountyleaf Ranger's granted Goad is +2. Before, the printed one hid the grant. Two Rangers give Goad 2.\n- **The rules codex** now carries the five forced-movement rulings of 2026-09-29 (rules-core.md, Movement)."
+  },
+  {
+   "build": 922,
+   "date": "2026-11-06",
+   "version": "0.3.138f",
+   "body": "The designer's rulings on the website's open points:\n- **A kill resolves inside combat, Onslaught after it.** When one attack kills, its Dominate and the victim's Demise now resolve before the attacker's Onslaught.\n- **Elusive answers any ability that targets its Summon** - an enemy Manifest, Infiltrate or Agility included, not only Spells and activated abilities.\n- **Nothing is immune to Poison:** the last of the old Mechanical exception is gone from Venomous and Contagious.\n- **In-game reminders corrected:** Chill (\"deactivates and depletes; a target already deactivated becomes Frozen\"), Devotion (a taunt - \"enemies can't attack your other Summons in its zone\"; it absorbs nothing), Shadow Step and Shadow Cloak (\"if active\").\n- **The rules codex** records those rulings, Petrified as an ordinary ailment that a cleanse removes, and ten stale passages fixed (Fogged against Guardians, Stealth against attacks, Leaping, Deep Infiltration, Seabound, the Avert count, spelling)."
+  },
   {
    "build": 921,
    "date": "2026-11-06",
@@ -38,18 +50,6 @@
    "date": "2026-11-05",
    "version": "0.3.138",
    "body": "- **Three new pre-cons:** Chonzo's Calm, Jurian's Judgement and Ilsbet's Infected.\n- **Card faces are sharp when shown small.** Build 915's mipmaps alone drew shrunk faces soft (Sol's Wings in the Deck Builder); the game now reads them one mipmap finer, which lands close to a proper downscale - smooth edges, crisp text.\n- **Seven Light faces drawn in the engine from the designer's new art:** Elowen, Inquisitor Verren, Talas, Lum Knight Captain, Pearl of Life, To Oblivion and War Lion (whose Punishing is styled again).\n- **Sol's Wings** prints \"Treasure Spell - Enchantment - Light\" - a Treasure Spell whose subtype is only in its Spell type no longer prints as a bare Treasure. Its old hand-made face is gone."
-  },
-  {
-   "build": 915,
-   "date": "2026-11-05",
-   "version": "0.3.137b",
-   "body": "- **Card pictures are sharp again at small sizes.** Every face, board piece and tile made since build 430 was imported without mipmaps, so its text broke up when the card was shown smaller than full size (Chains of Devotion beside Divine Constraints). All 2814 are set now, and the import tool sets it for new art."
-  },
-  {
-   "build": 914,
-   "date": "2026-11-05",
-   "version": "0.3.137a",
-   "body": "- **Card faces:** a list's bullets sit at the margin under \"Choose one\", with the choices indented - on every rendered face with a list. Larger text on Jurian's Gabl, Split the Earth, Avalanche Maul and Ilexa; a little space between paragraphs on Shifting Foundations and Ifrit's Lamp.\n- **Edict of Measure** no longer prints \"Perpetual\" - it is a Rune.\n- **The Ifrit token** wears its resaved art."
   }
  ]
 }

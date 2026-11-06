@@ -74,9 +74,10 @@ p {
   --clr-neutral-950: hsl(210 10% 5%);
 
   /*font families*/
-  --ff-brand: "Fertigo Pro", sans-serif;
-  --ff-secondary: "Cambria", sans-serif;
-  --ff-base: "Inter", sans-serif;
+  /* web fonts (Google Fonts, SIL Open Font License) - see layout/head.astro */
+  --ff-brand: "Cinzel", "Times New Roman", serif; /* display headings */
+  --ff-secondary: "Source Serif 4", Georgia, serif; /* labels, nav, card names */
+  --ff-base: "Mukta Malar", system-ui, sans-serif; /* body text - the game's UI font */
 
   /* font sizes */
 
@@ -721,3 +722,26 @@ li {
   border-radius: var(--radius-base);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
 }
+
+/* --- card tilt + sheen (enabled by components/home/TiltCards.astro) --- */
+.tilt {
+  position: relative;
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.25s ease-out;
+  transform-style: preserve-3d;
+  border-radius: 8px;
+}
+.tilt.tilting { transition: transform 0.06s linear; }
+.tilt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), hsl(0 0 100 / 0.28), transparent 55%),
+    linear-gradient(115deg, transparent 30%, hsl(45 100% 85% / 0.12) 48%, transparent 66%);
+  mix-blend-mode: soft-light;
+}
+.tilt.tilting::after { opacity: 1; }

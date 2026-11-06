@@ -1,0 +1,23 @@
+---
+// Adds a 3D tilt and a light sheen to any element with class "tilt" on the page.
+---
+<script>
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (!reduce && fine) {
+    document.addEventListener("pointermove", (e) => {
+      const el = (e.target as HTMLElement).closest<HTMLElement>(".tilt");
+      document.querySelectorAll<HTMLElement>(".tilt.tilting").forEach((t) => { if (t !== el) reset(t); });
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      el.classList.add("tilting");
+      el.style.setProperty("--rx", `${(0.5 - y) * 14}deg`);
+      el.style.setProperty("--ry", `${(x - 0.5) * 16}deg`);
+      el.style.setProperty("--mx", `${x * 100}%`);
+      el.style.setProperty("--my", `${y * 100}%`);
+    });
+    const reset = (t: HTMLElement) => { t.classList.remove("tilting"); t.style.removeProperty("--rx"); t.style.removeProperty("--ry"); };
+    document.addEventListener("pointerleave", () => document.querySelectorAll<HTMLElement>(".tilt.tilting").forEach(reset));
+  }
+</script>

@@ -1,129 +1,587 @@
 ---
 import Layout from "../layout/layout.astro";
-import Pagesection from "../components/sections/pagesection.astro";
+import Embers from "../components/home/Embers.astro";
+import TiltCards from "../components/home/TiltCards.astro";
 import { cards, ELEMENTS } from "../lib/cards";
+import { decks } from "../lib/decks";
 import { newsPosts, formatDate } from "../lib/news";
+import client from "../data/client.json";
+import { SITE_LINKS } from "../data/site";
+import { parseTextToHTML } from "../js/parseTextToHtml";
 
-const total = cards.filter((c) => !c.token).length;
-const guardians = cards.filter((c) => c.type === "Guardian").length;
+const pub = cards.filter((c) => !c.token);
+const total = pub.length;
+const guardianCount = pub.filter((c) => c.type === "Guardian").length;
 const latest = (await newsPosts()).slice(0, 3);
+const note = client.notes?.[0];
+const firstLine = (note?.body ?? "").split("\n").find((l) => l.trim().startsWith("-"))?.replace(/^-\s*/, "").replace(/\*\*/g, "") ?? "";
+const ticker = firstLine.length > 110 ? firstLine.slice(0, 107).replace(/\s+\S*$/, "") + "…" : firstLine;
 
-// A few featured cards: rare Summons with art, picked fresh at each build.
-const pool = cards.filter((c) => c.image && c.type === "Summon" && (c.rarity === "Special Rare" || c.rarity === "Rare") && !c.token);
-const featured = Array.from({ length: 5 }, (_, i) => pool[Math.floor((i + 0.5) * pool.length / 5)]).filter(Boolean);
+// Three fanned cards in the hero: strong rare Summons with art, varied by build.
+const rares = pub.filter((c) => c.image && c.type === "Summon" && c.rarity === "Special Rare");
+const pick = (arr: any[], n: number, seed: number) => Array.from({ length: n }, (_, i) => arr[(seed * 7 + Math.floor(((i + 0.5) * arr.length) / n)) % arr.length]).filter(Boolean);
+const fan = pick(rares, 3, client.build);
+
+// Element tiles: each element's Guardian art (the first starter deck's Guardian of that element).
+const deckGuardians = decks.filter((d) => d.guardian?.image);
+const tiles = ELEMENTS.filter((e) => e.name !== "Neutral").map((e) => {
+  const d = deckGuardians.find((x) => x.guardian!.elements[0] === e.name);
+  const g = d?.guardian ?? pub.find((c) => c.type === "Guardian" && c.image && c.elements[0] === e.name);
+  const count = pub.filter((c) => c.elements.includes(e.name)).length;
+  return { ...e, guardian: g, count };
+});
+
+// Guardian spotlight: rotates with each client build.
+const spot = deckGuardians[client.build % deckGuardians.length];
+const spotAbilities = (spot?.guardian?.text ?? "").split("\n").filter(Boolean).map((l) => {
+  const m = l.match(/^([^:]{2,30}):\s*(.*)$/);
+  return m ? { label: m[1], text: m[2] } : { label: "", text: l };
+});
+
+const modes = [
+  { name: "Online match", text: "Challenge a friend one on one over the internet: one of you hosts, the other joins." },
+  { name: "Versus computer", text: "Practise against an AI opponent that plays every card, with a starter deck or your own." },
+  { name: "Story campaign", text: "Hand-built battles with story scenes in between, played across a world map. New chapters are being written." },
+  { name: "Draft", text: "Pick your deck card by card from element groups, then fight drafted opponents until six wins or three losses." },
+  { name: "CPU tournament", text: "Sixteen starter decks, four Swiss rounds, all played by the computer. Sit back and watch." },
+  { name: "Hot-seat", text: "Two players, one screen. Pass the mouse at the end of each turn." },
+];
+const features = [
+  { name: "Deck builder", img: "/images/client/deck-builder.webp", text: "Search and filter the whole card pool by element, cost, type and keyword, and build with every card unlocked." },
+  { name: "Story campaign", img: "/images/client/2-story.webp", text: "Meet the people of the world between battles, with full-art story scenes." },
+  { name: "World map", img: "/images/client/1-campaign-map.webp", text: "Travel from region to region as the campaign unfolds." },
+  { name: "Pick your fight", img: "/images/client/bot-match.webp", text: "Choose a deck and an opponent, decide who goes first, and play." },
+];
+const soon = [
+  { name: "Dungeon", text: "a rogue-like run: carry your Guardian and deck from fight to fight and earn upgrades along the way." },
+  { name: "Challenges", text: "puzzle boards with a set position, a goal and a turn limit." },
+  { name: "Best of three", text: "match series with a sideboard between games." },
+  { name: "AI difficulty", text: "an easier and a tougher computer opponent." },
+];
+const heroes = [1, 2, 3, 4].map((i) => `/images/hero/hero-${i}.webp`);
 ---
 
 <Layout title="Guardian — the tactical card game">
   <section class="hero">
-    <img src="/images/hero.webp" alt="" class="hero-image" fetchpriority="high" />
+    <div class="hero-art" aria-hidden="true">
+      {heroes.map((src, i) => <img src={src} alt="" class:list={["slide", { on: i === 0 }]} fetchpriority={i === 0 ? "high" : "low"} loading={i === 0 ? "eager" : "lazy"} decoding="async" />)}
+    </div>
     <div class="hero-shade"></div>
-    <div class="base-layout hero-content">
-      <div>
-        <h1>Guard<span>ian</span></h1>
-        <p class="hero-tag">A collectible card game of tactical grid combat. Command a Guardian, summon an army, and win the battle on the board as much as in your hand.</p>
+    <Embers />
+    <div class="base-layout"><div class="hero-content">
+      <div class="hero-copy">
+        <a href="/play/#patch-notes" class="version-badge"><span class="pulse"></span>{client.version} · playable now</a>
+        <h1><img src="/images/brand/logo.webp" alt="Guardian" width="900" height="180" class="hero-logo" /></h1>
+        <p class="hero-tag">Tactical grid combat meets collectible cards. Command a Guardian, summon an army and win the battle on the board as much as in your hand.</p>
         <div class="hero-actions">
-          <a href="/learn/" class="link filled">Learn to play</a>
-          <a href="/gallery/" class="link outline">Browse {total} cards</a>
-          <a href="/play/" class="link outline">Play the alpha</a>
+          <a href={SITE_LINKS.itch} class="btn-game primary" target="_blank" rel="noopener">
+            <span>Play free on itch.io</span>
+          </a>
+          <a href="/learn/" class="btn-game">Learn to play</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <Pagesection size="lg">
-    <div class="pillars">
-      <div>
-        <h2>Position is power</h2>
-        <p>Summons enter beside your Guardian and fight their way across a 28-field grid. Flanks, fast lanes and zones decide as much as the cards you draw.</p>
-        <a href="/wiki/board/">The board →</a>
-      </div>
-      <div>
-        <h2>Strike first</h2>
-        <p>Combat is sequential: the attacker hits first, and only a survivor strikes back. Who attacks, from where and in which order is the game.</p>
-        <a href="/wiki/combat/">Combat →</a>
-      </div>
-      <div>
-        <h2>Nine elements</h2>
-        <p>{guardians} Guardians, more than {Math.floor(total / 100) * 100} cards, and a Treasure Chest of five powerful cards you buy into during the game.</p>
-        <a href="/wiki/elements/">Elements →</a>
-      </div>
-    </div>
-  </Pagesection>
-
-  {featured.length > 0 && (
-    <Pagesection size="base">
-      <h2>From the gallery</h2>
-      <div class="featured">
-        {featured.map((c) => (
-          <a href={`/cards/${c.slug}/`} title={c.name}><img src={c.image} alt={c.name} width={c.imageWidth} height={c.imageHeight} loading="lazy" decoding="async" /></a>
-        ))}
-      </div>
-      <div class="element-row">
-        {ELEMENTS.map((e) => <a href={`/gallery/${e.slug}/`} class={`badge ${e.cls}`}>{e.name}</a>)}
-      </div>
-    </Pagesection>
-  )}
-
-  {latest.length > 0 && (
-    <Pagesection size="md">
-      <h2>News</h2>
-      <div class="news">
-        {latest.map((p) => (
-          <a href={`/news/${p.id}/`}>
-            <small>{formatDate(p.data.date)}</small>
-            <strong>{p.data.title}</strong>
-            <span>{p.data.description}</span>
+      <div class="fan" aria-label="Featured cards">
+        {fan.map((c, i) => (
+          <a href={`/cards/${c.slug}/`} class={`fan-card f${i}`} title={c.name}>
+            <div class="tilt"><img src={c.image} alt={c.name} width={c.imageWidth} height={c.imageHeight} decoding="async" /></div>
           </a>
         ))}
       </div>
-    </Pagesection>
+    </div></div>
+    <div class="hero-dots" role="group" aria-label="Background art">
+      {heroes.map((_, i) => <button type="button" aria-label={`Show artwork ${i + 1}`} class:list={{ on: i === 0 }} data-i={i}></button>)}
+    </div>
+  </section>
+
+  {ticker && (
+    <a href="/play/#patch-notes" class="ticker">
+      <span class="ticker-tag">Build {client.build}</span>
+      <span class="ticker-text">{ticker}</span>
+      <span class="ticker-more">Patch notes →</span>
+    </a>
   )}
+
+  <nav class="jump" aria-label="On this page">
+    <div class="jump-inner">
+      <a href="#what">What is Guardian?</a>
+      <a href="#how">How it works</a>
+      <a href="#elements">Elements</a>
+      <a href="#modes">Game modes</a>
+      <a href="#features">Features</a>
+      <a href="#play" class="jump-play">Play free</a>
+    </div>
+  </nav>
+
+  <section class="band base-layout" id="what">
+    <div class="what">
+      <header class="band-head">
+        <span class="kicker">What is Guardian?</span>
+        <h2>A card game played on a battlefield</h2>
+        <p>Guardian is a collectible card game with the board of a tactics RPG. Your cards are an army: they walk, flank, hold ground and strike from range, so where you put a card matters as much as what it does. In development since 2010, as a paper game first and now as a digital client.</p>
+      </header>
+      <div class="counters">
+        <div><strong data-count={total}>{total}</strong><span>cards</span></div>
+        <div><strong data-count={guardianCount}>{guardianCount}</strong><span>Guardians</span></div>
+        <div><strong data-count="9">9</strong><span>elements</span></div>
+        <div><strong data-count={decks.length}>{decks.length}</strong><span>starter decks</span></div>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <span class="pillar-n">I</span>
+        <h3>Position is power</h3>
+        <p>Summons enter beside your Guardian and fight their way across a 28-field grid. Flanks, fast lanes and zones decide as much as the cards you draw.</p>
+        <a href="/wiki/board/">The board →</a>
+      </div>
+      <div class="pillar">
+        <span class="pillar-n">II</span>
+        <h3>Strike first</h3>
+        <p>The attacker hits first, and only a survivor strikes back. Who attacks, from where and in which order is the game.</p>
+        <a href="/wiki/combat/">Combat →</a>
+      </div>
+      <div class="pillar">
+        <span class="pillar-n">III</span>
+        <h3>Your Treasure Chest</h3>
+        <p>Five powerful cards set aside before the game. Buy into them as the battle unfolds, at the price of a smaller Energy store.</p>
+        <a href="/wiki/treasure-chest/">Treasures →</a>
+      </div>
+    </div>
+    <aside class="newbie">
+      <div>
+        <h3>New to Guardian?</h3>
+        <p>The four-step guide walks you through the board, a turn and your first attack. No rulebook needed.</p>
+      </div>
+      <a href="/learn/" class="btn-game primary">Start the guide</a>
+    </aside>
+  </section>
+
+  <section class="band base-layout" id="how">
+    <header class="band-head">
+      <span class="kicker">How does it work?</span>
+      <h2>Three steps to a match</h2>
+    </header>
+    <ol class="steps">
+      <li>
+        <span class="step-n">1</span>
+        <h3>Pick a Guardian</h3>
+        <p>Your Guardian is your commander and your life total: 15 Life. Pick one of {decks.length} starter decks or build your own around it, with five Treasures in your chest.</p>
+        <a href="/decks/">Starter decks →</a>
+      </li>
+      <li>
+        <span class="step-n">2</span>
+        <h3>Take the field</h3>
+        <p>Workers make Energy, Energy pays for cards. Summon units, march them forward, cast Spells and set Traps where your opponent will step.</p>
+        <a href="/wiki/turn-structure/">A turn →</a>
+      </li>
+      <li>
+        <span class="step-n">3</span>
+        <h3>Bring the Guardian down</h3>
+        <p>Break through and reduce the enemy Guardian to 0 Life, or outlast them until they have to draw from an empty deck.</p>
+        <a href="/wiki/combat/">Combat →</a>
+      </li>
+    </ol>
+  </section>
+
+  <section class="band base-layout" id="elements">
+    <header class="band-head">
+      <span class="kicker">Nine elements</span>
+      <h2>Choose your element</h2>
+      <p>Each element has its own Guardians, creatures and way to win. Mix two, or go all in on one.</p>
+    </header>
+    <div class="tiles">
+      {tiles.map((t) => (
+        <a href={`/gallery/${t.slug}/`} class={`tile el-${t.slug}`}>
+          {t.guardian?.image ? <img src={t.guardian.image} alt="" loading="lazy" decoding="async" /> : <div class="tile-empty"></div>}
+          <span class="tile-icon"><img src={`/images/elements/${t.slug}.webp`} alt="" width="40" height="40" loading="lazy" /></span>
+          <span class="tile-name">{t.name}</span>
+          <span class="tile-count">{t.count ? `${t.count} cards` : "coming soon"}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  {spot?.guardian && (
+    <section class="band base-layout"><div class="spotlight">
+      <div class="spot-card"><div class="tilt"><img src={spot.guardian.image} alt={spot.guardian.name} width={spot.guardian.imageWidth} height={spot.guardian.imageHeight} loading="lazy" /></div></div>
+      <div class="spot-copy">
+        <span class="kicker">Guardian spotlight</span>
+        <h2>{spot.guardian.name}</h2>
+        <p class="spot-meta"><span class={`badge ${spot.mainElement.cls}`}>{spot.mainElement.name}</span> {spot.guardian.life} Life</p>
+        <dl class="spot-abilities">
+          {spotAbilities.map((a) => (<div>{a.label && <dt>{a.label}</dt>}<dd set:html={parseTextToHTML(a.text)} /></div>))}
+        </dl>
+        <div class="hero-actions">
+          <a href={`/decks/${spot.slug}/`} class="btn-game primary">Deck: {spot.name}</a>
+          <a href={`/cards/${spot.guardian.slug}/`} class="btn-game">Card details</a>
+        </div>
+      </div>
+    </div></section>
+  )}
+
+  <section class="band base-layout" id="modes">
+    <header class="band-head">
+      <span class="kicker">Game modes</span>
+      <h2>Ways to play</h2>
+      <p>Everything below is in the current alpha.</p>
+    </header>
+    <div class="modes">
+      {modes.map((m) => (
+        <div class="mode">
+          <h3>{m.name}</h3>
+          <p>{m.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="band base-layout" id="features">
+    <header class="band-head">
+      <span class="kicker">Features</span>
+      <h2>What's in the client</h2>
+    </header>
+    <div class="features">
+      {features.map((f) => (
+        <figure class="feature">
+          <div class="feature-img"><img src={f.img} alt="" width="1600" height="900" loading="lazy" decoding="async" /></div>
+          <figcaption><h3>{f.name}</h3><p>{f.text}</p></figcaption>
+        </figure>
+      ))}
+    </div>
+    <div class="soon">
+      <h3>Coming soon</h3>
+      <ul>
+        {soon.map((x) => <li><strong>{x.name}</strong> <span>{x.text}</span></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta" id="play">
+    <img src="/images/client/bot-match.webp" alt="" class="cta-bg" loading="lazy" decoding="async" />
+    <div class="base-layout"><div class="cta-inner">
+      <div class="laptop">
+        <img src="/images/client/board.webp" alt="A match in the Guardian client" class="laptop-screen" width="1600" height="900" loading="lazy" decoding="async" />
+        <img src="/images/laptop.png" alt="" class="laptop-frame" width="1200" height="692" loading="lazy" />
+      </div>
+      <div class="cta-copy">
+        <h2>Play Guardian on your PC</h2>
+        <p>The alpha is free on itch.io for Windows. Play the campaign, draft, take on the computer or challenge a friend online. Every card is unlocked.</p>
+        <a href={SITE_LINKS.itch} class="btn-cta" target="_blank" rel="noopener">
+          <span class="btn-cta-label">Download the alpha</span>
+          <small>{client.version}</small>
+        </a>
+      </div>
+    </div></div>
+  </section>
+
+  {latest.length > 0 && (
+    <section class="band base-layout">
+      <header class="band-head news-head">
+        <h2>Latest news</h2>
+        <a href="/news/">All news →</a>
+      </header>
+      <div class="news">
+        {latest.map((p) => (
+          <a href={`/news/${p.id}/`} class="news-card">
+            <div class="news-img"><img src={p.data.image ?? "/images/hero/hero-1.webp"} alt="" loading="lazy" decoding="async" /><span class="news-tag">{p.data.category}</span></div>
+            <div class="news-body">
+              <small>{formatDate(p.data.date)}</small>
+              <strong>{p.data.title}</strong>
+              <span>{p.data.description}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+  <TiltCards />
 </Layout>
 
+<script>
+  // Hero art crossfade
+  const slides = [...document.querySelectorAll<HTMLImageElement>(".hero .slide")];
+  const dots = [...document.querySelectorAll<HTMLButtonElement>(".hero-dots button")];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let cur = 0, timer: number | undefined;
+  const show = (i: number) => {
+    slides[cur].classList.remove("on"); dots[cur].classList.remove("on");
+    cur = (i + slides.length) % slides.length;
+    slides[cur].classList.add("on"); dots[cur].classList.add("on");
+  };
+  const start = () => { if (!reduce) timer = window.setInterval(() => show(cur + 1), 7000); };
+  dots.forEach((d) => d.addEventListener("click", () => { clearInterval(timer); show(+d.dataset.i!); start(); }));
+  start();
+
+  // Count-up numbers when the counters scroll into view
+  const nums = document.querySelectorAll<HTMLElement>("[data-count]");
+  if (!reduce) {
+    const io = new IntersectionObserver((es) => es.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const el = e.target as HTMLElement, to = +el.dataset.count!, t0 = performance.now();
+      const step = (t: number) => { const k = Math.min(1, (t - t0) / 1100); el.textContent = String(Math.round(to * (1 - Math.pow(1 - k, 3)))); if (k < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step); io.unobserve(el);
+    }), { threshold: 0.6 });
+    nums.forEach((n) => io.observe(n));
+  }
+</script>
+
 <style>
+  /* ---------- hero ---------- */
   .hero {
     position: relative;
-    min-height: min(80dvh, 46rem);
+    min-height: min(92dvh, 52rem);
     display: grid;
-    align-items: end;
-    padding-block: 6rem 4rem;
+    align-items: center;
+    padding-block: 7rem 5rem;
     margin-block-start: -1rem;
     overflow: hidden;
+    isolation: isolate;
   }
-  .hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
-  .hero-shade { position: absolute; inset: 0; background: linear-gradient(#000000a1, #0707076b 40%, var(--clr-neutral-900)); }
-  .hero-content { position: relative; }
-  .hero h1 { font-size: var(--fs-5xl); margin-block-end: 0.25em; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6); }
-  .hero-tag { max-width: 38rem; font-size: var(--fs-md); text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7); }
-  .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-block-start: 1.5rem; }
-  .hero-actions .link { font-size: var(--fs-md); padding: 0.6rem 1.25rem; color: white; }
-  .link.outline { border: 1px solid hsl(0 0 100 / 0.6); padding: 0.6rem 1.25rem; &:hover { background: hsl(0 0 100 / 0.1); } }
+  .hero-art { position: absolute; inset: 0; z-index: -2; background: #0b0d10; }
+  .slide {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
+    opacity: 0; transform: scale(1.04); transition: opacity 1.6s ease, transform 9s ease-out;
+  }
+  .slide.on { opacity: 1; transform: scale(1.12); }
+  .hero-shade {
+    position: absolute; inset: 0; z-index: -1;
+    background:
+      radial-gradient(ellipse at 25% 55%, hsl(210 30% 6% / 0.55), transparent 60%),
+      linear-gradient(90deg, hsl(210 20% 5% / 0.85), hsl(210 20% 5% / 0.25) 55%, transparent),
+      linear-gradient(transparent 55%, var(--clr-neutral-900));
+  }
+  .hero-content { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 3rem; align-items: center; }
+  .hero-copy { max-width: 36rem; }
+  .hero h1 { margin: 0.5rem 0 1rem; line-height: 0; }
+  .hero-logo { width: min(100%, 30rem); height: auto; filter: drop-shadow(0 4px 18px rgb(0 0 0 / 0.7)) drop-shadow(0 0 30px hsl(40 100% 60% / 0.15)); }
+  .hero-tag { font-size: var(--fs-md); line-height: 1.55; color: var(--clr-neutral-100); text-shadow: 0 1px 8px rgb(0 0 0 / 0.8); }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-block-start: 1.75rem; }
 
-  .pillars {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-    gap: 2.5rem;
-    h2 { font-size: var(--fs-xl); }
+  .version-badge {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    padding: 0.3rem 0.85rem; border-radius: 999px;
+    font-size: var(--fs-sm); font-weight: 600; letter-spacing: 0.03em; color: var(--clr-neutral-50); text-decoration: none;
+    background: hsl(210 20% 8% / 0.7); border: 1px solid hsl(40 100% 60% / 0.45); backdrop-filter: blur(4px);
+    &:hover { border-color: var(--clr-accent); }
+  }
+  .pulse { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: hsl(130 70% 55%); box-shadow: 0 0 0 0 hsl(130 70% 55% / 0.7); animation: pulse 2s infinite; }
+  @keyframes pulse { 70% { box-shadow: 0 0 0 0.5rem hsl(130 70% 55% / 0); } 100% { box-shadow: 0 0 0 0 hsl(130 70% 55% / 0); } }
+
+  /* game-style buttons (global so other bands can reuse them on this page) */
+  :global(.btn-game) {
+    --edge: hsl(40 60% 55% / 0.7);
+    position: relative; display: inline-flex; align-items: center; justify-content: center;
+    padding: 0.75rem 1.6rem; min-height: 2.9rem;
+    font-family: var(--ff-brand); font-weight: 700; font-size: var(--fs-base); letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--clr-neutral-50); text-decoration: none;
+    background: linear-gradient(hsl(210 15% 18% / 0.85), hsl(210 15% 10% / 0.9));
+    border: 1px solid var(--edge);
+    clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0 50%);
+    transition: filter 0.15s, transform 0.15s;
+  }
+  :global(.btn-game:hover) { filter: brightness(1.25); transform: translateY(-1px); color: white; }
+  :global(.btn-game.primary) {
+    color: hsl(30 60% 10%);
+    background: linear-gradient(hsl(44 100% 72%), hsl(36 90% 52%) 55%, hsl(30 85% 40%));
+    border-color: hsl(45 100% 80%);
+    text-shadow: 0 1px 0 hsl(45 100% 85% / 0.6);
+  }
+  :global(.btn-game.primary:hover) { color: hsl(30 60% 8%); }
+
+  .fan { position: relative; width: 25rem; height: 25rem; }
+  .fan-card { position: absolute; top: 2rem; left: 50%; width: 11.5rem; transform-origin: 50% 120%; transition: transform 0.35s ease; }
+  .fan-card img { display: block; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 14px 40px rgb(0 0 0 / 0.65); }
+  .f0 { transform: translateX(-50%) translateX(-6.5rem) rotate(-14deg); }
+  .f1 { transform: translateX(-50%) translateY(-1rem); z-index: 2; }
+  .f2 { transform: translateX(-50%) translateX(6.5rem) rotate(14deg); }
+  .fan:hover .f0 { transform: translateX(-50%) translateX(-8rem) rotate(-18deg); }
+  .fan:hover .f2 { transform: translateX(-50%) translateX(8rem) rotate(18deg); }
+  .fan-card:hover { z-index: 3; }
+
+  .hero-dots { position: absolute; bottom: 1.75rem; left: 50%; transform: translateX(-50%); z-index: 3; display: flex; gap: 0.5rem; }
+  .hero-dots button { width: 2rem; height: 0.3rem; padding: 0; border: 0; border-radius: 2px; background: hsl(0 0 100 / 0.3); cursor: pointer; transition: background 0.3s; }
+  .hero-dots button.on { background: var(--clr-accent); }
+
+  /* ---------- ticker ---------- */
+  .ticker {
+    display: flex; align-items: center; gap: 1rem; padding: 0.7rem max(1rem, calc((100vw - 75rem) / 2));
+    background: linear-gradient(90deg, hsl(40 60% 20% / 0.35), hsl(210 15% 12%) 40%);
+    border-block: 1px solid hsl(40 60% 50% / 0.25);
+    color: var(--clr-neutral-100); text-decoration: none; font-size: var(--fs-sm);
+    &:hover .ticker-more { color: var(--clr-accent); }
+  }
+  .ticker-tag { flex: none; font-family: var(--ff-brand); font-weight: 700; color: var(--clr-accent); letter-spacing: 0.05em; text-transform: uppercase; }
+  .ticker-text { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ticker-more { flex: none; color: var(--clr-neutral-300); }
+
+  /* ---------- counters ---------- */
+  .counters { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center; }
+  .counters div { display: grid; gap: 0.1rem; }
+  .counters strong { font-family: var(--ff-brand); font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1; background: linear-gradient(hsl(45 100% 80%), hsl(35 85% 50%)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .counters span { color: var(--clr-neutral-300); text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--fs-sm); }
+
+  /* ---------- bands ---------- */
+  .band { padding-block: 4rem; }
+  .band-head { margin-block-end: 2rem; max-width: 40rem; }
+  .band-head h2, .spot-copy h2 { font-family: var(--ff-brand); font-size: var(--fs-2xl); letter-spacing: 0.02em; margin-block-end: 0.35rem; }
+  .band-head p { color: var(--clr-neutral-200); }
+  .kicker { font-family: var(--ff-brand); color: var(--clr-accent); text-transform: uppercase; letter-spacing: 0.15em; font-size: var(--fs-sm); font-weight: 700; }
+
+  .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.25rem; }
+  .pillar {
+    position: relative; padding: 1.75rem 1.5rem 1.5rem; overflow: hidden;
+    background: linear-gradient(160deg, hsl(210 15% 15%), hsl(210 15% 10%));
+    border: 1px solid hsl(40 50% 50% / 0.2); border-radius: 6px;
+    h2 { font-family: var(--ff-brand); font-size: var(--fs-xl); margin-block-end: 0.5rem; }
+    p { color: var(--clr-neutral-200); }
+  }
+  .pillar-n { position: absolute; right: 1rem; top: -0.5rem; font-family: var(--ff-brand); font-size: 5rem; font-weight: 800; color: hsl(40 60% 60% / 0.08); line-height: 1; }
+
+  /* element tiles */
+  .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr)); gap: 0.75rem; }
+  .tile {
+    --glow: hsl(40 100% 60%);
+    position: relative; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 6px; text-decoration: none; color: white;
+    border: 1px solid hsl(0 0 100 / 0.12); background: hsl(210 15% 12%);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; transform: scale(1.75); transform-origin: 50% 30%; filter: saturate(0.8) brightness(0.75); transition: filter 0.3s, transform 0.4s; }
+    &::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 35%, hsl(210 20% 5% / 0.95)); }
+    &:hover { transform: translateY(-4px); border-color: var(--glow); box-shadow: 0 0 0 1px var(--glow), 0 10px 30px -6px var(--glow); }
+    &:hover > img { filter: saturate(1.1) brightness(1); transform: scale(1.85); }
+  }
+  .tile-empty { position: absolute; inset: 0; background: radial-gradient(circle at 50% 35%, color-mix(in hsl, var(--glow) 35%, transparent), transparent 70%); }
+  .tile-icon { position: absolute; z-index: 1; left: 0.6rem; bottom: 2.4rem; img { width: 2rem; height: 2rem; filter: drop-shadow(0 0 6px var(--glow)); } }
+  .tile-name { position: absolute; z-index: 1; left: 0.7rem; bottom: 1.15rem; font-family: var(--ff-brand); font-weight: 700; font-size: var(--fs-md); }
+  .tile-count { position: absolute; z-index: 1; left: 0.7rem; bottom: 0.4rem; font-size: 0.75rem; color: var(--clr-neutral-300); }
+  .el-light { --glow: hsl(50 100% 75%); } .el-darkness { --glow: hsl(285 60% 55%); } .el-fire { --glow: hsl(10 90% 55%); }
+  .el-water { --glow: hsl(205 90% 55%); } .el-earth { --glow: hsl(28 55% 45%); } .el-wind { --glow: hsl(160 55% 65%); }
+  .el-lightning { --glow: hsl(52 100% 60%); } .el-ice { --glow: hsl(190 90% 75%); } .el-nature { --glow: hsl(100 70% 45%); }
+
+  /* spotlight */
+  .spotlight { display: grid; grid-template-columns: minmax(14rem, 20rem) 1fr; gap: 3rem; align-items: center; position: relative; }
+  .spotlight::before { content: ""; position: absolute; inset: 2rem 0; z-index: -1; background: radial-gradient(ellipse at 20% 50%, hsl(40 80% 45% / 0.12), transparent 60%); }
+  .spot-card img { display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 20px 50px rgb(0 0 0 / 0.6), 0 0 60px hsl(40 90% 55% / 0.15); }
+  .spot-meta { display: flex; gap: 0.75rem; align-items: center; color: var(--clr-neutral-200); .badge { padding: 0.2rem 0.7rem; border-radius: 999px; font-size: var(--fs-sm); } }
+  .spot-abilities { display: grid; gap: 0.85rem; margin-block: 1.25rem 0; max-width: 38rem;
+    div { padding-inline-start: 0.9rem; border-inline-start: 2px solid hsl(40 70% 55% / 0.6); }
+    dt { font-weight: 700; color: var(--clr-accent); font-size: var(--fs-sm); text-transform: uppercase; letter-spacing: 0.06em; }
+    dd { margin: 0; color: var(--clr-neutral-100); }
   }
 
-  .featured {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-    img { border-radius: 8px; height: auto; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5); transition: transform 0.15s; }
-    a:hover img { transform: translateY(-4px); }
-  }
-  .element-row {
-    display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block-start: 1.5rem;
-    .badge { padding: 0.35rem 0.8rem; font-size: var(--fs-sm); border-radius: var(--radius-full); text-decoration: none; }
+  /* jump nav */
+  .jump { position: sticky; top: 0; z-index: 20; background: hsl(210 15% 8% / 0.88); backdrop-filter: blur(8px); border-block-end: 1px solid hsl(0 0 100 / 0.08); }
+  .jump-inner { max-width: 1200px; margin-inline: auto; padding: 0 1rem; display: flex; gap: 0.25rem; overflow-x: auto; scrollbar-width: none; }
+  .jump a { flex: none; padding: 0.8rem 0.9rem; color: var(--clr-neutral-200); text-decoration: none; font-size: var(--fs-sm); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; border-block-end: 2px solid transparent; }
+  .jump a:hover { color: white; border-color: var(--clr-accent); }
+  .jump .jump-play { margin-inline-start: auto; color: var(--clr-accent); }
+  section[id] { scroll-margin-top: 3rem; }
+
+  .what { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2rem 3rem; align-items: center; margin-block-end: 2rem; }
+  .what .band-head { margin: 0; }
+  .what .counters { padding: 0; grid-template-columns: repeat(2, 1fr); row-gap: 1.75rem; }
+  .pillar h3 { font-family: var(--ff-brand); font-size: var(--fs-lg); margin-block-end: 0.5rem; }
+
+  .newbie {
+    margin-block-start: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: space-between;
+    padding: 1.25rem 1.75rem; border-radius: 6px;
+    background: linear-gradient(100deg, hsl(200 70% 25% / 0.45), hsl(210 15% 12%) 60%);
+    border: 1px solid hsl(200 80% 60% / 0.25);
+    h3 { font-family: var(--ff-brand); font-size: var(--fs-lg); margin-block-end: 0.25rem; }
+    p { margin: 0; color: var(--clr-neutral-200); }
   }
 
-  .news {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem;
-    a { display: grid; gap: 0.25rem; padding: 1rem 1.25rem; color: inherit; text-decoration: none; border: 1px solid hsl(0 0 100 / 0.12); border-radius: var(--radius-md); }
-    a:hover { border-color: var(--clr-primary); }
-    small { color: var(--clr-neutral-400); }
-    strong { font-size: var(--fs-md); }
-    span { color: var(--clr-neutral-200); }
+  /* how it works */
+  .steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; counter-reset: s; position: relative; }
+  .steps::before { content: ""; position: absolute; top: 1.75rem; left: 8%; right: 8%; height: 2px; background: linear-gradient(90deg, transparent, hsl(40 70% 55% / 0.5), transparent); z-index: -1; }
+  .steps li { text-align: center; padding: 0 0.5rem; }
+  .step-n {
+    display: inline-grid; place-items: center; width: 3.5rem; height: 3.5rem; margin-block-end: 1rem;
+    font-family: var(--ff-brand); font-weight: 800; font-size: var(--fs-lg); color: hsl(30 60% 10%);
+    background: radial-gradient(circle at 35% 30%, hsl(45 100% 80%), hsl(35 90% 50%) 60%, hsl(28 80% 35%));
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  }
+  .steps h3 { font-family: var(--ff-brand); font-size: var(--fs-lg); margin-block-end: 0.4rem; }
+  .steps p { color: var(--clr-neutral-200); }
+
+  /* modes */
+  .modes { display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: 1rem; }
+  .mode {
+    padding: 1.25rem 1.4rem; border-radius: 6px; background: hsl(210 15% 12%); border: 1px solid hsl(0 0 100 / 0.08);
+    border-inline-start: 3px solid var(--clr-accent);
+    h3 { font-family: var(--ff-brand); font-size: var(--fs-md); margin-block-end: 0.35rem; }
+    p { margin: 0; color: var(--clr-neutral-200); font-size: var(--fs-sm); line-height: 1.6; }
+  }
+
+  /* features */
+  .features { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 1.25rem; }
+  .feature { margin: 0; border-radius: 8px; overflow: hidden; background: hsl(210 15% 11%); border: 1px solid hsl(0 0 100 / 0.08); transition: transform 0.2s, border-color 0.2s; }
+  .feature:hover { transform: translateY(-3px); border-color: hsl(40 60% 55% / 0.4); }
+  .feature-img { aspect-ratio: 16 / 9; overflow: hidden; img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; } }
+  .feature:hover .feature-img img { transform: scale(1.05); }
+  .feature figcaption { padding: 1rem 1.2rem 1.2rem; h3 { font-family: var(--ff-brand); font-size: var(--fs-md); margin-block-end: 0.3rem; } p { margin: 0; color: var(--clr-neutral-200); font-size: var(--fs-sm); line-height: 1.6; } }
+  .soon {
+    margin-block-start: 1.5rem; padding: 1.25rem 1.5rem; border-radius: 6px; border: 1px dashed hsl(40 50% 55% / 0.35);
+    h3 { font-family: var(--ff-brand); font-size: var(--fs-md); color: var(--clr-accent); margin-block-end: 0.6rem; }
+    ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); gap: 0.5rem 2rem; }
+    li { line-height: 1.5; color: var(--clr-neutral-200); font-size: var(--fs-sm); }
+    strong { color: white; }
+  }
+
+  /* play CTA */
+  .cta { position: relative; overflow: hidden; isolation: isolate; padding-block: 4.5rem; margin-block: 2rem; }
+  .cta-bg { position: absolute; inset: -20px; width: calc(100% + 40px); height: calc(100% + 40px); object-fit: cover; z-index: -2; filter: blur(3px) saturate(0.7); }
+  .cta::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, hsl(210 25% 4% / 0.75), hsl(210 25% 4% / 0.88) 55%), linear-gradient(hsl(210 10% 10%), transparent 15%, transparent 85%, hsl(210 10% 10%)); }
+  .cta-inner { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
+  .laptop { position: relative; filter: drop-shadow(0 25px 40px rgb(0 0 0 / 0.7)); }
+  .laptop-frame { position: relative; width: 100%; height: auto; pointer-events: none; }
+  /* screen hole of laptop.png: x 148-1051, y 56-617 of 1200x692 */
+  .laptop-screen { position: absolute; left: 12.33%; top: 8.09%; width: 75.25%; height: 81.07%; object-fit: cover; object-position: center; }
+  .cta-copy h2 { font-family: var(--ff-brand); font-size: var(--fs-2xl); margin-block: 0 0.5rem; text-shadow: 0 2px 12px rgb(0 0 0 / 0.8); }
+  .cta-copy p { color: var(--clr-neutral-100); max-width: 32rem; }
+  .btn-cta {
+    position: relative; overflow: hidden; display: inline-flex; flex-direction: column; align-items: center; margin-block-start: 1rem;
+    padding: 0.85rem 2.4rem 0.7rem; border-radius: 6px; text-decoration: none; color: hsl(30 60% 10%);
+    background: linear-gradient(hsl(46 100% 70%), hsl(36 95% 52%) 55%, hsl(28 90% 42%));
+    border: 1px solid hsl(45 100% 82%);
+    box-shadow: 0 0 0 1px hsl(30 80% 20%), 0 0 24px hsl(38 100% 55% / 0.45), inset 0 1px 0 hsl(50 100% 90% / 0.8);
+    animation: cta-glow 2.8s ease-in-out infinite;
+    transition: transform 0.15s;
+    &:hover { transform: translateY(-2px) scale(1.02); color: hsl(30 60% 8%); }
+    &::after { content: ""; position: absolute; top: 0; bottom: 0; width: 40%; left: -60%; background: linear-gradient(100deg, transparent, hsl(50 100% 95% / 0.65), transparent); transform: skewX(-20deg); animation: cta-sheen 3.5s ease-in-out infinite; }
+  }
+  .btn-cta-label { font-family: var(--ff-brand); font-weight: 800; font-size: var(--fs-md); letter-spacing: 0.06em; text-transform: uppercase; }
+  .btn-cta small { font-size: 0.75rem; font-weight: 600; opacity: 0.75; }
+  @keyframes cta-glow { 50% { box-shadow: 0 0 0 1px hsl(30 80% 20%), 0 0 40px hsl(38 100% 55% / 0.75), inset 0 1px 0 hsl(50 100% 90% / 0.8); } }
+  @keyframes cta-sheen { 0%, 55% { left: -60%; } 85%, 100% { left: 130%; } }
+
+  /* news */
+  .news-head { display: flex; align-items: baseline; justify-content: space-between; max-width: none; gap: 1rem; a { color: var(--clr-neutral-200); text-decoration: none; } a:hover { color: var(--clr-accent); } }
+  .news { display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: 1.25rem; }
+  .news-card { display: flex; flex-direction: column; border-radius: 10px; overflow: hidden; background: hsl(210 15% 7%); color: inherit; text-decoration: none; border: 1px solid hsl(0 0 100 / 0.08); transition: transform 0.2s, border-color 0.2s; }
+  .news-card:hover { transform: translateY(-3px); border-color: hsl(40 60% 55% / 0.45); color: inherit; }
+  .news-img { position: relative; aspect-ratio: 16 / 9; img { width: 100%; height: 100%; object-fit: cover; } }
+  .news-tag { position: absolute; left: 1.25rem; bottom: -0.7rem; padding: 0.2rem 0.6rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: hsl(30 60% 10%); background: var(--clr-accent); }
+  .news-body { display: grid; gap: 0.4rem; padding: 1.4rem 1.25rem 1.5rem; small { color: var(--clr-neutral-400); } strong { font-family: var(--ff-brand); font-size: var(--fs-lg); line-height: 1.2; } span { color: var(--clr-neutral-200); font-size: var(--fs-sm); line-height: 1.6; } }
+
+  @media (max-width: 60rem) {
+    .hero-content { grid-template-columns: 1fr; }
+    .fan { width: 100%; height: 17rem; }
+    .fan-card { width: 8.5rem; }
+    .f0 { transform: translateX(-50%) translateX(-5rem) rotate(-12deg); }
+    .f2 { transform: translateX(-50%) translateX(5rem) rotate(12deg); }
+    .spotlight { grid-template-columns: 1fr; }
+    .what, .cta-inner { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; gap: 2rem; }
+    .steps::before { display: none; }
+    .spot-card { max-width: 16rem; }
+  }
+  @media (max-width: 40rem) {
+    .hero { padding-block: 5.5rem 4rem; }
+    .counters { grid-template-columns: repeat(2, 1fr); row-gap: 1.75rem; }
+    .tiles { grid-template-columns: repeat(3, 1fr); }
+    .ticker-more { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .slide, .slide.on { transform: none; transition: opacity 0.6s; }
+    .btn-cta, .btn-cta::after { animation: none; }
   }
 </style>

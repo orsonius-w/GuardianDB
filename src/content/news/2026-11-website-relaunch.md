@@ -3,7 +3,7 @@ title: The website is back
 description: A rebuilt card gallery with every card, a new rules wiki and keyword pages.
 date: 2026-11-06
 category: Site
-image: /images/hero.webp
+image: /images/hero/hero-2.webp
 ---
 
 After a long quiet stretch, the Guardian website has been rebuilt from the ground up.
