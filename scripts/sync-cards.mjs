@@ -7,7 +7,9 @@
 // Reads (never writes):  <repo>/docs/card_database.csv
 //                        <repo>/assets/images/cards/<folder>/<id>.png
 //                        <repo>/engine/card/card_art.gd   (art filename overrides)
+//                        <repo>/engine/version.gd, <repo>/docs/changelog.md (game client info)
 // Writes:                src/data/cards.json
+//                        src/data/client.json  (current version + latest patch notes)
 //                        public/cards/<folder>/<slug>.webp  (only when the PNG changed)
 
 import fs from "node:fs";
@@ -239,4 +241,29 @@ async function main() {
   if (missingArt.length) console.log(`no art found for ${missingArt.length} cards:\n  ${missingArt.join("\n  ")}`);
 }
 
-main();
+// ---------- game client: version + patch notes ----------
+function syncClient() {
+  const out = path.join(SITE, "src/data/client.json");
+  const vfile = path.join(REPO, "engine/version.gd");
+  const cfile = path.join(REPO, "docs/changelog.md");
+  if (!fs.existsSync(vfile) || !fs.existsSync(cfile)) return console.log("client.json: skipped (version.gd or changelog.md not found)");
+  const v = fs.readFileSync(vfile, "utf8");
+  const c = (name) => (v.match(new RegExp(`const ${name}\\s*:=\\s*"?([^"\\n]*)"?`)) || [])[1]?.trim() ?? "";
+  const version = `${c("CHANNEL")} ${c("MAJOR")}.${c("MINOR")}.${c("PATCH")}${c("LETTER")}`;
+  const build = Number(c("BUILD"));
+
+  // "## Build 920 — 2026-11-06 — 0.3.138d" followed by bullet points
+  const notes = [];
+  const parts = fs.readFileSync(cfile, "utf8").split(/^## /m).slice(1);
+  for (const part of parts) {
+    const [head, ...body] = part.split("\n");
+    const m = head.match(/^Build\s+(\d+)\s*[—-]+\s*(\d{4}-\d{2}-\d{2})\s*[—-]+\s*(.+)$/);
+    if (!m) continue;
+    notes.push({ build: Number(m[1]), date: m[2], version: m[3].trim(), body: body.join("\n").trim() });
+    if (notes.length >= 8) break;
+  }
+  fs.writeFileSync(out, JSON.stringify({ version, build, synced: new Date().toISOString().slice(0, 10), notes }, null, 1));
+  console.log(`client.json: ${version} (build ${build}), ${notes.length} patch notes`);
+}
+
+main().then(syncClient);

@@ -1,0 +1,55 @@
+{
+ "version": "Alpha 0.3.138d",
+ "build": 920,
+ "synced": "2026-11-06",
+ "notes": [
+  {
+   "build": 920,
+   "date": "2026-11-06",
+   "version": "0.3.138d",
+   "body": "- **The computer thinks about a third faster** on a crowded board: about 1.2 seconds less per turn on the late-game test board, with exactly the same decisions (80 whole turns on 38 boards replayed identically before and after)."
+  },
+  {
+   "build": 919,
+   "date": "2026-11-06",
+   "version": "0.3.138c",
+   "body": "- **Ilexa, Holly-Bound** prints one size larger; Rootcall sits a little lower to make room.\n- **The designer's new art is in:** board backgrounds and borders, Empiros High Courts, Judgement Bell, Vanguard Paladin, Crosswind Lancer, Squallbreaker Glaive, Glemra and Stillfeather Quatl board pieces, Rocky Overhang, Jurian's deck picture.\n- **A smaller game:** the documents and drafts in the project folder are no longer packed into it."
+  },
+  {
+   "build": 918,
+   "date": "2026-11-06",
+   "version": "0.3.138b",
+   "body": "- **The match screen is about twice as fast to redraw.** On a crowded late-game board (twenty Workers, a dozen Summons, Runes, a Terrain) one redraw took 52-65 ms - more than three frames - every time anything happened; it now takes 29-32 ms. The stat reads under it are 2-3x faster (Attack 0.55 -> 0.28 ms, Defense/Magic/Resistance 1.25 -> 0.38 ms a Summon), which also speeds up the combat forecast and the computer's thinking (its threat read 0.6 -> 0.3 ms). Nothing plays or looks different: every change was checked old-against-new over hundreds of thousands of calls, and the board's screenshot is identical pixel for pixel.\n- **Frames with a question window open or the combat forecast on** no longer search the whole board every frame.\n- **A tool's test match can no longer overwrite your saved game** or `last_match.txt`."
+  },
+  {
+   "build": 917,
+   "date": "2026-11-05",
+   "version": "0.3.138a",
+   "body": "- **Card faces are drawn without mipmaps** - the sharpest, as Chains of Devotion was before build 915. Builds 915 and 916 made every face softer; this undoes both, and every face now looks the way Chains did. Board pieces and tiles keep their mipmaps."
+  },
+  {
+   "build": 916,
+   "date": "2026-11-05",
+   "version": "0.3.138",
+   "body": "- **Three new pre-cons:** Chonzo's Calm, Jurian's Judgement and Ilsbet's Infected.\n- **Card faces are sharp when shown small.** Build 915's mipmaps alone drew shrunk faces soft (Sol's Wings in the Deck Builder); the game now reads them one mipmap finer, which lands close to a proper downscale - smooth edges, crisp text.\n- **Seven Light faces drawn in the engine from the designer's new art:** Elowen, Inquisitor Verren, Talas, Lum Knight Captain, Pearl of Life, To Oblivion and War Lion (whose Punishing is styled again).\n- **Sol's Wings** prints \"Treasure Spell - Enchantment - Light\" - a Treasure Spell whose subtype is only in its Spell type no longer prints as a bare Treasure. Its old hand-made face is gone."
+  },
+  {
+   "build": 915,
+   "date": "2026-11-05",
+   "version": "0.3.137b",
+   "body": "- **Card pictures are sharp again at small sizes.** Every face, board piece and tile made since build 430 was imported without mipmaps, so its text broke up when the card was shown smaller than full size (Chains of Devotion beside Divine Constraints). All 2814 are set now, and the import tool sets it for new art."
+  },
+  {
+   "build": 914,
+   "date": "2026-11-05",
+   "version": "0.3.137a",
+   "body": "- **Card faces:** a list's bullets sit at the margin under \"Choose one\", with the choices indented - on every rendered face with a list. Larger text on Jurian's Gabl, Split the Earth, Avalanche Maul and Ilexa; a little space between paragraphs on Shifting Foundations and Ifrit's Lamp.\n- **Edict of Measure** no longer prints \"Perpetual\" - it is a Rune.\n- **The Ifrit token** wears its resaved art."
+  },
+  {
+   "build": 913,
+   "date": "2026-11-05",
+   "version": "0.3.137",
+   "body": "- **A Dominate can be answered.** A triggered ability set off while the Stack resolves - a Dominate as its attack kills, a Demise - now gives the other player a response window when they have something to answer it with (Chilling Effect). Before, the window either went to the computer, who passed it, or never opened.\n- **Ingrith, the Frost Archivist** reads: \"...you may cast a Spell card from among them this turn, using [Ice] as though it were any element. If that Spell would be put into a graveyard, send it into the Void instead.\" She takes any Spell card now - a Rune or an Enchantment goes into the Void when it leaves play, and a negated Spell goes there too.\n- **Avalanche** is a Rare.\n- **The Young Knight token** has its art.\n- **A Guardian's Mana** is a blue bar under its name, with the number on it, like a Summon's - it used to sit on top of the name.\n- **Punished's** count circle is the colour of its icon."
+  }
+ ]
+}

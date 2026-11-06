@@ -16,4 +16,4 @@ After a long quiet stretch, the Guardian website has been rebuilt from the groun
 
 ## Still to come
 
-The Tabletop Simulator decks on the Downloads page are from July 2025 and will be refreshed. More news, and more about the digital client, will follow here.
+The new [Play](/play/) page is the home of the digital client: where to get it, how to install it, and the latest patch notes. More news will follow here.

@@ -1,0 +1,107 @@
+---
+// The game client page. Version and patch notes come from src/data/client.json (written by `npm run sync`).
+// Screenshots: drop .webp/.png/.jpg files into public/images/client/ and they appear here automatically.
+import fs from "node:fs";
+import Layout from "../../layout/layout.astro";
+import Pagesection from "../../components/sections/pagesection.astro";
+import { md } from "../../lib/keywords";
+import client from "../../data/client.json";
+
+const ITCH_URL = "https://orsonius.itch.io/guardian";
+
+const shotDir = "public/images/client";
+const shots = fs.existsSync(shotDir)
+  ? fs.readdirSync(shotDir).filter((f) => /\.(webp|png|jpe?g)$/i.test(f)).sort().map((f) => `/images/client/${f}`)
+  : [];
+
+const fmt = (d: string) => new Date(d).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+---
+
+<Layout title="Play Guardian | Guardian" description="Guardian's digital client: online matches, a computer opponent, a deck builder and a story campaign. Get it on itch.io.">
+  <Pagesection size="md">
+    <div class="play-hero">
+      <div>
+        <p class="eyebrow">{client.version} · build {client.build}</p>
+        <h1>Play <span>Guardian</span></h1>
+        <p class="lede">The digital client is in alpha. Play online against friends or against the computer, build decks from the full card pool, and start the story campaign.</p>
+        <div class="actions">
+          <a class="link filled" href={ITCH_URL} target="_blank" rel="noopener">Get it on itch.io</a>
+          <a class="link outline" href="/wiki/intro/">Learn the rules first</a>
+        </div>
+        <p class="platforms">Windows · macOS (experimental) · free during alpha</p>
+      </div>
+    </div>
+  </Pagesection>
+
+  {shots.length > 0 && (
+    <Pagesection size="base">
+      <div class="shots">
+        {shots.map((s) => <a href={s} target="_blank"><img src={s} alt="Screenshot of the Guardian client" loading="lazy" decoding="async" /></a>)}
+      </div>
+    </Pagesection>
+  )}
+
+  <Pagesection size="base">
+    <div class="features">
+      <div><h2>Online matches</h2><p>Play a friend over the internet, one on one.</p></div>
+      <div><h2>Computer opponent</h2><p>Practise against an AI that knows every card, or enter a computer tournament.</p></div>
+      <div><h2>Deck builder</h2><p>Every card in the gallery, plus ready-made pre-constructed decks to start from.</p></div>
+      <div><h2>Story campaign</h2><p>Follow Talas, a Light Guardian, through a campaign that teaches the game step by step. In progress.</p></div>
+    </div>
+  </Pagesection>
+
+  <Pagesection size="base">
+    <div class="install">
+      <h2>Installing</h2>
+      <ul>
+        <li><strong>Recommended:</strong> install the <a href="https://itch.io/app" target="_blank" rel="noopener">itch.io app</a> and install Guardian from there. Updates arrive automatically and download only what changed.</li>
+        <li><strong>Direct download:</strong> the itch page also offers the build as a plain download. Keep the <code>.exe</code> and the <code>.pck</code> file together in one folder, or the game won't start.</li>
+        <li><strong>macOS:</strong> the app isn't notarized yet. The first time, right-click the app and choose <em>Open</em>, then <em>Open</em> again.</li>
+      </ul>
+    </div>
+  </Pagesection>
+
+  {client.notes.length > 0 && (
+    <Pagesection size="md">
+      <h2>Patch notes</h2>
+      <div class="notes">
+        {client.notes.map((n, i) => (
+          <details open={i < 2}>
+            <summary><strong>Build {n.build}</strong> <span>{n.version} · {fmt(n.date)}</span></summary>
+            <div class="note-body" set:html={md(n.body)} />
+          </details>
+        ))}
+      </div>
+    </Pagesection>
+  )}
+</Layout>
+
+<style>
+  .eyebrow { color: var(--clr-accent); font-family: var(--ff-secondary); letter-spacing: 1px; margin: 0; }
+  .play-hero h1 { font-size: var(--fs-4xl); margin-block: 0.1em 0.3em; }
+  .lede { max-width: 42rem; font-size: var(--fs-md); color: var(--clr-neutral-100); }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-block: 1.5rem 0.75rem; }
+  .actions .link { font-size: var(--fs-md); padding: 0.6rem 1.25rem; color: white; }
+  .link.outline { border: 1px solid hsl(0 0 100 / 0.6); &:hover { background: hsl(0 0 100 / 0.1); } }
+  .platforms { color: var(--clr-neutral-400); font-size: var(--fs-sm); }
+
+  .shots {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1rem;
+    img { border-radius: var(--radius-md); height: auto; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5); }
+  }
+
+  .features {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem;
+    > div { padding: 1.25rem; border: 1px solid hsl(0 0 100 / 0.12); border-radius: var(--radius-md); background: hsl(0 0 100 / 0.02); }
+    h2 { font-size: var(--fs-lg); margin-block: 0 0.4em; }
+    p { margin: 0; color: var(--clr-neutral-200); }
+  }
+
+  .install { max-width: 60rem; ul { display: grid; gap: 0.5rem; } code { font-family: monospace; padding: 0 0.3em; background: hsl(0 0 100 / 0.08); border-radius: 3px; } }
+
+  .notes { display: grid; gap: 0.5rem; max-width: 60rem; }
+  details { border: 1px solid hsl(0 0 100 / 0.12); border-radius: var(--radius-md); padding: 0.75rem 1.25rem; }
+  summary { cursor: pointer; display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; align-items: baseline; }
+  summary span { color: var(--clr-neutral-400); font-size: var(--fs-sm); }
+  .note-body { margin-block-start: 0.75rem; line-height: 1.6; :global(ul) { padding-left: 1.2em; display: grid; gap: 0.4rem; } }
+</style>

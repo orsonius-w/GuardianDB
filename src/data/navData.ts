@@ -12,8 +12,8 @@ export const navData = [
     path: "/news",
   },
   {
-    name: "Downloads",
-    path: "/downloads",
+    name: "Play",
+    path: "/play",
   },
   {
     name: "Wiki",
