@@ -34,9 +34,38 @@ Workers can't be attacked and have no Life.
 
 ## The storage cap
 
-Energy you don't spend **carries over**, up to your **storage cap**. The cap is **the number of cards in your Treasure Chest** (5 at the start), plus whatever your **Storage** Items hold. In the End Phase, Energy above the cap is discarded.
+Energy you don't spend carries over to your next turn, up to your **storage cap**. The cap is **the number of cards in your Treasure Chest** (5 at the start), plus whatever your **Storage** cards hold. In your End Phase, Energy above the cap is discarded.
 
-Drawing from your Treasure Chest therefore lowers your cap.
+Drawing from your Treasure Chest lowers the cap. See [how the Chest shrinks](/wiki/treasure-chest/#the-trade-off).
+
+### Storage cards
+
+<div class="mana-example wide">
+<CardRow items={[
+  { slug: "crystal-archive", title: "Crystal Archive", text: "stores [1]" },
+  { slug: "dragonflame-censer", title: "Dragonflame Censer", text: "stores [1 Fire]" },
+]} />
+<div>
+
+A **Storage** card keeps Energy beyond the cap.
+
+- Most store only **their own element**: Dragonflame Censer keeps one extra **Fire** Energy, and nothing else.
+- A **Neutral** store, like Crystal Archive's "stores [1]", keeps one Energy of any kind.
+- You can have at most **2 Storage cards** in play. If a third would enter, the oldest is sacrificed.
+- Some Buildings carry Storage too, such as Storm Capacitor. They count toward the same limit.
+
+</div>
+</div>
+
+### Making Energy on your opponent's turn
+
+A Worker that makes Energy with **[A]** can be used whenever you hold priority, and that includes your opponent's turn.
+
+<Callout title="Bank Energy on their turn" tone="tip">
+Leave your [A] Workers untapped and use them late in your opponent's turn, in their End Phase. The Energy is yours when your turn starts, and your Workers reactivate in your Active Phase and make Energy again. You start the turn with more than your cap would let you save. Only what is left at the end of **your** turn is checked against the cap.
+</Callout>
+
+Workers that make Energy on their own in your Active Phase can't do this.
 
 ## Mana
 

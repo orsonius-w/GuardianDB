@@ -297,6 +297,7 @@ async function syncIcons() {
   for (const [slug, file] of Object.entries(COMBAT)) jobs.push([path.join(icons, file + ".png"), `public/images/combat/${slug}.webp`, 160]);
   for (const el of ELEMENT_SYMBOLS) jobs.push([path.join(REPO, QUICKSTART, el + ".png"), `public/images/elements/${el}.webp`, 96]);
   jobs.push([path.join(REPO, QUICKSTART, "ground.jpg"), "public/images/wiki/ground.webp", 900]);
+  jobs.push([path.join(REPO, "Claude outputs/htp_assets/card_back.png"), "public/images/wiki/card-back.webp", 200]);
   let n = 0, missing = [];
   for (const [src, rel, w] of jobs) {
     const dest = path.join(SITE, rel);

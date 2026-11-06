@@ -6,6 +6,7 @@ order: 31
 ---
 
 import Callout from "../../components/wiki/Callout.astro";
+import ChestTrack from "../../components/wiki/ChestTrack.astro";
 
 Your **Treasure Chest** is a face-down pile of 5 cards next to your deck. At least 4 of them are Treasures. You can't draw it by normal means. You **buy** your way in.
 
@@ -19,6 +20,8 @@ During your Tactic Phase, you may draw the top card of your Chest by paying Ener
 Drawing from the Chest doesn't use the Stack. Some cards make Chest draws cheaper or free. A card that simply says "draw a card from your Treasure Chest" draws it for free.
 
 ## The trade-off
+
+<ChestTrack />
 
 <Callout title="Don't rush every Treasure" tone="tip">Your Energy **storage cap** equals the number of cards in your Chest. Every Treasure you take makes the next one cheaper, but also lowers how much Energy you can save.</Callout>
 

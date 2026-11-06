@@ -1,8 +1,14 @@
 {
- "version": "Alpha 0.3.138d",
- "build": 920,
+ "version": "Alpha 0.3.138e",
+ "build": 921,
  "synced": "2026-11-06",
  "notes": [
+  {
+   "build": 921,
+   "date": "2026-11-06",
+   "version": "0.3.138e",
+   "body": "- **Wild Blessing and Safe Scouting can be cast again.** Neither accepted any target - not even yours - since they were added; a new test sweeps every targeted Spell for that gap.\n- **The computer no longer stops playing when it has a Trap set.** The Energy it keeps back to spring the Trap was added to every price, a free Worker's included, so it could sit for turns with cards in hand; a free play is never held back now.\n- **The computer listens to its own \"no\" for 32 Spells.** Their rules said not to cast them (The Final Dawn on a full board of its own, Forestry with no Nature Worker in the deck, Northern Lore from a deck of five...), and a general rule cast them anyway.\n- **The computer casts Savage Pounce and Anticipation** (it planned them and never said X, so the cast was refused), Anticipation on the Summons its plan chose, and **Quick Reflexes** only when there is a discarded Lightning card to return."
+  },
   {
    "build": 920,
    "date": "2026-11-06",
@@ -44,12 +50,6 @@
    "date": "2026-11-05",
    "version": "0.3.137a",
    "body": "- **Card faces:** a list's bullets sit at the margin under \"Choose one\", with the choices indented - on every rendered face with a list. Larger text on Jurian's Gabl, Split the Earth, Avalanche Maul and Ilexa; a little space between paragraphs on Shifting Foundations and Ifrit's Lamp.\n- **Edict of Measure** no longer prints \"Perpetual\" - it is a Rune.\n- **The Ifrit token** wears its resaved art."
-  },
-  {
-   "build": 913,
-   "date": "2026-11-05",
-   "version": "0.3.137",
-   "body": "- **A Dominate can be answered.** A triggered ability set off while the Stack resolves - a Dominate as its attack kills, a Demise - now gives the other player a response window when they have something to answer it with (Chilling Effect). Before, the window either went to the computer, who passed it, or never opened.\n- **Ingrith, the Frost Archivist** reads: \"...you may cast a Spell card from among them this turn, using [Ice] as though it were any element. If that Spell would be put into a graveyard, send it into the Void instead.\" She takes any Spell card now - a Rune or an Enchantment goes into the Void when it leaves play, and a negated Spell goes there too.\n- **Avalanche** is a Rare.\n- **The Young Knight token** has its art.\n- **A Guardian's Mana** is a blue bar under its name, with the number on it, like a Summon's - it used to sit on top of the name.\n- **Punished's** count circle is the colour of its icon."
   }
  ]
 }

@@ -1,0 +1,44 @@
+---
+// How the Treasure Chest shrinks: each draw makes the next one cheaper and lowers the Energy storage cap.
+const steps = [5, 4, 3, 2, 1, 0];
+---
+<figure class="chest-track">
+  <div class="track">
+    {steps.map((n, i) => (
+      <div class:list={["step", { now: i === 0 }]}>
+        <div class="pile" aria-hidden="true">
+          {Array.from({ length: 5 }, (_, k) => <span class:list={{ gone: k >= n }} style={`--k:${k}`} />)}
+        </div>
+        <strong>{n} in the Chest</strong>
+        <span class="row"><span class="lbl">Next draw</span><b>{n > 0 ? n : "–"}</b></span>
+        <span class="row"><span class="lbl">Energy cap</span><b>{n}</b></span>
+      </div>
+    ))}
+  </div>
+  <figcaption>Without Storage cards, your Energy cap is the number of cards left in your Chest. Every Treasure you take makes the next one cheaper, and lets you save less Energy.</figcaption>
+</figure>
+
+<style>
+  .chest-track { margin: 1.5rem 0 2rem; display: grid; gap: 0.75rem; }
+  .track { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0.5rem; }
+  @media (width < 640px) { .track { grid-template-columns: repeat(3, 1fr); } }
+  .step {
+    display: grid; gap: 0.3rem; justify-items: center; text-align: center;
+    padding: 0.75rem 0.4rem; border-radius: var(--radius-md);
+    background: hsl(0 0 100 / 0.04); border: 1px solid hsl(0 0 100 / 0.1);
+    font-size: var(--fs-sm);
+  }
+  .step.now { border-color: var(--clr-accent); }
+  .pile { position: relative; width: 3.2rem; height: 4.6rem; margin-block-end: 0.3rem; }
+  .pile span {
+    position: absolute; inset: 0; border-radius: 4px;
+    background: url("/images/wiki/card-back.webp") center / cover, #3a2d1d;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    transform: translate(calc(var(--k) * 3px), calc(var(--k) * -3px));
+  }
+  .pile span.gone { opacity: 0.08; box-shadow: none; }
+  strong { font-size: var(--fs-sm); }
+  .row { display: flex; justify-content: space-between; width: 100%; padding-inline: 0.3rem; color: var(--clr-neutral-300); }
+  .row b { color: white; }
+  figcaption { color: var(--clr-neutral-300); font-size: var(--fs-sm); }
+</style>
