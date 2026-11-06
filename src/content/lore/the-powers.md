@@ -40,4 +40,4 @@ The Nameless One was once a scribe whose magic took the form of magic ink, used 
 
 He has no special connection to Aether. He is neither an Aether Traveler nor Aether-Touched, and he has no innate anomalous talent. He became a walking god through obsessive magical practice sustained over a very long time.
 
-The Nameless One is neutral and no longer functions as a person. His only motivation is the continued growth of his inscriptions, and he is indifferent to everything else. For that reason the Lum Seers do not turn to him.
+The Nameless One is neutral and no longer functions as a person. His only motivation is the continued growth of his inscriptions, and he is indifferent to everything else.

@@ -1,6 +1,6 @@
 ---
 title: The Faiths
-description: Sol and Lum, the schism between them, Faith magic, the Angels and the Lum Seers.
+description: Sol and Lum, the schism between them, Faith magic and the Angels.
 order: 2
 ---
 
@@ -43,11 +43,3 @@ The Church of Lum holds no political control over any region. The Church of Sol 
 Angels are people who rose beyond ordinary humanity through an unusually strong connection to Light Aether. That Light Aether can come from either Sol or Lum.
 
 In the present era Angels are essentially extinct. As the Church of Sol's grip grew, its restrictions on women grew with it, and women lost practical access to the connection Angelhood requires. The Church's own policy is the cause of the Angels dying out.
-
-## The Lum Seers
-
-The Lum Seers are an organization based in eastern Acerro, toward the middle of the continent rather than its far east. They are led by the Lum Knights, the highest-ranking paladins of Lum, an order made up entirely of women. The Seers concern themselves with the balance of the world and the survival of life on it.
-
-The order exists because of a child who is reborn again and again. She is always born blind and has visions of the future. Her visions show only catastrophe, never anything good or neutral. Not every incarnation receives the gift; some live and die without a single vision. When visions come, they come roughly once in several years.
-
-The Seers keep the child's existence hidden. In secret, they work with renowned individuals to deal with each threat her visions reveal.
