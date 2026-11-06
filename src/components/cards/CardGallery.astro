@@ -15,6 +15,8 @@ const keywordOptions = [...keywordCounts.entries()]
   .filter(([k, n]) => n >= 2 && /^[A-Z]/.test(k))
   .sort((a, b) => a[0].localeCompare(b[0]));
 const maxCost = Math.max(...cards.map((c) => c.costTotal), 0);
+// Before the script runs, only the first batch is visible (keep in step with PAGE below).
+const firstBatch = new Set(cards.filter((c) => !c.token).slice(0, 60).map((c) => c.id));
 ---
 
 <form class="gallery-filter" id="gallery-filter" role="search" onsubmit="return false">
@@ -100,7 +102,7 @@ const maxCost = Math.max(...cards.map((c) => c.costTotal), 0);
     <a
       href={`/cards/${card.slug}/`}
       class="card-link"
-      hidden={card.token}
+      hidden={!firstBatch.has(card.id)}
       data-name={card.name}
       data-s={`${card.name} ${card.typeLine} ${card.text} ${card.summonSpells}`.toLowerCase()}
       data-type={card.type}
@@ -124,6 +126,7 @@ const maxCost = Math.max(...cards.map((c) => c.costTotal), 0);
 </div>
 
 <p class="no-results" id="no-results" hidden>No cards match these filters.</p>
+<div class="more-wrap"><button type="button" class="btn-more" id="show-more" hidden>Show more</button></div>
 
 <script>
   const RARITY_ORDER: Record<string, number> = { Common: 1, Uncommon: 2, Rare: 3, "Special Rare": 4 };
@@ -132,7 +135,10 @@ const maxCost = Math.max(...cards.map((c) => c.costTotal), 0);
   const count = document.getElementById("card-count")!;
   const empty = document.getElementById("no-results")!;
   const dirBtn = document.getElementById("sort-direction") as HTMLButtonElement;
+  const more = document.getElementById("show-more") as HTMLButtonElement;
   const items = Array.from(grid.querySelectorAll<HTMLAnchorElement>(".card-link"));
+  const PAGE = 60; // cards shown per batch; "Show more" adds another batch
+  let limit = PAGE;
 
   function state() {
     const f = new FormData(form);
@@ -172,22 +178,28 @@ const maxCost = Math.max(...cards.map((c) => c.costTotal), 0);
     return v === "" || v === undefined ? -1 : Number(v);
   }
 
-  function apply(pushUrl = true) {
+  function apply(pushUrl = true, keepLimit = false) {
     const s = state();
-    let shown = 0;
-    for (const el of items) {
-      const ok = matches(el, s);
-      el.hidden = !ok;
-      if (ok) shown++;
-    }
+    if (!keepLimit) limit = PAGE;
     const sorted = items.slice().sort((a, b) => {
       const va = sortValue(a, s.sort), vb = sortValue(b, s.sort);
       const r = typeof va === "number" && typeof vb === "number" ? va - vb || (a.dataset.name || "").localeCompare(b.dataset.name || "") : String(va).localeCompare(String(vb));
       return s.dir === "asc" ? r : -r;
     });
+    let matched = 0;
+    for (const el of sorted) {
+      const ok = matches(el, s);
+      if (ok) matched++;
+      el.hidden = !ok || matched > limit;
+    }
     grid.append(...sorted);
-    count.textContent = `${shown} card${shown === 1 ? "" : "s"}`;
-    empty.hidden = shown > 0;
+    const visible = Math.min(matched, limit);
+    count.textContent = matched > visible
+      ? `Showing ${visible} of ${matched} cards`
+      : `${matched} card${matched === 1 ? "" : "s"}`;
+    empty.hidden = matched > 0;
+    more.hidden = matched <= limit;
+    more.textContent = `Show ${Math.min(PAGE, matched - visible)} more`;
     if (pushUrl) {
       const p = new URLSearchParams();
       for (const [k, v] of Object.entries(s)) {
@@ -217,7 +229,8 @@ const maxCost = Math.max(...cards.map((c) => c.costTotal), 0);
     dirBtn.dataset.direction = dirBtn.dataset.direction === "asc" ? "desc" : "asc";
     apply();
   });
-  if (params.toString()) apply(false);
+  more.addEventListener("click", () => { limit += PAGE; apply(false, true); });
+  apply(false);
 </script>
 
 <style>
@@ -276,6 +289,17 @@ const maxCost = Math.max(...cards.map((c) => c.costTotal), 0);
   .btn-reset:hover, .btn-sort:hover { background: var(--clr-neutral-700); }
 
   .card-count { margin-block: 1rem; color: var(--clr-neutral-300); }
+  .more-wrap { display: flex; justify-content: center; margin-block: 2rem; }
+  .btn-more {
+    padding: 0.7rem 2rem;
+    font-size: var(--fs-md);
+    color: white;
+    background: var(--clr-neutral-800);
+    border: 1px solid var(--clr-neutral-600);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    &:hover { background: var(--clr-neutral-700); border-color: var(--clr-primary); }
+  }
   .no-results { color: var(--clr-neutral-300); font-style: italic; }
 
   .card-grid {

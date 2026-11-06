@@ -19,13 +19,18 @@ const prev = pos > 0 ? siblings[pos - 1] : null;
 const next = pos >= 0 && pos < siblings.length - 1 ? siblings[pos + 1] : null;
 
 const hasStats = ["Summon", "Guardian", "Building"].includes(card.type);
-const stats: [string, number | null][] = hasStats
+type Stat = { key: string; label: string; value: number };
+const stat = (key: string, label: string, value: number | null): Stat[] => (isStat(value) ? [{ key, label, value: value as number }] : []);
+// Row 1: Life and Mana. Row 2: the combat stats and Move - the same order as the card's stat bar.
+const statRows: Stat[][] = hasStats
   ? [
-      ["Life", card.life], ["Mana", card.mana],
-      ["Attack", card.attack], ["Defense", card.defense],
-      ["Magic", card.magic], ["Resistance", card.resistance],
-      ["Move", card.type === "Summon" ? card.movement : null],
-    ].filter(([, v]) => isStat(v as number | null)) as [string, number | null][]
+      [...stat("life", "Life", card.life), ...stat("mana", "Mana", card.mana)],
+      [
+        ...stat("attack", "Attack", card.attack), ...stat("defense", "Defense", card.defense),
+        ...stat("magic", "Magic", card.magic), ...stat("resistance", "Resistance", card.resistance),
+        ...(card.type === "Summon" ? stat("move", "Move", card.movement) : []),
+      ],
+    ].filter((r) => r.length)
   : [];
 
 const extras: [string, string | number][] = [];
@@ -84,10 +89,23 @@ const description = `${card.typeLine} — ${card.text.replace(/\s+/g, " ").slice
           </div>
         )}
 
-        {stats.length > 0 && (
-          <dl class="stats">
-            {stats.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
-          </dl>
+        {statRows.length > 0 && (
+          <div class="stats">
+            {statRows.map((row) => (
+              <dl class="stat-row">
+                {row.map((st) => (
+                  <div class={`stat stat-${st.key}`}>
+                    <dt>{st.label}</dt>
+                    <dd>
+                      <img src={st.key === "move" ? `/images/stats/move_${Math.max(0, Math.min(3, st.value))}.png` : `/images/stats/${st.key}.png`} alt="" width="88" height="87" />
+                      {st.key !== "move" && <span class="stat-value">{st.value}</span>}
+                      {st.key === "move" && <span class="visually-hidden">{st.value}</span>}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            ))}
+          </div>
         )}
 
         <p class="meta">
@@ -162,15 +180,39 @@ const description = `${card.typeLine} — ${card.text.replace(/\s+/g, " ").slice
   dd { display: flex; align-items: center; flex-wrap: wrap; }
 
   .stats {
-    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
-    padding: 1rem;
+    display: grid;
+    gap: 0.75rem;
+    margin-block: 1.25rem;
+    padding: 1rem 1.25rem;
     background: hsl(0 0 100 / 0.04);
     border-radius: var(--radius-md);
-
-    div { display: flex; justify-content: space-between; gap: 0.5rem; }
-    dt { min-width: 0; }
-    dd { font-weight: var(--fw-bold); font-size: var(--fs-md); }
   }
+  .stat-row { display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; }
+  .stat {
+    display: flex;
+    flex-direction: column-reverse; /* icon on top, label underneath */
+    align-items: center;
+    gap: 0.45rem;
+    width: 4.5rem;
+
+    dt { min-width: 0; font-size: var(--fs-xs); font-weight: var(--fw-medium); text-transform: uppercase; letter-spacing: 0.5px; color: var(--clr-neutral-300); }
+    dd { position: relative; display: grid; place-items: center; width: 3.25rem; height: 3.25rem; }
+    dd img { width: 100%; height: 100%; object-fit: contain; }
+  }
+  .stat-value {
+    position: absolute;
+    inset: 0 0 var(--orb-offset, 0) 0;
+    display: grid;
+    place-items: center;
+    font-family: var(--ff-brand);
+    font-size: 1.4rem;
+    font-weight: var(--fw-bold);
+    color: white;
+    text-shadow: 0 0 3px #000, 0 1px 2px #000, 0 0 6px rgba(0, 0, 0, 0.8);
+  }
+  /* the hexagon shields carry their orb in the upper part */
+  .stat-attack, .stat-defense, .stat-magic, .stat-resistance { --orb-offset: 18%; }
+  .stat-move dd { width: 2.9rem; height: 3.5rem; }
 
   .card-text {
     border: solid 1px hsl(0 0 100 / 0.3);
