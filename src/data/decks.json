@@ -6,12 +6,12 @@
   "guardian": "ardina_natures_prosperity",
   "main": [
    {
-    "id": "arrow_barrage_ambush",
-    "count": 1
+    "id": "abundant_resources",
+    "count": 2
    },
    {
-    "id": "autumn_mantis",
-    "count": 1
+    "id": "ancient_burrower",
+    "count": 2
    },
    {
     "id": "centaurian_archer",
@@ -19,22 +19,10 @@
    },
    {
     "id": "deep_wood_gardener",
-    "count": 17
+    "count": 14
    },
    {
-    "id": "elihem_watcher",
-    "count": 2
-   },
-   {
-    "id": "elvish_archer",
-    "count": 2
-   },
-   {
-    "id": "elvish_swordfighter",
-    "count": 2
-   },
-   {
-    "id": "elvish_youth",
+    "id": "forest_brawl",
     "count": 2
    },
    {
@@ -42,76 +30,76 @@
     "count": 1
    },
    {
-    "id": "forestry",
-    "count": 2
-   },
-   {
     "id": "green_thumbs",
     "count": 2
    },
    {
-    "id": "harvest_pause",
+    "id": "grove_keeper",
     "count": 2
    },
    {
-    "id": "hog_rider",
+    "id": "lush_forest",
+    "count": 1
+   },
+   {
+    "id": "moss_giant",
+    "count": 1
+   },
+   {
+    "id": "naga_beastkeeper",
+    "count": 1
+   },
+   {
+    "id": "pilgrims_charm",
+    "count": 1
+   },
+   {
+    "id": "primordial_ashaut",
     "count": 2
    },
    {
-    "id": "native_repeal",
-    "count": 1
+    "id": "replanting_druid",
+    "count": 3
    },
    {
-    "id": "relic_eater",
-    "count": 1
-   },
-   {
-    "id": "root_slumber",
-    "count": 1
-   },
-   {
-    "id": "runes_of_power",
+    "id": "root_hydra",
     "count": 2
    },
    {
-    "id": "spying_wisps",
-    "count": 1
+    "id": "spellscale_naga",
+    "count": 2
    },
    {
     "id": "the_omniferous_mother",
-    "count": 1
+    "count": 3
    },
    {
-    "id": "toxic_dart",
+    "id": "thornwood_reserve",
     "count": 2
    },
    {
-    "id": "toxic_spores",
-    "count": 1
-   },
-   {
-    "id": "toxic_viper",
+    "id": "thunderhoof_herd",
     "count": 2
    },
    {
-    "id": "turquoise_elite",
+    "id": "vitalitys_might",
     "count": 2
    },
    {
-    "id": "unexpected_ambush",
-    "count": 1
+    "id": "waymarker_treant",
+    "count": 3
    },
    {
-    "id": "wild_song_faun",
-    "count": 2
+    "id": "wildland_recruiter",
+    "count": 3
    }
   ],
   "chest": [
-   "bound_by_the_thornwood",
-   "bountyleaf_ranger",
-   "elvish_ceremonial_dagger",
    "elfish_spring_water",
-   "community_safe"
+   "community_safe",
+   "snaring_vines",
+   "jungle_mimic",
+   "bound_by_the_thornwood"
   ]
  },
  {
@@ -121,10 +109,6 @@
   "guardian": "auviin_the_stagnant",
   "main": [
    {
-    "id": "ancient_soul_harvest",
-    "count": 2
-   },
-   {
     "id": "cave_in_icy_ground",
     "count": 2
    },
@@ -133,16 +117,16 @@
     "count": 3
    },
    {
+    "id": "chilling_effect",
+    "count": 2
+   },
+   {
     "id": "cold_wave",
     "count": 2
    },
    {
     "id": "crystaline_might",
-    "count": 2
-   },
-   {
-    "id": "displeased_overseer",
-    "count": 2
+    "count": 3
    },
    {
     "id": "freeze_over",
@@ -153,11 +137,15 @@
     "count": 2
    },
    {
-    "id": "frost_burn",
-    "count": 3
+    "id": "frost_ray",
+    "count": 2
    },
    {
-    "id": "glacial_golem",
+    "id": "frostwing_valkyrie",
+    "count": 1
+   },
+   {
+    "id": "frozen_tundra",
     "count": 1
    },
    {
@@ -165,48 +153,60 @@
     "count": 2
    },
    {
-    "id": "ice_mantle",
+    "id": "hailcaller_druid",
     "count": 2
    },
    {
-    "id": "ice_spikes",
+    "id": "ice_crystal_lizard",
     "count": 2
+   },
+   {
+    "id": "ice_troll_brute",
+    "count": 1
    },
    {
     "id": "icicle_collector",
     "count": 2
    },
    {
-    "id": "icy_response",
+    "id": "jinava_the_avatar",
+    "count": 1
+   },
+   {
+    "id": "nimrav_stalker",
     "count": 2
    },
    {
-    "id": "lone_dwarf",
+    "id": "pack_ice_kraken",
+    "count": 1
+   },
+   {
+    "id": "rimeshot_hunter",
     "count": 2
    },
    {
-    "id": "rime_chrysalis",
+    "id": "slow_thaw",
     "count": 2
    },
    {
-    "id": "shatter",
+    "id": "snapfreeze_orb",
+    "count": 2
+   },
+   {
+    "id": "sniffling_saboteur",
     "count": 2
    },
    {
     "id": "snow_glider",
-    "count": 16
-   },
-   {
-    "id": "winter_mage",
-    "count": 2
+    "count": 14
    }
   ],
   "chest": [
    "winters_grasp",
    "snow_covered_mimic",
-   "trapped_winter",
-   "entombed_sovereign",
-   "aegis_of_permafrost"
+   "fractured_ward",
+   "rimecrack",
+   "entombed_sovereign"
   ]
  },
  {
@@ -771,112 +771,100 @@
   "guardian": "persea_gloom_woods_protector",
   "main": [
    {
-    "id": "caught_in_the_web",
-    "count": 2
+    "id": "ancestral_grove_spirit",
+    "count": 1
    },
    {
-    "id": "centaurian_archer",
-    "count": 1
+    "id": "ancient_burrower",
+    "count": 2
    },
    {
     "id": "cernun_stag",
     "count": 2
    },
    {
-    "id": "crushtooth_tiger",
-    "count": 2
-   },
-   {
     "id": "deep_wood_gardener",
-    "count": 17
+    "count": 18
    },
    {
-    "id": "druidic_growth",
-    "count": 2
-   },
-   {
-    "id": "druidic_motivation",
-    "count": 1
-   },
-   {
-    "id": "elvish_witch_doctor",
-    "count": 1
-   },
-   {
-    "id": "gift_of_beauty",
+    "id": "forestry",
     "count": 2
    },
    {
     "id": "grove_healer",
-    "count": 4
+    "count": 3
+   },
+   {
+    "id": "herbshell_tortoise",
+    "count": 2
+   },
+   {
+    "id": "hog_rider",
+    "count": 2
    },
    {
     "id": "horned_seer_owl",
     "count": 2
    },
    {
-    "id": "leafomancy",
+    "id": "lynx_seer",
+    "count": 3
+   },
+   {
+    "id": "mossback_troll",
     "count": 2
    },
    {
-    "id": "lush_growth",
-    "count": 2
-   },
-   {
-    "id": "magical_gathering",
+    "id": "overflowing_spring",
     "count": 1
    },
    {
-    "id": "native_repeal",
+    "id": "overgrowth",
     "count": 1
-   },
-   {
-    "id": "natures_influx",
-    "count": 2
    },
    {
     "id": "primordial_ashaut",
     "count": 2
    },
    {
-    "id": "rampage_beast",
+    "id": "rewilding_shaman",
+    "count": 1
+   },
+   {
+    "id": "season_of_abundance",
+    "count": 1
+   },
+   {
+    "id": "seedkeeper_druid",
     "count": 2
    },
    {
-    "id": "root_elemental",
+    "id": "shedskin_mantle",
     "count": 1
    },
    {
-    "id": "song_of_slumber",
+    "id": "skywatch_ranger",
+    "count": 2
+   },
+   {
+    "id": "the_turning_year",
     "count": 1
    },
    {
-    "id": "the_omniferous_mother",
-    "count": 1
+    "id": "thicket_lurker",
+    "count": 2
    },
    {
-    "id": "vital_force_caster",
-    "count": 1
-   },
-   {
-    "id": "vitalized_healing",
-    "count": 1
-   },
-   {
-    "id": "wild_blessing",
-    "count": 1
-   },
-   {
-    "id": "wildland_recruiter",
-    "count": 1
+    "id": "thornwood_watcher",
+    "count": 2
    }
   ],
   "chest": [
-   "elfish_spring_water",
-   "community_safe",
-   "city_guard",
    "the_leveling_scale",
-   "jungle_mimic"
+   "snaring_vines",
+   "jungle_mimic",
+   "community_safe",
+   "elfish_spring_water"
   ]
  },
  {
@@ -886,39 +874,43 @@
   "guardian": "romuden_eternal_blaze",
   "main": [
    {
-    "id": "angry_firekin_lancer",
-    "count": 2
-   },
-   {
-    "id": "backdraft",
-    "count": 2
-   },
-   {
-    "id": "brand_of_betrayal",
+    "id": "ashfall_dragon",
     "count": 2
    },
    {
     "id": "channel_fire",
+    "count": 1
+   },
+   {
+    "id": "cinder_whelp",
     "count": 2
    },
    {
-    "id": "conjure_elemental",
-    "count": 3
+    "id": "clutch_keeper",
+    "count": 2
    },
    {
     "id": "contract_with_the_dragon",
     "count": 2
    },
    {
-    "id": "dragon_egg",
-    "count": 3
-   },
-   {
-    "id": "exterminate",
+    "id": "dragonflame_censer",
     "count": 2
    },
    {
-    "id": "fire_spark",
+    "id": "dragons_muster",
+    "count": 1
+   },
+   {
+    "id": "drake_bonded_knight",
+    "count": 3
+   },
+   {
+    "id": "ember_broodmother",
+    "count": 1
+   },
+   {
+    "id": "ember_crowned_dragon",
     "count": 2
    },
    {
@@ -930,27 +922,27 @@
     "count": 2
    },
    {
-    "id": "flaming_kirin",
-    "count": 2
-   },
-   {
     "id": "hoarding_wyrm",
     "count": 2
    },
    {
-    "id": "intense_heat",
+    "id": "molten_starfall",
     "count": 1
+   },
+   {
+    "id": "pyrebrand_drake",
+    "count": 2
    },
    {
     "id": "red_incineration_dragon",
     "count": 2
    },
    {
-    "id": "scorching_red_dragon",
+    "id": "scalding_breath",
     "count": 2
    },
    {
-    "id": "smoldering_infiltrator",
+    "id": "scorching_red_dragon",
     "count": 2
    },
    {
@@ -959,15 +951,23 @@
    },
    {
     "id": "twinhorn_dragon",
-    "count": 3
+    "count": 2
+   },
+   {
+    "id": "wyrm_tender_goblin",
+    "count": 2
+   },
+   {
+    "id": "wyrm_whisperer",
+    "count": 1
    }
   ],
   "chest": [
    "ruby_dragon_tooth",
+   "ashfall",
    "cinder_heart_brazier",
    "banner_of_victory",
-   "censer_of_treason",
-   "contract_with_the_dragon"
+   "spitefire"
   ]
  },
  {
@@ -977,8 +977,8 @@
   "guardian": "snaebjorn_fishmonger",
   "main": [
    {
-    "id": "avalanche",
-    "count": 2
+    "id": "calving_sea",
+    "count": 1
    },
    {
     "id": "chillfin_salmon_sovereign",
@@ -986,42 +986,30 @@
    },
    {
     "id": "cold_rebuttal",
-    "count": 1
-   },
-   {
-    "id": "cold_wave",
-    "count": 1
-   },
-   {
-    "id": "floe_otters",
     "count": 2
    },
    {
-    "id": "freeze_over",
-    "count": 1
+    "id": "elephant_seal",
+    "count": 2
    },
    {
-    "id": "freeze_solid",
-    "count": 1
+    "id": "frost_ray",
+    "count": 2
    },
    {
-    "id": "frost_warden",
-    "count": 1
+    "id": "hail_splinters",
+    "count": 2
    },
    {
-    "id": "frostmane",
-    "count": 1
+    "id": "ice_hole_angler",
+    "count": 2
    },
    {
     "id": "icefin_school",
     "count": 3
    },
    {
-    "id": "icicle_collector",
-    "count": 2
-   },
-   {
-    "id": "icy_response",
+    "id": "numbing_cold",
     "count": 1
    },
    {
@@ -1029,20 +1017,16 @@
     "count": 1
    },
    {
-    "id": "pack_ice_kraken",
-    "count": 2
-   },
-   {
     "id": "penguin_spearfisher",
-    "count": 2
+    "count": 3
    },
    {
-    "id": "rimewing_elemental",
+    "id": "ravenous_bowhead",
     "count": 1
    },
    {
     "id": "seal_pup",
-    "count": 2
+    "count": 3
    },
    {
     "id": "shoaling_floe",
@@ -1054,22 +1038,18 @@
    },
    {
     "id": "snow_glider",
-    "count": 15
+    "count": 16
    },
    {
     "id": "snow_slide_penguin",
-    "count": 2
+    "count": 3
    },
    {
     "id": "spirit_of_the_snow_lion",
-    "count": 1
+    "count": 2
    },
    {
     "id": "sturdy_hand_net",
-    "count": 1
-   },
-   {
-    "id": "torpor",
     "count": 1
    },
    {
@@ -1078,7 +1058,7 @@
    },
    {
     "id": "treacherous_river",
-    "count": 2
+    "count": 1
    },
    {
     "id": "trident_king_pin",
@@ -1090,10 +1070,10 @@
    }
   ],
   "chest": [
-   "magic_putcher_traps",
    "papa_shark",
+   "magic_putcher_traps",
    "rimecrack",
-   "shard_of_the_deep_freeze",
+   "entombed_sovereign",
    "refraction_mimic"
   ]
  },
@@ -1319,31 +1299,35 @@
    },
    {
     "id": "anti_spell_glyph",
-    "count": 2
-   },
-   {
-    "id": "awe",
     "count": 1
    },
    {
-    "id": "battlefield_cleric",
-    "count": 3
+    "id": "archer_of_justice",
+    "count": 2
+   },
+   {
+    "id": "banished_to_the_void",
+    "count": 2
+   },
+   {
+    "id": "battle_hound",
+    "count": 2
    },
    {
     "id": "brasshide_knight",
-    "count": 1
-   },
-   {
-    "id": "brave_bonded_knight",
     "count": 2
    },
    {
-    "id": "capital_punishment",
-    "count": 2
+    "id": "cassiodor_pontifex_of_rest",
+    "count": 1
    },
    {
-    "id": "chains_of_punishment",
+    "id": "chains_of_devotion",
     "count": 1
+   },
+   {
+    "id": "dawn_crusader",
+    "count": 2
    },
    {
     "id": "defier_of_evil",
@@ -1354,68 +1338,60 @@
     "count": 1
    },
    {
-    "id": "divine_enforcer",
+    "id": "edict_of_measure",
     "count": 1
    },
    {
-    "id": "divine_inspiration",
+    "id": "empiros_high_courts",
     "count": 1
    },
    {
-    "id": "divine_punisher",
+    "id": "neo_sol_crussader",
     "count": 2
    },
    {
-    "id": "divine_punishment",
-    "count": 1
-   },
-   {
-    "id": "garuda_battle_cleric",
-    "count": 1
-   },
-   {
-    "id": "protective_soldier",
-    "count": 3
-   },
-   {
-    "id": "punishing_light",
+    "id": "royal_lamassu",
     "count": 2
    },
    {
-    "id": "radiant_punisher",
-    "count": 1
-   },
-   {
-    "id": "radiating_presence",
-    "count": 1
+    "id": "sanctum_seal",
+    "count": 2
    },
    {
     "id": "silent_sorter",
     "count": 18
    },
    {
-    "id": "spellblade_templar",
+    "id": "sol_forged_angel",
     "count": 2
    },
    {
-    "id": "tusked_defender",
+    "id": "sols_decree",
     "count": 1
+   },
+   {
+    "id": "spellblade_templar",
+    "count": 2
    },
    {
     "id": "verrens_chains",
     "count": 2
    },
    {
-    "id": "war_lion",
+    "id": "war_priest",
+    "count": 2
+   },
+   {
+    "id": "wardcutter_recruit",
     "count": 2
    }
   ],
   "chest": [
+   "the_final_dawn",
    "lost_rite_of_sol",
-   "pearl_of_life",
-   "angelic_mimic",
    "sol_wings",
-   "scroll_of_diplomacy"
+   "patriarchs_mask",
+   "grembyd_warden_of_treasures"
   ]
  },
  {
@@ -1865,12 +1841,20 @@
     "count": 1
    },
    {
-    "id": "awakening_statue",
+    "id": "bridge_troll",
     "count": 1
    },
    {
-    "id": "bastion_gargoyle",
+    "id": "bulwark_slam",
     "count": 1
+   },
+   {
+    "id": "buried_alive",
+    "count": 1
+   },
+   {
+    "id": "cautious_explorer",
+    "count": 2
    },
    {
     "id": "cave_troll",
@@ -1878,7 +1862,7 @@
    },
    {
     "id": "chuck",
-    "count": 3
+    "count": 2
    },
    {
     "id": "cornice_gargoyle",
@@ -1887,14 +1871,6 @@
    {
     "id": "crag_sleeper_gargoyle",
     "count": 2
-   },
-   {
-    "id": "cragtop_watch",
-    "count": 1
-   },
-   {
-    "id": "deep_prospector",
-    "count": 1
    },
    {
     "id": "desertify",
@@ -1906,22 +1882,18 @@
    },
    {
     "id": "dwarven_smith",
-    "count": 15
+    "count": 18
    },
    {
     "id": "enshrine_beauty",
     "count": 1
    },
    {
-    "id": "force_of_the_protector",
+    "id": "flesh_and_stone",
     "count": 1
    },
    {
     "id": "forsaken_ages",
-    "count": 1
-   },
-   {
-    "id": "gargoyle_carver",
     "count": 1
    },
    {
@@ -1937,20 +1909,20 @@
     "count": 2
    },
    {
-    "id": "merchant_elephant",
-    "count": 2
-   },
-   {
-    "id": "minotaur_sentinel",
+    "id": "pebble_gargoyle",
     "count": 2
    },
    {
     "id": "petrify",
+    "count": 1
+   },
+   {
+    "id": "rocky_fists",
     "count": 2
    },
    {
-    "id": "rock_turtle",
-    "count": 1
+    "id": "shell_master",
+    "count": 2
    },
    {
     "id": "stone_sickness",
@@ -1961,11 +1933,7 @@
     "count": 1
    },
    {
-    "id": "stone_wall_minotaur",
-    "count": 1
-   },
-   {
-    "id": "stun",
+    "id": "stonegaze_gorgon",
     "count": 2
    },
    {
@@ -1974,14 +1942,14 @@
    },
    {
     "id": "unite_with_the_earth",
-    "count": 2
+    "count": 1
    }
   ],
   "chest": [
-   "swallowing_sinkhole",
+   "the_buried_hoard",
    "cairnstone_mimic",
    "the_birthing_geode",
-   "the_buried_hoard",
+   "swallowing_sinkhole",
    "valuables_pest"
   ]
  },
@@ -2341,24 +2309,16 @@
   "guardian": "leonhart_first_among_knights",
   "main": [
    {
-    "id": "accolate",
-    "count": 2
-   },
-   {
     "id": "arms_griffin",
     "count": 2
    },
    {
-    "id": "awe",
-    "count": 1
-   },
-   {
-    "id": "brasshide_knight",
-    "count": 1
-   },
-   {
     "id": "brave_bonded_knight",
     "count": 2
+   },
+   {
+    "id": "bulwark_prayer",
+    "count": 1
    },
    {
     "id": "capital_punishment",
@@ -2369,24 +2329,20 @@
     "count": 2
    },
    {
-    "id": "defier_of_evil",
+    "id": "empiros_blessing",
+    "count": 1
+   },
+   {
+    "id": "galant_knight",
     "count": 2
    },
    {
-    "id": "divine_enforcer",
-    "count": 1
-   },
-   {
-    "id": "golden_chakram",
-    "count": 1
-   },
-   {
-    "id": "hallowed_ground",
-    "count": 1
+    "id": "garuda_sky_knight",
+    "count": 2
    },
    {
     "id": "haughty_knight",
-    "count": 1
+    "count": 2
    },
    {
     "id": "heirloom_of_empiros",
@@ -2394,23 +2350,15 @@
    },
    {
     "id": "knights_page",
+    "count": 1
+   },
+   {
+    "id": "lion_order_captain",
     "count": 2
-   },
-   {
-    "id": "lum_knight_captain",
-    "count": 1
-   },
-   {
-    "id": "maiden_in_distress",
-    "count": 1
    },
    {
     "id": "master_of_arms",
     "count": 2
-   },
-   {
-    "id": "neo_sol_crussader",
-    "count": 1
    },
    {
     "id": "order_of_the_lion",
@@ -2421,8 +2369,16 @@
     "count": 2
    },
    {
-    "id": "punishing_light",
-    "count": 2
+    "id": "pride_leader_knight",
+    "count": 1
+   },
+   {
+    "id": "punishing_radiance",
+    "count": 1
+   },
+   {
+    "id": "purging_sigil",
+    "count": 1
    },
    {
     "id": "ritual_of_blessing",
@@ -2430,35 +2386,35 @@
    },
    {
     "id": "royal_guard",
-    "count": 1
+    "count": 2
    },
    {
     "id": "silent_sorter",
-    "count": 17
+    "count": 18
    },
    {
     "id": "sword_of_light",
     "count": 2
    },
    {
-    "id": "tracer_of_lost_memories",
-    "count": 1
-   },
-   {
     "id": "war_lance",
-    "count": 1
+    "count": 2
    },
    {
     "id": "watchful_knight",
     "count": 2
+   },
+   {
+    "id": "wings_of_the_ascended",
+    "count": 1
    }
   ],
   "chest": [
    "signet_of_the_lion_order",
    "lost_rite_of_sol",
-   "patriarchs_mask",
-   "angelic_mimic",
-   "ledger_of_trespass"
+   "chalice_of_courage",
+   "sol_wings",
+   "forgotten_hero"
   ]
  },
  {
@@ -3272,16 +3228,16 @@
   "guardian": "mordrec_lord_of_the_barrows",
   "main": [
    {
-    "id": "ambushed_strike",
-    "count": 1
-   },
-   {
-    "id": "blood_moon_blessing",
-    "count": 1
+    "id": "bone_archer",
+    "count": 2
    },
    {
     "id": "bone_heater",
-    "count": 17
+    "count": 18
+   },
+   {
+    "id": "call_of_the_grave",
+    "count": 1
    },
    {
     "id": "dark_scheme",
@@ -3293,7 +3249,7 @@
    },
    {
     "id": "disfigured_beast",
-    "count": 3
+    "count": 2
    },
    {
     "id": "fallen_garuda",
@@ -3304,7 +3260,7 @@
     "count": 2
    },
    {
-    "id": "gallows_step",
+    "id": "from_below",
     "count": 1
    },
    {
@@ -3313,7 +3269,7 @@
    },
    {
     "id": "grave_elemental",
-    "count": 1
+    "count": 2
    },
    {
     "id": "greater_mullagh",
@@ -3321,15 +3277,15 @@
    },
    {
     "id": "life_drainer",
-    "count": 3
-   },
-   {
-    "id": "night_of_the_restless",
-    "count": 1
+    "count": 2
    },
    {
     "id": "pestilent_necromancer",
-    "count": 1
+    "count": 2
+   },
+   {
+    "id": "plague_spreader",
+    "count": 2
    },
    {
     "id": "reaper_of_spirits",
@@ -3341,18 +3297,14 @@
    },
    {
     "id": "skeleton_archer",
-    "count": 3
+    "count": 2
    },
    {
     "id": "spikeback_ghoul",
     "count": 2
    },
    {
-    "id": "the_defiled",
-    "count": 2
-   },
-   {
-    "id": "unfinished_business",
+    "id": "wrong_step",
     "count": 1
    },
    {
@@ -3361,25 +3313,25 @@
    }
   ],
   "chest": [
+   "mimic_remains",
+   "dagger_of_death",
    "evil_army",
    "ancient_fog_of_night",
-   "dagger_of_death",
-   "forgotten_wraith",
-   "mimic_remains"
+   "forgotten_wraith"
   ]
  },
  {
   "id": "roldages_ragtag",
   "slug": "roldages-ragtag",
-  "name": "Roldage's Ragtag",
+  "name": "Roldage's Raiders",
   "guardian": "roldage_polar_hunter",
   "main": [
    {
-    "id": "cave_in_icy_ground",
-    "count": 1
+    "id": "cold_night_assault",
+    "count": 2
    },
    {
-    "id": "chilling_devil",
+    "id": "cold_rebuttal",
     "count": 2
    },
    {
@@ -3387,15 +3339,7 @@
     "count": 2
    },
    {
-    "id": "encasement",
-    "count": 1
-   },
-   {
-    "id": "everfrost_sigil",
-    "count": 1
-   },
-   {
-    "id": "frost_warden",
+    "id": "frost_ray",
     "count": 2
    },
    {
@@ -3404,27 +3348,23 @@
    },
    {
     "id": "frostwing_valkyrie",
-    "count": 2
+    "count": 1
+   },
+   {
+    "id": "glacial_strike",
+    "count": 1
    },
    {
     "id": "glacierhold_defender",
-    "count": 2
+    "count": 1
    },
    {
     "id": "hunting_snow_centaur",
-    "count": 2
-   },
-   {
-    "id": "icicle_collector",
-    "count": 2
-   },
-   {
-    "id": "inscription_of_frost",
     "count": 1
    },
    {
-    "id": "jinava_the_avatar",
-    "count": 1
+    "id": "ice_spikes",
+    "count": 2
    },
    {
     "id": "jong_pun_mountain_temple",
@@ -3432,6 +3372,10 @@
    },
    {
     "id": "jotunn_icebreaker",
+    "count": 1
+   },
+   {
+    "id": "jotunn_war_chief",
     "count": 2
    },
    {
@@ -3439,36 +3383,40 @@
     "count": 2
    },
    {
+    "id": "northern_lore",
+    "count": 1
+   },
+   {
     "id": "rimeguard_valkyrie",
     "count": 2
    },
    {
-    "id": "rune_bound_dwarf",
+    "id": "rimeseer_druid",
     "count": 2
    },
    {
-    "id": "rune_of_sudden_frost",
+    "id": "shatter",
     "count": 2
-   },
-   {
-    "id": "serac_plate",
-    "count": 1
    },
    {
     "id": "snow_glider",
-    "count": 15
+    "count": 18
    },
    {
     "id": "soul_omen_valkyrie",
     "count": 1
    },
    {
-    "id": "spirit_of_the_snow_lion",
-    "count": 2
+    "id": "sworn_hearthguard",
+    "count": 1
    },
    {
-    "id": "whiteout_axe",
+    "id": "tragic_discovery",
     "count": 1
+   },
+   {
+    "id": "wintery_vision",
+    "count": 2
    },
    {
     "id": "young_jotunn",

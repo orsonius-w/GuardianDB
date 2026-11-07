@@ -1048,6 +1048,52 @@
   "imageHeight": 709
  },
  {
+  "id": "afterimage",
+  "slug": "afterimage",
+  "name": "Afterimage",
+  "type": "Spell",
+  "typeLine": "Spell - Hex",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "5",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 7,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Spawn a token that is a copy of target Summon with cost 6 or less on a free field in your Guarded Zone, except it has Zealing and \"At the end of each turn, if this Summon is deactivated, sacrifice it.\"",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/afterimage.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "agatha_squadron_leader",
   "slug": "agatha-squadron-leader",
   "name": "Agatha, Squadron Leader",
@@ -2483,6 +2529,52 @@
   "level": null,
   "duration": null,
   "image": "/cards/lightning/arc-line.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "arc_reversal",
+  "slug": "arc-reversal",
+  "name": "Arc Reversal",
+  "type": "Spell",
+  "typeLine": "Spell - Quick",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "4",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 5,
+  "rarity": "Uncommon",
+  "limit": 4,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Negate target Hex or Quick Spell. Then copy it. You may choose new targets for the copy.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/arc-reversal.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -7349,6 +7441,52 @@
   "imageHeight": 709
  },
  {
+  "id": "borrowed_lightning",
+  "slug": "borrowed-lightning",
+  "name": "Borrowed Lightning",
+  "type": "Spell",
+  "typeLine": "Spell - Quick",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "Special Rare",
+  "limit": 2,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Borrowed Lightning deals 4 damage to target Summon, or to target Guardian with more than 4 Life.\nAt the beginning of the next End Phase, pay [2][2 Lightning]. If you can't, you lose the game.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/borrowed-lightning.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "borrowed_shape",
   "slug": "borrowed-shape",
   "name": "Borrowed Shape",
@@ -11306,6 +11444,48 @@
   "imageHeight": 709
  },
  {
+  "id": "charged_up",
+  "slug": "charged-up",
+  "name": "Charged Up",
+  "type": "Spell",
+  "typeLine": "Spell - Enchantment",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 1,
+  "rarity": "Common",
+  "limit": 2,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Enchant Summon\nThe enchanted Summon has Zealing.\nAt the beginning of the End Phase, return Charged Up to its owner's hand.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/charged-up.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "charming_nix",
   "slug": "charming-nix",
   "name": "Charming Nix",
@@ -14511,7 +14691,7 @@
   "movement": 0,
   "combat": "",
   "keywords": [],
-  "text": "Durability 2\nThe equipped Summon gets +1A and has Bi Combat R2.\nDominate - Put the slain Summon's card on the bottom of its owner's deck.",
+  "text": "Durability 2\nThe equipped Summon gets +1A, has Bi Combat R2 and \"Dominate - Put the slain Summon's card on the bottom of its owner's deck.\"",
   "summonSpells": "",
   "activationCost": [],
   "workerCost": null,
@@ -16534,7 +16714,7 @@
   "keywords": [
    "Perpetual"
   ],
-  "text": "Perpetual - Whenever a Spell you control would mill cards, it mills that many cards plus one.",
+  "text": "Perpetual - Spells you control that mill cards mill that many cards plus 1.",
   "summonSpells": "Brainfreeze [2 Mana]: Target player mills the top 2 cards of their deck.",
   "activationCost": [],
   "workerCost": null,
@@ -19927,6 +20107,54 @@
   "image": "/cards/ice/displeased-overseer.webp",
   "imageWidth": 500,
   "imageHeight": 707
+ },
+ {
+  "id": "disrupted_vectors",
+  "slug": "disrupted-vectors",
+  "name": "Disrupted Vectors",
+  "type": "Spell",
+  "typeLine": "Spell - Curse, Curse",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Curse"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Special Rare",
+  "limit": 2,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Duration - Infinite\nThe cursed player can't cast more non-Summon Incantations each turn than 1 plus the number of Summons they control.\nThe cursed player can't cast Summons from their hand into a column where they already control a Summon.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/disrupted-vectors.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
  },
  {
   "id": "disrupting_the_feast",
@@ -30597,6 +30825,52 @@
   "imageHeight": 500
  },
  {
+  "id": "fulgurite_strike",
+  "slug": "fulgurite-strike",
+  "name": "Fulgurite Strike",
+  "type": "Spell",
+  "typeLine": "Spell - Quick",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Fulgurite Strike deals 3 magic damage to target Summon. If that Summon perishes, put Shocking Ground on the field it was on.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/fulgurite-strike.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "fulmination_strike",
   "slug": "fulmination-strike",
   "name": "Fulmination Strike",
@@ -31235,6 +31509,57 @@
   "image": "/cards/darkness/gallows-step.webp",
   "imageWidth": 500,
   "imageHeight": 707
+ },
+ {
+  "id": "galvanic_baton",
+  "slug": "galvanic-baton",
+  "name": "Galvanic Baton",
+  "type": "Item",
+  "typeLine": "Item - Equipment, Weapon",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Equipment",
+   "Weapon"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Common",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [
+   "Manifest"
+  ],
+  "text": "Durability 2\nManifest - Galvanic Baton deals 2 damage to target Summon.\nThe equipped Summon has Pierce 1 and Swiftstrike.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/galvanic-baton.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
  },
  {
   "id": "galvanic_rod",
@@ -35767,7 +36092,7 @@
   "movement": 0,
   "combat": "",
   "keywords": [],
-  "text": "Target Summon becomes Immobilized until the beginning of your next Active Phase. If you control a Cyclops, draw a card.",
+  "text": "Deactivate target Summon. It becomes Immobilized until the beginning of your next Active Phase. If you control a Cyclops, draw a card from your deck.",
   "summonSpells": "",
   "activationCost": [],
   "workerCost": null,
@@ -41832,6 +42157,57 @@
   "imageHeight": 709
  },
  {
+  "id": "ionomancer",
+  "slug": "ionomancer",
+  "name": "Ionomancer",
+  "type": "Summon",
+  "typeLine": "Summon - Human, Wizard",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Human",
+   "Wizard"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "Rare",
+  "limit": 4,
+  "life": 2,
+  "mana": 2,
+  "attack": 0,
+  "defense": 0,
+  "magic": 2,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Magic Combat R2",
+  "keywords": [
+   "Perpetual"
+  ],
+  "text": "Perpetual - Traps you control that deal damage deal that much damage plus 1.\n[Summon Spell]\nVoltaic Hazard [1 Mana] - For each Trap you control, put Shocking Ground on a free field within radius 3.",
+  "summonSpells": "Voltaic Hazard [1 Mana]: For each Trap you control, put Shocking Ground on a free field within radius 3.",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/ionomancer.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "isrun_cipher_keeper",
   "slug": "isrun-cipher-keeper",
   "name": "Ísrún, Cipher-Keeper",
@@ -45109,6 +45485,53 @@
   "imageHeight": 709
  },
  {
+  "id": "live_ground",
+  "slug": "live-ground",
+  "name": "Live Ground",
+  "type": "Trap",
+  "typeLine": "Trap - Zone",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 1,
+  "rarity": "Common",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Activate this Trap when an enemy Summon enters this Zone.\nThe activating Summon becomes Shocked. Put Shocking Ground on each field in this Zone.",
+  "summonSpells": "",
+  "activationCost": [
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/live-ground.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "live_wire",
   "slug": "live-wire",
   "name": "Live Wire",
@@ -45885,6 +46308,56 @@
   "level": null,
   "duration": null,
   "image": "/cards/water/lost-at-sea.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "lost_in_chaos",
+  "slug": "lost-in-chaos",
+  "name": "Lost in Chaos",
+  "type": "Spell",
+  "typeLine": "Spell - Curse, Curse",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Curse"
+  ],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [
+   "Resonance"
+  ],
+  "text": "Duration - 5\nResonance - Whenever the cursed player draws one or more cards outside their Draw Phase, they discard that many cards from their hand.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": 5,
+  "image": "/cards/lightning/lost-in-chaos.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -48500,7 +48973,7 @@
   ],
   "costTotal": 4,
   "rarity": "Uncommon",
-  "limit": 2,
+  "limit": 4,
   "life": 5,
   "mana": 0,
   "attack": 3,
@@ -50839,6 +51312,52 @@
   "level": null,
   "duration": null,
   "image": "/cards/light/neo-sol-crussader.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "nerve_jolt",
+  "slug": "nerve-jolt",
+  "name": "Nerve Jolt",
+  "type": "Spell",
+  "typeLine": "Spell - Hex",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Nerve Jolt deals 1 damage to each enemy Summon. Deactivate each of them. Until the end of turn, they can't counter attack.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/nerve-jolt.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -54867,6 +55386,61 @@
   "imageHeight": 707
  },
  {
+  "id": "plasma_field",
+  "slug": "plasma-field",
+  "name": "Plasma Field",
+  "type": "Trap",
+  "typeLine": "Trap - Universal, Permanent",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Special Rare",
+  "limit": 2,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Pay Plasma Field's activation cost each time it activates.\nPlasma Field deals 2 damage and 2 magic damage to the activating Summon.\nAt the beginning of your Guardian Phase, move Plasma Field face down to another field, and put Shocking Ground on the field it left.",
+  "summonSpells": "",
+  "activationCost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/plasma-field.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "plasma_golem",
   "slug": "plasma-golem",
   "name": "Plasma Golem",
@@ -55741,7 +56315,7 @@
   "limit": 3,
   "life": 2,
   "mana": 0,
-  "attack": 0,
+  "attack": 1,
   "defense": 3,
   "magic": 0,
   "resistance": 0,
@@ -56914,7 +57488,7 @@
   "keywords": [
    "Perpetual"
   ],
-  "text": "Perpetual - Whenever a Spell you control would deal damage, it deals that much damage plus 1.\n[Summon Spell] Burn Out [1 mana] - As an additional cost to cast this spell, sacrifice a permanent. Burn Out deals 2 direct damage to target permanent or Guardian.",
+  "text": "Perpetual - Spells you control that deal damage deal that much damage plus 1.\n[Summon Spell] Burn Out [1 mana] - As an additional cost to cast this spell, sacrifice a permanent. Burn Out deals 2 direct damage to target permanent or Guardian.",
   "summonSpells": "Quick - Burn Out [1 Mana]: As an additional cost to cast this spell, sacrifice a permanent. Burn Out deals 2 direct damage to target permanent or Guardian.",
   "activationCost": [],
   "workerCost": null,
@@ -57275,6 +57849,57 @@
   "level": null,
   "duration": null,
   "image": "/cards/lightning/quatl-nestling.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "quatl_pathfinder",
+  "slug": "quatl-pathfinder",
+  "name": "Quatl Pathfinder",
+  "type": "Summon",
+  "typeLine": "Summon - Quatl, Scout",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Quatl",
+   "Scout"
+  ],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 3,
+  "mana": 0,
+  "attack": 2,
+  "defense": 0,
+  "magic": 2,
+  "resistance": 0,
+  "movement": 3,
+  "combat": "Dual Combat R2",
+  "keywords": [
+   "Resonance"
+  ],
+  "text": "Resonance - Whenever you discard a card from your hand, you may pay [1 Lightning]. If you do, put a Might Counter on this Summon.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/quatl-pathfinder.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -58174,6 +58799,52 @@
   "imageHeight": 709
  },
  {
+  "id": "raining_bolts",
+  "slug": "raining-bolts",
+  "name": "Raining Bolts",
+  "type": "Spell",
+  "typeLine": "Spell - Quick",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "3",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Raining Bolts deals 4 magic damage divided as you choose among any number of target Summons.\nIf you would discard Raining Bolts from your hand, you may pay [1][2 Lightning] and cast it instead.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/raining-bolts.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "raise_the_fallen",
   "slug": "raise-the-fallen",
   "name": "Raise the Fallen",
@@ -58264,6 +58935,57 @@
   "level": null,
   "duration": null,
   "image": "/cards/wind/raised-colours.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "rakshasa_tithe_taker",
+  "slug": "rakshasa-tithe-taker",
+  "name": "Rakshasa Tithe-Taker",
+  "type": "Summon",
+  "typeLine": "Summon - Demon, Rakshasa",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Demon",
+   "Rakshasa"
+  ],
+  "cost": [
+   {
+    "n": "4",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 6,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 6,
+  "mana": 0,
+  "attack": 4,
+  "defense": 0,
+  "magic": 2,
+  "resistance": 3,
+  "movement": 2,
+  "combat": "Dual Combat R1",
+  "keywords": [
+   "Resonance"
+  ],
+  "text": "Resonance - Whenever an opponent discards one or more Energy from their storage at the end of their turn, this Summon deals 1 damage to their Guardian.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/rakshasa-tithe-taker.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -59696,6 +60418,43 @@
   "imageHeight": 707
  },
  {
+  "id": "restless_coilhand",
+  "slug": "restless-coilhand",
+  "name": "Restless Coilhand",
+  "type": "Worker",
+  "typeLine": "Worker",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [],
+  "costTotal": 0,
+  "rarity": "Common",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "This Worker enters deactivated.\n[A]: Generate [1].\n[A]: Generate [2 Lightning] and put a Doom Counter on this Worker. Then, if it has 2 or more Doom Counters, sacrifice it.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/restless-coilhand.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "restless_offering",
   "slug": "restless-offering",
   "name": "Restless Offering",
@@ -59786,6 +60545,52 @@
   "level": null,
   "duration": null,
   "image": "/cards/lightning/restless-spark.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "reversed_polarity",
+  "slug": "reversed-polarity",
+  "name": "Reversed Polarity",
+  "type": "Spell",
+  "typeLine": "Spell - Hex",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 5,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Switch target Summon's Life and Magic until the end of turn. (If its Life becomes 0, it perishes.)",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/reversed-polarity.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -60391,6 +61196,53 @@
   "level": null,
   "duration": null,
   "image": "/cards/ice/rimewing-elemental.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "ring_for_the_talentless",
+  "slug": "ring-for-the-talentless",
+  "name": "Ring for the Talentless",
+  "type": "Item",
+  "typeLine": "Item - Equipment, Accessory",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Equipment",
+   "Accessory"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 1,
+  "rarity": "Rare",
+  "limit": 2,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [
+   "Resonance"
+  ],
+  "text": "Durability 2\nResonance - Whenever another Summon enters, you may have the equipped Summon gain that Summon's abilities until the end of turn.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/ring-for-the-talentless.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -73144,9 +73996,9 @@
   "movement": 2,
   "combat": "Magic Combat R1",
   "keywords": [
-   "Perpetual"
+   "Resonance"
   ],
-  "text": "Perpetual - Whenever a Trap you control deals damage to a Summon, that Summon becomes Shocked after the damage is dealt.",
+  "text": "Resonance - Whenever a Trap you control deals damage to a Summon, that Summon becomes Shocked after the damage is dealt.",
   "summonSpells": "",
   "activationCost": [],
   "workerCost": null,
@@ -73350,6 +74202,57 @@
   "level": null,
   "duration": null,
   "image": "/cards/lightning/stormeye-bird.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "stormeye_naga",
+  "slug": "stormeye-naga",
+  "name": "Stormeye Naga",
+  "type": "Summon",
+  "typeLine": "Summon - Naga, Shaman",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Naga",
+   "Shaman"
+  ],
+  "cost": [
+   {
+    "n": "4",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 5,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 4,
+  "mana": 0,
+  "attack": 0,
+  "defense": 0,
+  "magic": 3,
+  "resistance": 2,
+  "movement": 2,
+  "combat": "Magic Combat R1",
+  "keywords": [
+   "Glare"
+  ],
+  "text": "Glare - Target enemy Summon exactly 2 fields away becomes Shocked.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/stormeye-naga.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -79101,6 +80004,48 @@
   "imageHeight": 709
  },
  {
+  "id": "thunderclap",
+  "slug": "thunderclap",
+  "name": "Thunderclap",
+  "type": "Spell",
+  "typeLine": "Spell - Hex",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 1,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Thunderclap deals 3 damage to each Guardian.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/thunderclap.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "thundergods_gift",
   "slug": "thundergods-gift",
   "name": "Thundergod's Gift",
@@ -80839,6 +81784,57 @@
   "imageHeight": 709
  },
  {
+  "id": "trapwarden_golem",
+  "slug": "trapwarden-golem",
+  "name": "Trapwarden Golem",
+  "type": "Summon",
+  "typeLine": "Summon - Golem, Construct",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Golem",
+   "Construct"
+  ],
+  "cost": [
+   {
+    "n": "6",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 7,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 9,
+  "mana": 0,
+  "attack": 4,
+  "defense": 2,
+  "magic": 0,
+  "resistance": 2,
+  "movement": 1,
+  "combat": "Close Combat",
+  "keywords": [
+   "Manifest"
+  ],
+  "text": "Manifest - Return target Trap card from your graveyard to your hand.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/trapwarden-golem.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "treacherous_river",
   "slug": "treacherous-river",
   "name": "Treacherous River",
@@ -82437,6 +83433,52 @@
   "level": null,
   "duration": null,
   "image": "/cards/light/unmaking-light.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "unmitigated_anger",
+  "slug": "unmitigated-anger",
+  "name": "Unmitigated Anger",
+  "type": "Spell",
+  "typeLine": "Spell - Ritual",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "3",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 6,
+  "rarity": "Special Rare",
+  "limit": 2,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Preparation Time - 3\nUntil the end of turn, Summons you control get +1A/+1M and each of them gains an additional attack.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": 3,
+  "image": "/cards/lightning/unmitigated-anger.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -86985,7 +88027,7 @@
   "slug": "whisperwing-adept",
   "name": "Whisperwing Adept",
   "type": "Summon",
-  "typeLine": "Summon - Garuda, Mage",
+  "typeLine": "Summon - Garuda, Wizard",
   "treasure": false,
   "token": false,
   "status": "pool",
@@ -86995,7 +88037,7 @@
   ],
   "subtypes": [
    "Garuda",
-   "Mage"
+   "Wizard"
   ],
   "cost": [
    {
