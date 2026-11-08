@@ -1,8 +1,38 @@
 {
- "version": "Alpha 0.3.141",
- "build": 928,
- "synced": "2026-11-07",
+ "version": "Alpha 0.3.143b",
+ "build": 933,
+ "synced": "2026-11-08",
  "notes": [
+  {
+   "build": 933,
+   "date": "2026-11-08",
+   "version": "0.3.143b",
+   "body": "- Skip is back under End Turn, where the Stack never covers it."
+  },
+  {
+   "build": 932,
+   "date": "2026-11-08",
+   "version": "0.3.143a",
+   "body": "- The game screen, second pass: the piles stand in their own cells, flush, with the Graveyard's own pile; the Guardian sits in the middle of the board; the phase buttons sit centred in the stripe; Skip and a Log button join the stripe, and the settings gear is back in the top-right corner; the Permanents box is the designer's own art."
+  },
+  {
+   "build": 931,
+   "date": "2026-11-07",
+   "version": "0.3.143",
+   "body": "- **A new game screen, drawn for 1440p.** The board loses its fat golden rim; the Decks, Graveyards, Treasure Chests and Voids stand in one column on the right, lying flat, with End Turn between the two Voids; a stripe across the middle holds the phases, the turn, the small buttons and the settings gear; the Permanents box is larger, five columns by four rows. At a 1440p window every piece of the new art is drawn pixel for pixel, no longer stretched up.\n- **Labels on everything:** Permanents, Energy, and each pile with its count - \"Deck (49)\", \"Graveyard (7)\", \"Treasure (5)\", \"Void (0)\"."
+  },
+  {
+   "build": 930,
+   "date": "2026-11-07",
+   "version": "0.3.142a",
+   "body": "- **Jötunn War-Chief** has Skyscraper, and gives it to your other Giants as well as +1A/+1R.\n- **Gallowmire's Resonance** goes on the Stack, and asks for its [1 Darkness] as it resolves.\n- **Tornado Quatl** shows the cards each player discards.\n- **Spider tokens** from Underworld Spider (and ten other cards that create tokens or bring a Summon back) show their summoning sickness.\n- **\"Up to one\" board picks** (Belltower Vampire's Onslaught and others): the Confirm button sits by the card that asks, never over a Summon you could click, instead of over the opponent's graveyard.\n- Gallowmire's name sits a little higher on its face."
+  },
+  {
+   "build": 929,
+   "date": "2026-11-07",
+   "version": "0.3.142",
+   "body": "- **Fifteen new pre-cons**, so every player can pick them (they were the designer's own saved decks, which only exist on one machine): Ansit's Arcane, Aruni's Aerials, Ashka's Ashes, Durrim's Demure, Ghorrun's Goring, Glemra's Glitter, Isrun's Inscription, Itzaca's Ions, Mahrun's Mane, Qadir's Quickening, The Joined's Jubilee, Thurgan's Temper, Vishara's Venom, Vorrek's Violance and Ysmera's Idyll."
+  },
   {
    "build": 928,
    "date": "2026-11-07",
@@ -20,36 +50,6 @@
    "date": "2026-11-06",
    "version": "0.3.140",
    "body": "- **The Lightning batch, part two: six new cards**, and Lightning's slots are full. Ring for the Talentless and Ionomancer (Rares); Unmitigated Anger, Borrowed Lightning, Plasma Field and Disrupted Vectors (Special Rares).\n- **A card can make you lose:** Borrowed Lightning's [2][2 Lightning] is paid at the next End Phase, or its caster loses the game.\n- Ring for the Talentless hands on the entering Summon's keywords; its other abilities aren't lent yet."
-  },
-  {
-   "build": 925,
-   "date": "2026-11-06",
-   "version": "0.3.139",
-   "body": "- **The Lightning batch, part one: sixteen new cards.** Restless Coilhand, Trapwarden Golem, Charged Up, Stormeye Naga, Galvanic Baton, Live Ground, Fulgurite Strike, Nerve Jolt and Rakshasa Tithe-Taker (Commons); Lost in Chaos, Reversed Polarity, Quatl Pathfinder, Thunderclap, Afterimage, Arc Reversal and Raining Bolts (Uncommons). The Rares and Special Rares follow.\n- **Shocking Ground**, Lightning's hazard: a Summon that enters it is Shocked until its controller's next Active Phase. It lasts 3 rounds.\n- **Rakshasa** is a new tribe.\n- Pyromaniac and Cryomancer reworded (\"Perpetual - Spells you control that ...\"), same effect; Whisperwing Adept is a Wizard.\n- Meek Counters show on the board with the designer's new icon.\n- The computer sacrifices to Soul-Hungry Locket more carefully: tokens, Summons that can't act, and cheap Demise cards - never a strong working Summon."
-  },
-  {
-   "build": 924,
-   "date": "2026-11-06",
-   "version": "0.3.138h",
-   "body": "- **The attacker picks the protector for a Spell too.** When you cast a Spell that deals damage or life loss at a Guardian with two or more Guardprotect protectors, you are asked which of them takes it, the same way a Shockwave asks at the attack. Hits that aren't aimed (drains, Demise, Traps, Curses) still go to the protector closest to death."
-  },
-  {
-   "build": 923,
-   "date": "2026-11-06",
-   "version": "0.3.138g",
-   "body": "Four rulings the game did not follow yet:\n- **A Summon pushed, pulled or swapped onto your Step Trap sets it off** (the forced-movement ruling). Sliding over one still does not, and Gallows Step and the other \"moves onto\" Traps still want the Summon's own move.\n- **Mordrec's Gabl is a true replacement:** a Summon he sends into the Void instead of the graveyard fires no Demise. He asks at the death, before anything resolves.\n- **Crystal Bastion is one of the protectors you pick from:** a Shockwave asks which protector takes it (Bastion or Summon) on a Summon or a Building. With no pick, the one nearest death takes it.\n- **Goad adds up:** a printed Goad plus Bountyleaf Ranger's granted Goad is +2. Before, the printed one hid the grant. Two Rangers give Goad 2.\n- **The rules codex** now carries the five forced-movement rulings of 2026-09-29 (rules-core.md, Movement)."
-  },
-  {
-   "build": 922,
-   "date": "2026-11-06",
-   "version": "0.3.138f",
-   "body": "The designer's rulings on the website's open points:\n- **A kill resolves inside combat, Onslaught after it.** When one attack kills, its Dominate and the victim's Demise now resolve before the attacker's Onslaught.\n- **Elusive answers any ability that targets its Summon** - an enemy Manifest, Infiltrate or Agility included, not only Spells and activated abilities.\n- **Nothing is immune to Poison:** the last of the old Mechanical exception is gone from Venomous and Contagious.\n- **In-game reminders corrected:** Chill (\"deactivates and depletes; a target already deactivated becomes Frozen\"), Devotion (a taunt - \"enemies can't attack your other Summons in its zone\"; it absorbs nothing), Shadow Step and Shadow Cloak (\"if active\").\n- **The rules codex** records those rulings, Petrified as an ordinary ailment that a cleanse removes, and ten stale passages fixed (Fogged against Guardians, Stealth against attacks, Leaping, Deep Infiltration, Seabound, the Avert count, spelling)."
-  },
-  {
-   "build": 921,
-   "date": "2026-11-06",
-   "version": "0.3.138e",
-   "body": "- **Wild Blessing and Safe Scouting can be cast again.** Neither accepted any target - not even yours - since they were added; a new test sweeps every targeted Spell for that gap.\n- **The computer no longer stops playing when it has a Trap set.** The Energy it keeps back to spring the Trap was added to every price, a free Worker's included, so it could sit for turns with cards in hand; a free play is never held back now.\n- **The computer listens to its own \"no\" for 32 Spells.** Their rules said not to cast them (The Final Dawn on a full board of its own, Forestry with no Nature Worker in the deck, Northern Lore from a deck of five...), and a general rule cast them anyway.\n- **The computer casts Savage Pounce and Anticipation** (it planned them and never said X, so the cast was refused), Anticipation on the Summons its plan chose, and **Quick Reflexes** only when there is a discarded Lightning card to return."
   }
  ]
 }

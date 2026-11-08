@@ -4108,5 +4108,1654 @@
    "mimic_remains",
    "vampiric_mimic"
   ]
+ },
+ {
+  "id": "ansits_arcane",
+  "slug": "ansits-arcane",
+  "name": "Ansit's Arcane",
+  "guardian": "ansit_the_researcher",
+  "main": [
+   {
+    "id": "arcane_rifleman",
+    "count": 2
+   },
+   {
+    "id": "borrowed_shape",
+    "count": 2
+   },
+   {
+    "id": "clean_sweep",
+    "count": 1
+   },
+   {
+    "id": "crows_nest_cutthroat",
+    "count": 2
+   },
+   {
+    "id": "delaying_blow",
+    "count": 2
+   },
+   {
+    "id": "dragon_egg_adept",
+    "count": 1
+   },
+   {
+    "id": "elmyst_gliding_presence",
+    "count": 1
+   },
+   {
+    "id": "galehand_adept",
+    "count": 2
+   },
+   {
+    "id": "garuda_druid",
+    "count": 1
+   },
+   {
+    "id": "gust_sprite",
+    "count": 2
+   },
+   {
+    "id": "leap",
+    "count": 2
+   },
+   {
+    "id": "lost_in_the_squall",
+    "count": 2
+   },
+   {
+    "id": "magpie_windcaller",
+    "count": 2
+   },
+   {
+    "id": "pocket_magus",
+    "count": 2
+   },
+   {
+    "id": "quick_study",
+    "count": 1
+   },
+   {
+    "id": "rolling_fog",
+    "count": 1
+   },
+   {
+    "id": "sailwright",
+    "count": 18
+   },
+   {
+    "id": "shimmer",
+    "count": 2
+   },
+   {
+    "id": "skjaldvang_the_silver_ward",
+    "count": 2
+   },
+   {
+    "id": "storm_eye_pendant",
+    "count": 2
+   },
+   {
+    "id": "twister_mage",
+    "count": 1
+   },
+   {
+    "id": "updraft",
+    "count": 2
+   },
+   {
+    "id": "whisperwing_adept",
+    "count": 2
+   }
+  ],
+  "chest": [
+   "forbidden_tornado",
+   "sundering_gale",
+   "horn_of_parting",
+   "mirage_legion",
+   "puram_the_sky_guardian"
+  ]
+ },
+ {
+  "id": "arunis_aerials",
+  "slug": "arunis-aerials",
+  "name": "Aruni's Aerials",
+  "guardian": "aruni_talon_of_the_high_winds",
+  "main": [
+   {
+    "id": "aerial_infiltrator",
+    "count": 2
+   },
+   {
+    "id": "aerial_superiority",
+    "count": 2
+   },
+   {
+    "id": "big_storm",
+    "count": 1
+   },
+   {
+    "id": "cloudmane_elemental",
+    "count": 2
+   },
+   {
+    "id": "combat_griffin",
+    "count": 2
+   },
+   {
+    "id": "heavenly_tengu",
+    "count": 1
+   },
+   {
+    "id": "howling_heights",
+    "count": 1
+   },
+   {
+    "id": "jet_stream",
+    "count": 2
+   },
+   {
+    "id": "locomagic",
+    "count": 1
+   },
+   {
+    "id": "lost_and_found",
+    "count": 1
+   },
+   {
+    "id": "owl_sky_rider",
+    "count": 2
+   },
+   {
+    "id": "quickwing_harpy",
+    "count": 1
+   },
+   {
+    "id": "raven_flock",
+    "count": 2
+   },
+   {
+    "id": "ravencaller_mystic",
+    "count": 2
+   },
+   {
+    "id": "sailwright",
+    "count": 18
+   },
+   {
+    "id": "sphinx_of_secret_names",
+    "count": 1
+   },
+   {
+    "id": "sudden_crosswind",
+    "count": 1
+   },
+   {
+    "id": "swept_apart",
+    "count": 1
+   },
+   {
+    "id": "swift_assault",
+    "count": 2
+   },
+   {
+    "id": "switch",
+    "count": 2
+   },
+   {
+    "id": "tailwind_charge",
+    "count": 2
+   },
+   {
+    "id": "talon_ambush",
+    "count": 1
+   },
+   {
+    "id": "tradewind_djinn",
+    "count": 1
+   },
+   {
+    "id": "valkyrie_squire",
+    "count": 2
+   },
+   {
+    "id": "windshifter",
+    "count": 2
+   }
+  ],
+  "chest": [
+   "forsaken_skycaptain",
+   "squallbreaker_glaive",
+   "puram_the_sky_guardian",
+   "mantle_of_roaming",
+   "windswept_mimic"
+  ]
+ },
+ {
+  "id": "ashkas_ashes",
+  "slug": "ashkas-ashes",
+  "name": "Ashka's Ashes",
+  "guardian": "ashka_pyre_tongue",
+  "main": [
+   {
+    "id": "ash_eater_goblin",
+    "count": 2
+   },
+   {
+    "id": "ashen_firebreak",
+    "count": 1
+   },
+   {
+    "id": "ashfall_dragon",
+    "count": 1
+   },
+   {
+    "id": "backdraft",
+    "count": 1
+   },
+   {
+    "id": "blaze_contagion",
+    "count": 1
+   },
+   {
+    "id": "blazewing_garuda",
+    "count": 2
+   },
+   {
+    "id": "crucible_pit",
+    "count": 1
+   },
+   {
+    "id": "curse_of_embers",
+    "count": 2
+   },
+   {
+    "id": "ember_caldera",
+    "count": 1
+   },
+   {
+    "id": "ember_heart",
+    "count": 1
+   },
+   {
+    "id": "ember_trader",
+    "count": 2
+   },
+   {
+    "id": "emberscale_lizard",
+    "count": 3
+   },
+   {
+    "id": "fire_golem",
+    "count": 3
+   },
+   {
+    "id": "kindlemaster",
+    "count": 2
+   },
+   {
+    "id": "kindling_archer",
+    "count": 2
+   },
+   {
+    "id": "melt_down",
+    "count": 1
+   },
+   {
+    "id": "molten_starfall",
+    "count": 1
+   },
+   {
+    "id": "pyrebrand_drake",
+    "count": 2
+   },
+   {
+    "id": "rolling_inferno",
+    "count": 1
+   },
+   {
+    "id": "sabotage",
+    "count": 1
+   },
+   {
+    "id": "scorched_hauberk",
+    "count": 2
+   },
+   {
+    "id": "scorched_path",
+    "count": 2
+   },
+   {
+    "id": "smoldering_infiltrator",
+    "count": 2
+   },
+   {
+    "id": "smoldering_strider",
+    "count": 2
+   },
+   {
+    "id": "sulfur_miner",
+    "count": 16
+   }
+  ],
+  "chest": [
+   "ashfall",
+   "cinder_heart_brazier",
+   "twin_wick_lantern",
+   "banner_of_victory",
+   "censer_of_treason"
+  ]
+ },
+ {
+  "id": "durrims_demure",
+  "slug": "durrims-demure",
+  "name": "Durrim's Demure",
+  "guardian": "durrim_unbroken_stone",
+  "main": [
+   {
+    "id": "a_giant_stirs",
+    "count": 2
+   },
+   {
+    "id": "blasting_charge",
+    "count": 1
+   },
+   {
+    "id": "bridge_troll",
+    "count": 2
+   },
+   {
+    "id": "bulwark_slam",
+    "count": 1
+   },
+   {
+    "id": "caltrop_pouch",
+    "count": 2
+   },
+   {
+    "id": "canyon_stalker",
+    "count": 1
+   },
+   {
+    "id": "cave_dwelling_scout",
+    "count": 2
+   },
+   {
+    "id": "cave_troll",
+    "count": 2
+   },
+   {
+    "id": "chest_breaker_orc",
+    "count": 2
+   },
+   {
+    "id": "crush_bones",
+    "count": 2
+   },
+   {
+    "id": "crushed_from_beneath",
+    "count": 1
+   },
+   {
+    "id": "deep_prospector",
+    "count": 1
+   },
+   {
+    "id": "dig_up",
+    "count": 2
+   },
+   {
+    "id": "durrims_will",
+    "count": 2
+   },
+   {
+    "id": "dwarven_smith",
+    "count": 16
+   },
+   {
+    "id": "falling_crag",
+    "count": 2
+   },
+   {
+    "id": "granite_beetle",
+    "count": 2
+   },
+   {
+    "id": "hoard_tallyman",
+    "count": 1
+   },
+   {
+    "id": "landslide",
+    "count": 1
+   },
+   {
+    "id": "minotaur_axe_thrower",
+    "count": 2
+   },
+   {
+    "id": "rockfall",
+    "count": 1
+   },
+   {
+    "id": "rockhurler_centaur",
+    "count": 2
+   },
+   {
+    "id": "rumbling_of_the_giants",
+    "count": 1
+   },
+   {
+    "id": "shifting_foundations",
+    "count": 1
+   },
+   {
+    "id": "split_the_earth",
+    "count": 1
+   },
+   {
+    "id": "vast_mountains",
+    "count": 2
+   }
+  ],
+  "chest": [
+   "swallowing_sinkhole",
+   "mountainheart_maul",
+   "gemstone_desert",
+   "hidden_riches",
+   "diamond_golem"
+  ]
+ },
+ {
+  "id": "ghorruns_goring",
+  "slug": "ghorruns-goring",
+  "name": "Ghorrun's Goring",
+  "guardian": "ghorrun_the_red_horn",
+  "main": [
+   {
+    "id": "agelgar_blood_tongue",
+    "count": 1
+   },
+   {
+    "id": "bleeding_wounds",
+    "count": 2
+   },
+   {
+    "id": "brutal_axe",
+    "count": 2
+   },
+   {
+    "id": "centaurian_headhunter",
+    "count": 1
+   },
+   {
+    "id": "crazed_butcher",
+    "count": 2
+   },
+   {
+    "id": "deadly_spike_trap",
+    "count": 2
+   },
+   {
+    "id": "dwarven_smith",
+    "count": 17
+   },
+   {
+    "id": "flesh_and_stone",
+    "count": 1
+   },
+   {
+    "id": "gorehoove_centaur",
+    "count": 2
+   },
+   {
+    "id": "haemophilia",
+    "count": 2
+   },
+   {
+    "id": "hoard_tallyman",
+    "count": 1
+   },
+   {
+    "id": "impale",
+    "count": 2
+   },
+   {
+    "id": "infected_wounds",
+    "count": 1
+   },
+   {
+    "id": "injur",
+    "count": 2
+   },
+   {
+    "id": "minotaur_gorer",
+    "count": 2
+   },
+   {
+    "id": "minotaur_rammer",
+    "count": 2
+   },
+   {
+    "id": "overrun",
+    "count": 1
+   },
+   {
+    "id": "rabid_warg",
+    "count": 3
+   },
+   {
+    "id": "salted_wounds",
+    "count": 2
+   },
+   {
+    "id": "scattered_spikes",
+    "count": 2
+   },
+   {
+    "id": "spike_monitor",
+    "count": 2
+   },
+   {
+    "id": "stonehorn_minotaur",
+    "count": 1
+   },
+   {
+    "id": "waraxe_minotaur",
+    "count": 2
+   }
+  ],
+  "chest": [
+   "cairnstone_mimic",
+   "swallowing_sinkhole",
+   "mountainheart_maul",
+   "valuables_pest",
+   "kiwtryns_legacy"
+  ]
+ },
+ {
+  "id": "glemras_glitter",
+  "slug": "glemras-glitter",
+  "name": "Glemra's Glitter",
+  "guardian": "glemra_the_hollow_memory",
+  "main": [
+   {
+    "id": "avalanche",
+    "count": 2
+   },
+   {
+    "id": "avalanche_maul",
+    "count": 1
+   },
+   {
+    "id": "floe_otters",
+    "count": 3
+   },
+   {
+    "id": "frost_archivist",
+    "count": 3
+   },
+   {
+    "id": "frostwyrm",
+    "count": 2
+   },
+   {
+    "id": "frozen_assets",
+    "count": 1
+   },
+   {
+    "id": "hourglass_spire",
+    "count": 1
+   },
+   {
+    "id": "hunters_skis",
+    "count": 2
+   },
+   {
+    "id": "ice_sculpturer",
+    "count": 2
+   },
+   {
+    "id": "ice_spear_soldier",
+    "count": 3
+   },
+   {
+    "id": "loot_the_library",
+    "count": 2
+   },
+   {
+    "id": "pillagers_pact",
+    "count": 2
+   },
+   {
+    "id": "rime_chrysalis",
+    "count": 2
+   },
+   {
+    "id": "rime_scholar",
+    "count": 3
+   },
+   {
+    "id": "rune_of_remembrance",
+    "count": 1
+   },
+   {
+    "id": "shambolic_shaman",
+    "count": 3
+   },
+   {
+    "id": "snow_glider",
+    "count": 16
+   },
+   {
+    "id": "snow_glutton",
+    "count": 2
+   },
+   {
+    "id": "unequal_exchange",
+    "count": 2
+   },
+   {
+    "id": "yuki_onna_guide",
+    "count": 2
+   }
+  ],
+  "chest": [
+   "trapped_winter",
+   "snow_covered_mimic",
+   "memory_mirror",
+   "shard_of_the_deep_freeze",
+   "refraction_mimic"
+  ]
+ },
+ {
+  "id": "isruns_inscription",
+  "slug": "isruns-inscription",
+  "name": "Isrun's Inscription",
+  "guardian": "isrun_cipher_keeper",
+  "main": [
+   {
+    "id": "avalanche_maul",
+    "count": 1
+   },
+   {
+    "id": "boreal_torc",
+    "count": 1
+   },
+   {
+    "id": "dwarven_hailslinger",
+    "count": 2
+   },
+   {
+    "id": "dwarven_loremaster",
+    "count": 2
+   },
+   {
+    "id": "dwarven_runecarver",
+    "count": 2
+   },
+   {
+    "id": "everfrost_sigil",
+    "count": 1
+   },
+   {
+    "id": "firn_arbalest",
+    "count": 1
+   },
+   {
+    "id": "frost_rune_brand",
+    "count": 2
+   },
+   {
+    "id": "frostrune_thane",
+    "count": 2
+   },
+   {
+    "id": "halfway_there",
+    "count": 1
+   },
+   {
+    "id": "holdfast_dwarf",
+    "count": 2
+   },
+   {
+    "id": "inscription_of_binding",
+    "count": 1
+   },
+   {
+    "id": "inscription_of_frost",
+    "count": 2
+   },
+   {
+    "id": "inscription_of_the_heirloom",
+    "count": 1
+   },
+   {
+    "id": "rimeforge_rune_lord",
+    "count": 2
+   },
+   {
+    "id": "rune_bound_dwarf",
+    "count": 3
+   },
+   {
+    "id": "rune_of_sudden_frost",
+    "count": 2
+   },
+   {
+    "id": "rune_of_the_cold_shield",
+    "count": 2
+   },
+   {
+    "id": "rune_of_the_deep_cold",
+    "count": 1
+   },
+   {
+    "id": "runeling_apprentice",
+    "count": 3
+   },
+   {
+    "id": "serac_plate",
+    "count": 1
+   },
+   {
+    "id": "snow_glider",
+    "count": 18
+   },
+   {
+    "id": "spirit_of_the_snow_lion",
+    "count": 2
+   }
+  ],
+  "chest": [
+   "refraction_mimic",
+   "snow_covered_mimic",
+   "rimecrack",
+   "aegis_of_permafrost",
+   "shard_of_the_deep_freeze"
+  ]
+ },
+ {
+  "id": "itzacas_ions",
+  "slug": "itzacas-ions",
+  "name": "Itzaca's Ions",
+  "guardian": "itzaca_storm_speaker",
+  "main": [
+   {
+    "id": "arcing_mail",
+    "count": 2
+   },
+   {
+    "id": "bolt_double_team",
+    "count": 2
+   },
+   {
+    "id": "charged_air",
+    "count": 1
+   },
+   {
+    "id": "clear_sky_quatl",
+    "count": 2
+   },
+   {
+    "id": "conduction_mechanic",
+    "count": 16
+   },
+   {
+    "id": "fulgurite_strike",
+    "count": 3
+   },
+   {
+    "id": "galvanize",
+    "count": 1
+   },
+   {
+    "id": "lightning_blast",
+    "count": 2
+   },
+   {
+    "id": "lightning_strike",
+    "count": 1
+   },
+   {
+    "id": "live_ground",
+    "count": 1
+   },
+   {
+    "id": "nerve_jolt",
+    "count": 2
+   },
+   {
+    "id": "paralyzing_static",
+    "count": 2
+   },
+   {
+    "id": "plasma_field",
+    "count": 1
+   },
+   {
+    "id": "quivering_rapier",
+    "count": 2
+   },
+   {
+    "id": "raiju_pup",
+    "count": 2
+   },
+   {
+    "id": "reversed_polarity",
+    "count": 1
+   },
+   {
+    "id": "rod_tender",
+    "count": 2
+   },
+   {
+    "id": "skybreaker_bolt",
+    "count": 1
+   },
+   {
+    "id": "static_impulse",
+    "count": 2
+   },
+   {
+    "id": "storm_capacitor",
+    "count": 1
+   },
+   {
+    "id": "stormeye_naga",
+    "count": 2
+   },
+   {
+    "id": "stormshear",
+    "count": 1
+   },
+   {
+    "id": "thunder_rage",
+    "count": 2
+   },
+   {
+    "id": "thunderhead_wyrm",
+    "count": 1
+   },
+   {
+    "id": "volt_biter",
+    "count": 2
+   }
+  ],
+  "chest": [
+   "forked_sky",
+   "shyrads_verdict",
+   "static_mimic",
+   "stormbattery_idol",
+   "iammorth_the_furious"
+  ]
+ },
+ {
+  "id": "mahruns_mane",
+  "slug": "mahruns-mane",
+  "name": "Mahrun's Mane",
+  "guardian": "mahrun_herdmother",
+  "main": [
+   {
+    "id": "ashaut_alpha",
+    "count": 1
+   },
+   {
+    "id": "bramblehide_beast",
+    "count": 3
+   },
+   {
+    "id": "deep_wood_gardener",
+    "count": 14
+   },
+   {
+    "id": "devouring_slime",
+    "count": 2
+   },
+   {
+    "id": "ferity",
+    "count": 2
+   },
+   {
+    "id": "grove_keeper",
+    "count": 2
+   },
+   {
+    "id": "hardy_growth",
+    "count": 2
+   },
+   {
+    "id": "herbshell_tortoise",
+    "count": 2
+   },
+   {
+    "id": "overgrowth",
+    "count": 2
+   },
+   {
+    "id": "packs_dominion",
+    "count": 2
+   },
+   {
+    "id": "pilgrims_charm",
+    "count": 2
+   },
+   {
+    "id": "primal_surge",
+    "count": 2
+   },
+   {
+    "id": "rally_of_the_grove",
+    "count": 2
+   },
+   {
+    "id": "rampage_beast",
+    "count": 2
+   },
+   {
+    "id": "root_hydra",
+    "count": 2
+   },
+   {
+    "id": "season_of_abundance",
+    "count": 1
+   },
+   {
+    "id": "shed_skin",
+    "count": 2
+   },
+   {
+    "id": "skittish_grazer",
+    "count": 2
+   },
+   {
+    "id": "stand_your_ground",
+    "count": 2
+   },
+   {
+    "id": "thistlehorn",
+    "count": 2
+   },
+   {
+    "id": "thornwood_reserve",
+    "count": 2
+   },
+   {
+    "id": "thunderhoof_herd",
+    "count": 1
+   },
+   {
+    "id": "verdant_infusion",
+    "count": 1
+   }
+  ],
+  "chest": [
+   "snaring_vines",
+   "thornmane_behemoth",
+   "overflowing_cornucopia",
+   "bound_by_the_thornwood",
+   "community_safe"
+  ]
+ },
+ {
+  "id": "qadirs_quickening",
+  "slug": "qadirs-quickening",
+  "name": "Qadir's Quickening",
+  "guardian": "qadir_the_recalling_breeze",
+  "main": [
+   {
+    "id": "blown_back",
+    "count": 1
+   },
+   {
+    "id": "cliffside_rigger",
+    "count": 2
+   },
+   {
+    "id": "daydream",
+    "count": 1
+   },
+   {
+    "id": "enticing_djinn",
+    "count": 1
+   },
+   {
+    "id": "garuda_fledgling",
+    "count": 3
+   },
+   {
+    "id": "garuda_sky_warrior",
+    "count": 2
+   },
+   {
+    "id": "garudapura",
+    "count": 1
+   },
+   {
+    "id": "glider_harness",
+    "count": 1
+   },
+   {
+    "id": "herjar_warband",
+    "count": 2
+   },
+   {
+    "id": "homing_swift",
+    "count": 2
+   },
+   {
+    "id": "loose_standing",
+    "count": 1
+   },
+   {
+    "id": "sailwright",
+    "count": 16
+   },
+   {
+    "id": "samara",
+    "count": 2
+   },
+   {
+    "id": "sheltering_clouds",
+    "count": 1
+   },
+   {
+    "id": "skyward_herald",
+    "count": 2
+   },
+   {
+    "id": "storming_plate_glider",
+    "count": 2
+   },
+   {
+    "id": "swept_apart",
+    "count": 2
+   },
+   {
+    "id": "turning_wind",
+    "count": 2
+   },
+   {
+    "id": "unburdened",
+    "count": 1
+   },
+   {
+    "id": "updraft_dancer",
+    "count": 1
+   },
+   {
+    "id": "vortex_trap",
+    "count": 1
+   },
+   {
+    "id": "wanderlust",
+    "count": 1
+   },
+   {
+    "id": "weathervane",
+    "count": 1
+   },
+   {
+    "id": "windborne_courier",
+    "count": 2
+   },
+   {
+    "id": "windscribe_navigator",
+    "count": 1
+   },
+   {
+    "id": "windshifter",
+    "count": 1
+   },
+   {
+    "id": "windwall_archer",
+    "count": 2
+   }
+  ],
+  "chest": [
+   "forbidden_tornado",
+   "squallbreaker_glaive",
+   "mirage_legion",
+   "puram_the_sky_guardian",
+   "horn_of_parting"
+  ]
+ },
+ {
+  "id": "the_joineds_jubilee",
+  "slug": "the-joineds-jubilee",
+  "name": "The Joined's Jubilee",
+  "guardian": "the_joined",
+  "main": [
+   {
+    "id": "chain_lightning",
+    "count": 1
+   },
+   {
+    "id": "charged_up",
+    "count": 1
+   },
+   {
+    "id": "clearsight_lens",
+    "count": 1
+   },
+   {
+    "id": "closing_circuit",
+    "count": 2
+   },
+   {
+    "id": "conduction_mechanic",
+    "count": 18
+   },
+   {
+    "id": "drawn_together",
+    "count": 2
+   },
+   {
+    "id": "focal_point",
+    "count": 1
+   },
+   {
+    "id": "fulgurite_dunes",
+    "count": 1
+   },
+   {
+    "id": "galvanize",
+    "count": 1
+   },
+   {
+    "id": "kinbond",
+    "count": 1
+   },
+   {
+    "id": "kinthread_circlet",
+    "count": 1
+   },
+   {
+    "id": "outcasts_harness",
+    "count": 1
+   },
+   {
+    "id": "parallel_circuit",
+    "count": 2
+   },
+   {
+    "id": "sovereigns_arc",
+    "count": 1
+   },
+   {
+    "id": "the_conduit",
+    "count": 2
+   },
+   {
+    "id": "the_dim",
+    "count": 4
+   },
+   {
+    "id": "the_echo",
+    "count": 2
+   },
+   {
+    "id": "the_hum",
+    "count": 2
+   },
+   {
+    "id": "the_long_standing",
+    "count": 2
+   },
+   {
+    "id": "the_setting_one",
+    "count": 2
+   },
+   {
+    "id": "the_stepping_one",
+    "count": 2
+   },
+   {
+    "id": "the_unjoined",
+    "count": 2
+   },
+   {
+    "id": "thunderhead",
+    "count": 2
+   },
+   {
+    "id": "wayfinders_mantle",
+    "count": 1
+   }
+  ],
+  "chest": [
+   "unstruck_sleeper",
+   "shyrads_verdict",
+   "forked_sky",
+   "static_mimic",
+   "iammorth_the_furious"
+  ]
+ },
+ {
+  "id": "thurgans_temper",
+  "slug": "thurgans-temper",
+  "name": "Thurgan's Temper",
+  "guardian": "thurgan_forge_father",
+  "main": [
+   {
+    "id": "burning_flail",
+    "count": 1
+   },
+   {
+    "id": "cave_cyclops",
+    "count": 2
+   },
+   {
+    "id": "dwarven_armsmith",
+    "count": 2
+   },
+   {
+    "id": "dwarven_forge_lord",
+    "count": 2
+   },
+   {
+    "id": "dwarven_forgemaster",
+    "count": 2
+   },
+   {
+    "id": "ember_anvil_dwarf",
+    "count": 2
+   },
+   {
+    "id": "exterminate",
+    "count": 2
+   },
+   {
+    "id": "falchion",
+    "count": 1
+   },
+   {
+    "id": "fire_spark",
+    "count": 2
+   },
+   {
+    "id": "fire_wall",
+    "count": 1
+   },
+   {
+    "id": "flaming_daggers",
+    "count": 2
+   },
+   {
+    "id": "fury_fighter",
+    "count": 3
+   },
+   {
+    "id": "goatback_berserker",
+    "count": 2
+   },
+   {
+    "id": "goblin_gearhoarder",
+    "count": 2
+   },
+   {
+    "id": "lizard_archer",
+    "count": 2
+   },
+   {
+    "id": "loot_the_battlefield",
+    "count": 1
+   },
+   {
+    "id": "magma_forged_greatsword",
+    "count": 1
+   },
+   {
+    "id": "overheat",
+    "count": 2
+   },
+   {
+    "id": "pyre_lance",
+    "count": 2
+   },
+   {
+    "id": "siege_foundry",
+    "count": 2
+   },
+   {
+    "id": "sulfur_miner",
+    "count": 18
+   },
+   {
+    "id": "twinfang_axe",
+    "count": 1
+   }
+  ],
+  "chest": [
+   "ashfall",
+   "banner_of_victory",
+   "spitefire",
+   "cinder_heart_brazier",
+   "censer_of_treason"
+  ]
+ },
+ {
+  "id": "visharas_venom",
+  "slug": "visharas-venom",
+  "name": "Vishara's Venom",
+  "guardian": "vishara_the_venom_coil",
+  "main": [
+   {
+    "id": "acid_spitter",
+    "count": 2
+   },
+   {
+    "id": "brood_clutch",
+    "count": 2
+   },
+   {
+    "id": "coil_up",
+    "count": 2
+   },
+   {
+    "id": "curse_of_lingering_venom",
+    "count": 2
+   },
+   {
+    "id": "deep_wood_gardener",
+    "count": 16
+   },
+   {
+    "id": "grove_keeper",
+    "count": 1
+   },
+   {
+    "id": "jungle_trap",
+    "count": 2
+   },
+   {
+    "id": "mesmerizing_hood",
+    "count": 2
+   },
+   {
+    "id": "naga_broodmother",
+    "count": 2
+   },
+   {
+    "id": "naga_hatchling",
+    "count": 2
+   },
+   {
+    "id": "naga_venom_spitter",
+    "count": 2
+   },
+   {
+    "id": "nest_of_vipers",
+    "count": 2
+   },
+   {
+    "id": "second_bite",
+    "count": 2
+   },
+   {
+    "id": "serpent_grove",
+    "count": 1
+   },
+   {
+    "id": "swallowed_whole",
+    "count": 2
+   },
+   {
+    "id": "thornwood_reserve",
+    "count": 1
+   },
+   {
+    "id": "toxic_dart",
+    "count": 2
+   },
+   {
+    "id": "toxic_spores",
+    "count": 2
+   },
+   {
+    "id": "venom_brewer",
+    "count": 2
+   },
+   {
+    "id": "venomfang_stalker",
+    "count": 2
+   },
+   {
+    "id": "venomscale_warden",
+    "count": 2
+   },
+   {
+    "id": "viperquill_archer",
+    "count": 2
+   }
+  ],
+  "chest": [
+   "snaring_vines",
+   "community_safe",
+   "bound_by_the_thornwood",
+   "elfish_spring_water",
+   "jungle_mimic"
+  ]
+ },
+ {
+  "id": "vorreks_violance",
+  "slug": "vorreks-violance",
+  "name": "Vorrek's Violance",
+  "guardian": "vorrek_the_bloodroar",
+  "main": [
+   {
+    "id": "ashmane_bellwether",
+    "count": 2
+   },
+   {
+    "id": "blazing_knight",
+    "count": 2
+   },
+   {
+    "id": "bloodlust",
+    "count": 2
+   },
+   {
+    "id": "bloodroar_berserker",
+    "count": 2
+   },
+   {
+    "id": "bloodsoaked_furs",
+    "count": 2
+   },
+   {
+    "id": "brand_of_betrayal",
+    "count": 1
+   },
+   {
+    "id": "curse_of_searing_wounds",
+    "count": 2
+   },
+   {
+    "id": "firebrand_barracks",
+    "count": 1
+   },
+   {
+    "id": "fury_fighter",
+    "count": 2
+   },
+   {
+    "id": "fury_slasher",
+    "count": 2
+   },
+   {
+    "id": "heat_of_battle",
+    "count": 2
+   },
+   {
+    "id": "heated_riposte",
+    "count": 1
+   },
+   {
+    "id": "lava_river",
+    "count": 1
+   },
+   {
+    "id": "rune_of_the_red_mist",
+    "count": 2
+   },
+   {
+    "id": "slag_fist_minotaur",
+    "count": 2
+   },
+   {
+    "id": "sledgehammer_berserker",
+    "count": 2
+   },
+   {
+    "id": "sootgut_skull_crusher",
+    "count": 2
+   },
+   {
+    "id": "sulfur_miner",
+    "count": 18
+   },
+   {
+    "id": "twinfang_axe",
+    "count": 1
+   },
+   {
+    "id": "unpleasant_browbeat",
+    "count": 2
+   },
+   {
+    "id": "war_cry_of_the_scarred",
+    "count": 2
+   },
+   {
+    "id": "war_maddened",
+    "count": 1
+   },
+   {
+    "id": "war_paint",
+    "count": 1
+   }
+  ],
+  "chest": [
+   "fasband_wealth_hoarder",
+   "bloodfire_brand",
+   "censer_of_treason",
+   "ashfall",
+   "cinder_heart_brazier"
+  ]
+ },
+ {
+  "id": "ysmeras_yearning",
+  "slug": "ysmeras-yearning",
+  "name": "Ysmera's Idyll",
+  "guardian": "ysmera_mother_of_reefs",
+  "main": [
+   {
+    "id": "backwash",
+    "count": 1
+   },
+   {
+    "id": "command_of_the_deep",
+    "count": 2
+   },
+   {
+    "id": "curse_of_the_rising_tide",
+    "count": 1
+   },
+   {
+    "id": "dowsing",
+    "count": 1
+   },
+   {
+    "id": "flotsam_and_jetsam",
+    "count": 2
+   },
+   {
+    "id": "high_sea_storm",
+    "count": 2
+   },
+   {
+    "id": "lionfish",
+    "count": 3
+   },
+   {
+    "id": "lost_at_sea",
+    "count": 2
+   },
+   {
+    "id": "lurking_catfish",
+    "count": 2
+   },
+   {
+    "id": "maelstrom_marid",
+    "count": 1
+   },
+   {
+    "id": "mako_shark",
+    "count": 3
+   },
+   {
+    "id": "maw_of_the_trench",
+    "count": 1
+   },
+   {
+    "id": "pearl_collector",
+    "count": 16
+   },
+   {
+    "id": "piranhas",
+    "count": 3
+   },
+   {
+    "id": "ruin_diver",
+    "count": 1
+   },
+   {
+    "id": "salt_water_vanguard",
+    "count": 2
+   },
+   {
+    "id": "shellpicker",
+    "count": 1
+   },
+   {
+    "id": "shoal_of_teeth",
+    "count": 2
+   },
+   {
+    "id": "sluice_gate",
+    "count": 1
+   },
+   {
+    "id": "splash_elemental",
+    "count": 2
+   },
+   {
+    "id": "spring_tide",
+    "count": 1
+   },
+   {
+    "id": "the_great_flood",
+    "count": 1
+   },
+   {
+    "id": "tidepull_squid",
+    "count": 2
+   },
+   {
+    "id": "vast_sea",
+    "count": 1
+   },
+   {
+    "id": "waterlogged",
+    "count": 1
+   }
+  ],
+  "chest": [
+   "clean_slate",
+   "kraken_ink_compass",
+   "undertow_verdict",
+   "pearlmaw_mimic",
+   "sunken_hour"
+  ]
  }
 ]

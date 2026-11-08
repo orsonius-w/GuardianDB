@@ -49,7 +49,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -245,7 +245,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -441,7 +441,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Light",
   "elements": [
    "Light"
@@ -535,7 +535,7 @@
   "typeLine": "Summon - Insect",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -1495,7 +1495,7 @@
   "typeLine": "Summon - Spirit",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -1637,7 +1637,7 @@
   "typeLine": "Summon - Beast",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -1735,7 +1735,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -2868,7 +2868,7 @@
   "typeLine": "Item - Equipment, Armor",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -3100,7 +3100,7 @@
   "typeLine": "Trap - Positionless",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -3192,7 +3192,7 @@
   "typeLine": "Summon - Goblin",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -3242,7 +3242,7 @@
   "typeLine": "Summon - Beast",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -3334,7 +3334,7 @@
   "typeLine": "Trap - Zone, Permanent",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -3485,7 +3485,7 @@
   "typeLine": "Summon - Dragon",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -3573,7 +3573,7 @@
   "typeLine": "Summon - Beast, Berserker",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -3866,7 +3866,7 @@
   "typeLine": "Summon - Insect",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -4000,7 +4000,7 @@
   "typeLine": "Item - Equipment, Weapon",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -4090,7 +4090,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -4375,7 +4375,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Light",
   "elements": [
    "Light"
@@ -4812,7 +4812,7 @@
   "typeLine": "Summon - Gargoyle",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -5435,7 +5435,7 @@
   "typeLine": "Trap - Zone, Permanent",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -5722,7 +5722,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -5768,7 +5768,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -5851,7 +5851,7 @@
   "typeLine": "Summon - Garuda, Warrior",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -5903,7 +5903,7 @@
   "typeLine": "Summon - Human, Knight, Berserker",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -6683,7 +6683,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -6779,7 +6779,7 @@
   "typeLine": "Summon - Human, Berserker",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -6830,7 +6830,7 @@
   "typeLine": "Item - Equipment, Armor",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -6875,7 +6875,7 @@
   "typeLine": "Trap - Positionless",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -7071,7 +7071,7 @@
   "typeLine": "Summon - Human, Artificer",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -7258,7 +7258,7 @@
   "typeLine": "Summon - Undead, Archer",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Darkness",
   "elements": [
    "Darkness"
@@ -7399,7 +7399,7 @@
   "typeLine": "Item - Equipment, Accessory",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -7494,7 +7494,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -8037,7 +8037,7 @@
   "typeLine": "Summon - Troll, Protector",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -8281,7 +8281,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -8428,7 +8428,7 @@
   "typeLine": "Item - Equipment, Weapon",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -8682,7 +8682,7 @@
   "typeLine": "Trap - Positionless",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Light",
   "elements": [
    "Light"
@@ -8737,7 +8737,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -8876,7 +8876,7 @@
   "typeLine": "Item - Equipment, Weapon",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -9245,7 +9245,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Darkness",
   "elements": [
    "Darkness"
@@ -9475,7 +9475,7 @@
   "typeLine": "Item - Artifact",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -9521,7 +9521,7 @@
   "typeLine": "Terrain - Sea",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -9957,7 +9957,7 @@
   "typeLine": "Summon - Human, Cleric",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Light",
   "elements": [
    "Light"
@@ -10151,7 +10151,7 @@
   "typeLine": "Trap - Universal",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -10391,7 +10391,7 @@
   "typeLine": "Summon - Dwarf, Scout",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -11451,7 +11451,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -11590,7 +11590,7 @@
   "typeLine": "Summon - Orc, Warrior",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -11738,7 +11738,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -12154,7 +12154,7 @@
   "typeLine": "Summon - Dragon",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -12579,7 +12579,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -12719,7 +12719,7 @@
   "typeLine": "Item - Equipment, Accessory",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -12960,7 +12960,7 @@
   "typeLine": "Trap - Step",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -13205,7 +13205,7 @@
   "typeLine": "Summon - Elemental",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -13255,7 +13255,7 @@
   "typeLine": "Summon - Human",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -13457,7 +13457,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -13545,7 +13545,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -13926,7 +13926,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Water",
   "elements": [
    "Water"
@@ -15743,7 +15743,7 @@
   "typeLine": "Building - Tower",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -16285,7 +16285,7 @@
   "typeLine": "Summon - Garuda, Pirate",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -16337,7 +16337,7 @@
   "typeLine": "Trap - Universal",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -16440,7 +16440,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -16486,7 +16486,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -16532,7 +16532,7 @@
   "typeLine": "Summon - Cat",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -17106,7 +17106,7 @@
   "typeLine": "Spell - Curse, Curse",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -17292,7 +17292,7 @@
   "typeLine": "Spell - Curse, Curse",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -17342,7 +17342,7 @@
   "typeLine": "Spell - Curse, Curse",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -17488,7 +17488,7 @@
   "typeLine": "Spell - Curse, Curse",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Water",
   "elements": [
    "Water"
@@ -18068,7 +18068,7 @@
   "typeLine": "Summon - Human, Knight",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Light",
   "elements": [
    "Light"
@@ -18440,7 +18440,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -18532,7 +18532,7 @@
   "typeLine": "Trap - Step",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -19700,7 +19700,7 @@
   "typeLine": "Summon - Slime",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -19799,7 +19799,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -20067,7 +20067,7 @@
   "typeLine": "Summon - Human, Scribe",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -20353,7 +20353,7 @@
   "typeLine": "Summon - Human, Cleric",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Light",
   "elements": [
    "Light"
@@ -20889,7 +20889,7 @@
   "typeLine": "Summon - Egg",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -20939,7 +20939,7 @@
   "typeLine": "Summon - Human, Wizard",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -20990,7 +20990,7 @@
   "typeLine": "Spell - Ritual",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -21038,7 +21038,7 @@
   "typeLine": "Item - Storage",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -21132,7 +21132,7 @@
   "typeLine": "Summon - Human, Knight",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -21234,7 +21234,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -21618,7 +21618,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -21660,7 +21660,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -21791,7 +21791,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -22081,7 +22081,7 @@
   "typeLine": "Summon - Dwarf, Artificer",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -22276,7 +22276,7 @@
   "typeLine": "Summon - Dwarf, Artificer",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -22327,7 +22327,7 @@
   "typeLine": "Summon - Dwarf, Artificer",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -22378,7 +22378,7 @@
   "typeLine": "Summon - Dwarf, Archer",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -22476,7 +22476,7 @@
   "typeLine": "Summon - Dwarf, Mystic",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -22665,7 +22665,7 @@
   "typeLine": "Summon - Dwarf, Mystic",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -23190,7 +23190,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Light",
   "elements": [
    "Light"
@@ -23473,7 +23473,7 @@
   "typeLine": "Summon - Beast, Protector",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -23602,7 +23602,7 @@
   "typeLine": "Summon - Elf, Archer",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -23653,7 +23653,7 @@
   "typeLine": "Summon - Human, Dancer",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -24207,7 +24207,7 @@
   "typeLine": "Summon - Elf, Druid",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -24259,7 +24259,7 @@
   "typeLine": "Summon - Elf, Scout",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -24306,7 +24306,7 @@
   "typeLine": "Summon - Dragon, Wizard",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -24357,7 +24357,7 @@
   "typeLine": "Terrain - Volcano",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -24407,7 +24407,7 @@
   "typeLine": "Item - Equipment, Accessory",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -24558,7 +24558,7 @@
   "typeLine": "Worker",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -24597,7 +24597,7 @@
   "typeLine": "Summon - Dwarf, Artificer",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -24648,7 +24648,7 @@
   "typeLine": "Summon - Dragon",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -24698,7 +24698,7 @@
   "typeLine": "Summon - Lizard",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -24881,7 +24881,7 @@
   "typeLine": "Building - Temple",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Light",
   "elements": [
    "Light"
@@ -24978,7 +24978,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -26358,7 +26358,7 @@
   "typeLine": "Item - Equipment, Weapon",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -26547,7 +26547,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -26935,7 +26935,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -27613,7 +27613,7 @@
   "typeLine": "Building - Fortress",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -27712,7 +27712,7 @@
   "typeLine": "Item - Equipment, Weapon",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -27946,7 +27946,7 @@
   "typeLine": "Item - Equipment, Weapon",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -27991,7 +27991,7 @@
   "typeLine": "Summon - Beast, Spirit",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -28187,7 +28187,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -28536,7 +28536,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Water",
   "elements": [
    "Water"
@@ -28582,7 +28582,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -28817,7 +28817,7 @@
   "typeLine": "Treasure",
   "treasure": true,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -29004,7 +29004,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -29953,7 +29953,7 @@
   "typeLine": "Trap - Zone",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Darkness",
   "elements": [
    "Darkness"
@@ -30008,7 +30008,7 @@
   "typeLine": "Summon - Human, Wizard",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -30059,7 +30059,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -30101,7 +30101,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -30237,7 +30237,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -30477,7 +30477,7 @@
   "typeLine": "Summon - Dwarf, Warrior",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -30580,7 +30580,7 @@
   "typeLine": "Summon - Dragon",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -30677,7 +30677,7 @@
   "typeLine": "Trap - Universal",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -30734,7 +30734,7 @@
   "typeLine": "Terrain - Tundra",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -30784,7 +30784,7 @@
   "typeLine": "Terrain - Desert",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -30832,7 +30832,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -31017,7 +31017,7 @@
   "typeLine": "Summon - Human, Berserker",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -31115,7 +31115,7 @@
   "typeLine": "Summon - Human, Knight",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Light",
   "elements": [
    "Light"
@@ -31309,7 +31309,7 @@
   "typeLine": "Summon - Human, Wizard",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -31618,7 +31618,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -31664,7 +31664,7 @@
   "typeLine": "Worker",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -31845,7 +31845,7 @@
   "typeLine": "Summon - Garuda, Druid",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -31943,7 +31943,7 @@
   "typeLine": "Summon - Garuda, Warrior",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -31995,7 +31995,7 @@
   "typeLine": "Summon - Garuda, Knight",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Light",
   "elements": [
    "Light"
@@ -32187,7 +32187,7 @@
   "typeLine": "Building - City",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -32435,7 +32435,7 @@
   "typeLine": "Treasure Terrain - Desert",
   "treasure": true,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -32844,7 +32844,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -32948,7 +32948,7 @@
   "typeLine": "Summon - Golem",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -33320,7 +33320,7 @@
   "typeLine": "Item - Equipment, Armor",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -33773,7 +33773,7 @@
   "typeLine": "Summon - Dwarf, Berserker",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -34243,7 +34243,7 @@
   "typeLine": "Summon - Goblin, Warrior",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -35380,7 +35380,7 @@
   "typeLine": "Summon - Insect, Protector",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -36427,7 +36427,7 @@
   "typeLine": "Summon - Elemental, Spirit",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -36719,7 +36719,7 @@
   "typeLine": "Summon - Giant, Druid",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -36819,7 +36819,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -37168,7 +37168,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -37409,7 +37409,7 @@
   "typeLine": "Summon - Tengu, Warrior",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -37905,7 +37905,7 @@
   "typeLine": "Summon - Spirit, Warrior",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -38614,7 +38614,7 @@
   "typeLine": "Worker",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -39030,7 +39030,7 @@
   "typeLine": "Summon - Dwarf, Protector",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -39232,7 +39232,7 @@
   "typeLine": "Summon - Bird",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -39578,7 +39578,7 @@
   "typeLine": "Building - Tower",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -39624,7 +39624,7 @@
   "typeLine": "Terrain - Sky",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -39911,7 +39911,7 @@
   "typeLine": "Item - Equipment, Accessory",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -40298,7 +40298,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -40422,7 +40422,7 @@
   "typeLine": "Summon - Human, Soldier",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -40616,7 +40616,7 @@
   "typeLine": "Summon - Troll",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -40668,7 +40668,7 @@
   "typeLine": "Summon - Elemental, Lizard",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -40719,7 +40719,7 @@
   "typeLine": "Worker",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Multi",
   "elements": [
    "Water",
@@ -40840,7 +40840,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -41387,7 +41387,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -41709,7 +41709,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -41885,7 +41885,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -42659,7 +42659,7 @@
   "typeLine": "Terrain - Sky",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -42960,7 +42960,7 @@
   "typeLine": "Summon - Giant, Warrior",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -42991,9 +42991,10 @@
   "movement": 1,
   "combat": "Close Combat",
   "keywords": [
+   "Skyscraper",
    "Perpetual"
   ],
-  "text": "Perpetual - Other Giants you control get +1A/+1R.",
+  "text": "Skyscraper\nPerpetual - Other Giants you control get +1A/+1R and have Skyscraper.",
   "summonSpells": "",
   "activationCost": [],
   "workerCost": null,
@@ -43778,7 +43779,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -43824,7 +43825,7 @@
   "typeLine": "Summon - Human, Wizard",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -43875,7 +43876,7 @@
   "typeLine": "Summon - Human, Archer",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -43926,7 +43927,7 @@
   "typeLine": "Item - Equipment, Accessory",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -44445,7 +44446,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -44491,7 +44492,7 @@
   "typeLine": "Terrain - Volcano",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -44579,7 +44580,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -45346,7 +45347,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -45388,7 +45389,7 @@
   "typeLine": "Summon - Human, Knight",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Light",
   "elements": [
    "Light"
@@ -45440,7 +45441,7 @@
   "typeLine": "Summon - Fish",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Water",
   "elements": [
    "Water"
@@ -45492,7 +45493,7 @@
   "typeLine": "Trap - Zone",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -46089,7 +46090,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -46181,7 +46182,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -46227,7 +46228,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -46369,7 +46370,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -46498,7 +46499,7 @@
   "typeLine": "Summon - Human, Knight",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Light",
   "elements": [
    "Light"
@@ -46735,7 +46736,7 @@
   "typeLine": "Summon - Fish",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Water",
   "elements": [
    "Water"
@@ -46888,7 +46889,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -46985,7 +46986,7 @@
   "typeLine": "Summon - Cat, Druid",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -47138,7 +47139,7 @@
   "typeLine": "Summon - Djinn",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Water",
   "elements": [
    "Water"
@@ -47379,7 +47380,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -47480,7 +47481,7 @@
   "typeLine": "Item - Equipment, Weapon",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -47529,7 +47530,7 @@
   "typeLine": "Summon - Garuda, Wizard",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -47673,7 +47674,7 @@
   "typeLine": "Summon - Fish",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Water",
   "elements": [
    "Water"
@@ -48300,7 +48301,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -48438,7 +48439,7 @@
   "typeLine": "Summon - Elephant",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -48534,7 +48535,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -48902,7 +48903,7 @@
   "typeLine": "Summon - Minotaur, Rogue",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -48953,7 +48954,7 @@
   "typeLine": "Summon - Minotaur",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -49003,7 +49004,7 @@
   "typeLine": "Summon - Minotaur",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -49053,7 +49054,7 @@
   "typeLine": "Summon - Minotaur, Protector",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -49192,7 +49193,7 @@
   "typeLine": "Treasure Spell - Rune, Rune",
   "treasure": true,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -49570,7 +49571,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -49791,7 +49792,7 @@
   "typeLine": "Summon - Giant, Plant",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -50333,7 +50334,7 @@
   "typeLine": "Summon - Naga, Mystic",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -50384,7 +50385,7 @@
   "typeLine": "Summon - Naga",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -50476,7 +50477,7 @@
   "typeLine": "Summon - Naga",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -50563,7 +50564,7 @@
   "typeLine": "Summon - Naga",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -50962,7 +50963,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -51056,7 +51057,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -51323,7 +51324,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -51369,7 +51370,7 @@
   "typeLine": "Trap - Step",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -51475,7 +51476,7 @@
   "typeLine": "Event - Fate",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Neutral",
   "elements": [
    "Neutral"
@@ -51615,7 +51616,7 @@
   "typeLine": "Summon - Beast, Cat",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -52168,7 +52169,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -52355,7 +52356,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -53210,7 +53211,7 @@
   "typeLine": "Item - Equipment, Armor",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -53542,7 +53543,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -53584,7 +53585,7 @@
   "typeLine": "Event - Eco",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Neutral",
   "elements": [
    "Neutral"
@@ -53623,7 +53624,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -53942,7 +53943,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -54040,7 +54041,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -54355,7 +54356,7 @@
   "typeLine": "Treasure Summon - Mimic",
   "treasure": true,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Water",
   "elements": [
    "Water"
@@ -54406,7 +54407,7 @@
   "typeLine": "Summon - Gargoyle",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -55048,7 +55049,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -55092,7 +55093,7 @@
   "typeLine": "Summon - Fish",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Water",
   "elements": [
    "Water"
@@ -55393,7 +55394,7 @@
   "typeLine": "Trap - Universal, Permanent",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -55731,7 +55732,7 @@
   "typeLine": "Summon - Human, Wizard",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -56385,7 +56386,7 @@
   "typeLine": "Summon - Human, Knight",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Light",
   "elements": [
    "Light"
@@ -56859,7 +56860,7 @@
   "typeLine": "Trap - Positionless",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Light",
   "elements": [
    "Light"
@@ -56906,7 +56907,7 @@
   "typeLine": "Treasure Summon - Dragon",
   "treasure": true,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -56958,7 +56959,7 @@
   "typeLine": "Trap - Zone",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Light",
   "elements": [
    "Light"
@@ -57159,7 +57160,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -57357,7 +57358,7 @@
   "typeLine": "Summon - Dragon",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -58093,7 +58094,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -58190,7 +58191,7 @@
   "typeLine": "Summon - Harpy, Wizard",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -58243,7 +58244,7 @@
   "typeLine": "Item - Equipment, Weapon",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -58755,7 +58756,7 @@
   "typeLine": "Summon - Elemental, Beast",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -59278,7 +59279,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -59429,7 +59430,7 @@
   "typeLine": "Summon - Human, Mystic",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -59481,7 +59482,7 @@
   "typeLine": "Summon - Whale",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -60188,7 +60189,7 @@
   "typeLine": "Summon - Insect",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -60326,7 +60327,7 @@
   "typeLine": "Summon - Elf, Druid",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -60556,7 +60557,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -60854,7 +60855,7 @@
   "typeLine": "Summon - Human, Wizard",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -60951,7 +60952,7 @@
   "typeLine": "Summon - Dwarf, Mystic",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -61054,7 +61055,7 @@
   "typeLine": "Summon - Giant, Druid",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -61105,7 +61106,7 @@
   "typeLine": "Summon - Human, Archer",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -61156,7 +61157,7 @@
   "typeLine": "Summon - Elemental",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -61568,7 +61569,7 @@
   "typeLine": "Summon - Reptile, Turtle",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -61620,7 +61621,7 @@
   "typeLine": "Trap - Step",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -61667,7 +61668,7 @@
   "typeLine": "Summon - Centaur, Warrior",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -61718,7 +61719,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -61806,7 +61807,7 @@
   "typeLine": "Worker",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -61932,7 +61933,7 @@
   "typeLine": "Summon - Elemental",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -61984,7 +61985,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -62111,7 +62112,7 @@
   "typeLine": "Summon - Elemental, Plant",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -62156,7 +62157,7 @@
   "typeLine": "Summon - Hydra",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -62206,7 +62207,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -62352,7 +62353,7 @@
   "typeLine": "Summon - Lamassu",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Light",
   "elements": [
    "Light"
@@ -62534,7 +62535,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -62670,7 +62671,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -62764,7 +62765,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -62806,7 +62807,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -62854,7 +62855,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -62991,7 +62992,7 @@
   "typeLine": "Summon - Dwarf, Mystic",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -63036,7 +63037,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -63331,7 +63332,7 @@
   "typeLine": "Summon - Reptile, Warrior",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Water",
   "elements": [
    "Water"
@@ -63653,7 +63654,7 @@
   "typeLine": "Trap - Step, Permanent",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Light",
   "elements": [
    "Light"
@@ -63968,7 +63969,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -64182,7 +64183,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -64313,7 +64314,7 @@
   "typeLine": "Item - Equipment, Armor",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -64362,7 +64363,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -64558,7 +64559,7 @@
   "typeLine": "Treasure Item - Artifact",
   "treasure": true,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Neutral",
   "elements": [
    "Neutral"
@@ -64876,7 +64877,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -65294,7 +65295,7 @@
   "typeLine": "Terrain - Forest",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -65532,7 +65533,7 @@
   "typeLine": "Summon - Human, Shaman",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -65953,7 +65954,7 @@
   "typeLine": "Trap - Positionless",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -66050,7 +66051,7 @@
   "typeLine": "Item - Equipment, Armor",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -66099,7 +66100,7 @@
   "typeLine": "Summon - Dwarf, Warrior",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -66194,7 +66195,7 @@
   "typeLine": "Worker",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Water",
   "elements": [
    "Water"
@@ -66231,7 +66232,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -66435,7 +66436,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -66572,7 +66573,7 @@
   "typeLine": "Spell - Quick, Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -67160,7 +67161,7 @@
   "typeLine": "Building - Factory",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -67728,7 +67729,7 @@
   "typeLine": "Summon - Beast",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -67778,7 +67779,7 @@
   "typeLine": "Summon - Dragon",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -68431,7 +68432,7 @@
   "typeLine": "Summon - Garuda",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -68482,7 +68483,7 @@
   "typeLine": "Summon - Elf, Archer",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -68534,7 +68535,7 @@
   "typeLine": "Summon - Minotaur, Berserker",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -68726,7 +68727,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -68772,7 +68773,7 @@
   "typeLine": "Building - Gate",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Water",
   "elements": [
    "Water"
@@ -68972,7 +68973,7 @@
   "typeLine": "Summon - Elemental",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -69243,7 +69244,7 @@
   "typeLine": "Item - Artifact",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -69445,7 +69446,7 @@
   "typeLine": "Worker",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -69621,7 +69622,7 @@
   "typeLine": "Summon - Beast, Wolverine",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -70190,7 +70191,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Light",
   "elements": [
    "Light"
@@ -70459,7 +70460,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -70949,7 +70950,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -71221,7 +71222,7 @@
   "typeLine": "Summon - Naga",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -71363,7 +71364,7 @@
   "typeLine": "Summon - Sphinx",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -71899,7 +71900,7 @@
   "typeLine": "Treasure",
   "treasure": true,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -72041,7 +72042,7 @@
   "typeLine": "Trap - Positionless",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -72433,7 +72434,7 @@
   "typeLine": "Summon - Spirit",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -72527,7 +72528,7 @@
   "typeLine": "Treasure Item - Equipment, Weapon",
   "treasure": true,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -72720,7 +72721,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -73484,7 +73485,7 @@
   "typeLine": "Summon - Gorgon, Wizard",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -73535,7 +73536,7 @@
   "typeLine": "Summon - Minotaur",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -73914,7 +73915,7 @@
   "typeLine": "Item - Equipment, Accessory",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -74213,7 +74214,7 @@
   "typeLine": "Summon - Naga, Shaman",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -74907,7 +74908,7 @@
   "typeLine": "Trap - Positionless",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -75941,7 +75942,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -76122,7 +76123,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -76399,7 +76400,7 @@
   "typeLine": "Summon - Human, Warrior, Protector",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -76500,7 +76501,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -77542,7 +77543,7 @@
   "typeLine": "Summon - Fulgari, Warrior",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -77590,7 +77591,7 @@
   "typeLine": "Treasure",
   "treasure": true,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Light",
   "elements": [
    "Light"
@@ -77781,7 +77782,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Water",
   "elements": [
    "Water"
@@ -77827,7 +77828,7 @@
   "typeLine": "Summon - Fulgari, Scout",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -79024,7 +79025,7 @@
   "typeLine": "Summon - Beast",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -79878,7 +79879,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -80195,7 +80196,7 @@
   "typeLine": "Summon - Beast",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -80564,7 +80565,7 @@
   "typeLine": "Summon - Squid",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Water",
   "elements": [
    "Water"
@@ -81121,7 +81122,7 @@
   "typeLine": "Spell - Curse, Curse",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -81411,7 +81412,7 @@
   "typeLine": "Summon - Human, Knight",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Light",
   "elements": [
    "Light"
@@ -81508,7 +81509,7 @@
   "typeLine": "Summon - Djinn",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -82307,7 +82308,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -82349,7 +82350,7 @@
   "typeLine": "Summon - Elf, Soldier",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -82506,7 +82507,7 @@
   "typeLine": "Treasure Item - Artifact",
   "treasure": true,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -82554,7 +82555,7 @@
   "typeLine": "Item - Equipment, Weapon",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -82693,7 +82694,7 @@
   "typeLine": "Summon - Human, Wizard",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -82979,7 +82980,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -83209,7 +83210,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -83257,7 +83258,7 @@
   "typeLine": "Trap - Zone",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -83782,7 +83783,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -83824,7 +83825,7 @@
   "typeLine": "Summon - Fairy, Dancer",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -84277,7 +84278,7 @@
   "typeLine": "Summon - Valkyrie, Warrior",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -84716,7 +84717,7 @@
   "typeLine": "Terrain - Mountain",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Earth",
   "elements": [
    "Earth"
@@ -84913,7 +84914,7 @@
   "typeLine": "Summon - Human, Druid",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -85015,7 +85016,7 @@
   "typeLine": "Summon - Human, Assassin",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -85114,7 +85115,7 @@
   "typeLine": "Summon - Naga, Protector",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -85644,7 +85645,7 @@
   "typeLine": "Summon - Naga, Archer",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -85732,7 +85733,7 @@
   "typeLine": "Summon - Elf, Druid",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -85783,7 +85784,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -85877,7 +85878,7 @@
   "typeLine": "Spell - Rune",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -86008,7 +86009,7 @@
   "typeLine": "Summon - Beast",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -86394,7 +86395,7 @@
   "typeLine": "Event - Act",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Neutral",
   "elements": [
    "Neutral"
@@ -86676,7 +86677,7 @@
   "typeLine": "Spell - Enchantment",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -86721,7 +86722,7 @@
   "typeLine": "Summon - Human, Cleric, Soldier",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Light",
   "elements": [
    "Light"
@@ -86822,7 +86823,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -86864,7 +86865,7 @@
   "typeLine": "Trap - Positionless",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -87021,7 +87022,7 @@
   "typeLine": "Summon - Human, Soldier",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Light",
   "elements": [
    "Light"
@@ -87451,7 +87452,7 @@
   "typeLine": "Spell - Hex",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Water",
   "elements": [
    "Water"
@@ -87545,7 +87546,7 @@
   "typeLine": "Item - Equipment, Armor",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Lightning",
   "elements": [
    "Lightning"
@@ -87691,7 +87692,7 @@
   "typeLine": "Item - Artifact",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -88030,7 +88031,7 @@
   "typeLine": "Summon - Garuda, Wizard",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -88283,7 +88284,7 @@
   "typeLine": "Item - Equipment, Weapon",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -88371,7 +88372,7 @@
   "typeLine": "Spell - Quick",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Nature",
   "elements": [
    "Nature"
@@ -88881,7 +88882,7 @@
   "typeLine": "Summon - Garuda, Scout",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -89085,7 +89086,7 @@
   "typeLine": "Summon - Elemental",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -89230,7 +89231,7 @@
   "typeLine": "Summon - Human, Archer",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Wind",
   "elements": [
    "Wind"
@@ -89377,7 +89378,7 @@
   "typeLine": "Summon - Human, Wizard",
   "treasure": false,
   "token": false,
-  "status": "starter",
+  "status": "pool",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -89477,7 +89478,7 @@
   "typeLine": "Spell - Ritual",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Ice",
   "elements": [
    "Ice"
@@ -89899,7 +89900,7 @@
   "typeLine": "Summon - Goblin, Shaman",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
@@ -89950,7 +89951,7 @@
   "typeLine": "Summon - Human, Shaman",
   "treasure": false,
   "token": false,
-  "status": "pool",
+  "status": "starter",
   "group": "Fire",
   "elements": [
    "Fire"
