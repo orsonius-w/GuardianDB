@@ -303,7 +303,7 @@ async function syncIcons() {
   // client screenshots for the home page (the game's build/ folder holds the designer's captures)
   for (const [src, out] of [
     ["campaign_map.png", "1-campaign-map"], ["story_intro_talas.png", "2-story"], ["campaign_screen.png", "3-campaign"],
-    ["stage_1_3_flanks.png", "board"], ["deck_builder_builder.png", "deck-builder"], ["bot_match.png", "bot-match"],
+    ["deck_builder_builder.png", "deck-builder"],
   ]) jobs.push([path.join(REPO, "build", src), `public/images/client/${out}.webp`, 1600]);
   for (let i = 1; i <= 4; i++) jobs.push([path.join(REPO, `assets/images/backgrounds/main_menu_bg (${i}).png`), `public/images/hero/hero-${i}.webp`, 1920]);
   let n = 0, missing = [];

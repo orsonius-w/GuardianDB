@@ -47,11 +47,12 @@ const modes = [
   { name: "Hot-seat", text: "Two players, one screen. Pass the mouse at the end of each turn." },
 ];
 const features = [
+  { name: "On the battlefield", img: "/images/client/gameplay.webp", text: "Every match is fought on a 28-field grid. Your Summons march, flank and hold the line while your hand, Energy and Treasure Chest sit beside the board." },
   { name: "Deck builder", img: "/images/client/deck-builder.webp", text: "Search and filter the whole card pool by element, cost, type and keyword, and build with every card unlocked." },
   { name: "Story campaign", img: "/images/client/2-story.webp", text: "Meet the people of the world between battles, with full-art story scenes." },
   { name: "World map", img: "/images/client/1-campaign-map.webp", text: "Travel from region to region as the campaign unfolds." },
-  { name: "Pick your fight", img: "/images/client/bot-match.webp", text: "Choose a deck and an opponent, decide who goes first, and play." },
-];
+  { name: "Claim the win", img: "/images/client/victory.webp", text: "Bring the enemy Guardian down, then go again: rematch, new match or back to the menu." },
+]
 const soon = [
   { name: "Dungeon", text: "a rogue-like run: carry your Guardian and deck from fight to fight and earn upgrades along the way." },
   { name: "Challenges", text: "puzzle boards with a set position, a goal and a turn limit." },
@@ -259,7 +260,7 @@ const heroes = [1, 2, 3, 4].map((i) => `/images/hero/hero-${i}.webp`);
     <img src="/images/client/gameplay.webp" alt="" class="cta-bg" decoding="async" />
     <div class="base-layout"><div class="cta-inner">
       <div class="laptop">
-        <img src="/images/client/gameplay.webp" alt="A match in the Guardian client" class="laptop-screen" width="1600" height="900" decoding="async" />
+        <img src="/images/client/gameplay-action.webp" alt="A match in the Guardian client: a Summon attacks" class="laptop-screen" width="1600" height="900" decoding="async" />
         <img src="/images/laptop.png" alt="" class="laptop-frame" width="1200" height="692" decoding="async" />
       </div>
       <div class="cta-copy">
@@ -514,7 +515,10 @@ const heroes = [1, 2, 3, 4].map((i) => `/images/hero/hero-${i}.webp`);
   }
 
   /* features */
-  .features { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 1.25rem; }
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .feature { display: flex; flex-direction: column; }
+  .feature:first-child { grid-column: span 2; }
+  .feature:nth-child(-n+2) .feature-img { flex: 1; aspect-ratio: auto; min-height: 12rem; }
   .feature { margin: 0; border-radius: 8px; overflow: hidden; background: hsl(210 15% 11%); border: 1px solid hsl(0 0 100 / 0.08); transition: transform 0.2s, border-color 0.2s; }
   .feature:hover { transform: translateY(-3px); border-color: hsl(40 60% 55% / 0.4); }
   .feature-img { aspect-ratio: 16 / 9; overflow: hidden; img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; } }
@@ -572,6 +576,7 @@ const heroes = [1, 2, 3, 4].map((i) => `/images/hero/hero-${i}.webp`);
     .f2 { transform: translateX(-50%) translateX(5rem) rotate(12deg); }
     .spotlight { grid-template-columns: 1fr; }
     .what, .cta-inner { grid-template-columns: 1fr; }
+    .features { grid-template-columns: repeat(2, 1fr); }
     .steps { grid-template-columns: 1fr; gap: 2rem; }
     .steps::before { display: none; }
     .spot-card { max-width: 16rem; }
@@ -580,6 +585,8 @@ const heroes = [1, 2, 3, 4].map((i) => `/images/hero/hero-${i}.webp`);
     .hero { padding-block: 5.5rem 4rem; }
     .counters { grid-template-columns: repeat(2, 1fr); row-gap: 1.75rem; }
     .tiles { grid-template-columns: repeat(3, 1fr); }
+    .features { grid-template-columns: 1fr; }
+    .feature:first-child { grid-column: auto; }
     .ticker-more { display: none; }
   }
   @media (prefers-reduced-motion: reduce) {
