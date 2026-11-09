@@ -1,6 +1,6 @@
 ---
 title: Foils, achievements and best of three
-description: Foil cards and special frames you earn through achievements, best-of-three matches with sideboards, and dozens of new cards.
+description: Cards that tilt and shimmer as rainbow foils, 40 achievements with titles, best-of-three matches with sideboards, and dozens of new cards.
 date: 2026-11-10
 category: Update
 image: /images/news/finishes-cover.webp
@@ -13,7 +13,7 @@ The last few builds of the [client](/play/) brought some of the biggest changes 
 Cards now lean toward your mouse. Hover a card in your hand, in the Deck Builder or in the big card view and it tilts in 3D, as if you pressed it where the pointer is. (The [gallery](/gallery/) on this site does the same.) The picture at the top shows Cinderhorn Charger at rest, leaning under the mouse, and as a rainbow foil.
 
 
-**Rainbow foil.** A foil card shimmers with rainbow bands that roll as the card tilts. **Special frames** are a second kind of reward: an alternative, more ornate frame for a card. Both are earned through achievements, so there is no store and no currency.
+**Rainbow foil.** A foil card shimmers with rainbow bands that roll as the card tilts. Foils will be rewards for achievements: there is no store and no currency, so you earn them by playing.
 
 ## Achievements and titles
 
