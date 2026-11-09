@@ -86,3 +86,8 @@
 .mana-example .card-row { margin-block: 0.5rem; }
 .mana-example.wide { grid-template-columns: minmax(16rem, 21rem) 1fr; }
 @media (width < 640px) { .mana-example { grid-template-columns: 1fr; } }
+
+/* images and figures inside article text (news, wiki) */
+.prose img { max-width: 100%; height: auto; border-radius: 6px; }
+.prose figure { margin: 1.5rem 0; }
+.prose figcaption { margin-block-start: 0.5rem; font-size: var(--fs-sm); color: var(--clr-neutral-300); }

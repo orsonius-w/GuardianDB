@@ -1,55 +1,55 @@
 {
- "version": "Alpha 0.3.143b",
- "build": 933,
- "synced": "2026-11-08",
+ "version": "Alpha 0.3.161a",
+ "build": 957,
+ "synced": "2026-11-09",
  "notes": [
   {
-   "build": 933,
+   "build": 957,
+   "date": "2026-11-09",
+   "version": "0.3.161a",
+   "body": "- **Fixed:** Jinava's shield only stops Spells. Dagger of Death and the other plain Treasures aren't Spells, so they can target her.\n- **The piles, from the End Turn button down:** Void, Graveyard, Treasure Chest, Deck. The Treasure Chest no longer sits right under the button.\n- **The Deck Builder's grid keeps still.** Cards there tilt only in the big card view (hover or right-click); a foil card still shows its foil in the grid."
+  },
+  {
+   "build": 956,
+   "date": "2026-11-09",
+   "version": "0.3.161",
+   "body": "- **Cards lean toward your mouse.** Hover a card in your hand, in the Deck Builder or in the big card view and it tilts in 3D, as if you pressed it where the pointer is; the big preview leans as you move over the small card. It settles back when you move away.\n- **Rainbow foil.** A foil card shimmers with rainbow bands that roll as it tilts. Nothing gives foils out yet - they are coming as achievement rewards."
+  },
+  {
+   "build": 955,
+   "date": "2026-11-09",
+   "version": "0.3.160",
+   "body": "- **Best of 3.** The Bot Match screen has a new \"Match: Best of 1 / Best of 3\" choice (it remembers yours), against the computer and in hot-seat. Between games the game-over screen keeps the score and offers **Next Game**; the loser of the last game goes first. Rematch and New Match after a decided match start a fresh best of 3.\n- **Sideboards.** The Deck Builder has a third tab, **Sideboard**: up to 15 cards beside your deck. A card's copies in the deck and the sideboard share its limit. Before games 2 and 3 of a best of 3 you get a simple swap screen - click a card to move one copy across; Ready lights up when your deck is its own size again. The swap lasts for that match only. The computer never sideboards."
+  },
+  {
+   "build": 954,
+   "date": "2026-11-09",
+   "version": "0.3.159",
+   "body": "- **The designer's debug panel** (F12 in a match): cards to any zone or field, Energy and Life, click tools on the board, End Turn, the hung-game tools (close stuck dialogs, skip a waiting question, resolve the Stack, save the state to a file) and a peek at the opponent. It opens only on a machine holding the key file, never online, and a match it touched is not recorded."
+  },
+  {
+   "build": 953,
+   "date": "2026-11-09",
+   "version": "0.3.158",
+   "body": "- **The Wind/Darkness batch: fifteen new cards.** Wind: Confiscate Magic, Raise the Eyrie (with the Eagle token), Double Up, Reset the Race, In Their Wake, Hoarding Mystic. Darkness: Pestify, Blister Hatchery, Ravaging Boils, Ossuary Fiend, White Night, Doomed Fate, Empty Hands, Blind Bargain, Necroticist.\n- On the VS screen the computer's seat carries its Guardian's name, as it does in the match."
+  },
+  {
+   "build": 952,
+   "date": "2026-11-09",
+   "version": "0.3.157",
+   "body": "- **Mordrec's** Undead token now goes on the Stack, so it can be answered.\n- **Blaze Swarm Drone** works like Magic's Narcomoeba: milled, its trigger goes on the Stack, and you're asked as it resolves. This also fixes the stacked pickers you saw with Quick Cast Pyromancer.\n- **Card changes:** Crosscurrent also draws a card; Ocean Rider is Common; Communal Work finds up to two unlimited Workers; Snared Up Immobilizes for a turn (they can't move on their next turn either).\n- **The Void and the Treasure Chest have swapped places** in the right-hand column, to try out.\n- **Avatars:** 31 new ones to pick from. The computer's seat now wears its Guardian's avatar, in the match and on the VS screen; where there's no full picture yet, the VS screen shows the avatar head."
+  },
+  {
+   "build": 951,
+   "date": "2026-11-09",
+   "version": "0.3.156",
+   "body": "- **Fixed:** Nightmare Eater's Onslaught now fires when it attacks a Guardian, too.\n- **Fixed:** Miasm makes its caster sacrifice, discard and send a card to the Void as well, not only the opponent.\n- **Gloom looks better:** a churning smoke over the field with violet in its folds, thicker for each layer.\n- An Attack or Magic pushed to 0 or below (Demoralized) shows as 0 on the board, as Defense and Resistance do.\n- The phase buttons and Log sit 2 px higher on the centre stripe.\n- **Stats:** the scroll bar no longer covers the right-hand numbers.\n- **New achievements:** win a tournament; win a Swiss tournament; win without ever having a Worker in play; win with no Summon cards in your deck; set off 10 Traps in one game; discard 10 / 20 / 30 / 40 / 50 cards in one game. **Untouched** now means your Guardian never lost Life all game (a heal afterwards doesn't hide it); it counts games played from this build on."
+  },
+  {
+   "build": 950,
    "date": "2026-11-08",
-   "version": "0.3.143b",
-   "body": "- Skip is back under End Turn, where the Stack never covers it."
-  },
-  {
-   "build": 932,
-   "date": "2026-11-08",
-   "version": "0.3.143a",
-   "body": "- The game screen, second pass: the piles stand in their own cells, flush, with the Graveyard's own pile; the Guardian sits in the middle of the board; the phase buttons sit centred in the stripe; Skip and a Log button join the stripe, and the settings gear is back in the top-right corner; the Permanents box is the designer's own art."
-  },
-  {
-   "build": 931,
-   "date": "2026-11-07",
-   "version": "0.3.143",
-   "body": "- **A new game screen, drawn for 1440p.** The board loses its fat golden rim; the Decks, Graveyards, Treasure Chests and Voids stand in one column on the right, lying flat, with End Turn between the two Voids; a stripe across the middle holds the phases, the turn, the small buttons and the settings gear; the Permanents box is larger, five columns by four rows. At a 1440p window every piece of the new art is drawn pixel for pixel, no longer stretched up.\n- **Labels on everything:** Permanents, Energy, and each pile with its count - \"Deck (49)\", \"Graveyard (7)\", \"Treasure (5)\", \"Void (0)\"."
-  },
-  {
-   "build": 930,
-   "date": "2026-11-07",
-   "version": "0.3.142a",
-   "body": "- **Jötunn War-Chief** has Skyscraper, and gives it to your other Giants as well as +1A/+1R.\n- **Gallowmire's Resonance** goes on the Stack, and asks for its [1 Darkness] as it resolves.\n- **Tornado Quatl** shows the cards each player discards.\n- **Spider tokens** from Underworld Spider (and ten other cards that create tokens or bring a Summon back) show their summoning sickness.\n- **\"Up to one\" board picks** (Belltower Vampire's Onslaught and others): the Confirm button sits by the card that asks, never over a Summon you could click, instead of over the opponent's graveyard.\n- Gallowmire's name sits a little higher on its face."
-  },
-  {
-   "build": 929,
-   "date": "2026-11-07",
-   "version": "0.3.142",
-   "body": "- **Fifteen new pre-cons**, so every player can pick them (they were the designer's own saved decks, which only exist on one machine): Ansit's Arcane, Aruni's Aerials, Ashka's Ashes, Durrim's Demure, Ghorrun's Goring, Glemra's Glitter, Isrun's Inscription, Itzaca's Ions, Mahrun's Mane, Qadir's Quickening, The Joined's Jubilee, Thurgan's Temper, Vishara's Venom, Vorrek's Violance and Ysmera's Idyll."
-  },
-  {
-   "build": 928,
-   "date": "2026-11-07",
-   "version": "0.3.141",
-   "body": "- **Ten reworked pre-cons replace their old versions**, chosen by a computer-vs-computer test (each version played every other deck once; 2,006 of 2,496 games; the version with the better win rate won, a tie kept the old): Ardnia's Abundance, Auviin's Abeyant, Evora's Excellence, Leonhart's Lions, Mordrec's Malice, Persea's Pessimism, Romuden's Roost, Snaebjörn's Snacks, Verren's Verdict, and Roldage's Ragtag, now **Roldage's Raiders**. Each old version is kept as a saved deck, \"<name> (previous)\", for a longer test later; the 14 reworks that lost stay as their saved decks.\n- The computer's AI-Stress decks are gone: the computer plays the pre-cons."
-  },
-  {
-   "build": 927,
-   "date": "2026-11-07",
-   "version": "0.3.140a",
-   "body": "- **Deck Builder:** the scroll wheel turns the page over the card grid. Searching \"mill\" also finds cards that put cards from a deck into a graveyard without saying \"mill\".\n- **Plasma Field** stays where it is until it has been activated; after it moves it is face down and asleep again.\n- **Forbidden Resonator** shows the card discarded for it, and that discard now sets off discard triggers.\n- **Storm-Rigger** is a Resonance (its Shock goes on the Stack). **Grounding Chain** also deactivates. **Coral Trident** gives the Dominate to the equipped Summon in its text. **Prepared Protector** has 1 Attack. **Minotaur Gorer** lim 4.\n- Larger text on Churn, Qadir's Gabl, Soulsnatcher Lich's Manifest and Ifrit's Lamp."
-  },
-  {
-   "build": 926,
-   "date": "2026-11-06",
-   "version": "0.3.140",
-   "body": "- **The Lightning batch, part two: six new cards**, and Lightning's slots are full. Ring for the Talentless and Ionomancer (Rares); Unmitigated Anger, Borrowed Lightning, Plasma Field and Disrupted Vectors (Special Rares).\n- **A card can make you lose:** Borrowed Lightning's [2][2 Lightning] is paid at the next End Phase, or its caster loses the game.\n- Ring for the Talentless hands on the entering Summon's keywords; its other abilities aren't lent yet."
+   "version": "0.3.155",
+   "body": "- **The Treasure batch is complete:** Stratospheric Collapse (Lightning) and The Endless Deep (Water), the last two of thirty.\n- The Jann token (from Jann's Lamp) has its art."
   }
  ]
 }

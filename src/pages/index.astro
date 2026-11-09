@@ -40,11 +40,11 @@ const spotAbilities = (spot?.guardian?.text ?? "").split("\n").filter(Boolean).m
 
 const modes = [
   { name: "Online match", text: "Challenge a friend one on one over the internet: one of you hosts, the other joins." },
-  { name: "Versus computer", text: "Practise against an AI opponent that plays every card, with a starter deck or your own." },
+  { name: "Versus computer", text: "Practise against an AI opponent that plays every card. Play a single game or a best of three with your sideboard." },
   { name: "Story campaign", text: "Hand-built battles with story scenes in between, played across a world map. New chapters are being written." },
   { name: "Draft", text: "Pick your deck card by card from element groups, then fight drafted opponents until six wins or three losses." },
-  { name: "CPU tournament", text: "Sixteen starter decks, four Swiss rounds, all played by the computer. Sit back and watch." },
-  { name: "Hot-seat", text: "Two players, one screen. Pass the mouse at the end of each turn." },
+  { name: "Tournament", text: "Sixteen decks, Swiss rounds or a knockout bracket. Enter with your own deck, or sit back and watch the computer play it out." },
+  { name: "Hot-seat", text: "Two players, one screen. Pass the mouse at the end of each turn, one game or best of three." },
 ];
 const features = [
   { name: "On the battlefield", img: "/images/client/gameplay.webp", text: "Every match is fought on a 28-field grid. Your Summons march, flank and hold the line while your hand, Energy and Treasure Chest sit beside the board." },
@@ -56,7 +56,6 @@ const features = [
 const soon = [
   { name: "Dungeon", text: "a rogue-like run: carry your Guardian and deck from fight to fight and earn upgrades along the way." },
   { name: "Challenges", text: "puzzle boards with a set position, a goal and a turn limit." },
-  { name: "Best of three", text: "match series with a sideboard between games." },
   { name: "AI difficulty", text: "an easier and a tougher computer opponent." },
 ];
 const heroes = [1, 2, 3, 4].map((i) => `/images/hero/hero-${i}.webp`);
