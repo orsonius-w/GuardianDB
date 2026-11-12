@@ -5650,15 +5650,15 @@
   "guardian": "ysmera_mother_of_reefs",
   "main": [
    {
-    "id": "backwash",
-    "count": 1
+    "id": "bumphead_parrotfish",
+    "count": 2
    },
    {
     "id": "command_of_the_deep",
     "count": 2
    },
    {
-    "id": "curse_of_the_rising_tide",
+    "id": "disturb_magic",
     "count": 1
    },
    {
@@ -5666,8 +5666,16 @@
     "count": 1
    },
    {
-    "id": "flotsam_and_jetsam",
+    "id": "end_fate",
     "count": 2
+   },
+   {
+    "id": "evanescent_reef",
+    "count": 1
+   },
+   {
+    "id": "failed_manifestation",
+    "count": 1
    },
    {
     "id": "high_sea_storm",
@@ -5675,7 +5683,11 @@
    },
    {
     "id": "lionfish",
-    "count": 3
+    "count": 2
+   },
+   {
+    "id": "longwhisker_wave_caller",
+    "count": 1
    },
    {
     "id": "lost_at_sea",
@@ -5691,22 +5703,30 @@
    },
    {
     "id": "mako_shark",
-    "count": 3
+    "count": 2
    },
    {
     "id": "maw_of_the_trench",
     "count": 1
    },
    {
+    "id": "meditate",
+    "count": 2
+   },
+   {
+    "id": "message_in_a_bottle",
+    "count": 2
+   },
+   {
     "id": "pearl_collector",
-    "count": 16
+    "count": 18
    },
    {
     "id": "piranhas",
-    "count": 3
+    "count": 2
    },
    {
-    "id": "ruin_diver",
+    "id": "sage_of_the_shallows",
     "count": 1
    },
    {
@@ -5722,19 +5742,15 @@
     "count": 2
    },
    {
-    "id": "sluice_gate",
-    "count": 1
-   },
-   {
-    "id": "splash_elemental",
-    "count": 2
-   },
-   {
     "id": "spring_tide",
     "count": 1
    },
    {
-    "id": "the_great_flood",
+    "id": "teeming_shoal",
+    "count": 1
+   },
+   {
+    "id": "tidepool_sanctuary",
     "count": 1
    },
    {
@@ -5746,16 +5762,16 @@
     "count": 1
    },
    {
-    "id": "waterlogged",
+    "id": "wild_waves",
     "count": 1
    }
   ],
   "chest": [
-   "clean_slate",
-   "kraken_ink_compass",
+   "hidden_clear_spring",
    "undertow_verdict",
+   "the_endless_deep",
    "pearlmaw_mimic",
-   "sunken_hour"
+   "lacurath_the_rising_deep"
   ]
  }
 ]

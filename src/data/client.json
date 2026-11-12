@@ -1,55 +1,55 @@
 {
- "version": "Alpha 0.3.161a",
- "build": 957,
- "synced": "2026-11-09",
+ "version": "Alpha 0.3.170b",
+ "build": 978,
+ "synced": "2026-11-12",
  "notes": [
   {
-   "build": 957,
-   "date": "2026-11-09",
-   "version": "0.3.161a",
-   "body": "- **Fixed:** Jinava's shield only stops Spells. Dagger of Death and the other plain Treasures aren't Spells, so they can target her.\n- **The piles, from the End Turn button down:** Void, Graveyard, Treasure Chest, Deck. The Treasure Chest no longer sits right under the button.\n- **The Deck Builder's grid keeps still.** Cards there tilt only in the big card view (hover or right-click); a foil card still shows its foil in the grid."
+   "build": 978,
+   "date": "2026-11-12",
+   "version": "0.3.170b",
+   "body": "- **New entrance sounds** (the designer's): Spiders have their own; male Soldiers and Warriors arrive with a salute (two takes); Knights and Paladins without Movement 3 clank in plate armour (those with 3 still ride in); Spirits that are not Darkness arrive with a friendly sound; dogs and big cats have a second take."
   },
   {
-   "build": 956,
-   "date": "2026-11-09",
-   "version": "0.3.161",
-   "body": "- **Cards lean toward your mouse.** Hover a card in your hand, in the Deck Builder or in the big card view and it tilts in 3D, as if you pressed it where the pointer is; the big preview leans as you move over the small card. It settles back when you move away.\n- **Rainbow foil.** A foil card shimmers with rainbow bands that roll as it tilts. Nothing gives foils out yet - they are coming as achievement rewards."
+   "build": 977,
+   "date": "2026-11-12",
+   "version": "0.3.170a",
+   "body": "- **Summons with the same name are numbered in the order they entered.** Four Goblin Squires read \"Goblin Squire 1\" to \"Goblin Squire 4\" - in the log, on the board and in the detail view - so you can tell which one did what. A Summon alone of its name keeps its plain name; numbers are not reused in a game.\n- **Seven Traps could never be set off, and now can:** Venomous Harvest, Tribute Demanded, Burning Crater, Conversion Trap, Caught in the Web, Roused from the Den and You Are Not Welcome. Their effects worked, but stepping on them never asked. A new check fails the build if another Trap is ever left in that state."
   },
   {
-   "build": 955,
-   "date": "2026-11-09",
-   "version": "0.3.160",
-   "body": "- **Best of 3.** The Bot Match screen has a new \"Match: Best of 1 / Best of 3\" choice (it remembers yours), against the computer and in hot-seat. Between games the game-over screen keeps the score and offers **Next Game**; the loser of the last game goes first. Rematch and New Match after a decided match start a fresh best of 3.\n- **Sideboards.** The Deck Builder has a third tab, **Sideboard**: up to 15 cards beside your deck. A card's copies in the deck and the sideboard share its limit. Before games 2 and 3 of a best of 3 you get a simple swap screen - click a card to move one copy across; Ready lights up when your deck is its own size again. The swap lasts for that match only. The computer never sideboards."
+   "build": 976,
+   "date": "2026-11-12",
+   "version": "0.3.170",
+   "body": "- **Archangels' Blessing is reworked** to the designer's new card: [2][1 Light], Universal. When an enemy Summon steps (or flies) onto its field, return a Summon from your graveyard that costs no more than it - to your Guarded Zone or right beside the intruder. **Avert [1 Light]:** when a Summon of yours would perish, it persists instead - it stays at 1 Life, depleted and deactivated. Battle deaths count; a sacrifice does not.\n- **New faces from the designer's art** for 52 cards that had hand-made faces or art that had to be replaced - among them Combat Angel, Exalted Valkyrie, Soldier of Light, Spellblade Templar, Siege Master, Kanuz, Bymere, Cassiodor, City Guard and Divine Punisher - and new board pictures for many Light Summons."
   },
   {
-   "build": 954,
-   "date": "2026-11-09",
-   "version": "0.3.159",
-   "body": "- **The designer's debug panel** (F12 in a match): cards to any zone or field, Energy and Life, click tools on the board, End Turn, the hung-game tools (close stuck dialogs, skip a waiting question, resolve the Stack, save the state to a file) and a peek at the opponent. It opens only on a machine holding the key file, never online, and a match it touched is not recorded."
+   "build": 975,
+   "date": "2026-11-12",
+   "version": "0.3.169c",
+   "body": "- **New art:** Channel Fire, Destroy Defenses, Dominating Violence, Garl and Romuden now have faces drawn from the designer's art, and the Goblin Squire token has a face at all. New Permanents-box pictures for Hedrex, Cragtooth Slinger Chief, Scalding Tar and Blessing of Might, and a board picture for the Goblin Squire.\n- **Channel Fire's face shows its copy limit (2)** again."
   },
   {
-   "build": 953,
-   "date": "2026-11-09",
-   "version": "0.3.158",
-   "body": "- **The Wind/Darkness batch: fifteen new cards.** Wind: Confiscate Magic, Raise the Eyrie (with the Eagle token), Double Up, Reset the Race, In Their Wake, Hoarding Mystic. Darkness: Pestify, Blister Hatchery, Ravaging Boils, Ossuary Fiend, White Night, Doomed Fate, Empty Hands, Blind Bargain, Necroticist.\n- On the VS screen the computer's seat carries its Guardian's name, as it does in the match."
+   "build": 974,
+   "date": "2026-11-11",
+   "version": "0.3.169b",
+   "body": "- **Incessant Rage kills its wearer when its Onslaught takes the last Life.** \"Loses 2 life\" left a 2-Life Summon standing at 0. Grimy Slaughterer's \"loses 1 life\" had the same gap.\n- **The computer puts Incessant Rage on its own Summons** - it treated the card as removal for yours - and never on one of its own the first attack would kill.\n- **Elemental Core: click the Item to sacrifice** in your Permanents box, instead of picking it in a window. When a Core can't be used, it now says why (already used this turn, nothing to sacrifice, no free field in your Guarded Zone, or not enough Energy) - each Core has its own [A].\n- **Gnitharr: click a Summon on the board** for each Grit Counter, instead of a window.\n- **Smuggler's Run shows its board art** on the column it covers.\n- **Flaming Daggers has new art.**"
   },
   {
-   "build": 952,
-   "date": "2026-11-09",
-   "version": "0.3.157",
-   "body": "- **Mordrec's** Undead token now goes on the Stack, so it can be answered.\n- **Blaze Swarm Drone** works like Magic's Narcomoeba: milled, its trigger goes on the Stack, and you're asked as it resolves. This also fixes the stacked pickers you saw with Quick Cast Pyromancer.\n- **Card changes:** Crosscurrent also draws a card; Ocean Rider is Common; Communal Work finds up to two unlimited Workers; Snared Up Immobilizes for a turn (they can't move on their next turn either).\n- **The Void and the Treasure Chest have swapped places** in the right-hand column, to try out.\n- **Avatars:** 31 new ones to pick from. The computer's seat now wears its Guardian's avatar, in the match and on the VS screen; where there's no full picture yet, the VS screen shows the avatar head."
+   "build": 973,
+   "date": "2026-11-11",
+   "version": "0.3.169a",
+   "body": "- **Thurgan's look that finds no Equipment opens once.** The reveal of the top cards came up a second time over the first - black backdrop on black backdrop - and one copy stayed after you closed it. The game took the reveal for a lost question and asked it again. The same could happen to other reveals that answer a card (a hand shown by a card's effect).\n- **An Intervene Item lights your own Permanents box.** Selected on your opponent's turn, The Fallen Feather (or any Item or Terrain you may cast then) made your opponent's box glow instead of yours."
   },
   {
-   "build": 951,
-   "date": "2026-11-09",
-   "version": "0.3.156",
-   "body": "- **Fixed:** Nightmare Eater's Onslaught now fires when it attacks a Guardian, too.\n- **Fixed:** Miasm makes its caster sacrifice, discard and send a card to the Void as well, not only the opponent.\n- **Gloom looks better:** a churning smoke over the field with violet in its folds, thicker for each layer.\n- An Attack or Magic pushed to 0 or below (Demoralized) shows as 0 on the board, as Defense and Resistance do.\n- The phase buttons and Log sit 2 px higher on the centre stripe.\n- **Stats:** the scroll bar no longer covers the right-hand numbers.\n- **New achievements:** win a tournament; win a Swiss tournament; win without ever having a Worker in play; win with no Summon cards in your deck; set off 10 Traps in one game; discard 10 / 20 / 30 / 40 / 50 cards in one game. **Untouched** now means your Guardian never lost Life all game (a heal afterwards doesn't hide it); it counts games played from this build on."
+   "build": 972,
+   "date": "2026-11-11",
+   "version": "0.3.169",
+   "body": "- **Ysmera's Idyll is the designer's new list** (60 cards, 18 Pearl Collectors; Longwhisker, Maw of the Trench, Meditate, Message in a Bottle, End Fate and the Treasures Hidden Clear Spring, The Endless Deep and Lacurath). Against the other 51 pre-cons it won 38% of 306 games to the old list's 25%. The old list is kept as a saved deck, \"Ysmera's Idyll (previous)\"."
   },
   {
-   "build": 950,
-   "date": "2026-11-08",
-   "version": "0.3.155",
-   "body": "- **The Treasure batch is complete:** Stratospheric Collapse (Lightning) and The Endless Deep (Water), the last two of thirty.\n- The Jann token (from Jann's Lamp) has its art."
+   "build": 971,
+   "date": "2026-11-11",
+   "version": "0.3.168g",
+   "body": "- **The computer builds Siege Foundry before it casts its Equipment**, so the Equipment gets the Foundry's discount. It cast its Items first, and the Items spent the Energy the Foundry needed: Thurgan held it in more than half the games it drew it."
   }
  ]
 }
