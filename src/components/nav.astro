@@ -1,5 +1,6 @@
 ---
 import { navData } from "../data/navData";
+import { SITE_LINKS } from "../data/site";
 
 import { Icon } from "astro-icon/components";
 ---
@@ -32,6 +33,14 @@ import { Icon } from "astro-icon/components";
         </li>
       ))
     }
+    {SITE_LINKS.discord && (
+      <li>
+        <a href={SITE_LINKS.discord} target="_blank" rel="noopener" class="nav-discord">
+          <Icon name="ci:chat-conversation" size="20" aria-hidden="true" />
+          <span>Discord</span>
+        </a>
+      </li>
+    )}
   </ul>
 </nav>
 
@@ -64,6 +73,19 @@ import { Icon } from "astro-icon/components";
         opacity: 0.8;
       }
     }
+  }
+
+  nav ul li a.nav-discord {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 1px solid hsl(255 45% 82% / 0.5);
+    padding-inline: 0.8rem;
+  }
+  nav ul li a.nav-discord:hover,
+  nav ul li a.nav-discord:focus-visible {
+    background-color: hsl(255 45% 82% / 0.15);
+    opacity: 1;
   }
 
   button {

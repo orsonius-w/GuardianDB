@@ -151,7 +151,10 @@ const heroes = [1, 2, 3, 4].map((i) => `/images/hero/hero-${i}.webp`);
         <h3>New to Guardian?</h3>
         <p>The four-step guide walks you through the board, a turn and your first attack. No rulebook needed.</p>
       </div>
-      <a href="/learn/" class="btn-game primary">Start the guide</a>
+      <div class="newbie-actions">
+        <a href="/learn/" class="btn-game primary">Start the guide</a>
+        {SITE_LINKS.discord && <a href={SITE_LINKS.discord} class="btn-game" target="_blank" rel="noopener">Ask on Discord</a>}
+      </div>
     </aside>
   </section>
 
@@ -269,6 +272,9 @@ const heroes = [1, 2, 3, 4].map((i) => `/images/hero/hero-${i}.webp`);
           <span class="btn-cta-label">Download the alpha</span>
           <small>{client.version}</small>
         </a>
+        {SITE_LINKS.discord && (
+          <p class="cta-discord">Find opponents, share decks and follow development on <a href={SITE_LINKS.discord} target="_blank" rel="noopener">our Discord</a>.</p>
+        )}
       </div>
     </div></div>
   </section>
@@ -491,6 +497,8 @@ const heroes = [1, 2, 3, 4].map((i) => `/images/hero/hero-${i}.webp`);
     p { margin: 0; color: var(--clr-neutral-200); }
   }
 
+  .newbie-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
   /* how it works */
   .steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; counter-reset: s; position: relative; }
   .steps::before { content: ""; position: absolute; top: 1.75rem; left: 8%; right: 8%; height: 2px; background: linear-gradient(90deg, transparent, hsl(40 70% 55% / 0.5), transparent); z-index: -1; }
@@ -555,6 +563,7 @@ const heroes = [1, 2, 3, 4].map((i) => `/images/hero/hero-${i}.webp`);
   }
   .btn-cta-label { font-family: var(--ff-brand); font-weight: 800; font-size: var(--fs-md); letter-spacing: 0.06em; text-transform: uppercase; }
   .btn-cta small { font-size: 0.75rem; font-weight: 600; opacity: 0.75; }
+  .cta-discord { margin-block-start: 1.25rem; font-size: var(--fs-sm); color: var(--clr-neutral-200); a { color: hsl(255 60% 85%); } }
   @keyframes cta-glow { 50% { box-shadow: 0 0 0 1px hsl(30 80% 20%), 0 0 40px hsl(38 100% 55% / 0.75), inset 0 1px 0 hsl(50 100% 90% / 0.8); } }
   @keyframes cta-sheen { 0%, 55% { left: -60%; } 85%, 100% { left: 130%; } }
 
