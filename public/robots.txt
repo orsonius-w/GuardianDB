@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://guardiancg.netlify.app/sitemap-index.xml
