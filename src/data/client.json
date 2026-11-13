@@ -1,8 +1,44 @@
 {
- "version": "Alpha 0.3.170b",
- "build": 978,
- "synced": "2026-11-12",
+ "version": "Alpha 0.3.174a",
+ "build": 984,
+ "synced": "2026-11-13",
  "notes": [
+  {
+   "build": 984,
+   "date": "2026-11-13",
+   "version": "0.3.174a",
+   "body": "- **The profile's own icons** for Overview, Achievements and Match history (the designer's art).\n- **The cards' edge line** is the designer's softer gold (rgba 201, 164, 98 at 50%), on the home screen and the profile."
+  },
+  {
+   "build": 983,
+   "date": "2026-11-13",
+   "version": "0.3.174",
+   "body": "- **A new home screen** (the designer's design): the play modes on the left - Solo Play, Draft, Online Play, Deck Builder, Profile - each with its icon and a line on what it is; on the right, where your story stands with a button straight into the next stage, the achievement you are closest to with its progress bar, and what is new in this version with a link to all the patch notes on the website. Your avatar, name and title sit top-left (click them for your profile). The cards over the backdrop are frosted glass.\n- **A new profile** (the designer's mockups): your avatar, name and the title you wear (pick it from the titles you have earned), and four tabs. **Overview**: your win rate, games won and lost, best win streak, fastest win, favourite element, wins by Guardian element, games by mode, the cards you cast most. **Achievements**: how many you have earned of each group, the elements you have won with, and every achievement as a card - the ones you are closest to first, with their progress (\"45 / 100 wins\", \"best 6 / 10\" for the one-game ones) and their titles. **Decks**: each deck's games and win rate. **Match history**: your last 50 games. \"Change avatar\" opens the avatar picker as before. Games in a CPU tournament now count as Tournament games (from this version on).\n- **The computer drafts from the styles run:** its card ratings now come from 2,400 games played this week on the current cards (they came from 984 games of build 892); a card whose decks won more often in the games it was actually CAST gets a little extra; and it settles on its second element after three picks instead of six (drafters that committed to two elements early won most). Not yet tested against the old drafter head to head."
+  },
+  {
+   "build": 982,
+   "date": "2026-11-13",
+   "version": "0.3.173",
+   "body": "- **Draft: a new rarity schedule, with Special Rares.** The first pick is a Rare, the second an Uncommon; pick 10 is a Special Rare (the Heroes among them); picks 20 and 30 are Rares; Uncommons at 2, 5, 9, 15, 19, 25 and 29. Still 40 picks - two fewer Commons.\n- **The Draft lab** drafts in styles now (one, two or three elements, tribes, a curve, a synergy theme, random, the computer's own), with 15 to 20 Workers, and records what each card's effects did in a game: cards drawn, tokens, Life gained, Energy, searches, kills (combat and effect) and Building damage."
+  },
+  {
+   "build": 981,
+   "date": "2026-11-13",
+   "version": "0.3.172a",
+   "body": "- **Arcane Rifleman counts only your Spells:** its Assault counted every Incantation either player had cast this turn - Summons and Items too - so it got +2 with no Spells cast.\n- **Aether Crystal Cluster works on the opponent's turn:** in a response window it can now be used (an Energy ability that asks for its element was refused there), and a window opens for a Quick Spell that only the Cluster can pay for. Tap the Cluster first, then cast - paying automatically only taps Workers.\n- **Overflow asks where its Spark Mote goes**, and the End Phase waits for the answer (it used to take the first free field).\n- **Jann's Lamp's Jann comes after the last wish:** once the third wish has been answered, the Jann goes on the Stack; the Lamp is sacrificed as it resolves and you pick the Jann's Guarded field. It used to appear the moment the wish was chosen.\n- **New art:** Bile Belly, Shadow Born and the Twister Elemental token have new faces; new board pictures for Shadow Born, Thicket Ambusher, Twister Mage and the Twister Elemental; new Permanents pictures for Emerald Gift, Jann's Lamp and Twister Mage; Bile Belly's board picture changed."
+  },
+  {
+   "build": 980,
+   "date": "2026-11-12",
+   "version": "0.3.172",
+   "body": "- **Deck Builder: Import and Export work.** Export copies the selected deck to the clipboard; Import adds the deck on the clipboard as a new deck of yours (it never overwrites one). The format is the deck file itself - the same one the Deck Builder page's \"Import / export\" uses - so a deck moves between the page and the game, or to another player, by copy and paste. A pasted list of decks imports them all; cards this version does not know are left out, and it says how many."
+  },
+  {
+   "build": 979,
+   "date": "2026-11-12",
+   "version": "0.3.171",
+   "body": "- **Mordrec, Lord of the Barrows is weaker:** his Gabl's swap now costs [1] - \"you may pay [1]. If you do, send it into the Void instead of your graveyard, then spawn an Undead token in your Guarded Zone.\" It is offered only when the [1] can be paid, and the computer pays it only from Energy it does not hold back for an answer.\n- **Hungering Pyre fires on every sacrifice:** a sacrificed Summon never set it off, and neither did a Worker or an Item fed to Fed to the Volcano (or anything else that sacrifices \"a permanent\").\n- **Phoenix Flame Shaman's Demise deals her full maximum Life:** it read her printed 1, because the Demise resolves after the card is reset. Fed to the Volcano's Worker and Item sacrifices now grow her too.\n- **End Turn waits for a play in flight:** while a Spell is half-cast, a question of yours waits for its answer, or the Stack is resolving, End Turn is greyed and says why. Pressing it mid-cast used to end the turn and discard the Energy.\n- **Card faces:** \"[1 Neutral]\" prints the grey orb with its 1 (Romuden); Pyromaniac's Perpetual text is a size larger.\n- **Tonath's art on the Select Avatar screen sits lower.**"
+  },
   {
    "build": 978,
    "date": "2026-11-12",
@@ -14,42 +50,6 @@
    "date": "2026-11-12",
    "version": "0.3.170a",
    "body": "- **Summons with the same name are numbered in the order they entered.** Four Goblin Squires read \"Goblin Squire 1\" to \"Goblin Squire 4\" - in the log, on the board and in the detail view - so you can tell which one did what. A Summon alone of its name keeps its plain name; numbers are not reused in a game.\n- **Seven Traps could never be set off, and now can:** Venomous Harvest, Tribute Demanded, Burning Crater, Conversion Trap, Caught in the Web, Roused from the Den and You Are Not Welcome. Their effects worked, but stepping on them never asked. A new check fails the build if another Trap is ever left in that state."
-  },
-  {
-   "build": 976,
-   "date": "2026-11-12",
-   "version": "0.3.170",
-   "body": "- **Archangels' Blessing is reworked** to the designer's new card: [2][1 Light], Universal. When an enemy Summon steps (or flies) onto its field, return a Summon from your graveyard that costs no more than it - to your Guarded Zone or right beside the intruder. **Avert [1 Light]:** when a Summon of yours would perish, it persists instead - it stays at 1 Life, depleted and deactivated. Battle deaths count; a sacrifice does not.\n- **New faces from the designer's art** for 52 cards that had hand-made faces or art that had to be replaced - among them Combat Angel, Exalted Valkyrie, Soldier of Light, Spellblade Templar, Siege Master, Kanuz, Bymere, Cassiodor, City Guard and Divine Punisher - and new board pictures for many Light Summons."
-  },
-  {
-   "build": 975,
-   "date": "2026-11-12",
-   "version": "0.3.169c",
-   "body": "- **New art:** Channel Fire, Destroy Defenses, Dominating Violence, Garl and Romuden now have faces drawn from the designer's art, and the Goblin Squire token has a face at all. New Permanents-box pictures for Hedrex, Cragtooth Slinger Chief, Scalding Tar and Blessing of Might, and a board picture for the Goblin Squire.\n- **Channel Fire's face shows its copy limit (2)** again."
-  },
-  {
-   "build": 974,
-   "date": "2026-11-11",
-   "version": "0.3.169b",
-   "body": "- **Incessant Rage kills its wearer when its Onslaught takes the last Life.** \"Loses 2 life\" left a 2-Life Summon standing at 0. Grimy Slaughterer's \"loses 1 life\" had the same gap.\n- **The computer puts Incessant Rage on its own Summons** - it treated the card as removal for yours - and never on one of its own the first attack would kill.\n- **Elemental Core: click the Item to sacrifice** in your Permanents box, instead of picking it in a window. When a Core can't be used, it now says why (already used this turn, nothing to sacrifice, no free field in your Guarded Zone, or not enough Energy) - each Core has its own [A].\n- **Gnitharr: click a Summon on the board** for each Grit Counter, instead of a window.\n- **Smuggler's Run shows its board art** on the column it covers.\n- **Flaming Daggers has new art.**"
-  },
-  {
-   "build": 973,
-   "date": "2026-11-11",
-   "version": "0.3.169a",
-   "body": "- **Thurgan's look that finds no Equipment opens once.** The reveal of the top cards came up a second time over the first - black backdrop on black backdrop - and one copy stayed after you closed it. The game took the reveal for a lost question and asked it again. The same could happen to other reveals that answer a card (a hand shown by a card's effect).\n- **An Intervene Item lights your own Permanents box.** Selected on your opponent's turn, The Fallen Feather (or any Item or Terrain you may cast then) made your opponent's box glow instead of yours."
-  },
-  {
-   "build": 972,
-   "date": "2026-11-11",
-   "version": "0.3.169",
-   "body": "- **Ysmera's Idyll is the designer's new list** (60 cards, 18 Pearl Collectors; Longwhisker, Maw of the Trench, Meditate, Message in a Bottle, End Fate and the Treasures Hidden Clear Spring, The Endless Deep and Lacurath). Against the other 51 pre-cons it won 38% of 306 games to the old list's 25%. The old list is kept as a saved deck, \"Ysmera's Idyll (previous)\"."
-  },
-  {
-   "build": 971,
-   "date": "2026-11-11",
-   "version": "0.3.168g",
-   "body": "- **The computer builds Siege Foundry before it casts its Equipment**, so the Equipment gets the Foundry's discount. It cast its Items first, and the Items spent the Energy the Foundry needed: Thurgan held it in more than half the games it drew it."
   }
  ]
 }

@@ -5859,7 +5859,7 @@
   "duration": null,
   "image": "/cards/darkness/bile-belly.webp",
   "imageWidth": 500,
-  "imageHeight": 707
+  "imageHeight": 709
  },
  {
   "id": "blackfin_corsair",
@@ -52920,7 +52920,7 @@
   "movement": 0,
   "combat": "Dual Combat",
   "keywords": [],
-  "text": "Guardian Ability: Once per turn, when a non-token Summon you control perishes, you may send it into the Void instead of your graveyard. If you do, spawn an Undead token in your Guarded Zone.\nAbility: [2][1 Darkness],[A]: Return target Summon with cost 2 or less from your graveyard to your hand. If it is an Undead, you may have it enter your Guarded Zone instead. If you do, your Guardian loses 1 life.",
+  "text": "Guardian Ability: Once per turn, when a non-token Summon you control perishes, you may pay [1]. If you do, send it into the Void instead of your graveyard, then spawn an Undead token in your Guarded Zone.\nAbility: [2][1 Darkness],[A]: Return target Summon with cost 2 or less from your graveyard to your hand. If it is an Undead, you may have it enter your Guarded Zone instead. If you do, your Guardian loses 1 life.",
   "summonSpells": "",
   "activationCost": [],
   "workerCost": null,
@@ -69861,7 +69861,7 @@
   "duration": null,
   "image": "/cards/darkness/shadow-born.webp",
   "imageWidth": 500,
-  "imageHeight": 707
+  "imageHeight": 709
  },
  {
   "id": "shadow_keeper_token",
