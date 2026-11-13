@@ -1,0 +1,37 @@
+# Guardian
+
+> Guardian is a tactical-grid collectible card game by Orsonius, in development since 2010. It fuses grid tactics in the style of Fire Emblem and Final Fantasy Tactics with Magic: The Gathering-style card play. Two players each defend a Guardian on a 5 x 6 board; Summons move, attack and hold positions while Spells, Traps, Items and Workers shape the fight. It exists as a paper game and as a free digital client (alpha) for online play, games against the computer, Draft, tournaments and a story campaign.
+
+This site is the official home of the game: the full card database, the rules wiki, starter decks, the world's lore and news. The rules wiki is the current rule reference.
+
+## Start here
+
+- [Learn to Play](https://guardiancg.netlify.app/learn/): how a game works in four steps, the Quick Start guide and a starter deck to pick
+- [Rules wiki](https://guardiancg.netlify.app/wiki/): the complete rules, from setup and turn structure to combat, movement, the Stack and every keyword
+- [Play Guardian](https://guardiancg.netlify.app/play/): the digital client, download on itch.io, current version and patch notes
+
+## Rules
+
+- [Board](https://guardiancg.netlify.app/wiki/board/): the 28 playable fields and their zones
+- [Turn structure](https://guardiancg.netlify.app/wiki/turn-structure/)
+- [Energy](https://guardiancg.netlify.app/wiki/energy/): the resource system and the elements
+- [Combat](https://guardiancg.netlify.app/wiki/combat/)
+- [Movement](https://guardiancg.netlify.app/wiki/movement/)
+- [The Stack](https://guardiancg.netlify.app/wiki/stack/)
+- [Card types](https://guardiancg.netlify.app/wiki/card-types/)
+- [Keywords](https://guardiancg.netlify.app/wiki/keywords/)
+- [Elements](https://guardiancg.netlify.app/wiki/elements/)
+
+## Cards and decks
+
+- [Card gallery](https://guardiancg.netlify.app/gallery/): every card, searchable by element, type, cost and keyword; each card has its own page under /cards/
+- [Starter decks](https://guardiancg.netlify.app/decks/): pre-constructed decks with full decklists
+
+## World
+
+- [Kaimun](https://guardiancg.netlify.app/lore/): the world Guardian is set in, its lands, peoples, powers and faiths
+
+## Optional
+
+- [News](https://guardiancg.netlify.app/news/): updates and announcements
+- [Discord](https://discord.gg/BjzhT3nJ6N): the community server
