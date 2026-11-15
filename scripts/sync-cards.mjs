@@ -24,6 +24,9 @@ const IMG_BOX = { width: 500, height: 709 }; // portrait cards: 500px wide, land
 
 // Which CSV statuses are shown publicly. dungeon / created stay off the site.
 const PUBLIC_STATUS = new Set(["pool", "starter", "guardian"]);
+// Dungeon-only cards the CSV still lists under a public status (designer, 2026-11-16:
+// "they are dungeon only and once dungeon goes live we can post them"). Remove an id here to publish it.
+const HIDDEN_IDS = new Set(["salvian_the_half_lit", "ostian_token"]);
 
 // ---------- CSV ----------
 function parseCSV(text) {
@@ -151,6 +154,7 @@ async function main() {
 
   for (const r of rows) {
     if (!PUBLIC_STATUS.has(r.status)) continue;
+    if (HIDDEN_IDS.has(r.id)) continue;
     if (seen.has(r.id)) continue;
     seen.add(r.id);
 
