@@ -1,55 +1,55 @@
 {
- "version": "Alpha 0.3.174a",
- "build": 984,
- "synced": "2026-11-13",
+ "version": "Alpha 0.3.185",
+ "build": 1001,
+ "synced": "2026-11-15",
  "notes": [
   {
-   "build": 984,
-   "date": "2026-11-13",
-   "version": "0.3.174a",
-   "body": "- **The profile's own icons** for Overview, Achievements and Match history (the designer's art).\n- **The cards' edge line** is the designer's softer gold (rgba 201, 164, 98 at 50%), on the home screen and the profile."
+   "build": 998,
+   "date": "2026-11-15",
+   "version": "0.3.182c",
+   "body": "- **Fewer hitches from work the screen did on every redraw:** the resume slot is saved once the table is quiet (at most every two seconds, and when you leave) instead of after every redraw; finding a card's picture is looked up once a match instead of on every redraw; a button's hover highlight no longer piles up a new listener on every redraw."
   },
   {
-   "build": 983,
-   "date": "2026-11-13",
-   "version": "0.3.174",
-   "body": "- **A new home screen** (the designer's design): the play modes on the left - Solo Play, Draft, Online Play, Deck Builder, Profile - each with its icon and a line on what it is; on the right, where your story stands with a button straight into the next stage, the achievement you are closest to with its progress bar, and what is new in this version with a link to all the patch notes on the website. Your avatar, name and title sit top-left (click them for your profile). The cards over the backdrop are frosted glass.\n- **A new profile** (the designer's mockups): your avatar, name and the title you wear (pick it from the titles you have earned), and four tabs. **Overview**: your win rate, games won and lost, best win streak, fastest win, favourite element, wins by Guardian element, games by mode, the cards you cast most. **Achievements**: how many you have earned of each group, the elements you have won with, and every achievement as a card - the ones you are closest to first, with their progress (\"45 / 100 wins\", \"best 6 / 10\" for the one-game ones) and their titles. **Decks**: each deck's games and win rate. **Match history**: your last 50 games. \"Change avatar\" opens the avatar picker as before. Games in a CPU tournament now count as Tournament games (from this version on).\n- **The computer drafts from the styles run:** its card ratings now come from 2,400 games played this week on the current cards (they came from 984 games of build 892); a card whose decks won more often in the games it was actually CAST gets a little extra; and it settles on its second element after three picks instead of six (drafters that committed to two elements early won most). Not yet tested against the old drafter head to head."
+   "build": 997,
+   "date": "2026-11-15",
+   "version": "0.3.182b",
+   "body": "- **Card faces are drawn faster.** The shadow under every orb, symbol, bullet and number on a card was drawn again for every card; now each is drawn once and its pixels reused - the same picture, pixel for pixel. A card face that took up to a dozen extra drawing passes takes none, and is finished in two frames instead of nine."
   },
   {
-   "build": 982,
-   "date": "2026-11-13",
-   "version": "0.3.173",
-   "body": "- **Draft: a new rarity schedule, with Special Rares.** The first pick is a Rare, the second an Uncommon; pick 10 is a Special Rare (the Heroes among them); picks 20 and 30 are Rares; Uncommons at 2, 5, 9, 15, 19, 25 and 29. Still 40 picks - two fewer Commons.\n- **The Draft lab** drafts in styles now (one, two or three elements, tribes, a curve, a synergy theme, random, the computer's own), with 15 to 20 Workers, and records what each card's effects did in a game: cards drawn, tokens, Life gained, Energy, searches, kills (combat and effect) and Building damage."
+   "build": 996,
+   "date": "2026-11-15",
+   "version": "0.3.182a",
+   "body": "- **You hold the card itself when you drag it**: it leaves your hand, stays exactly where you picked it up, leans a little as you move it, and slides back into your hand if you let go where it cannot be played.\n- **Drop a Worker on your Worker zone** to play it (it sits level with your hand, and a drop there was taken for putting the card back).\n- **Fewer hitches**: when one action asked for the screen to be redrawn several times in the same frame, it was - up to six times. Now it is redrawn at most twice a frame.\n- **A card on the Stack for one of its triggers** (a Manifest, an Onslaught...) shows its current picture, not an old one."
   },
   {
-   "build": 981,
-   "date": "2026-11-13",
-   "version": "0.3.172a",
-   "body": "- **Arcane Rifleman counts only your Spells:** its Assault counted every Incantation either player had cast this turn - Summons and Items too - so it got +2 with no Spells cast.\n- **Aether Crystal Cluster works on the opponent's turn:** in a response window it can now be used (an Energy ability that asks for its element was refused there), and a window opens for a Quick Spell that only the Cluster can pay for. Tap the Cluster first, then cast - paying automatically only taps Workers.\n- **Overflow asks where its Spark Mote goes**, and the End Phase waits for the answer (it used to take the first free field).\n- **Jann's Lamp's Jann comes after the last wish:** once the third wish has been answered, the Jann goes on the Stack; the Lamp is sacrificed as it resolves and you pick the Jann's Guarded field. It used to appear the moment the wish was chosen.\n- **New art:** Bile Belly, Shadow Born and the Twister Elemental token have new faces; new board pictures for Shadow Born, Thicket Ambusher, Twister Mage and the Twister Elemental; new Permanents pictures for Emerald Gift, Jann's Lamp and Twister Mage; Bile Belly's board picture changed."
+   "build": 995,
+   "date": "2026-11-15",
+   "version": "0.3.182",
+   "body": "- **The match is smoother.** Every action redraws the screen, and each redraw took about 30 ms - most of it spent loading the saved picture of every card in your hand again, only to cover it at once with the card drawn live. A hand of six took 88 ms; it takes 5 now, and the whole redraw 11.\n- **Drag and drop works for every card.** A Worker, an Item, a Terrain or a Spell with nothing to aim at let go over the board was taken for a click on that field and did nothing; now a card goes onto a field only where one is lit for it, and anything else is played as itself.\n- **A frame rate counter**: F3, or \"Show FPS\" on the Graphics page, shows the frames per second and the longest frame of the last half second in the top-left corner, on every screen."
   },
   {
-   "build": 980,
-   "date": "2026-11-12",
-   "version": "0.3.172",
-   "body": "- **Deck Builder: Import and Export work.** Export copies the selected deck to the clipboard; Import adds the deck on the clipboard as a new deck of yours (it never overwrites one). The format is the deck file itself - the same one the Deck Builder page's \"Import / export\" uses - so a deck moves between the page and the game, or to another player, by copy and paste. A pasted list of decks imports them all; cards this version does not know are left out, and it says how many."
+   "build": 994,
+   "date": "2026-11-15",
+   "version": "0.3.181",
+   "body": "- **Drawing a card lifts it off your deck** and lands it in its own place in your hand - face down, turning over on the way where you can see that hand. The card in your hand appears as it lands.\n- **Discarding a card flies it from your hand to your graveyard**, face up, for both players to see.\n- **Fixed:** under Zishin's Fate Pond, the revealed top card of each deck now actually shows on the deck."
   },
   {
-   "build": 979,
-   "date": "2026-11-12",
-   "version": "0.3.171",
-   "body": "- **Mordrec, Lord of the Barrows is weaker:** his Gabl's swap now costs [1] - \"you may pay [1]. If you do, send it into the Void instead of your graveyard, then spawn an Undead token in your Guarded Zone.\" It is offered only when the [1] can be paid, and the computer pays it only from Energy it does not hold back for an answer.\n- **Hungering Pyre fires on every sacrifice:** a sacrificed Summon never set it off, and neither did a Worker or an Item fed to Fed to the Volcano (or anything else that sacrifices \"a permanent\").\n- **Phoenix Flame Shaman's Demise deals her full maximum Life:** it read her printed 1, because the Demise resolves after the card is reset. Fed to the Volcano's Worker and Item sacrifices now grow her too.\n- **End Turn waits for a play in flight:** while a Spell is half-cast, a question of yours waits for its answer, or the Stack is resolving, End Turn is greyed and says why. Pressing it mid-cast used to end the turn and discard the Energy.\n- **Card faces:** \"[1 Neutral]\" prints the grey orb with its 1 (Romuden); Pyromaniac's Perpetual text is a size larger.\n- **Tonath's art on the Select Avatar screen sits lower.**"
+   "build": 993,
+   "date": "2026-11-14",
+   "version": "0.3.180a",
+   "body": "- **Arctic Dragon has Resistance 2**, as its card has always said (its data had 0).\n- A card whose saved picture is missing is now drawn live everywhere it is shown - picking from a pile, a trigger popping up, a Summon's own Spell on the Stack, the card you drag - instead of showing its name on a blank card."
   },
   {
-   "build": 978,
-   "date": "2026-11-12",
-   "version": "0.3.170b",
-   "body": "- **New entrance sounds** (the designer's): Spiders have their own; male Soldiers and Warriors arrive with a salute (two takes); Knights and Paladins without Movement 3 clank in plate armour (those with 3 still ride in); Spirits that are not Darkness arrive with a friendly sound; dogs and big cats have a second take."
+   "build": 992,
+   "date": "2026-11-14",
+   "version": "0.3.180",
+   "body": "- **Every card is now drawn live**, the ones with hand-made faces too: their picture is cut from their own face and the card is drawn around it, so 348 more cards show their current text, cost and stats - in hand, on the Stack, in the large view, the Deck Builder and Draft. Only 2 of 1,985 cards still show a saved picture."
   },
   {
-   "build": 977,
-   "date": "2026-11-12",
-   "version": "0.3.170a",
-   "body": "- **Summons with the same name are numbered in the order they entered.** Four Goblin Squires read \"Goblin Squire 1\" to \"Goblin Squire 4\" - in the log, on the board and in the detail view - so you can tell which one did what. A Summon alone of its name keeps its plain name; numbers are not reused in a game.\n- **Seven Traps could never be set off, and now can:** Venomous Harvest, Tribute Demanded, Burning Crater, Conversion Trap, Caught in the Web, Roused from the Den and You Are Not Welcome. Their effects worked, but stepping on them never asked. A new check fails the build if another Trap is ever left in that state."
+   "build": 991,
+   "date": "2026-11-14",
+   "version": "0.3.179",
+   "body": "- **The Deck Builder and Draft show live card faces**, drawn by the game from each card's art and data - the same faces as in a match, so a changed card or new art shows there at once.\n- **The whole card pool is drawn in the background while you are on the menus** (about two minutes the first time, then kept on disk), so the Deck Builder opens on finished faces. It waits while you play a match.\n- **Turning a page in the Deck Builder is smooth**: it took about 130 ms - the pool was filtered and sorted twice on every page - and now takes about 20 ms. The pages either side are read ahead, so a flip shows its faces at once."
   }
  ]
 }

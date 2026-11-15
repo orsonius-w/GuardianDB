@@ -3232,7 +3232,7 @@
   "attack": 4,
   "defense": 0,
   "magic": 0,
-  "resistance": 0,
+  "resistance": 2,
   "movement": 2,
   "combat": "Close Combat",
   "keywords": [
