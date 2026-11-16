@@ -45,4 +45,9 @@ The last dozen builds went into how a match feels:
 - **Live card faces:** every card is now drawn by the game from its art and data, so a changed cost or stat shows on the card itself, everywhere.
 - **Far fewer hitches:** redrawing the screen after an action took around 30 ms and now takes about 11. A frame rate counter (F3, or "Show FPS" in the Graphics options) shows how your machine is doing.
 
+<figure>
+  <img src="/animated/guardian_gameplay.webp" alt="A short clip of a match: cards are drawn, played and moved on the board" width="960" height="540" loading="lazy" />
+  <figcaption>A few turns of a match in the current build.</figcaption>
+</figure>
+
 All the details are in the [patch notes](/play/#patch-notes).

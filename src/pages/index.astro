@@ -265,7 +265,7 @@ const heroes = [1, 2, 3, 4].map((i) => `/images/hero/hero-${i}.webp`);
     <img src="/images/client/gameplay.webp" alt="" class="cta-bg" decoding="async" />
     <div class="base-layout"><div class="cta-inner">
       <div class="laptop">
-        <img src="/images/client/gameplay-action.webp" alt="A match in the Guardian client: a Summon attacks" class="laptop-screen" width="1600" height="900" decoding="async" />
+        <img src="/images/client/gameplay-action.webp" data-anim="/animated/guardian_gameplay.webp" alt="A match in the Guardian client" class="laptop-screen" width="1600" height="900" decoding="async" />
         <img src="/images/laptop.png" alt="" class="laptop-frame" width="1200" height="692" decoding="async" />
       </div>
       <div class="cta-copy">
@@ -306,6 +306,19 @@ const heroes = [1, 2, 3, 4].map((i) => `/images/hero/hero-${i}.webp`);
 </Layout>
 
 <script>
+  // Laptop: swap the still for the gameplay clip once it scrolls near (3 MB, so not on page load; never with reduced motion)
+  const laptopShot = document.querySelector<HTMLImageElement>(".laptop-screen[data-anim]");
+  if (laptopShot && !matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      io.disconnect();
+      const clip = new Image();
+      clip.onload = () => { laptopShot.src = clip.src; };
+      clip.src = laptopShot.dataset.anim!;
+    }, { rootMargin: "400px" });
+    io.observe(laptopShot);
+  }
+
   // Hero art crossfade
   const slides = [...document.querySelectorAll<HTMLImageElement>(".hero .slide")];
   const dots = [...document.querySelectorAll<HTMLButtonElement>(".hero-dots button")];
