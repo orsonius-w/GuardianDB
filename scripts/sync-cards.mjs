@@ -143,7 +143,7 @@ async function main() {
     console.error(`Card database not found at ${csvPath}\nSet GUARDIAN_REPO to your guardian-cg folder.`);
     process.exit(1);
   }
-  const rows = parseCSV(fs.readFileSync(csvPath, "utf8"));
+  const rows = parseCSV(fs.readFileSync(csvPath, "utf8").replace(/\r\n?/g, "\n")); // stray Windows line endings inside card texts
   const overrides = readOverrides();
   const art = buildArtIndex();
 
@@ -258,7 +258,7 @@ function syncClient() {
 
   // "## Build 920 — 2026-11-06 — 0.3.138d" followed by bullet points
   const notes = [];
-  const parts = fs.readFileSync(cfile, "utf8").split(/^## /m).slice(1);
+  const parts = fs.readFileSync(cfile, "utf8").replace(/\r\n?/g, "\n").split(/^## /m).slice(1); // the changelog may have Windows line endings
   for (const part of parts) {
     const [head, ...body] = part.split("\n");
     const m = head.match(/^Build\s+(\d+)\s*[—-]+\s*(\d{4}-\d{2}-\d{2})\s*[—-]+\s*(.+)$/);

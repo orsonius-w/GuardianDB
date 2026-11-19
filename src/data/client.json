@@ -1,55 +1,55 @@
 {
- "version": "Alpha 0.3.185",
- "build": 1001,
- "synced": "2026-11-15",
+ "version": "Alpha 0.3.190a",
+ "build": 1014,
+ "synced": "2026-11-19",
  "notes": [
   {
-   "build": 998,
-   "date": "2026-11-15",
-   "version": "0.3.182c",
-   "body": "- **Fewer hitches from work the screen did on every redraw:** the resume slot is saved once the table is quiet (at most every two seconds, and when you leave) instead of after every redraw; finding a card's picture is looked up once a match instead of on every redraw; a button's hover highlight no longer piles up a new listener on every redraw."
+   "build": 1014,
+   "date": "2026-11-19",
+   "version": "0.3.190a",
+   "body": "- **Deck Builder: every row of your deck list shows its card's art.** A card whose art lives only on its hand-made face (Green Thumbs, Vitality's Might, Abundant Resources, The Omniferous Mother...) showed an empty row; it now shows the art cut from that face.\n- **Fix: the Bat Token showed its type box twice.** It had Flying as a keyword but no rules text, so it was drawn as a vanilla card over its hand-made face; it now prints Flying like every other Flier (and a test keeps every Summon's keywords in its text)."
   },
   {
-   "build": 997,
-   "date": "2026-11-15",
-   "version": "0.3.182b",
-   "body": "- **Card faces are drawn faster.** The shadow under every orb, symbol, bullet and number on a card was drawn again for every card; now each is drawn once and its pixels reused - the same picture, pixel for pixel. A card face that took up to a dozen extra drawing passes takes none, and is finished in two frames instead of nine."
+   "build": 1013,
+   "date": "2026-11-19",
+   "version": "0.3.190",
+   "body": "- **The game ships the card art itself, and draws every face from it.** The download is about 135 MB smaller (the pack 732 MB -> 597 MB): the raw art goes in, and the 1773 finished face pictures the game can draw for itself stay out. New art you see in a build is the art, not a picture of a card made from it. On the first launch of this build the faces are drawn again in the background (a minute or so on the start screen); a card shows its back for a moment until its face is ready. Cards with no raw art keep their hand-made faces.\n- **Jann's Lamp: each wish goes on the Stack on its own.** You choose the wish (only the ones left, and only ones you can use now) and its target when you rub the Lamp, then pay; the Stack and the pop-up show that wish alone, so your opponent answers knowing which one. The computer now uses Jann's Lamp. Online, a choice from a menu made in answer to your opponent now reaches the other machine.\n- **A trigger shows only its own line,** on the Stack and when it pops up - also when another card gave it: Agatha wearing Gale-Edge Sabre shows the Sabre's Assault, not her whole card. A Ward shows only its Ward; a Perpetual that gives your Summons an Onslaught, Agility or Dominate (Thornmane Behemoth, Elder White-Gold Dragon, Stormhall Jarl, Valkyrie Captain, Order of the Lion) shows that line.\n- **Riddle Sphinx shows the card it reveals**, to both players, with a line under it: what was named, what the card is, and whether the attacker goes back to hand. The log tells the riddle again (the return to hand had been overwriting it).\n- **A cost raised by Still Waters (or anything) shows on cards with no live face.** Agatha was always charged the higher price, but her card kept showing the printed one; the hand card and the big hover view now carry a red +N (a reduction still shows -N).\n- **The computer** counts its own Heat of Battle when it decides whether a swing at your Guardian does anything.\n- **A Summon's move ends without the wobble**; the landing of a new Summon and the hit shake stay.\n- **Deck Builder: the cost curve above your deck no longer counts Workers** in its 0 bar.\n- **A milled or flying card shows its face**, drawn on the way when nobody had looked at it yet.\n- **Soul-Omen Valkyrie is a Special rare, not a Hero** (her face is a regular Summon's now, and the one-Hero rule no longer applies to her)."
   },
   {
-   "build": 996,
-   "date": "2026-11-15",
-   "version": "0.3.182a",
-   "body": "- **You hold the card itself when you drag it**: it leaves your hand, stays exactly where you picked it up, leans a little as you move it, and slides back into your hand if you let go where it cannot be played.\n- **Drop a Worker on your Worker zone** to play it (it sits level with your hand, and a drop there was taken for putting the card back).\n- **Fewer hitches**: when one action asked for the screen to be redrawn several times in the same frame, it was - up to six times. Now it is redrawn at most twice a frame.\n- **A card on the Stack for one of its triggers** (a Manifest, an Onslaught...) shows its current picture, not an old one."
+   "build": 1012,
+   "date": "2026-11-19",
+   "version": "0.3.189",
+   "body": "- **A card you cast flies once.** It lifts off your hand, flies to the Stack, shows what it targets there and stays as the Stack's card. It used to pop up on the Stack first, vanish, and then fly in from your hand a second time. The computer's casts and your opponent's online (their responses too) do the same. A cast you give up while it shows flies back into your hand; a Summon flies on from there to its field. (Charged Lunge on Storm Initiate showed \"way too many times\" for the same reason: now the Lunge shows once, then Storm Initiate once with the Swiftstrike it was given.)\n- **Static Shield shows what it absorbs.** The rules were already right - the attack lands, Lightning Energy is spent, your Life is untouched - but nothing showed it. Now, when the blow lands, a Lightning shield with \"-N\" rises over the Guardian, the blocked-hit sound plays, the Lightning sphere in the Energy box flashes with \"-N\" beside it, and the log says so. Online too.\n- **Ash-Eater Goblin's Resonance goes on the Stack** (it used to take its Might Counter at once), and so do Brood Mantis's and Calving Sea's, which put their counters the same way.\n- **Deck Builder: Workers have no cost**, so the cost coin 0 no longer lists them, and the search agrees (`c:0` finds none).\n- **Fix: an ability used while your card was being shown no longer cancels the card.** A Worker's second ability (Ruin Diver's look), an Item's (Kraken-Ink Compass), a Guardian's, a Summon's, a Building's or an Event's used in that moment sent the card back to your hand. Now they wait until the card is cast or the Stack has resolved, and the hint line says so. Making Energy never waits.\n- **The computer:**\n  - It no longer attacks your Guardian for 0. Rime Scholar first pays for her +1M per Spell, then hits.\n  - A Summon that has attacked now really steps back out of your Guarded Zone or out of reach (the step-back of build 1002 never fired after a real attack, because every attack deactivates the attacker). A Summon with nothing to do in your Guarded Zone leaves it, and does not walk in.\n  - Self-buffs (Vampire Rider, Pride Knight, Seal Pup, Ember-Crowned Dragon) are paid from its Workers too, not only from loose Energy.\n  - It casts Surge of Insight only when a Wizard can reach the Summon the +2M kills this turn.\n- **Cards, the designer's rulings on the old hand-made faces:** Snow Covered Mimic Defense 1 and Resistance 1; Flesh Keeper Attack 1; Ice Giant Attack 6, Resistance 2; Flame Dancer Resistance 2; Cold Reaper Life 3; Elvish Witch Doctor Life 4; Icy Stare costs [1][Ice]; Turquoise Elite [2][Nature]; Native Repeal [2 Nature]; Sneaking Phantom [2 Darkness].\n- **New art:** Fleeting Stalker (its Life now prints \"*\", as it is counted), Snow Covered Mimic, You Are Not Welcome. A Trap whose activation costs X (You Are Not Welcome, Feint Hit) prints its X orb."
   },
   {
-   "build": 995,
-   "date": "2026-11-15",
-   "version": "0.3.182",
-   "body": "- **The match is smoother.** Every action redraws the screen, and each redraw took about 30 ms - most of it spent loading the saved picture of every card in your hand again, only to cover it at once with the card drawn live. A hand of six took 88 ms; it takes 5 now, and the whole redraw 11.\n- **Drag and drop works for every card.** A Worker, an Item, a Terrain or a Spell with nothing to aim at let go over the board was taken for a click on that field and did nothing; now a card goes onto a field only where one is lit for it, and anything else is played as itself.\n- **A frame rate counter**: F3, or \"Show FPS\" on the Graphics page, shows the frames per second and the longest frame of the last half second in the top-left corner, on every screen."
+   "build": 1011,
+   "date": "2026-11-18",
+   "version": "0.3.188",
+   "body": "- **Combat moves.** A Close attacker darts a quarter of the way at its target and springs back (about a third of a second); a Ranged or Magic attacker stays put and fires a shot, with a small recoil. The piece that is hit shudders - a little for 1 damage, firmly for 5 or more - and its damage number rises the moment the blow lands. A kill, or a hit of 5 or more, gives the whole board a short shake (gentler than the storm strike's). A Summon entering the board thumps down with a squash and settle; one finishing a move lands with a lighter one. A counter-attack swings just after the blow it answers. All of it shows on both screens online, and none of it at Skip speed.\n- **New setting: Screen shake** (Options -> Graphics, on by default). Off stops the hit shake and the board shake; the lunges and landings stay.\n- **New art for seventeen Darkness cards:** Assassination, Batcat, Claimed in Death, Cloak Priest, Corpse Consumer, Death Strike, Decapitate, Duskwing Tyrant, Fallen Garuda, Mindwhirl Specter, Nightmare Eater, Shadow Vanguard, Shadow Vigil, The Defiled, The Obsessed, Underworld Spider, Vampire Rider.\n- **Death Strike** now reads \"Destroy target Summon. It cannot persist.\"\n- **A Summon's first appearance on the board no longer stutters the screen:** its pictures load in the background and the piece shows the moment it is whole (at most a quarter of a second later). Both decks' board pictures are warmed at the start of the match, one a frame.\n- **The computer's turn no longer freezes the screen while it thinks:** its planning is spread across frames instead of done in one long one.\n- **Fix: the storm strike's board shake no longer leaves the board off-centre** on a screen that is not 16:9 (a 16:10 laptop, an ultrawide): the board came to rest at the window's top-left instead of in the middle of its black bars."
   },
   {
-   "build": 994,
-   "date": "2026-11-15",
-   "version": "0.3.181",
-   "body": "- **Drawing a card lifts it off your deck** and lands it in its own place in your hand - face down, turning over on the way where you can see that hand. The card in your hand appears as it lands.\n- **Discarding a card flies it from your hand to your graveyard**, face up, for both players to see.\n- **Fixed:** under Zishin's Fate Pond, the revealed top card of each deck now actually shows on the deck."
+   "build": 1010,
+   "date": "2026-11-17",
+   "version": "0.3.187f",
+   "body": "- **A card added to the Stack, or a pass of priority, redraws the screen in about half the time** (10.8 ms -> 4.9 and 13.2 -> 6.3 on the probe): the boxes around the board (Energy, Treasure, piles, Workers, Guardians, Permanents) no longer rebuild on every Stack change - each now rebuilds only when something it shows changed.\n- **Fix: an online opponent leaving while you had a Choose One or Choose X question open** no longer throws a script error, which in the exported game could freeze the screen or crash it.\n- **Fix: a pick still open when the match ends is no longer carried out after the result.** A discard or Shyrad's alternative cost you had only highlighted used to be taken as your answer once the game was over, and the Hand Limit could ask again over the result screen."
   },
   {
-   "build": 993,
-   "date": "2026-11-14",
-   "version": "0.3.180a",
-   "body": "- **Arctic Dragon has Resistance 2**, as its card has always said (its data had 0).\n- A card whose saved picture is missing is now drawn live everywhere it is shown - picking from a pile, a trigger popping up, a Summon's own Spell on the Stack, the card you drag - instead of showing its name on a blank card."
+   "build": 1009,
+   "date": "2026-11-17",
+   "version": "0.3.187e",
+   "body": "- **The \"see what just happened\" card no longer stutters the first time it shows a trigger.** It used to load its pictures (the card's face, the text box, the type box) on the spot, freezing the screen for 15 to 39 ms; they now load in the background, and the card appears the moment they are all there - whole, for its full time, and still before the effect happens. A trigger not seen yet this match shows up to a twentieth of a second later than before."
   },
   {
-   "build": 992,
-   "date": "2026-11-14",
-   "version": "0.3.180",
-   "body": "- **Every card is now drawn live**, the ones with hand-made faces too: their picture is cut from their own face and the card is drawn around it, so 348 more cards show their current text, cost and stats - in hand, on the Stack, in the large view, the Deck Builder and Draft. Only 2 of 1,985 cards still show a saved picture."
+   "build": 1008,
+   "date": "2026-11-17",
+   "version": "0.3.187d",
+   "body": "- **Online games keep the table** (stage 7 of the smoother match screen): when the other player acts, your screen no longer tears the whole table down and builds it again - it keeps everything and changes what changed. The opponent's moves now animate on your screen (a Summon they move slides to its field), and a received state costs about 9 ms instead of 16.\n- **The Permanents box is redrawn only when it changes**, like the rest of the frame since build 1005, and the first trigger of each element no longer stutters as it shows on the Stack (its fonts are warmed when the match starts).\n\n- **Only a real game counts** (the designer's rule, replacing build 1006's): a game won by beating the Guardian, a deck-out or another win condition always counts. A game someone gives up - the opponent leaving, or a concession - counts only from turn 3 on; before that it stays in your history as no result, neither a win nor a loss. Concessions are now marked in the record (they used to look like a Guardian beaten)."
   },
   {
-   "build": 991,
-   "date": "2026-11-14",
-   "version": "0.3.179",
-   "body": "- **The Deck Builder and Draft show live card faces**, drawn by the game from each card's art and data - the same faces as in a match, so a changed card or new art shows there at once.\n- **The whole card pool is drawn in the background while you are on the menus** (about two minutes the first time, then kept on disk), so the Deck Builder opens on finished faces. It waits while you play a match.\n- **Turning a page in the Deck Builder is smooth**: it took about 130 ms - the pool was filtered and sorted twice on every page - and now takes about 20 ms. The pages either side are read ahead, so a flip shows its faces at once."
+   "build": 1007,
+   "date": "2026-11-17",
+   "version": "0.3.187c",
+   "body": "- **Fix: ending your turn waits for the end-of-turn questions before it throws your Energy away.** With Night of the Restless and Fading Memory out, the End Phase discarded your unused Energy while Fading Memory's pick was still open, so Night of the Restless's \"Pay [2]\" came too late to be paid. The turn now waits for every end-of-turn trigger's question first (found by the probe sweep of 2026-11-17)."
   }
  ]
 }
