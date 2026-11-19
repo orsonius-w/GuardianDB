@@ -353,7 +353,35 @@ const dataFor = (card: Card) => ({
   const cache = new Map<string, string>();
   let current = "";
 
-  async function show(slug: string) {
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  
+  // Fly the card from its place in the grid to its place in the dialog (FLIP).
+  async function flyIn(from: HTMLImageElement | null) {
+    const to = qvBody.querySelector<HTMLImageElement>("#card-img, .card-image");
+    if (!from || !to || reduceMotion) {
+      dialog.animate([{ opacity: 0, transform: "scale(.97)" }, { opacity: 1, transform: "none" }], { duration: 200, easing: "ease-out" });
+      return;
+    }
+    // The panel fades in behind the card; the card itself stays solid while it flies.
+    const cs = getComputedStyle(dialog);
+    dialog.animate(
+      [{ backgroundColor: "transparent", borderColor: "transparent", boxShadow: "none" },
+       { backgroundColor: cs.backgroundColor, borderColor: cs.borderColor, boxShadow: cs.boxShadow }],
+      { duration: 320, easing: "ease-out" });
+    try { await to.decode(); } catch {}
+    const a = from.getBoundingClientRect(), b = to.getBoundingClientRect();
+    if (!a.width || !b.width) return;
+    const dx = a.left + a.width / 2 - (b.left + b.width / 2), dy = a.top + a.height / 2 - (b.top + b.height / 2);
+    const k = a.width / b.width;
+    to.animate(
+      [{ transform: `translate(${dx}px, ${dy}px) scale(${k})`, filter: "brightness(1.15)" }, { transform: "none", filter: "none" }],
+      { duration: 420, easing: "cubic-bezier(.2,.8,.2,1)" },
+    );
+    [dialog.querySelector<HTMLElement>(".qv-bar"), ...qvBody.querySelectorAll<HTMLElement>(".info-col")].forEach((el) =>
+      el?.animate([{ opacity: 0, transform: "translateY(12px)" }, { opacity: 1, transform: "none" }], { duration: 320, delay: 160, easing: "ease-out", fill: "backwards" }));
+  }
+
+  async function show(slug: string, from: HTMLImageElement | null = null) {
     current = slug;
     qvOpen.href = `/cards/${slug}/`;
     if (!cache.has(slug)) {
@@ -367,11 +395,13 @@ const dataFor = (card: Card) => ({
     }
     if (current !== slug) return;
     qvBody.innerHTML = cache.get(slug)!;
-    if (!dialog.open) dialog.showModal();
+    const opening = !dialog.open;
+    if (opening) { dialog.showModal(); flyIn(from); }
     history.replaceState(null, "", `${location.pathname}${location.search}#card=${slug}`);
   }
   function close() {
-    dialog.close();
+    if (reduceMotion) return dialog.close();
+    dialog.animate([{ opacity: 1, transform: "none" }, { opacity: 0, transform: "scale(.97)" }], { duration: 160, easing: "ease-in" }).finished.then(() => dialog.close());
   }
   dialog.addEventListener("close", () => history.replaceState(null, "", location.pathname + location.search));
   function step(dir: number) {
@@ -382,7 +412,8 @@ const dataFor = (card: Card) => ({
   const openFrom = (e: MouseEvent, slug?: string) => {
     if (!slug || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; // let new-tab clicks through
     e.preventDefault();
-    show(slug);
+    const img = (e.target as HTMLElement).closest<HTMLElement>(".item")?.querySelector<HTMLImageElement>("img.card-image") ?? null;
+    show(slug, img);
   };
   grid.addEventListener("click", (e) => openFrom(e, (e.target as HTMLElement).closest<HTMLElement>(".item")?.dataset.slug));
   tbody.addEventListener("click", (e) => {
@@ -523,6 +554,7 @@ const dataFor = (card: Card) => ({
   .card-table :global(.card-link-row) { font-weight: var(--fw-medium); text-decoration: none; }
 
   .quick-view {
+    margin: auto; /* the global reset's margin: 0 pinned it to the top-left */
     width: min(64rem, 94vw);
     max-height: 92vh;
     padding: 0;
@@ -531,8 +563,10 @@ const dataFor = (card: Card) => ({
     border: 1px solid var(--clr-neutral-600);
     border-radius: var(--radius-lg);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-    &::backdrop { background: rgba(0, 0, 0, 0.75); }
+    &::backdrop { background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(3px); }
   }
+  .quick-view[open]::backdrop { animation: qv-backdrop .25s ease-out; }
+  @keyframes qv-backdrop { from { opacity: 0; } }
   .qv-bar {
     position: sticky; top: 0; z-index: 2;
     display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 0.9rem;
