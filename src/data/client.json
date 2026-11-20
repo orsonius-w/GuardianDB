@@ -1,8 +1,14 @@
 {
- "version": "Alpha 0.3.190a",
- "build": 1014,
- "synced": "2026-11-19",
+ "version": "Alpha 0.3.191",
+ "build": 1015,
+ "synced": "2026-11-20",
  "notes": [
+  {
+   "build": 1015,
+   "date": "2026-11-20",
+   "version": "0.3.191",
+   "body": "- **The Draft, redesigned in the Deck Builder's look.** Every stage - start, the element group, the Guardian, the picks, the Treasures, the build, the fights - sits in the Deck Builder's frosted gold-framed boxes, with your drafted deck (its cost curve without Workers) on the right from the first pick on. **The end of a run follows the mockup:** the record in words, the wins and losses as diamonds, every fight with its opponent's portrait, the turn it ended on and Won/Lost, your runs so far and your best record. **\"Save this deck\"** puts the drafted deck into your deck list as \"Draft: <Guardian> W-L\". The start screen opens fast with a long history.\n- **Auto Pay uses your Energy Items**: Crystal Archive (its Generate [1] only, never its draw), Aether Crystal Cluster, Multi Tool and Stonecutter's Quarry ([1 Earth]). A card that glows as playable can now be paid for - the glow and the payment read one plan. The computer pays with them too (it used to announce a cast and then end its turn with nothing played), and so does an online opponent. An Item never pays for its own ability.\n- **Quartz pays automatically as a last resort,** as MTG treats a Treasure: Workers and the other Energy Items first, then the fewest Quartz. With Options > \"Choose which Energy pays\" on, your Quartz stays yours to sacrifice by hand. The computer always uses its Quartz.\n- **Jong-Pun Mountain Temple's Resonance goes on the Stack,** and so do seventeen more that acted or asked the moment their event happened: Thornheim, Smogpit Warrens, Thoughtgnaw Fiend, Hollow Minds, Crystalline Might, Delta Coilhold, Intrusive Thought, Nanahuatl, Crimson Keep, Thornwood, Grembyd, Gemstone Desert's Demise, Windborne Courier, Sunwell Acolyte, Frost Archivist, Shieldwall Longhouse and Aurora Strand. Each shows on the Stack, can be answered, and asks its question when it resolves.\n- **Grembyd no longer offers its draw with an empty deck** (the computer took it and lost to an empty deck).\n- **Deck lists: Earth's rows are light brown and Wind's lilac** (they were green and teal), in the Deck Builder, the Draft and Deck Stats.\n- **A match saved by an older build resumes again** after an update (a new setting the save did not have stopped the resume)."
+  },
   {
    "build": 1014,
    "date": "2026-11-19",
@@ -44,12 +50,6 @@
    "date": "2026-11-17",
    "version": "0.3.187d",
    "body": "- **Online games keep the table** (stage 7 of the smoother match screen): when the other player acts, your screen no longer tears the whole table down and builds it again - it keeps everything and changes what changed. The opponent's moves now animate on your screen (a Summon they move slides to its field), and a received state costs about 9 ms instead of 16.\n- **The Permanents box is redrawn only when it changes**, like the rest of the frame since build 1005, and the first trigger of each element no longer stutters as it shows on the Stack (its fonts are warmed when the match starts).\n\n- **Only a real game counts** (the designer's rule, replacing build 1006's): a game won by beating the Guardian, a deck-out or another win condition always counts. A game someone gives up - the opponent leaving, or a concession - counts only from turn 3 on; before that it stays in your history as no result, neither a win nor a loss. Concessions are now marked in the record (they used to look like a Guardian beaten)."
-  },
-  {
-   "build": 1007,
-   "date": "2026-11-17",
-   "version": "0.3.187c",
-   "body": "- **Fix: ending your turn waits for the end-of-turn questions before it throws your Energy away.** With Night of the Restless and Fading Memory out, the End Phase discarded your unused Energy while Fading Memory's pick was still open, so Night of the Restless's \"Pay [2]\" came too late to be paid. The turn now waits for every end-of-turn trigger's question first (found by the probe sweep of 2026-11-17)."
   }
  ]
 }
