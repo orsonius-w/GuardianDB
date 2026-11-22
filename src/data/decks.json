@@ -1183,8 +1183,12 @@
   "guardian": "tonath_the_manipulator",
   "main": [
    {
-    "id": "acid_spray",
+    "id": "ambushed_strike",
     "count": 2
+   },
+   {
+    "id": "blood_devoted_peasant",
+    "count": 1
    },
    {
     "id": "blood_moon_blessing",
@@ -1192,91 +1196,103 @@
    },
    {
     "id": "bone_heater",
-    "count": 17
+    "count": 15
    },
    {
-    "id": "death_strike",
+    "id": "cruel_choice",
     "count": 1
    },
    {
-    "id": "disfigured_beast",
-    "count": 2
-   },
-   {
-    "id": "fallen_battle_knight",
+    "id": "dark_arts",
     "count": 1
    },
    {
-    "id": "fallen_garuda",
+    "id": "dark_infiltrator",
     "count": 2
    },
    {
-    "id": "forsaken_death_knight",
+    "id": "dark_warlock",
     "count": 2
+   },
+   {
+    "id": "dread_hunger",
+    "count": 1
+   },
+   {
+    "id": "gallowmire",
+    "count": 1
    },
    {
     "id": "gallows_step",
+    "count": 2
+   },
+   {
+    "id": "ghostly_archer",
+    "count": 2
+   },
+   {
+    "id": "gloom_demon",
     "count": 1
    },
    {
-    "id": "greater_mullagh",
+    "id": "keening_banshee",
     "count": 2
    },
    {
-    "id": "life_drainer",
+    "id": "knight_of_the_eclipse",
     "count": 2
+   },
+   {
+    "id": "leechmail",
+    "count": 1
    },
    {
     "id": "merciless_execution",
     "count": 1
    },
    {
-    "id": "noxious_vapors",
+    "id": "mindwhirl_specter",
+    "count": 2
+   },
+   {
+    "id": "mire_gravedigger",
     "count": 1
    },
    {
-    "id": "plague_spreader",
-    "count": 2
-   },
-   {
-    "id": "power_corruption",
-    "count": 2
-   },
-   {
-    "id": "putrid_dead",
-    "count": 2
-   },
-   {
-    "id": "putrid_necromancer",
-    "count": 2
-   },
-   {
-    "id": "reaper_of_spirits",
-    "count": 2
-   },
-   {
-    "id": "relentless_dead",
+    "id": "night_of_the_restless",
     "count": 1
    },
    {
-    "id": "skeleton_archer",
-    "count": 2
-   },
-   {
-    "id": "spikeback_ghoul",
-    "count": 2
-   },
-   {
-    "id": "undead_giant",
+    "id": "plague_mark",
     "count": 1
    },
    {
-    "id": "venomous_harvest",
+    "id": "raven_matriarch",
+    "count": 2
+   },
+   {
+    "id": "raven_of_ill_omen",
+    "count": 2
+   },
+   {
+    "id": "sigil_scarred_demon",
     "count": 1
    },
    {
-    "id": "zombie_bite",
+    "id": "soul_hungry_locket",
+    "count": 1
+   },
+   {
+    "id": "swarm_of_scarabs",
     "count": 2
+   },
+   {
+    "id": "tribute_demanded",
+    "count": 2
+   },
+   {
+    "id": "void_ferryman",
+    "count": 1
    }
   ],
   "chest": [
