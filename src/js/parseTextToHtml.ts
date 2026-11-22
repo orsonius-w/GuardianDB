@@ -14,6 +14,7 @@ const keywordClass: Record<string, string> = {
   Discharge: "unique", Delay: "unique",
 };
 const classFor = (k: string) => keywordClass[k] || "skill";
+const DASH_ONLY = new Set(["Sacrifice", "Blessing"]);
 
 const ELEMENT_ICON: Record<string, string> = {
   dark: "Dark", darkness: "Dark", light: "light", fire: "fire", water: "water", earth: "earth",
@@ -51,7 +52,9 @@ export function parseTextToHTML(text: string, withLinks = true): string {
   if (!text) return "";
   let html = escapeHTML(text);
   if (kwRegex) {
-    html = html.replace(kwRegex, (_, pre: string, kw: string) => {
+    html = html.replace(kwRegex, (match: string, pre: string, kw: string, offset: number, all: string) => {
+      // Shrine keywords double as ordinary words ("Sacrifice a worker: ..."): only the "Sacrifice - ..." form is the keyword.
+      if (DASH_ONLY.has(kw) && !/^\s*-/.test(all.slice(offset + match.length))) return match;
       const span = `<span class="keyword ${classFor(kw)}">${kw}</span>`;
       const entry = glossaryFor(kw);
       const tip = entry ? ` data-tip="${escapeHTML(entry.short).replace(/"/g, "&quot;")}"` : "";
