@@ -3003,6 +3003,61 @@
   "imageHeight": 709
  },
  {
+  "id": "arcane_adaptation",
+  "slug": "arcane-adaptation",
+  "name": "Arcane Adaptation",
+  "type": "Trap",
+  "typeLine": "Trap - Positionless",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Activate this Trap only at the end of an opponent's turn.\nFor each Hex that opponent cast this turn, return a Hex card from your graveyard to your hand. For each Quick Spell that opponent cast this turn, return a Quick Spell card from your graveyard to your hand.",
+  "summonSpells": "",
+  "activationCost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/arcane-adaptation.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "arcane_concentration",
   "slug": "arcane-concentration",
   "name": "Arcane Concentration",
@@ -3283,6 +3338,54 @@
   "level": null,
   "duration": null,
   "image": "/cards/lightning/arcane-shot-archer.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "arcane_ward_gnome",
+  "slug": "arcane-ward-gnome",
+  "name": "Arcane Ward Gnome",
+  "type": "Summon",
+  "typeLine": "Treasure Summon - Gnome, Mystic",
+  "treasure": true,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Gnome",
+   "Mystic"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "",
+  "limit": 1,
+  "life": 2,
+  "mana": 0,
+  "attack": 0,
+  "defense": 0,
+  "magic": 2,
+  "resistance": 2,
+  "movement": 2,
+  "combat": "Magic Combat R2",
+  "keywords": [
+   "Perpetual",
+   "Resonance"
+  ],
+  "text": "Perpetual - Incantations you control can't be negated.\nResonance - Whenever this Summon becomes the target of a Spell or ability an opponent controls, negate it unless its controller discards a card from their hand.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/arcane-ward-gnome.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -4893,6 +4996,61 @@
   "level": null,
   "duration": null,
   "image": "/cards/water/backwash.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "balancing_act",
+  "slug": "balancing-act",
+  "name": "Balancing Act",
+  "type": "Trap",
+  "typeLine": "Trap - Universal",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Common",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "The activating Summon's controller discards a card from their hand at random. Then Balancing Act deals damage to the activating Summon equal to that card's cost. (A Worker's cost is 0.)",
+  "summonSpells": "",
+  "activationCost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "lightning"
+   }
+  ],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/balancing-act.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -8805,6 +8963,52 @@
   "imageHeight": 709
  },
  {
+  "id": "bottomless_satchel",
+  "slug": "bottomless-satchel",
+  "name": "Bottomless Satchel",
+  "type": "Item",
+  "typeLine": "Treasure Item - Artifact",
+  "treasure": true,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [
+   "Artifact"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 1,
+  "rarity": "",
+  "limit": 1,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [
+   "Perpetual"
+  ],
+  "text": "Perpetual - You have no maximum hand size.\n[2][1 Wind], [A]: Shuffle all cards from your hand into your deck, then draw that many cards plus one.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/bottomless-satchel.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "bought_off",
   "slug": "bought-off",
   "name": "Bought Off",
@@ -8843,6 +9047,57 @@
   "level": null,
   "duration": null,
   "image": "/cards/lightning/bought-off.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "bouldershell_turtle",
+  "slug": "bouldershell-turtle",
+  "name": "Bouldershell Turtle",
+  "type": "Summon",
+  "typeLine": "Summon - Turtle, Protector",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [
+   "Turtle",
+   "Protector"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 4,
+  "mana": 0,
+  "attack": 1,
+  "defense": 1,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 1,
+  "combat": "Close Combat",
+  "keywords": [
+   "Guardprotect"
+  ],
+  "text": "Guardprotect\n[1 Earth]: This Summon gets +1D until the end of turn.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/bouldershell-turtle.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -9298,6 +9553,52 @@
   "level": null,
   "duration": null,
   "image": "/cards/light/brave-bonded-knight.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "breeze_elemental",
+  "slug": "breeze-elemental",
+  "name": "Breeze Elemental",
+  "type": "Summon",
+  "typeLine": "Summon - Elemental",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [
+   "Elemental"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 1,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 1,
+  "mana": 0,
+  "attack": 1,
+  "defense": 0,
+  "magic": 1,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Dual Combat R1",
+  "keywords": [
+   "Flying"
+  ],
+  "text": "Flying",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/breeze-elemental.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -9975,9 +10276,9 @@
   "costTotal": 5,
   "rarity": "Rare",
   "limit": 3,
-  "life": 4,
+  "life": 5,
   "mana": 0,
-  "attack": 3,
+  "attack": 5,
   "defense": 0,
   "magic": 0,
   "resistance": 0,
@@ -10426,6 +10727,56 @@
   "image": "/cards/fire/burning-might.webp",
   "imageWidth": 500,
   "imageHeight": 707
+ },
+ {
+  "id": "burst_elemental",
+  "slug": "burst-elemental",
+  "name": "Burst Elemental",
+  "type": "Summon",
+  "typeLine": "Summon - Elemental",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Elemental"
+  ],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 1,
+  "mana": 0,
+  "attack": 3,
+  "defense": 0,
+  "magic": 3,
+  "resistance": 0,
+  "movement": 3,
+  "combat": "Dual Combat R1",
+  "keywords": [
+   "Zealing"
+  ],
+  "text": "Zealing",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/burst-elemental.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
  },
  {
   "id": "bymere_constant_focus",
@@ -11023,6 +11374,54 @@
   "imageHeight": 500
  },
  {
+  "id": "camouflage",
+  "slug": "camouflage",
+  "name": "Camouflage",
+  "type": "Spell",
+  "typeLine": "Spell - Enchantment",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "Common",
+  "limit": 5,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [
+   "Manifest"
+  ],
+  "text": "Enchant Summon\nManifest - Choose a tribe and an element.\nThe enchanted Summon is the chosen tribe and element in addition to its other types and elements.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/camouflage.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "cannonball_goblin",
   "slug": "cannonball-goblin",
   "name": "Cannonball Goblin",
@@ -11554,6 +11953,52 @@
   "level": null,
   "duration": null,
   "image": "/cards/light/cassiodor-pontifex-of-rest.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "cast_in_stone",
+  "slug": "cast-in-stone",
+  "name": "Cast in Stone",
+  "type": "Treasure",
+  "typeLine": "Treasure",
+  "treasure": true,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "",
+  "limit": 1,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Spawn a token that's a copy of target Item you control.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/cast-in-stone.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -15570,6 +16015,52 @@
   "imageHeight": 707
  },
  {
+  "id": "collapsing_pillars",
+  "slug": "collapsing-pillars",
+  "name": "Collapsing Pillars",
+  "type": "Treasure",
+  "typeLine": "Treasure",
+  "treasure": true,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "",
+  "limit": 1,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Choose one or both -\n- Destroy target Summon with Flying or Diving.\n- Destroy target Building.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/collapsing-pillars.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "combat_angel",
   "slug": "combat-angel",
   "name": "Combat Angel",
@@ -16485,6 +16976,52 @@
   "image": "/cards/light/consecrated-fields.webp",
   "imageWidth": 709,
   "imageHeight": 500
+ },
+ {
+  "id": "construction",
+  "slug": "construction",
+  "name": "Construction",
+  "type": "Spell",
+  "typeLine": "Spell - Hex",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Look at the top five cards of your deck. Reveal up to two Buildings from among them and put them into your hand. Put the rest on the bottom of your deck in a random order.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/construction.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
  },
  {
   "id": "contain",
@@ -17554,6 +18091,52 @@
   "imageHeight": 709
  },
  {
+  "id": "crackling_wisp",
+  "slug": "crackling-wisp",
+  "name": "Crackling Wisp",
+  "type": "Summon",
+  "typeLine": "Summon - Elemental",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Elemental"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 1,
+  "rarity": "Uncommon",
+  "limit": 4,
+  "life": 1,
+  "mana": 0,
+  "attack": 0,
+  "defense": 0,
+  "magic": 3,
+  "resistance": 0,
+  "movement": 3,
+  "combat": "Magic Combat R1",
+  "keywords": [
+   "Zealing"
+  ],
+  "text": "Zealing\nAt the beginning of each End Phase, sacrifice this Summon.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/crackling-wisp.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "crag_harrier",
   "slug": "crag-harrier",
   "name": "Crag Harrier",
@@ -18000,6 +18583,51 @@
   "imageHeight": 709
  },
  {
+  "id": "cragtooth_tunnel_scout",
+  "slug": "cragtooth-tunnel-scout",
+  "name": "Cragtooth Tunnel Scout",
+  "type": "Summon",
+  "typeLine": "Summon - Goblin, Scout",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [
+   "Goblin",
+   "Scout"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 1,
+  "rarity": "Common",
+  "limit": 5,
+  "life": 1,
+  "mana": 0,
+  "attack": 1,
+  "defense": 2,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 1,
+  "combat": "Bi Combat R2",
+  "keywords": [],
+  "text": "",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/cragtooth-tunnel-scout.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "cragtooth_tunneler",
   "slug": "cragtooth-tunneler",
   "name": "Cragtooth Tunneler",
@@ -18090,6 +18718,52 @@
   "level": null,
   "duration": null,
   "image": "/cards/earth/cragtop-watch.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "crashout",
+  "slug": "crashout",
+  "name": "Crashout",
+  "type": "Spell",
+  "typeLine": "Spell - Hex",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "For each card fewer than three in target player's hand, Crashout deals 1 magic damage to each Summon on the board.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/crashout.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -18835,6 +19509,52 @@
   "imageHeight": 709
  },
  {
+  "id": "crush_to_dust",
+  "slug": "crush-to-dust",
+  "name": "Crush to Dust",
+  "type": "Spell",
+  "typeLine": "Spell - Quick",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Destroy target Item.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/crush-to-dust.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "crushed_from_beneath",
   "slug": "crushed-from-beneath",
   "name": "Crushed from Beneath",
@@ -19494,7 +20214,7 @@
   "keywords": [
    "Resonance"
   ],
-  "text": "Duration - ∞\nResonance - Whenever the cursed player draws one or more cards outside their Draw Phase, you may draw a card from your deck.",
+  "text": "Duration - ∞\nResonance - Whenever the cursed player draws one or more cards from their deck outside their Draw Phase, you may draw a card from your deck.",
   "summonSpells": "",
   "activationCost": [],
   "workerCost": null,
@@ -21473,6 +22193,52 @@
   "imageHeight": 709
  },
  {
+  "id": "declaration_of_prejudice",
+  "slug": "declaration-of-prejudice",
+  "name": "Declaration of Prejudice",
+  "type": "Treasure",
+  "typeLine": "Treasure",
+  "treasure": true,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "4",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 5,
+  "rarity": "",
+  "limit": 1,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Choose a tribe. Return all Summons that aren't of the chosen tribe to their owners' hands.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/declaration-of-prejudice.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "decompose_magic",
   "slug": "decompose-magic",
   "name": "Decompose Magic",
@@ -22940,6 +23706,52 @@
   "level": null,
   "duration": null,
   "image": "/cards/water/disturb-magic.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "divert_the_arcane",
+  "slug": "divert-the-arcane",
+  "name": "Divert the Arcane",
+  "type": "Spell",
+  "typeLine": "Spell - Quick",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Common",
+  "limit": 2,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Negate target Incantation. Its owner puts it on the top or bottom of their deck.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/divert-the-arcane.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -25786,6 +26598,55 @@
   "imageHeight": 709
  },
  {
+  "id": "dwarven_monk",
+  "slug": "dwarven-monk",
+  "name": "Dwarven Monk",
+  "type": "Summon",
+  "typeLine": "Summon - Dwarf, Monk",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [
+   "Dwarf",
+   "Monk"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "Uncommon",
+  "limit": 4,
+  "life": 4,
+  "mana": 0,
+  "attack": 0,
+  "defense": 2,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Close Combat",
+  "keywords": [],
+  "text": "This Summon's Attack is equal to the greatest Defense among Summons you control.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/dwarven-monk.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "dwarven_rune_scribe",
   "slug": "dwarven-rune-scribe",
   "name": "Dwarven Rune-Scribe",
@@ -26636,6 +27497,52 @@
   "level": null,
   "duration": null,
   "image": "/cards/light/elder-white-gold-dragon.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "electrocute",
+  "slug": "electrocute",
+  "name": "Electrocute",
+  "type": "Spell",
+  "typeLine": "Spell - Quick",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Common",
+  "limit": 2,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Choose one -\n- Electrocute deals 4 damage to target Summon.\n- Electrocute deals 2 damage to target Guardian.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/electrocute.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -30290,6 +31197,52 @@
   "imageHeight": 709
  },
  {
+  "id": "fair_winds",
+  "slug": "fair-winds",
+  "name": "Fair Winds",
+  "type": "Spell",
+  "typeLine": "Spell - Quick",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Uncommon",
+  "limit": 4,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Summons you control get +1A/+1M until the end of turn.\nSummons you don't control get -1A/-1M until the end of turn.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/fair-winds.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "fairy_trickster_token",
   "slug": "fairy-trickster-token",
   "name": "Fairy Trickster",
@@ -30467,7 +31420,7 @@
   "duration": null,
   "image": "/cards/darkness/fallen-battle-knight.webp",
   "imageWidth": 500,
-  "imageHeight": 707
+  "imageHeight": 709
  },
  {
   "id": "fallen_garuda",
@@ -36681,6 +37634,58 @@
   "imageHeight": 709
  },
  {
+  "id": "garuda_shieldwarden",
+  "slug": "garuda-shieldwarden",
+  "name": "Garuda Shieldwarden",
+  "type": "Summon",
+  "typeLine": "Summon - Garuda, Protector",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [
+   "Garuda",
+   "Protector"
+  ],
+  "cost": [
+   {
+    "n": "4",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 5,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 7,
+  "mana": 0,
+  "attack": 2,
+  "defense": 1,
+  "magic": 0,
+  "resistance": 2,
+  "movement": 1,
+  "combat": "Close Combat",
+  "keywords": [
+   "Guardprotect",
+   "Demise"
+  ],
+  "text": "Guardprotect\nDemise - Draw two cards from your deck, then shuffle a card from your hand into your deck.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/garuda-shieldwarden.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "garuda_sky_warrior",
   "slug": "garuda-sky-warrior",
   "name": "Garuda Sky Warrior",
@@ -37711,6 +38716,52 @@
   "level": null,
   "duration": null,
   "image": "/cards/water/giant-squid.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "giantism",
+  "slug": "giantism",
+  "name": "Giantism",
+  "type": "Spell",
+  "typeLine": "Spell - Hex",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Target Summon gets +3A/+3D and Skyscraper until the end of turn.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/giantism.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -39016,6 +40067,52 @@
   "imageHeight": 709
  },
  {
+  "id": "goblin_cave_digger",
+  "slug": "goblin-cave-digger",
+  "name": "Goblin Cave Digger",
+  "type": "Summon",
+  "typeLine": "Summon - Goblin",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [
+   "Goblin"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "Common",
+  "limit": 3,
+  "life": 2,
+  "mana": 0,
+  "attack": 2,
+  "defense": 1,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Close Combat",
+  "keywords": [
+   "Demise"
+  ],
+  "text": "Demise - Search your deck for an Earth Terrain, reveal it and put it into your hand, then shuffle.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/goblin-cave-digger.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "goblin_cave_lord",
   "slug": "goblin-cave-lord",
   "name": "Goblin Cave Lord",
@@ -39062,6 +40159,59 @@
   "level": null,
   "duration": null,
   "image": "/cards/earth/goblin-cave-lord.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "goblin_champion",
+  "slug": "goblin-champion",
+  "name": "Goblin Champion",
+  "type": "Summon",
+  "typeLine": "Treasure Summon - Goblin, Warrior",
+  "treasure": true,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [
+   "Goblin",
+   "Warrior"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "3",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "",
+  "limit": 1,
+  "life": 4,
+  "mana": 0,
+  "attack": 3,
+  "defense": 2,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Bi Combat R2",
+  "keywords": [
+   "Zealing",
+   "Swiftstrike",
+   "Pierce"
+  ],
+  "text": "Zealing\nSwiftstrike\nPierce 2",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/goblin-champion.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -39261,6 +40411,54 @@
   "imageHeight": 709
  },
  {
+  "id": "goblin_fest",
+  "slug": "goblin-fest",
+  "name": "Goblin Fest",
+  "type": "Spell",
+  "typeLine": "Spell - Ritual",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [
+   "Manifest"
+  ],
+  "text": "Manifest - Spawn a Goblin Summon token in your Guarded Zone.\nPreparation Time - 1\nThis Ritual deals X damage to target Summon or Building, where X is the number of Goblins you control.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": 1,
+  "image": "/cards/earth/goblin-fest.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "goblin_foot_soldier",
   "slug": "goblin-foot-soldier",
   "name": "Goblin Foot Soldier",
@@ -39306,6 +40504,57 @@
   "level": null,
   "duration": null,
   "image": "/cards/fire/goblin-foot-soldier.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "goblin_gang",
+  "slug": "goblin-gang",
+  "name": "Goblin Gang",
+  "type": "Summon",
+  "typeLine": "Summon - Goblin, Warrior",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [
+   "Goblin",
+   "Warrior"
+  ],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 5,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 3,
+  "mana": 0,
+  "attack": 2,
+  "defense": 1,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Close Combat",
+  "keywords": [
+   "Manifest"
+  ],
+  "text": "Manifest - Spawn two Goblin Summon tokens adjacent to this Summon.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/goblin-gang.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -40257,6 +41506,53 @@
   "imageHeight": 709
  },
  {
+  "id": "gone_with_the_wind",
+  "slug": "gone-with-the-wind",
+  "name": "Gone with the Wind",
+  "type": "Trap",
+  "typeLine": "Trap - Positionless",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "2",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "Common",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Activate this Trap only when an enemy permanent enters.\nReturn that permanent to its owner's hand.",
+  "summonSpells": "",
+  "activationCost": [
+   {
+    "n": "2",
+    "el": "wind"
+   }
+  ],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/gone-with-the-wind.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "gor_hoard_king",
   "slug": "gor-hoard-king",
   "name": "Gor, Hoard-King",
@@ -40680,6 +41976,50 @@
   "imageHeight": 709
  },
  {
+  "id": "granite_skitterer",
+  "slug": "granite-skitterer",
+  "name": "Granite Skitterer",
+  "type": "Summon",
+  "typeLine": "Summon - Insect",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [
+   "Insect"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 1,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 3,
+  "mana": 0,
+  "attack": 1,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Close Combat",
+  "keywords": [],
+  "text": "[1][1 Earth]: This Summon gets +1A until the end of turn.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/granite-skitterer.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "grapnel_goblin",
   "slug": "grapnel-goblin",
   "name": "Grapnel Goblin",
@@ -40914,6 +42254,61 @@
   "level": null,
   "duration": null,
   "image": "/cards/darkness/gravestone-token.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "gravitational_pressure",
+  "slug": "gravitational-pressure",
+  "name": "Gravitational Pressure",
+  "type": "Trap",
+  "typeLine": "Trap - Universal, Permanent",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "All Summons lose Flying.",
+  "summonSpells": "",
+  "activationCost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/gravitational-pressure.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -42884,6 +44279,111 @@
   "imageHeight": 709
  },
  {
+  "id": "hay_fever",
+  "slug": "hay-fever",
+  "name": "Hay Fever",
+  "type": "Spell",
+  "typeLine": "Spell - Curse, Curse",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [
+   "Curse"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [
+   "Resonance"
+  ],
+  "text": "Duration - 4\nResonance - Whenever a Summon the cursed player controls attacks, that player deactivates and depletes another target active Summon they control, if able.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": 4,
+  "image": "/cards/wind/hay-fever.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "head_wind",
+  "slug": "head-wind",
+  "name": "Head Wind",
+  "type": "Trap",
+  "typeLine": "Trap - Positionless",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Activate this Trap only when an enemy Summon attacks.\nThe activating Summon gets -7A/-7M until its controller's next Active Phase.",
+  "summonSpells": "",
+  "activationCost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/head-wind.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "healing_nix",
   "slug": "healing-nix",
   "name": "Healing Nix",
@@ -43996,6 +45496,56 @@
   "imageHeight": 709
  },
  {
+  "id": "hidden_workshop",
+  "slug": "hidden-workshop",
+  "name": "Hidden Workshop",
+  "type": "Building",
+  "typeLine": "Treasure Building - Factory",
+  "treasure": true,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [
+   "Factory"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "",
+  "limit": 1,
+  "life": 4,
+  "mana": null,
+  "attack": 0,
+  "defense": 2,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [
+   "Perpetual"
+  ],
+  "text": "Perpetual - Items you cast cost [1] less.\n[X], [A]: Search your deck for an Equipment card with cost X or less, reveal it and put it into your hand, then shuffle.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": 2,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/hidden-workshop.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "high_elf_archer",
   "slug": "high-elf-archer",
   "name": "High Elf Archer",
@@ -44141,6 +45691,56 @@
   "level": null,
   "duration": null,
   "image": "/cards/water/high-sea-storm.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "high_altitude_drake",
+  "slug": "high-altitude-drake",
+  "name": "High-Altitude Drake",
+  "type": "Summon",
+  "typeLine": "Summon - Dragon",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [
+   "Dragon"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 3,
+  "mana": 0,
+  "attack": 2,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Close Combat",
+  "keywords": [
+   "Flying"
+  ],
+  "text": "Flying",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/high-altitude-drake.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -44889,6 +46489,52 @@
   "imageHeight": 709
  },
  {
+  "id": "hold_that_thought",
+  "slug": "hold-that-thought",
+  "name": "Hold That Thought",
+  "type": "Spell",
+  "typeLine": "Spell - Quick",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "Uncommon",
+  "limit": 4,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Return target Spell to its owner's hand.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/hold-that-thought.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "holdfast_dwarf",
   "slug": "holdfast-dwarf",
   "name": "Holdfast Dwarf",
@@ -45489,6 +47135,61 @@
   "imageHeight": 709
  },
  {
+  "id": "hot_wire",
+  "slug": "hot-wire",
+  "name": "Hot Wire",
+  "type": "Trap",
+  "typeLine": "Trap - Positionless",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "4",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 6,
+  "rarity": "Common",
+  "limit": 2,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "This Trap costs [1] less to activate for each Lightning Energy in your Storage.\nActivate this Trap only when a non-Worker, non-Trap permanent enters under an opponent's control.\nIf it's a Summon or Building, Hot Wire deals 4 magic damage to it. Otherwise, Hot Wire deals 3 damage to that permanent's controller's Guardian.",
+  "summonSpells": "",
+  "activationCost": [
+   {
+    "n": "4",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "lightning"
+   }
+  ],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/hot-wire.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "hot_headed_blood_sucker",
   "slug": "hot-headed-blood-sucker",
   "name": "Hot-Headed Blood Sucker",
@@ -45776,6 +47477,55 @@
   "level": null,
   "duration": null,
   "image": "/cards/ice/hrimvar-the-frost-guardian.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "hulking_cyclops",
+  "slug": "hulking-cyclops",
+  "name": "Hulking Cyclops",
+  "type": "Summon",
+  "typeLine": "Summon - Cyclops, Warrior",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Cyclops",
+   "Warrior"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Common",
+  "limit": 5,
+  "life": 5,
+  "mana": 0,
+  "attack": 3,
+  "defense": 1,
+  "magic": 0,
+  "resistance": 1,
+  "movement": 1,
+  "combat": "Close Combat",
+  "keywords": [],
+  "text": "This Summon can't counterattack.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/hulking-cyclops.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -47036,6 +48786,50 @@
   "image": "/cards/ice/icy-stare.webp",
   "imageWidth": 500,
   "imageHeight": 707
+ },
+ {
+  "id": "idle_hands",
+  "slug": "idle-hands",
+  "name": "Idle Hands",
+  "type": "Item",
+  "typeLine": "Treasure Item - Artifact",
+  "treasure": true,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Artifact"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 1,
+  "rarity": "",
+  "limit": 1,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "At the beginning of your Guardian Phase, Idle Hands deals 1 damage to the Guardian of the player with the most cards in their hand. If there's a tie, it deals 1 damage to each Guardian.\n[A]: Discard a card from your hand.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/idle-hands.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
  },
  {
   "id": "ifrit_token",
@@ -48553,6 +50347,57 @@
   "imageHeight": 709
  },
  {
+  "id": "ionized_armor",
+  "slug": "ionized-armor",
+  "name": "Ionized Armor",
+  "type": "Item",
+  "typeLine": "Item - Equipment, Armor",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Equipment",
+   "Armor"
+  ],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [
+   "Manifest"
+  ],
+  "text": "Durability 2\nIf you would discard this card from your hand, you may put it into play without paying its cost.\nManifest - Attach this Equipment to target Summon you control, then generate [2 Lightning].\nThe equipped Summon gets +XR, where X is the number of Lightning Energy in your Storage.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/ionized-armor.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "ionomancer",
   "slug": "ionomancer",
   "name": "Ionomancer",
@@ -48644,6 +50489,54 @@
   "level": null,
   "duration": null,
   "image": "/cards/neutral/iron-ceiling.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "iron_core_elemental",
+  "slug": "iron-core-elemental",
+  "name": "Iron Core Elemental",
+  "type": "Summon",
+  "typeLine": "Summon - Elemental",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [
+   "Elemental"
+  ],
+  "cost": [
+   {
+    "n": "4",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 5,
+  "rarity": "Uncommon",
+  "limit": 4,
+  "life": 5,
+  "mana": 0,
+  "attack": 4,
+  "defense": 5,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 1,
+  "combat": "Close Combat",
+  "keywords": [],
+  "text": "",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/iron-core-elemental.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -52003,6 +53896,97 @@
   "imageHeight": 709
  },
  {
+  "id": "lightning_hydra",
+  "slug": "lightning-hydra",
+  "name": "Lightning Hydra",
+  "type": "Summon",
+  "typeLine": "Summon - Hydra, Elemental",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Hydra",
+   "Elemental"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "Rare",
+  "limit": 3,
+  "life": 1,
+  "mana": 0,
+  "attack": 0,
+  "defense": 0,
+  "magic": 1,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Magic Combat R2",
+  "keywords": [
+   "Demise"
+  ],
+  "text": "[1 Lightning]: This Summon gets +1M until the end of turn.\nDemise - Spawn a copy of this Summon without this Demise ability.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/lightning-hydra.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "lightning_hydra_token",
+  "slug": "lightning-hydra-token",
+  "name": "Lightning Hydra",
+  "type": "Summon",
+  "typeLine": "Summon - Hydra, Elemental",
+  "treasure": false,
+  "token": true,
+  "status": "pool",
+  "group": "Token",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Hydra",
+   "Elemental"
+  ],
+  "cost": [],
+  "costTotal": 0,
+  "rarity": "Common",
+  "limit": 3,
+  "life": 1,
+  "mana": 0,
+  "attack": 0,
+  "defense": 0,
+  "magic": 1,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Magic Combat R2",
+  "keywords": [],
+  "text": "[1 Lightning]: This Summon gets +1M until the end of turn.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/lightning-hydra-token.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "lightning_lash",
   "slug": "lightning-lash",
   "name": "Lightning Lash",
@@ -53681,6 +55665,57 @@
   "imageHeight": 709
  },
  {
+  "id": "lunging_drake",
+  "slug": "lunging-drake",
+  "name": "Lunging Drake",
+  "type": "Summon",
+  "typeLine": "Summon - Dragon",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Dragon"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 2,
+  "mana": 0,
+  "attack": 0,
+  "defense": 0,
+  "magic": 2,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Magic Combat R1",
+  "keywords": [
+   "Flying",
+   "Sprint"
+  ],
+  "text": "Flying\nSprinting",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/lunging-drake.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "lurking_catfish",
   "slug": "lurking-catfish",
   "name": "Lurking Catfish",
@@ -54471,6 +56506,52 @@
   "level": null,
   "duration": null,
   "image": "/cards/fire/magma-forged-greatsword.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "magnetic_force",
+  "slug": "magnetic-force",
+  "name": "Magnetic Force",
+  "type": "Spell",
+  "typeLine": "Spell - Enchantment",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Enchant Summon\nEnchanted Summon gets +1A/+1M for each other Summon that shares its elements on the board.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/magnetic-force.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -56268,6 +58349,55 @@
   "imageHeight": 709
  },
  {
+  "id": "minotaur_crossbowman",
+  "slug": "minotaur-crossbowman",
+  "name": "Minotaur Crossbowman",
+  "type": "Summon",
+  "typeLine": "Summon - Minotaur, Archer",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [
+   "Minotaur",
+   "Archer"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 3,
+  "mana": 0,
+  "attack": 3,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Ranged Combat R2",
+  "keywords": [],
+  "text": "This Summon deals 1 extra damage against Flying Summons adjacent to it.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/minotaur-crossbowman.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "minotaur_gorer",
   "slug": "minotaur-gorer",
   "name": "Minotaur Gorer",
@@ -56555,6 +58685,58 @@
   "imageHeight": 709
  },
  {
+  "id": "mirage_warden",
+  "slug": "mirage-warden",
+  "name": "Mirage Warden",
+  "type": "Summon",
+  "typeLine": "Summon - Illusion, Protector",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [
+   "Illusion",
+   "Protector"
+  ],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "3",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 6,
+  "rarity": "Rare",
+  "limit": 2,
+  "life": 8,
+  "mana": 0,
+  "attack": 2,
+  "defense": 1,
+  "magic": 2,
+  "resistance": 1,
+  "movement": 1,
+  "combat": "Dual Combat R1",
+  "keywords": [
+   "Guardprotect",
+   "Resonance"
+  ],
+  "text": "Guardprotect\nResonance - Whenever a Summon deals combat damage to this Summon, return that Summon to its owner's hand at the beginning of the next End Phase.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/mirage-warden.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "mire_gravedigger",
   "slug": "mire-gravedigger",
   "name": "Mire Gravedigger",
@@ -56776,6 +58958,58 @@
   "level": null,
   "duration": null,
   "image": "/cards/light/mirror-kite-flyer.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "mirrorscale_sovereign",
+  "slug": "mirrorscale-sovereign",
+  "name": "Mirrorscale Sovereign",
+  "type": "Summon",
+  "typeLine": "Treasure Summon - Dragon, Wizard",
+  "treasure": true,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Dragon",
+   "Wizard"
+  ],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 5,
+  "rarity": "",
+  "limit": 1,
+  "life": 4,
+  "mana": 0,
+  "attack": 3,
+  "defense": 1,
+  "magic": 3,
+  "resistance": 1,
+  "movement": 1,
+  "combat": "Dual Combat R1",
+  "keywords": [
+   "Flying",
+   "Resonance"
+  ],
+  "text": "Flying\nResonance - Once per turn, whenever you cast a Spell that targets a Summon, you may copy that Spell and choose a new target for the copy.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/mirrorscale-sovereign.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -57487,6 +59721,55 @@
   "level": null,
   "duration": null,
   "image": "/cards/nature/mossback-troll.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "motionmancer",
+  "slug": "motionmancer",
+  "name": "Motionmancer",
+  "type": "Summon",
+  "typeLine": "Summon - Garuda, Wizard",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [
+   "Garuda",
+   "Wizard"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Uncommon",
+  "limit": 4,
+  "life": 2,
+  "mana": 0,
+  "attack": 0,
+  "defense": 0,
+  "magic": 1,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Magic Combat R2",
+  "keywords": [],
+  "text": "[1 Wind], [A]: Deactivate or reactivate target Summon.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/motionmancer.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -59877,6 +62160,52 @@
   "imageHeight": 709
  },
  {
+  "id": "no_risk_no_reward",
+  "slug": "no-risk-no-reward",
+  "name": "No Risk No Reward",
+  "type": "Treasure",
+  "typeLine": "Treasure",
+  "treasure": true,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "",
+  "limit": 1,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Draw two cards from your deck. Then you may discard two cards from your hand and pay 1 Life of your Guardian. If you do, repeat this process.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/no-risk-no-reward.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "nocthra_unending_night",
   "slug": "nocthra-unending-night",
   "name": "Nocthra, Unending Night",
@@ -61571,6 +63900,48 @@
   "imageHeight": 709
  },
  {
+  "id": "overdrive",
+  "slug": "overdrive",
+  "name": "Overdrive",
+  "type": "Spell",
+  "typeLine": "Spell - Rune",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 1,
+  "rarity": "Rare",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Sacrifice a Worker: Target Summon gets +1A/+1M and has Zealing until the end of turn.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/overdrive.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "overflow",
   "slug": "overflow",
   "name": "Overflow",
@@ -63166,6 +65537,56 @@
   "imageHeight": 709
  },
  {
+  "id": "phantom_invader",
+  "slug": "phantom-invader",
+  "name": "Phantom Invader",
+  "type": "Summon",
+  "typeLine": "Summon - Illusion",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [
+   "Illusion"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 2,
+  "mana": 0,
+  "attack": 2,
+  "defense": 0,
+  "magic": 2,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Dual Combat R1",
+  "keywords": [
+   "Fleeting"
+  ],
+  "text": "Fleeting\nThis Summon can't be attacked.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/phantom-invader.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "phase_phoenix",
   "slug": "phase-phoenix",
   "name": "Phase Phoenix",
@@ -64138,6 +66559,52 @@
   "level": null,
   "duration": null,
   "image": "/cards/darkness/plunge-into-darkness.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "plus_or_minus",
+  "slug": "plus-or-minus",
+  "name": "Plus or Minus",
+  "type": "Spell",
+  "typeLine": "Spell - Hex",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Choose one -\n- Spawn a Surge Mote Summon token on your side of the board. Sacrifice it at the beginning of your End Phase.\n- Plus or Minus deals 2 damage to target Summon. Deactivate and deplete it.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/plus-or-minus.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -65502,6 +67969,54 @@
   "level": null,
   "duration": null,
   "image": "/cards/light/punishing-radiance.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "puppeteers_cross",
+  "slug": "puppeteers-cross",
+  "name": "Puppeteer's Cross",
+  "type": "Item",
+  "typeLine": "Item - Artifact",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [
+   "Artifact"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Rare",
+  "limit": 2,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Deactivate an active Summon you control: Deactivate target permanent or Guardian.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/puppeteers-cross.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -67964,6 +70479,57 @@
   "imageHeight": 709
  },
  {
+  "id": "ramhorn_stormfiend",
+  "slug": "ramhorn-stormfiend",
+  "name": "Ramhorn Stormfiend",
+  "type": "Summon",
+  "typeLine": "Summon - Dragon, Demon",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Dragon",
+   "Demon"
+  ],
+  "cost": [
+   {
+    "n": "4",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 6,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 4,
+  "mana": 0,
+  "attack": 5,
+  "defense": 0,
+  "magic": 5,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Dual Combat R1",
+  "keywords": [
+   "Flying"
+  ],
+  "text": "Flying\nThis Summon gets -1A/-1M for each card in your hand.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/ramhorn-stormfiend.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "rampage_beast",
   "slug": "rampage-beast",
   "name": "Rampage Beast",
@@ -68483,6 +71049,52 @@
   "level": null,
   "duration": null,
   "image": "/cards/darkness/raven-of-ill-omen.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "ravens_nest",
+  "slug": "ravens-nest",
+  "name": "Raven's Nest",
+  "type": "Spell",
+  "typeLine": "Spell - Enchantment",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Enchant Building or Worker you control\nThe enchanted permanent has \"[1], [A]: Spawn a Wind Raven Summon token in your Guarded Zone.\"",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/ravens-nest.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -71003,6 +73615,52 @@
   "imageHeight": 709
  },
  {
+  "id": "rock_solid",
+  "slug": "rock-solid",
+  "name": "Rock Solid",
+  "type": "Spell",
+  "typeLine": "Spell - Enchantment",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Enchant Summon\nThe enchanted Summon gets +XA, where X is its Defense.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/rock-solid.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "rock_turtle",
   "slug": "rock-turtle",
   "name": "Rock Turtle",
@@ -72604,6 +75262,54 @@
   "level": null,
   "duration": null,
   "image": "/cards/ice/rune-bound-dwarf.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "rune_oath_dragon",
+  "slug": "rune-oath-dragon",
+  "name": "Rune-Oath Dragon",
+  "type": "Summon",
+  "typeLine": "Treasure Summon - Dragon",
+  "treasure": true,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [
+   "Dragon"
+  ],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 5,
+  "rarity": "",
+  "limit": 1,
+  "life": 6,
+  "mana": 0,
+  "attack": 4,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 1,
+  "combat": "Bi Combat R2",
+  "keywords": [],
+  "text": "This Summon gets +1D for each card in your Treasure Chest.\nAt the beginning of your End Phase, if you have fewer than 3 cards in your Treasure Chest, put the top card of your deck on the bottom of your Treasure Chest.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/rune-oath-dragon.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -74319,6 +77025,61 @@
   "imageHeight": 709
  },
  {
+  "id": "scree_slide",
+  "slug": "scree-slide",
+  "name": "Scree Slide",
+  "type": "Trap",
+  "typeLine": "Trap - Universal",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Scree Slide deals X damage to the activating Summon, where X is the number of Earth Workers you control. If that Summon has Flying, it deals twice that much instead.",
+  "summonSpells": "",
+  "activationCost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/scree-slide.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "scroll_of_diplomacy",
   "slug": "scroll-of-diplomacy",
   "name": "Scroll of Diplomacy",
@@ -75025,6 +77786,50 @@
   "imageHeight": 709
  },
  {
+  "id": "second_wind",
+  "slug": "second-wind",
+  "name": "Second Wind",
+  "type": "Spell",
+  "typeLine": "Spell - Enchantment",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 1,
+  "rarity": "Rare",
+  "limit": 4,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [
+   "Manifest"
+  ],
+  "text": "Enchant Summon\nManifest - Draw a card from your deck.\nThe enchanted Summon gets +1A/+1D/+1M/+1R and has Movement 3 as long as you have three or more cards in your hand.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/second-wind.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "secret_broker",
   "slug": "secret-broker",
   "name": "Secret Broker",
@@ -75677,6 +78482,57 @@
   "level": null,
   "duration": null,
   "image": "/cards/darkness/shadow-vigil.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "shalehide_troll",
+  "slug": "shalehide-troll",
+  "name": "Shalehide Troll",
+  "type": "Summon",
+  "typeLine": "Summon - Troll, Warrior",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [
+   "Troll",
+   "Warrior"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Uncommon",
+  "limit": 4,
+  "life": 4,
+  "mana": 0,
+  "attack": 2,
+  "defense": 1,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Close Combat",
+  "keywords": [
+   "Life Regen"
+  ],
+  "text": "Life Regen 1",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/shalehide-troll.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -78822,6 +81678,52 @@
   "imageHeight": 709
  },
  {
+  "id": "sky_race",
+  "slug": "sky-race",
+  "name": "Sky Race",
+  "type": "Spell",
+  "typeLine": "Spell - Quick",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "5",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 6,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Put target permanent on the top of its owner's deck.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/sky-race.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "sky_traverser",
   "slug": "sky-traverser",
   "name": "Sky Traverser",
@@ -78870,6 +81772,56 @@
   "level": null,
   "duration": null,
   "image": "/cards/wind/sky-traverser.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "sky_island_lighthouse",
+  "slug": "sky-island-lighthouse",
+  "name": "Sky-Island Lighthouse",
+  "type": "Building",
+  "typeLine": "Building - Tower",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [
+   "Tower"
+  ],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Common",
+  "limit": 3,
+  "life": 4,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [
+   "Manifest"
+  ],
+  "text": "Manifest - Look at the top four cards of your deck, then put any number of them on the bottom of your deck and the rest on top in any order.\n[6][1 Wind], [A]: Draw a card from your deck. This ability costs [1] less for each card in your hand.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": 2,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/sky-island-lighthouse.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -81945,6 +84897,54 @@
   "imageHeight": 709
  },
  {
+  "id": "spark_foundry",
+  "slug": "spark-foundry",
+  "name": "Spark Foundry",
+  "type": "Building",
+  "typeLine": "Building - Factory",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Factory"
+  ],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 5,
+  "rarity": "Uncommon",
+  "limit": 2,
+  "life": 3,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "At the beginning of your Guardian Phase, spawn a Voltling Summon token in your Guarded Zone. It has Zealing until the end of turn.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": 3,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/spark-foundry.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "spark_mote_token",
   "slug": "spark-mote-token",
   "name": "Spark Mote",
@@ -82116,6 +85116,193 @@
   "level": null,
   "duration": null,
   "image": "/cards/lightning/sparkfetch-quetzal.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "sparkscale_naga",
+  "slug": "sparkscale-naga",
+  "name": "Sparkscale Naga",
+  "type": "Summon",
+  "typeLine": "Summon - Naga, Rogue",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Naga",
+   "Rogue"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 1,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 1,
+  "mana": 0,
+  "attack": 1,
+  "defense": 0,
+  "magic": 1,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Dual Combat R1",
+  "keywords": [
+   "Zealing"
+  ],
+  "text": "Zealing",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/sparkscale-naga.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "spatial_domain",
+  "slug": "spatial-domain",
+  "name": "Spatial Domain",
+  "type": "Trap",
+  "typeLine": "Trap - Positionless",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "2",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "Rare",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Activate this Trap only when an enemy permanent or Guardian uses an activated ability with a single target, or when an enemy Summon with a combat range of 2 or more attacks.\nYou choose the new target of that ability, or of that attack. The attack's new target may be a Summon its controller controls.",
+  "summonSpells": "",
+  "activationCost": [
+   {
+    "n": "2",
+    "el": "wind"
+   }
+  ],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/spatial-domain.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "spectral_cat",
+  "slug": "spectral-cat",
+  "name": "Spectral Cat",
+  "type": "Summon",
+  "typeLine": "Treasure Summon - Cat, Spirit",
+  "treasure": true,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [
+   "Cat",
+   "Spirit"
+  ],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "",
+  "limit": 1,
+  "life": 1,
+  "mana": 0,
+  "attack": 1,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Close Combat",
+  "keywords": [
+   "Resonance"
+  ],
+  "text": "Resonance - Whenever you cast a Spell, you may send target non-Worker permanent into the Void. If it was a Summon, nothing can enter its field until the end of turn. Return that permanent to the board under its owner's control at the beginning of the next End Phase.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/spectral-cat.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "speed_advantage",
+  "slug": "speed-advantage",
+  "name": "Speed Advantage",
+  "type": "Spell",
+  "typeLine": "Spell - Quick",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 1,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Return target Summon with cost equal to or less than the number of cards in your hand to its owner's hand.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/speed-advantage.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -82406,6 +85593,58 @@
   "level": null,
   "duration": null,
   "image": "/cards/earth/spellscorn-minotaur.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "spendthrift_rakshasa",
+  "slug": "spendthrift-rakshasa",
+  "name": "Spendthrift Rakshasa",
+  "type": "Summon",
+  "typeLine": "Summon - Demon, Rakshasa",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Demon",
+   "Rakshasa"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Uncommon",
+  "limit": 4,
+  "life": 5,
+  "mana": 0,
+  "attack": 4,
+  "defense": 1,
+  "magic": 4,
+  "resistance": 1,
+  "movement": 2,
+  "combat": "Dual Combat R1",
+  "keywords": [
+   "Perpetual",
+   "Resonance"
+  ],
+  "text": "Perpetual - Your Energy Storage is 0.\nResonance - Whenever you discard one or more Energy from your Storage, this Summon deals 1 damage to your Guardian.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/spendthrift-rakshasa.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -83180,6 +86419,48 @@
   "image": "/cards/nature/splendorous-birds.webp",
   "imageWidth": 500,
   "imageHeight": 707
+ },
+ {
+  "id": "split_current",
+  "slug": "split-current",
+  "name": "Split Current",
+  "type": "Spell",
+  "typeLine": "Spell - Hex",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 1,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Split Current deals 2 magic damage to each of X target Summons.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/split-current.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
  },
  {
   "id": "split_the_earth",
@@ -83958,6 +87239,57 @@
   "imageHeight": 709
  },
  {
+  "id": "static_hound",
+  "slug": "static-hound",
+  "name": "Static Hound",
+  "type": "Summon",
+  "typeLine": "Summon - Hound, Elemental",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Hound",
+   "Elemental"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "Uncommon",
+  "limit": 4,
+  "life": 4,
+  "mana": 0,
+  "attack": 2,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Close Combat",
+  "keywords": [
+   "Twin Strike"
+  ],
+  "text": "Twinstrike\nThis Summon doesn't reactivate and replenish in its controller's Active Phase unless that player pays [1][1 Lightning].",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/static-hound.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "static_impulse",
   "slug": "static-impulse",
   "name": "Static Impulse",
@@ -84189,6 +87521,56 @@
   "level": null,
   "duration": null,
   "image": "/cards/lightning/static-webs.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "steady_current",
+  "slug": "steady-current",
+  "name": "Steady Current",
+  "type": "Spell",
+  "typeLine": "Treasure Spell - Rune, Rune",
+  "treasure": true,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Rune"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "",
+  "limit": 1,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [
+   "Resonance"
+  ],
+  "text": "Resonance - Whenever a Summon enters under your control, generate [1 Lightning]. Then you may discard a card from your hand. If you do, draw a card from your deck.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/steady-current.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -84911,6 +88293,54 @@
   "level": null,
   "duration": null,
   "image": "/cards/earth/stonehorn-minotaur.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "stonewall_retort",
+  "slug": "stonewall-retort",
+  "name": "Stonewall Retort",
+  "type": "Spell",
+  "typeLine": "Spell - Enchantment",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "4",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 6,
+  "rarity": "Uncommon",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [
+   "Manifest"
+  ],
+  "text": "Enchant Summon\nManifest - Stonewall Retort deals X damage to target Summon or Building, where X is the greatest Defense among Summons you control.\nThe enchanted Summon gets +XD, where X is the number of cards in your Treasure Chest.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/stonewall-retort.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -85747,6 +89177,54 @@
   "imageHeight": 709
  },
  {
+  "id": "stormgut_brute",
+  "slug": "stormgut-brute",
+  "name": "Stormgut Brute",
+  "type": "Summon",
+  "typeLine": "Summon - Beast",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Beast"
+  ],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 5,
+  "rarity": "Rare",
+  "limit": 4,
+  "life": 5,
+  "mana": 0,
+  "attack": 0,
+  "defense": 1,
+  "magic": 4,
+  "resistance": 2,
+  "movement": 1,
+  "combat": "Magic Combat R2",
+  "keywords": [],
+  "text": "[1 Lightning], Send a Spell card from your hand into the Void: This Summon deals 2 magic damage to target Summon or Building, or 1 magic damage to target Guardian.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/stormgut-brute.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "stormhall_jarl",
   "slug": "stormhall-jarl",
   "name": "Stormhall Jarl",
@@ -86195,6 +89673,53 @@
   "imageHeight": 707
  },
  {
+  "id": "struck_gold",
+  "slug": "struck-gold",
+  "name": "Struck Gold",
+  "type": "Trap",
+  "typeLine": "Trap - Step",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 1,
+  "rarity": "Uncommon",
+  "limit": 2,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "You may draw a card from your Treasure Chest.",
+  "summonSpells": "",
+  "activationCost": [
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/struck-gold.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "stun",
   "slug": "stun",
   "name": "Stun",
@@ -86233,6 +89758,55 @@
   "level": null,
   "duration": null,
   "image": "/cards/earth/stun.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "stunbolt_adept",
+  "slug": "stunbolt-adept",
+  "name": "Stunbolt Adept",
+  "type": "Summon",
+  "typeLine": "Summon - Human, Wizard",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Human",
+   "Wizard"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 2,
+  "mana": 2,
+  "attack": 0,
+  "defense": 0,
+  "magic": 2,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Magic Combat R2",
+  "keywords": [],
+  "text": "[Summon Spell] Short Circuit [1 Mana] - Deactivate and deplete target Summon.",
+  "summonSpells": "Short Circuit [1 Mana]: Deactivate and deplete target Summon.",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/stunbolt-adept.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -87170,6 +90744,47 @@
   "imageHeight": 709
  },
  {
+  "id": "surge_mote_token",
+  "slug": "surge-mote-token",
+  "name": "Surge Mote",
+  "type": "Summon",
+  "typeLine": "Summon - Elemental",
+  "treasure": false,
+  "token": true,
+  "status": "pool",
+  "group": "Token",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Elemental"
+  ],
+  "cost": [],
+  "costTotal": 0,
+  "rarity": "Common",
+  "limit": 3,
+  "life": 1,
+  "mana": 0,
+  "attack": 0,
+  "defense": 0,
+  "magic": 2,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Magic Combat R1",
+  "keywords": [
+   "Zealing"
+  ],
+  "text": "Zealing",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/surge-mote-token.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "surge_of_insight",
   "slug": "surge-of-insight",
   "name": "Surge of Insight",
@@ -88021,6 +91636,96 @@
   "imageHeight": 709
  },
  {
+  "id": "synchronous_jolt",
+  "slug": "synchronous-jolt",
+  "name": "Synchronous Jolt",
+  "type": "Spell",
+  "typeLine": "Spell - Hex",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 1,
+  "rarity": "Uncommon",
+  "limit": 4,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Each player draws two cards from their deck, then discards a card from their hand at random.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/synchronous-jolt.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "system_shock",
+  "slug": "system-shock",
+  "name": "System Shock",
+  "type": "Spell",
+  "typeLine": "Spell - Ritual, Ritual",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Ritual"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Rare",
+  "limit": 3,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Preparation Time - 1\nManifest - System Shock enters with X Rite Counters on it.\nEach player discards their hand, then draws X plus one cards from their deck, where X is the number of Rite Counters on System Shock.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": 1,
+  "image": "/cards/lightning/system-shock.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "tagalong_goblin",
   "slug": "tagalong-goblin",
   "name": "Tagalong Goblin",
@@ -88711,6 +92416,56 @@
   "imageHeight": 709
  },
  {
+  "id": "temple_of_the_open_sky",
+  "slug": "temple-of-the-open-sky",
+  "name": "Temple of the Open Sky",
+  "type": "Building",
+  "typeLine": "Treasure Building - Temple",
+  "treasure": true,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [
+   "Temple"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "",
+  "limit": 1,
+  "life": 2,
+  "mana": null,
+  "attack": 0,
+  "defense": 1,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [
+   "Perpetual"
+  ],
+  "text": "Perpetual - While you have six or more cards in your hand, you and your Guardian can't be the target of Spells or abilities your opponents control.\nShuffle a card from your hand into your deck: Negate target Incantation unless its controller pays [2].",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": 2,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/temple-of-the-open-sky.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "tend_the_brood",
   "slug": "tend-the-brood",
   "name": "Tend the Brood",
@@ -88847,6 +92602,52 @@
   "level": null,
   "duration": null,
   "image": "/cards/fire/tengu-ash-archer.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "terraforming",
+  "slug": "terraforming",
+  "name": "Terraforming",
+  "type": "Spell",
+  "typeLine": "Spell - Hex",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "4",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 5,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Destroy up to one target Terrain, then search your deck for a Terrain, reveal it, put it into your hand, then shuffle.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/terraforming.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -90485,6 +94286,57 @@
   "imageHeight": 707
  },
  {
+  "id": "the_rousing_one",
+  "slug": "the-rousing-one",
+  "name": "The Rousing One",
+  "type": "Summon",
+  "typeLine": "Summon - Fulgari, Soldier",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Fulgari",
+   "Soldier"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "3",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Common",
+  "limit": 3,
+  "life": 2,
+  "mana": 0,
+  "attack": 2,
+  "defense": 0,
+  "magic": 2,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Dual Combat R1",
+  "keywords": [
+   "Manifest"
+  ],
+  "text": "Manifest - Summons you control get +1A/+1M and have Zealing until the end of turn.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/the-rousing-one.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "the_setting_one",
   "slug": "the-setting-one",
   "name": "The Setting One",
@@ -91825,6 +95677,102 @@
   "imageHeight": 709
  },
  {
+  "id": "thoughtspark",
+  "slug": "thoughtspark",
+  "name": "Thoughtspark",
+  "type": "Spell",
+  "typeLine": "Spell - Rune",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "Rare",
+  "limit": 2,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [
+   "Resonance"
+  ],
+  "text": "Resonance - Whenever a player discards a card from their hand, you may pay [2]. If you do, Thoughtspark deals 2 magic damage to target Summon.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/thoughtspark.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "thoughtstorm_elemental",
+  "slug": "thoughtstorm-elemental",
+  "name": "Thoughtstorm Elemental",
+  "type": "Summon",
+  "typeLine": "Summon - Elemental",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [
+   "Elemental"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Rare",
+  "limit": 3,
+  "life": 4,
+  "mana": 0,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Magic Combat R2",
+  "keywords": [],
+  "text": "This Summon's Magic is equal to the number of cards in your hand.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/thoughtstorm-elemental.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "thousand_mouths",
   "slug": "thousand-mouths",
   "name": "Thousand Mouths",
@@ -91873,6 +95821,55 @@
   "image": "/cards/earth/thousand-mouths.webp",
   "imageWidth": 709,
   "imageHeight": 500
+ },
+ {
+  "id": "thousand_eyed_seer",
+  "slug": "thousand-eyed-seer",
+  "name": "Thousand-Eyed Seer",
+  "type": "Summon",
+  "typeLine": "Treasure Summon - Mutant, Mystic",
+  "treasure": true,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [
+   "Mutant",
+   "Mystic"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "",
+  "limit": 1,
+  "life": 2,
+  "mana": 0,
+  "attack": 0,
+  "defense": 0,
+  "magic": 1,
+  "resistance": 1,
+  "movement": 2,
+  "combat": "Magic Combat R2",
+  "keywords": [],
+  "text": "At the beginning of each opponent's Guardian Phase, that player chooses drawing, attacking, moving or casting. They can't do the chosen thing this turn.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/thousand-eyed-seer.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
  },
  {
   "id": "thrall",
@@ -92203,6 +96200,57 @@
   "level": null,
   "duration": null,
   "image": "/cards/lightning/thunder-twin.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "thunderbird",
+  "slug": "thunderbird",
+  "name": "Thunderbird",
+  "type": "Summon",
+  "typeLine": "Summon - Bird, Elemental",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Bird",
+   "Elemental"
+  ],
+  "cost": [
+   {
+    "n": "1",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 1,
+  "mana": 0,
+  "attack": 2,
+  "defense": 0,
+  "magic": 2,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Dual Combat R1",
+  "keywords": [
+   "Flying"
+  ],
+  "text": "Flying",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/thunderbird.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -93502,6 +97550,48 @@
   "imageHeight": 709
  },
  {
+  "id": "toss_rocks",
+  "slug": "toss-rocks",
+  "name": "Toss Rocks",
+  "type": "Spell",
+  "typeLine": "Spell - Hex",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 1,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Toss Rocks deals 2 damage to target Summon. If that Summon is in your Guarded Zone, Toss Rocks deals 3 damage to it instead.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/toss-rocks.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "totem_of_rage",
   "slug": "totem-of-rage",
   "name": "Totem of Rage",
@@ -94609,6 +98699,58 @@
   "imageHeight": 709
  },
  {
+  "id": "trinket_snatcher_crow",
+  "slug": "trinket-snatcher-crow",
+  "name": "Trinket Snatcher Crow",
+  "type": "Summon",
+  "typeLine": "Summon - Bird, Raven",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [
+   "Bird",
+   "Raven"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "2",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Uncommon",
+  "limit": 4,
+  "life": 4,
+  "mana": 0,
+  "attack": 1,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 3,
+  "combat": "Close Combat",
+  "keywords": [
+   "Flying",
+   "Resonance"
+  ],
+  "text": "Flying\nThis Summon has Swiftstrike while attacking a Summon without Flying.\nResonance - Whenever this Summon deals combat damage, draw a card from your deck.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/trinket-snatcher-crow.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "trip_wire",
   "slug": "trip-wire",
   "name": "Trip Wire",
@@ -94921,6 +99063,52 @@
   "image": "/cards/nature/turquoise-elite.webp",
   "imageWidth": 500,
   "imageHeight": 707
+ },
+ {
+  "id": "turtle_formation",
+  "slug": "turtle-formation",
+  "name": "Turtle Formation",
+  "type": "Spell",
+  "typeLine": "Spell - Quick",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Summons you control get +1A/+2D until the end of turn.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/earth/turtle-formation.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
  },
  {
   "id": "tusked_defender",
@@ -97283,6 +101471,57 @@
   "imageHeight": 709
  },
  {
+  "id": "vanishing_manifestation",
+  "slug": "vanishing-manifestation",
+  "name": "Vanishing Manifestation",
+  "type": "Summon",
+  "typeLine": "Summon - Illusion",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [
+   "Illusion"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Rare",
+  "limit": 4,
+  "life": 1,
+  "mana": 0,
+  "attack": 2,
+  "defense": 0,
+  "magic": 2,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Dual Combat R2",
+  "keywords": [
+   "Flying",
+   "Swiftstrike"
+  ],
+  "text": "Flying\nSwiftstrike\n[1][1 Wind]: Return this Summon to its owner's hand.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/vanishing-manifestation.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "vanishing_vortex",
   "slug": "vanishing-vortex",
   "name": "Vanishing Vortex",
@@ -97379,6 +101618,54 @@
   "image": "/cards/fire/varn-scarhide.webp",
   "imageWidth": 500,
   "imageHeight": 709
+ },
+ {
+  "id": "vast_desert",
+  "slug": "vast-desert",
+  "name": "Vast Desert",
+  "type": "Terrain",
+  "typeLine": "Terrain - Desert",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Earth",
+  "elements": [
+   "Earth"
+  ],
+  "subtypes": [
+   "Desert"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "earth"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Uncommon",
+  "limit": 5,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Earth Summons with a printed Movement of 1 get +1 Movement while in Vast Desert.\nNon-Earth Summons with a printed Movement of 3 get -1 Movement while in Vast Desert.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": 0,
+  "duration": null,
+  "image": "/cards/earth/vast-desert.webp",
+  "imageWidth": 709,
+  "imageHeight": 500
  },
  {
   "id": "vast_mountains",
@@ -98855,6 +103142,52 @@
   "imageHeight": 709
  },
  {
+  "id": "voltage_squeeze",
+  "slug": "voltage-squeeze",
+  "name": "Voltage Squeeze",
+  "type": "Spell",
+  "typeLine": "Spell - Quick",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Lightning",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "3",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "lightning"
+   }
+  ],
+  "costTotal": 4,
+  "rarity": "Uncommon",
+  "limit": 2,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "Voltage Squeeze deals 3 magic damage to target Summon. If you have no cards in your hand as Voltage Squeeze resolves, it deals 6 magic damage to that Summon and 2 magic damage to its controller's Guardian instead.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/voltage-squeeze.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "volt_biter",
   "slug": "volt-biter",
   "name": "Voltbiter",
@@ -98953,6 +103286,45 @@
   "level": null,
   "duration": null,
   "image": "/cards/lightning/volthra-the-gathered-storm.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "voltling_token",
+  "slug": "voltling-token",
+  "name": "Voltling",
+  "type": "Summon",
+  "typeLine": "Summon - Elemental",
+  "treasure": false,
+  "token": true,
+  "status": "pool",
+  "group": "Token",
+  "elements": [
+   "Lightning"
+  ],
+  "subtypes": [
+   "Elemental"
+  ],
+  "cost": [],
+  "costTotal": 0,
+  "rarity": "Common",
+  "limit": 3,
+  "life": 1,
+  "mana": 0,
+  "attack": 0,
+  "defense": 0,
+  "magic": 1,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Magic Combat R1",
+  "keywords": [],
+  "text": "",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/lightning/voltling-token.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },
@@ -101097,6 +105469,52 @@
   "imageHeight": 709
  },
  {
+  "id": "where_the_wind_blows",
+  "slug": "where-the-wind-blows",
+  "name": "Where the Wind Blows",
+  "type": "Spell",
+  "typeLine": "Spell - Hex",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [],
+  "cost": [
+   {
+    "n": "2",
+    "el": "neutral"
+   },
+   {
+    "n": "1",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 3,
+  "rarity": "Common",
+  "limit": 4,
+  "life": 0,
+  "mana": null,
+  "attack": 0,
+  "defense": 0,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 0,
+  "combat": "",
+  "keywords": [],
+  "text": "As an additional cost to cast Where the Wind Blows, shuffle any number of cards from your hand into your deck.\nDraw that many cards plus one from your deck.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/where-the-wind-blows.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
   "id": "whirlpool",
   "slug": "whirlpool",
   "name": "Whirlpool",
@@ -101378,6 +105796,53 @@
   "level": null,
   "duration": null,
   "image": "/cards/darkness/white-night.webp",
+  "imageWidth": 500,
+  "imageHeight": 709
+ },
+ {
+  "id": "white_sky_commander",
+  "slug": "white-sky-commander",
+  "name": "White Sky Commander",
+  "type": "Summon",
+  "typeLine": "Summon - Human, Knight",
+  "treasure": false,
+  "token": false,
+  "status": "pool",
+  "group": "Wind",
+  "elements": [
+   "Wind"
+  ],
+  "subtypes": [
+   "Human",
+   "Knight"
+  ],
+  "cost": [
+   {
+    "n": "2",
+    "el": "wind"
+   }
+  ],
+  "costTotal": 2,
+  "rarity": "Uncommon",
+  "limit": 4,
+  "life": 2,
+  "mana": 0,
+  "attack": 2,
+  "defense": 1,
+  "magic": 0,
+  "resistance": 0,
+  "movement": 2,
+  "combat": "Close Combat",
+  "keywords": [
+   "Battlewise"
+  ],
+  "text": "Battlewise\n[A]: Move another target Summon you control 1 field in a direction of your choice. Use this ability only during your Tactic Phase.",
+  "summonSpells": "",
+  "activationCost": [],
+  "workerCost": null,
+  "level": null,
+  "duration": null,
+  "image": "/cards/wind/white-sky-commander.webp",
   "imageWidth": 500,
   "imageHeight": 709
  },

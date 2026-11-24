@@ -223,9 +223,12 @@ async function main() {
   async function worker() {
     while (queue.length) {
       const { src, dest, box } = queue.shift();
-      if (fs.existsSync(dest) && fs.statSync(dest).mtimeMs >= fs.statSync(src).mtimeMs) { skipped++; continue; }
+      // an empty webp (an encode that was cut off) is never "unchanged"
+      if (fs.existsSync(dest) && fs.statSync(dest).size > 0 && fs.statSync(dest).mtimeMs >= fs.statSync(src).mtimeMs) { skipped++; continue; }
       fs.mkdirSync(path.dirname(dest), { recursive: true });
-      await sharp(src).resize({ ...box, fit: "inside" }).webp({ quality: 80 }).toFile(dest);
+      // write to a temp file first, so a cut-off run can't leave a broken image behind
+      await sharp(src).resize({ ...box, fit: "inside" }).webp({ quality: 80 }).toFile(dest + ".tmp");
+      fs.renameSync(dest + ".tmp", dest);
       if (++done % 100 === 0) console.log(`  ${done} images encoded...`);
     }
   }
