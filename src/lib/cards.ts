@@ -6,7 +6,7 @@ export type Card = {
   id: string; slug: string; name: string; type: string; typeLine: string;
   treasure: boolean; token: boolean; status: string; group: string;
   elements: string[]; subtypes: string[]; cost: Pip[]; costTotal: number;
-  rarity: string; limit: number | string | null;
+  rarity: string; set: string; limit: number | string | null;
   life: number | null; mana: number | null; attack: number | null; defense: number | null;
   magic: number | null; resistance: number | null; movement: number | null;
   combat: string; keywords: string[]; text: string; summonSpells: string;
@@ -32,6 +32,7 @@ export const ELEMENTS = [
 
 export const TYPES = ["Guardian", "Summon", "Spell", "Trap", "Item", "Worker", "Building", "Terrain", "Event", "Treasure"];
 export const RARITIES = ["Common", "Uncommon", "Rare", "Special Rare"];
+export const SETS = ["Base Set"];
 
 export const keywordSlug = (k: string) => k.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 

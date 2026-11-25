@@ -5,7 +5,7 @@
 import { Icon } from "astro-icon/components";
 import CardDetail from "./CardDetail.astro";
 import TiltCards from "../home/TiltCards.astro";
-import { ELEMENTS, TYPES, RARITIES, keywordCounts, type Card } from "../../lib/cards";
+import { ELEMENTS, TYPES, RARITIES, SETS, keywordCounts, type Card } from "../../lib/cards";
 
 interface Props {
   cards: Card[];
@@ -35,6 +35,7 @@ const dataFor = (card: Card) => ({
   "data-elements": card.elements.join("|"),
   "data-element-order": elementOrder[card.elements[0]] ?? 99,
   "data-rarity": card.rarity,
+  "data-set": card.set,
   "data-cost": card.costTotal,
   "data-kw": card.keywords.join("|"),
   "data-token": card.token ? "1" : "",
@@ -56,6 +57,14 @@ const dataFor = (card: Card) => ({
       <select name="type">
         <option value="">All</option>
         {TYPES.map((t) => <option value={t}>{t}</option>)}
+      </select>
+    </label>
+
+    <label class="field">
+      <span>Set</span>
+      <select name="set">
+        <option value="">All</option>
+        {SETS.map((s) => <option value={s}>{s}</option>)}
       </select>
     </label>
 
@@ -218,7 +227,7 @@ const dataFor = (card: Card) => ({
     const f = new FormData(form);
     const get = (k: string) => String(f.get(k) || "");
     return {
-      q: get("q").trim().toLowerCase(), type: get("type"), element: get("element"), rarity: get("rarity"),
+      q: get("q").trim().toLowerCase(), type: get("type"), element: get("element"), rarity: get("rarity"), set: get("set"),
       cost: get("cost"), kw: get("kw"), tokens: f.get("tokens") === "1", sort: get("sort") || "name",
       dir: dirBtn.dataset.direction || "asc", view: get("view"),
     };
@@ -231,6 +240,7 @@ const dataFor = (card: Card) => ({
     if (s.type && (s.type === "Treasure" ? !d.treasure : d.type !== s.type)) return false;
     if (s.element && !(d.elements || "").split("|").includes(s.element)) return false;
     if (s.rarity && d.rarity !== s.rarity) return false;
+    if (s.set && d.set !== s.set) return false;
     if (s.cost && (s.cost === "7+" ? Number(d.cost) < 7 : d.cost !== s.cost)) return false;
     if (s.kw && !(d.kw || "").split("|").includes(s.kw)) return false;
     if (s.q && !s.q.split(/\s+/).every((w) => (d.s || "").includes(w))) return false;

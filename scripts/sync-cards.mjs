@@ -101,6 +101,9 @@ function typeLine(r, type) {
   return parts.join(" - ");
 }
 
+// card_set column -> the set name shown on the site ("" = not in a set yet)
+const SETS = { base: "Base Set", expansion_1: "Expansion 1" };
+
 const slugify = (id) => id.toLowerCase().replace(/_/g, "-").replace(/[^a-z0-9-]/g, "").replace(/-+/g, "-");
 
 // ---------- art lookup (mirrors engine/card/card_art.gd) ----------
@@ -178,6 +181,7 @@ async function main() {
       cost,
       costTotal: costTotal(cost),
       rarity: RARITY[r.rarity] || "",
+      set: SETS[r.card_set] || "",
       limit: r.unlimited === "yes" ? "Unlimited" : num(r.max_copies),
       life: num(r.life), mana: num(r.mana),
       attack: num(r.attack), defense: num(r.defense),
